@@ -80,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./syllabus.html">Syllabus</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./syllabus.html">Overview</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -120,13 +120,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./syllabus.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Syllabus</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./staff.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Staff</span></a>
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -139,23 +133,20 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./units/unit1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Unit 1: Intro</span></a>
-  </div>
-</li>
+ <span class="menu-text">units/intro-computing.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./units/unit2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Unit 2: Next</span></a>
-  </div>
-</li>
+ <span class="menu-text">units/intro-python.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./units/unit3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Unit 3: More</span></a>
-  </div>
-</li>
+ <span class="menu-text">units/mini-project.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">units/comp-practices.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">units/additional-topics.qmd</span>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -174,11 +165,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#about-statistics-999" id="toc-about-statistics-999" class="nav-link active" data-scroll-target="#about-statistics-999">About Statistics 999</a>
-  <ul class="collapse">
+  <li><a href="#about-the-computational-skills-workshop" id="toc-about-the-computational-skills-workshop" class="nav-link active" data-scroll-target="#about-the-computational-skills-workshop">About the Computational Skills Workshop</a></li>
+  <li><a href="#optional-introduction-to-computing-and-python" id="toc-optional-introduction-to-computing-and-python" class="nav-link" data-scroll-target="#optional-introduction-to-computing-and-python">Optional Introduction to Computing and Python</a></li>
   <li><a href="#goals" id="toc-goals" class="nav-link" data-scroll-target="#goals">Goals</a></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -205,31 +194,35 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>[UNDER CONSTRUCTION]</p>
-<p>Jump to:</p>
+<section id="about-the-computational-skills-workshop" class="level2">
+<h2 class="anchored" data-anchor-id="about-the-computational-skills-workshop">About the Computational Skills Workshop</h2>
+<p>The workshop will focus on skills related to computation, code development, and statistics/data science workflows, including,</p>
 <ul>
-<li><a href="#about-statistics-999">About Statistics 999</a>
-<ul>
-<li><a href="#goals">Goals</a></li>
-<li><a href="#prerequisites">Prerequisites</a></li>
-</ul></li>
-</ul>
-<section id="about-statistics-999" class="level2">
-<h2 class="anchored" data-anchor-id="about-statistics-999">About Statistics 999</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lectus dui, euismod vel tellus sit amet, maximus fringilla risus. Cras nec maximus leo. Fusce sit amet tortor pellentesque, hendrerit odio vitae, dictum lorem. Nunc sed nunc nisl. Cras augue tortor, ultrices ut luctus non, dictum nec magna. Cras vel ex purus. In blandit est non finibus dignissim. Donec vehicula, nisi quis rutrum faucibus, est turpis ultrices nibh, quis rutrum diam nibh tempus nulla. Vestibulum malesuada consectetur ex in vestibulum.</p>
-<section id="goals" class="level3">
-<h3 class="anchored" data-anchor-id="goals">Goals</h3>
-<ul>
-<li>Goal 1</li>
-<li>Goal 2</li>
-<li>Goal 3</li>
+<li>introduction to version control, Git and GitHub;</li>
+<li>code style;</li>
+<li>debugging;</li>
+<li>testing;</li>
+<li>collaboration in Git;</li>
+<li>numerical analysis (random number generation and floating point precision);</li>
+<li>packaging and reproducible environments; and</li>
+<li>automated workflows.</li>
 </ul>
 </section>
-<section id="prerequisites" class="level3">
-<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lectus dui, euismod vel tellus sit amet, maximus fringilla risus. Cras nec maximus leo. Fusce sit amet tortor pellentesque, hendrerit odio vitae, dictum lorem. Nunc sed nunc nisl. Cras augue tortor, ultrices ut luctus non, dictum nec magna. Cras vel ex purus. In blandit est non finibus dignissim. Donec vehicula, nisi quis rutrum faucibus, est turpis ultrices nibh, quis rutrum diam nibh tempus nulla. Vestibulum malesuada consectetur ex in vestibulum.</p>
-
-
+<section id="optional-introduction-to-computing-and-python" class="level2">
+<h2 class="anchored" data-anchor-id="optional-introduction-to-computing-and-python">Optional Introduction to Computing and Python</h2>
+<p>The optional additional sessions (held Tuesday-Wednesday, August 20-21) provide a basic introduction to computing concepts (e.g., parts of a computer, ideas related to parallelization, intro the the shell/command line/terminal) and an introduction to Python.</p>
+<p>These are intended for those with little experience (or wishing a refresher) with working in a command line context or with using Python, and are particularly important for those taking Statistics 243, which assumes basic knowledge of Python.</p>
+<p>The introduction to Python will likely borrow heavily from <a href="https://swcarpentry.github.io/python-novice-inflammation/">this Software Carpentry Python lesson</a>, with some additional topics added.</p>
 </section>
+<section id="goals" class="level2">
+<h2 class="anchored" data-anchor-id="goals">Goals</h2>
+<ul>
+<li>Goal 1: Emphasize good computational and code development practices (scripting, version control, testing, modularity, defensive programming, documentation, commenting, numerical analysis issues).</li>
+</ul>
+<p>Goal 2: Emphasize good practices for workflows, including reproducibility, automation, isolated environments.</p>
+<p>Goal 3: Provide practice with and introduce key tools for version control, testing, documentation, dynamic documents (documents with runnable code).</p>
+
+
 </section>
 
 </main> <!-- /main -->
