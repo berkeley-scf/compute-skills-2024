@@ -14,7 +14,7 @@
     "href": "index.html",
     "title": "Berkeley Statistics Computational Skills Workshop",
     "section": "",
-    "text": "Ed Discussion\n\n  DataHub\n\n  GitHub\n\n\nNo matching items\n[UNDER CONSTRUCTION]\nSkills related to computation, coding, and reproducibility are crucial for modern statistical work (applied and methodological), as well as for serving as graduate student instructor for Statistics and Data Science courses. Incoming Statistics graduate students arrive with a wide variety of familiarity/expertise.\nThe department will be holding a (new this year) computational skills workshop the week before classes, focusing on best practices for computation, code development and statistics/data science workflows. All incoming PhD and MA students are expected to attend the workshop, which will be held August 22-23. Those who already have extensive work or other experience with the topics can request to opt out of the workshop via this form (which will be considered by department faculty), as can PhD students who plan to focus exclusively on theory and feel the computing skills/tools covered in the workshop aren’t relevant.\nIn advance, there will also be an optional introduction to Python for those students (particularly those taking Statistics 243) who do not have a basic familiarity with Python, to be held August 20-21. If you are interested, please sign up for the optional introduction.\nSee the syllabus for more details on workshop content.",
+    "text": "Ed Discussion\n\n  DataHub\n\n  GitHub\n\n\nNo matching items\n[UNDER CONSTRUCTION]\nSkills related to computation, coding, and reproducibility are crucial for modern statistical work (applied and methodological), as well as for serving as graduate student instructor for Statistics and Data Science courses. Incoming Statistics graduate students arrive with a wide variety of backgrounds in these areas.\nThe department will be holding a (new this year) computational skills workshop the week before classes start, focusing on best practices for computation, code development and statistics/data science workflows.\nAll incoming PhD and MA students are expected to attend the workshop, which will be held August 22-23. Those who already have extensive work or other experience with the topics can request to opt out of the workshop via this form (which will be considered by department faculty), as can PhD students who plan to focus exclusively on theory and feel the computing skills/tools covered in the workshop aren’t relevant.\nIn advance, there will also be an optional introduction to Python for those students (particularly those taking Statistics 243) who do not have a basic familiarity with Python, to be held August 20-21. If you are interested, please sign up for the optional introduction.\nSee the syllabus/overview for more details on workshop content.",
     "crumbs": [
       "Home / Schedule"
     ]
@@ -24,9 +24,64 @@
     "href": "index.html#schedule",
     "title": "Berkeley Statistics Computational Skills Workshop",
     "section": "Schedule",
-    "text": "Schedule\n\n\n   Session 0\n\n   \n   \n   \n   \n   \n   \n\n        \n\n           \n           \n           Aug 20:\n           \n           Session 1 Introduction to Computing\n           \n                \n           \n                \n           \n        \n\n           \n           \n           Session 2 Introduction to Python\n           \n                \n           \n                \n           \n        \n   \n\n        \n\n           \n           \n           Aug 21:\n           \n           Lab 3 Mini project\n           \n                \n           \n                \n           \n        \n   \n   \n   \n  \n\n   Session 1\n\n   \n   \n   \n   \n   \n   \n\n        \n\n           \n           \n           Aug 22:\n           \n           Session 4 Computational Best Practices\n           \n                \n           \n                \n           \n        \n\n           \n           \n           Session 5 Additional Topics\n           \n                \n           \n                \n           \n        \n   \n   \n   \n  \n\n\nNo matching items",
+    "text": "Schedule\n\n\n   Session 0\n\n   \n   \n   \n   \n   \n   \n\n        \n\n           \n           \n           Aug 20:\n           \n           Session 1 Introduction to Computing\n           \n                \n           \n                \n           \n        \n\n           \n           \n           Session 2 Introduction to Python\n           \n                \n           \n                \n           \n        \n   \n\n        \n\n           \n           \n           Aug 21:\n           \n           Lab 1 Mini project\n           \n                \n           \n                \n           \n        \n   \n   \n   \n  \n\n   Session 1\n\n   \n   \n   \n   \n   \n   \n\n        \n\n           \n           \n           Aug 22:\n           \n           Session 3 Computational Best Practices\n           \n                \n           \n                \n           \n        \n   \n\n        \n\n           \n           \n           Aug 23:\n           \n           Session 4 Additional Topics\n           \n                \n           \n                \n           \n        \n   \n   \n   \n  \n\n\nNo matching items",
     "crumbs": [
       "Home / Schedule"
+    ]
+  },
+  {
+    "objectID": "units/additional-topics.html",
+    "href": "units/additional-topics.html",
+    "title": "Additional Topics",
+    "section": "",
+    "text": "[UNDER CONSTRUCTION]",
+    "crumbs": [
+      "Units",
+      "Additional Topics"
+    ]
+  },
+  {
+    "objectID": "units/comp-practices.html",
+    "href": "units/comp-practices.html",
+    "title": "Computational Tools and Practices",
+    "section": "",
+    "text": "[UNDER CONSTRUCTION]",
+    "crumbs": [
+      "Units",
+      "Computational Tools and Practices"
+    ]
+  },
+  {
+    "objectID": "units/mini-project.html",
+    "href": "units/mini-project.html",
+    "title": "Mini Python Project",
+    "section": "",
+    "text": "[UNDER CONSTRUCTION]",
+    "crumbs": [
+      "Units",
+      "Mini Python Project"
+    ]
+  },
+  {
+    "objectID": "units/intro-computing.html",
+    "href": "units/intro-computing.html",
+    "title": "Introduction to Computing",
+    "section": "",
+    "text": "[UNDER CONSTRUCTION]",
+    "crumbs": [
+      "Units",
+      "Introduction to Computing"
+    ]
+  },
+  {
+    "objectID": "units/intro-python.html",
+    "href": "units/intro-python.html",
+    "title": "Introduction to Python",
+    "section": "",
+    "text": "[UNDER CONSTRUCTION]",
+    "crumbs": [
+      "Units",
+      "Introduction to Python"
     ]
   },
   {
