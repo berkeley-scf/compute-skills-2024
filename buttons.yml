@@ -1,9 +1,9 @@
-- button: Ed
-  link: https://ibm.com
+- button: Ed Discussion
+  link: https://berkeley.edu
   color: purple
 - button: DataHub
-  link: https://ibm.com
+  link: https://datahub.berkeley.edu
   color: green
-- button: Gradescope
-  link: https://ibm.com
+- button: GitHub
+  link: https://github.com/berkeley-scf/compute-skills-2024
   color: orange
