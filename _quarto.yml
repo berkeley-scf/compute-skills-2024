@@ -15,7 +15,7 @@ website:
         text: Home / Schedule
       - href: syllabus.qmd
         text: Overview
-      - section: "Units"
+      - section: "Modules"
         contents:
           - units/intro-computing.qmd
           - units/intro-python.qmd

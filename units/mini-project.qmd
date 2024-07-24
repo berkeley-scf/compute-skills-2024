@@ -1,5 +1,5 @@
 ---
-title: "Mini Python Project"
+title: "(Optional) Mini Python Project"
 format:
   html:
     code-fold: show

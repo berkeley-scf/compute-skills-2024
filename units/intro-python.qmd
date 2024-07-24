@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Python"
+title: "(Optional) Introduction to Python"
 format:
   html:
     code-fold: show

@@ -1,12 +1,12 @@
-- session: 0
+- session: 0 (optional)
   days:
     - date: "Aug 20"
       items:
-        - type: "Session"
+        - type: "Module"
           id: "1"
           name: "Introduction to Computing"
           href: "./units/intro-computing.html"
-        - type: "Session"
+        - type: "Module"
           id: "2"
           name: "Introduction to Python"
           href: "./units/intro-python.html"
@@ -20,13 +20,13 @@
   days:
     - date: "Aug 22"
       items:
-        - type: "Session"
+        - type: "Module"
           id: "3"
           name: "Computational Best Practices"
           href: "./units/comp-practices.html"
     - date: "Aug 23"
       items:
-        - type: "Session"
+        - type: "Module"
           id: "4"
           name: "Additional Topics"
           href: "./units/additional-topics.html"
