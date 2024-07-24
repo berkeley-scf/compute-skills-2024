@@ -17,11 +17,11 @@ website:
         text: Overview
       - section: "Modules"
         contents:
+          - units/comp-practices.qmd
+          - units/additional-topics.qmd
           - units/intro-computing.qmd
           - units/intro-python.qmd
           - units/mini-project.qmd
-          - units/comp-practices.qmd
-          - units/additional-topics.qmd
       - href: license.qmd
         text: License
           
