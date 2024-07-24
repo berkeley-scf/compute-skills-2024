@@ -4,25 +4,33 @@ title: "Syllabus"
 
 [UNDER CONSTRUCTION]
 
-Jump to:
 
-- [About Statistics 999](#about-statistics-999)
-  - [Goals](#goals)
-  - [Prerequisites](#prerequisites)
+## About the Computational Skills Workshop
 
+The workshop will focus on skills related to computation, code development, and statistics/data science workflows, including,
 
-## About Statistics 999
+ - introduction to version control, Git and GitHub;
+ - code style;
+ - debugging;
+ - testing;
+ - collaboration in Git;
+ - numerical analysis (random number generation and floating point precision);
+ - packaging and reproducible environments; and
+ - automated workflows.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lectus dui, euismod vel tellus sit amet, maximus fringilla risus. Cras nec maximus leo. Fusce sit amet tortor pellentesque, hendrerit odio vitae, dictum lorem. Nunc sed nunc nisl. Cras augue tortor, ultrices ut luctus non, dictum nec magna. Cras vel ex purus. In blandit est non finibus dignissim. Donec vehicula, nisi quis rutrum faucibus, est turpis ultrices nibh, quis rutrum diam nibh tempus nulla. Vestibulum malesuada consectetur ex in vestibulum. 
+## Optional Introduction to Computing and Python
 
+The optional additional sessions (held Tuesday-Wednesday, August 20-21) provide a basic introduction to computing concepts (e.g., parts of a computer, ideas related to parallelization, intro the the shell/command line/terminal) and an introduction to Python.
 
-### Goals
+These are intended for those with little experience (or wishing a refresher) with working in a command line context or with using Python, and are particularly important for those taking Statistics 243, which assumes basic knowledge of Python.
 
+The introduction to Python will likely borrow heavily from [this Software Carpentry Python lesson](https://swcarpentry.github.io/python-novice-inflammation/), with some additional topics added.
 
-- Goal 1
-- Goal 2
-- Goal 3
+## Goals
 
-### Prerequisites
+- Goal 1: Emphasize good computational and code development practices (scripting, version control, testing, modularity, defensive programming, documentation, commenting, numerical analysis issues).
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lectus dui, euismod vel tellus sit amet, maximus fringilla risus. Cras nec maximus leo. Fusce sit amet tortor pellentesque, hendrerit odio vitae, dictum lorem. Nunc sed nunc nisl. Cras augue tortor, ultrices ut luctus non, dictum nec magna. Cras vel ex purus. In blandit est non finibus dignissim. Donec vehicula, nisi quis rutrum faucibus, est turpis ultrices nibh, quis rutrum diam nibh tempus nulla. Vestibulum malesuada consectetur ex in vestibulum. 
+Goal 2: Emphasize good practices for workflows, including reproducibility, automation, isolated environments.
+
+Goal 3: Provide practice with and introduce key tools for version control, testing, documentation, dynamic documents (documents with runnable code).
+

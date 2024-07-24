@@ -14,14 +14,14 @@ website:
       - href: index.qmd
         text: Home / Schedule
       - href: syllabus.qmd
-        text: Syllabus
-      - href: staff.qmd
-        text: Staff
+        text: Overview
       - section: "Units"
         contents:
-          - units/unit1.qmd
-          - units/unit2.ipynb
-          - units/unit3.qmd
+          - units/intro-computing.qmd
+          - units/intro-python.qmd
+          - units/mini-project.qmd
+          - units/comp-practices.qmd
+          - units/additional-topics.qmd
       - href: license.qmd
         text: License
           

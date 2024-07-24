@@ -13,7 +13,16 @@ listing:
 ::: {#buttons}
 :::
 
+
 [UNDER CONSTRUCTION]
+
+Skills related to computation, coding, and reproducibility are crucial for modern statistical work (applied and methodological), as well as for serving as graduate student instructor for Statistics and Data Science courses. Incoming Statistics graduate students arrive with a wide variety of familiarity/expertise.  
+
+The department will be holding a (new this year) computational skills workshop the week before classes, focusing on best practices for computation, code development and statistics/data science workflows. All incoming PhD and MA students are expected to attend the workshop, which will be held August 22-23. Those who already have extensive work or other experience with the topics can request to opt out of the workshop via this form (which will be considered by department faculty), as can PhD students who plan to focus exclusively on theory and feel the computing skills/tools covered in the workshop aren't relevant.
+
+In advance, there will also be an optional introduction to Python for those students (particularly those taking Statistics 243) who do not have a basic familiarity with Python, to be held August 20-21. If you are interested, please [sign up](TBD) for the optional introduction.
+
+See the [syllabus](syllabus.html) for more details on workshop content.
 
 
 ## Schedule
