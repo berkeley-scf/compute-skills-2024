@@ -13,7 +13,7 @@
     - date: "Aug 21"
       items:
         - type: "Lab"
-          id: "3"
+          id: "1"
           name: "Mini project"
           href: "./units/mini-project.html"
 - session: 1
@@ -21,11 +21,13 @@
     - date: "Aug 22"
       items:
         - type: "Session"
-          id: "4"
+          id: "3"
           name: "Computational Best Practices"
           href: "./units/comp-practices.html"
+    - date: "Aug 23"
+      items:
         - type: "Session"
-          id: "5"
+          id: "4"
           name: "Additional Topics"
           href: "./units/additional-topics.html"
  
