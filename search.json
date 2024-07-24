@@ -24,7 +24,7 @@
     "href": "index.html#schedule",
     "title": "Berkeley Statistics Computational Skills Workshop",
     "section": "Schedule",
-    "text": "Schedule\n\n\n   Session 0\n\n   \n   \n   \n   \n   \n   \n\n        \n\n           \n           \n           Aug 20:\n           \n           Session 1 Introduction to Computing\n           \n                \n           \n                \n           \n        \n\n           \n           \n           Session 2 Introduction to Python\n           \n                \n           \n                \n           \n        \n   \n\n        \n\n           \n           \n           Aug 21:\n           \n           Lab 1 Mini project\n           \n                \n           \n                \n           \n        \n   \n   \n   \n  \n\n   Session 1\n\n   \n   \n   \n   \n   \n   \n\n        \n\n           \n           \n           Aug 22:\n           \n           Session 3 Computational Best Practices\n           \n                \n           \n                \n           \n        \n   \n\n        \n\n           \n           \n           Aug 23:\n           \n           Session 4 Additional Topics\n           \n                \n           \n                \n           \n        \n   \n   \n   \n  \n\n\nNo matching items",
+    "text": "Schedule\n\n\n   Session 0 (optional)\n\n   \n   \n   \n   \n   \n   \n\n        \n\n           \n           \n           Aug 20:\n           \n           Module 1 Introduction to Computing\n           \n                \n           \n                \n           \n        \n\n           \n           \n           Module 2 Introduction to Python\n           \n                \n           \n                \n           \n        \n   \n\n        \n\n           \n           \n           Aug 21:\n           \n           Lab 1 Mini project\n           \n                \n           \n                \n           \n        \n   \n   \n   \n  \n\n   Session 1\n\n   \n   \n   \n   \n   \n   \n\n        \n\n           \n           \n           Aug 22:\n           \n           Module 3 Computational Best Practices\n           \n                \n           \n                \n           \n        \n   \n\n        \n\n           \n           \n           Aug 23:\n           \n           Module 4 Additional Topics\n           \n                \n           \n                \n           \n        \n   \n   \n   \n  \n\n\nNo matching items",
     "crumbs": [
       "Home / Schedule"
     ]
@@ -36,7 +36,7 @@
     "section": "",
     "text": "[UNDER CONSTRUCTION]",
     "crumbs": [
-      "Units",
+      "Modules",
       "Additional Topics"
     ]
   },
@@ -47,41 +47,41 @@
     "section": "",
     "text": "[UNDER CONSTRUCTION]",
     "crumbs": [
-      "Units",
+      "Modules",
       "Computational Tools and Practices"
     ]
   },
   {
     "objectID": "units/mini-project.html",
     "href": "units/mini-project.html",
-    "title": "Mini Python Project",
+    "title": "(Optional) Mini Python Project",
     "section": "",
     "text": "[UNDER CONSTRUCTION]",
     "crumbs": [
-      "Units",
-      "Mini Python Project"
+      "Modules",
+      "(Optional) Mini Python Project"
     ]
   },
   {
     "objectID": "units/intro-computing.html",
     "href": "units/intro-computing.html",
-    "title": "Introduction to Computing",
+    "title": "(Optional) Introduction to Computing",
     "section": "",
     "text": "[UNDER CONSTRUCTION]",
     "crumbs": [
-      "Units",
-      "Introduction to Computing"
+      "Modules",
+      "(Optional) Introduction to Computing"
     ]
   },
   {
     "objectID": "units/intro-python.html",
     "href": "units/intro-python.html",
-    "title": "Introduction to Python",
+    "title": "(Optional) Introduction to Python",
     "section": "",
     "text": "[UNDER CONSTRUCTION]",
     "crumbs": [
-      "Units",
-      "Introduction to Python"
+      "Modules",
+      "(Optional) Introduction to Python"
     ]
   },
   {
