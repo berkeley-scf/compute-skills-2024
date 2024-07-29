@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Chris Paciorek">
+<meta name="dcterms.date" content="2023-08-11">
 
-<title>Overview</title>
+<title>Python bootcamp project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -68,121 +104,23 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="../assets/styles.css">
 </head>
 
-<body class="nav-sidebar docked">
+<body>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./syllabus.html">Overview</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./assets/stat_bear.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Computational Skills Workshop</a> 
-        <div class="sidebar-tools-main">
-    <a href="https://github.com/berkeley-scf/compute-skills-2024" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
-</div>
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Home / Schedule</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./syllabus.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Modules</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./units/comp-practices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Computational Tools and Practices</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./units/additional-topics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Additional Topics</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./units/intro-computing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">(Optional) Introduction to Computing</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./units/intro-python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">(Optional) Introduction to Python</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./units/mini-project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">(Optional) Mini Python Project</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./license.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">License</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#about-the-computational-skills-workshop" id="toc-about-the-computational-skills-workshop" class="nav-link active" data-scroll-target="#about-the-computational-skills-workshop">About the Computational Skills Workshop</a></li>
-  <li><a href="#optional-introduction-to-computing-and-python" id="toc-optional-introduction-to-computing-and-python" class="nav-link" data-scroll-target="#optional-introduction-to-computing-and-python">Optional Introduction to Computing and Python</a></li>
-  <li><a href="#goals" id="toc-goals" class="nav-link" data-scroll-target="#goals">Goals</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   </ul>
 </nav>
     </div>
@@ -191,14 +129,26 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Overview</h1>
+<h1 class="title">Python bootcamp project</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Chris Paciorek </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 11, 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -208,35 +158,52 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>[UNDER CONSTRUCTION]</p>
-<section id="about-the-computational-skills-workshop" class="level2">
-<h2 class="anchored" data-anchor-id="about-the-computational-skills-workshop">About the Computational Skills Workshop</h2>
-<p>The workshop will focus on skills related to computation, code development, and statistics/data science workflows, including,</p>
-<ul>
-<li>open science workflows and literate programming;</li>
-<li>introduction to version control, Git and GitHub;</li>
-<li>code style;</li>
-<li>debugging;</li>
-<li>testing;</li>
-<li>collaboration with Git and GitHub;</li>
-<li>numerical analysis (random number generation and floating point precision);</li>
-<li>packaging and reproducible environments; and</li>
-<li>automated workflows.</li>
-</ul>
+<section id="background" class="level1">
+<h1>Background</h1>
+<p>The goal of the project is to analyze the tweeting behavior of the 100 US Senators in the US Senate. Each senator has a Twitter account and puts out tweets reflecting their thought and communicating with the people in the state they represent.</p>
+<p>(Note that these tweets were downloaded early in 2017, so they reflect tweeting just before President Obama stepped down and President Trump began his term.)</p>
+<p>The goal of the project questions is to guide you through the steps of getting the data, processing and cleaning it, putting it in a format that makes it easier to analyze and then doing some basic analysis. The last few questions ask you to see if whether a senator mentions a president or presidential candidate depends on the party that the senator is part of. For example, do Democratic senators mention Barack Obama in their tweets more or less than Republican senators?</p>
+<p>For background information only: The file <strong>project/fetch_senator_tweets.py</strong> downloads tweets using the Python twitter package to interact with Twitter’s API. You will only be able to run that code if you set up your own Twitter account and follow the instructions at the start of the file regarding filling in the authentication information (CONSUMER_KEY, CONSUMER_SECRET, etc.).</p>
+<p>I’ve already run the code mentioned above and downloaded the data for you. The downloaded information on the senators’ twitter accounts is in <em>project/senators-list.json</em> in the Github repository, while the downloaded tweets are in <em>timelines.json</em>. <em>timelines.json</em> is too big to put in the Github repository. You can find it at <a href="http://www.stat.berkeley.edu/~paciorek/transfer/timelines.json" class="uri">http://www.stat.berkeley.edu/~paciorek/transfer/timelines.json</a>. Note that there are only 200 tweets for each senator because of limits on how many tweets can be accessed in a given request.</p>
 </section>
-<section id="optional-introduction-to-computing-and-python" class="level2">
-<h2 class="anchored" data-anchor-id="optional-introduction-to-computing-and-python">Optional Introduction to Computing and Python</h2>
-<p>The optional additional sessions (held Tuesday-Wednesday, August 20-21) provide a basic introduction to computing concepts (e.g., parts of a computer, ideas related to parallelization, introduction to the the shell/command line/terminal) and an introduction to Python.</p>
-<p>These are intended for those with little experience (or wishing a refresher) with working in a command line context or with using Python, and are particularly important for those taking Statistics 243, which assumes basic knowledge of Python.</p>
-<p>The introduction to Python will likely borrow heavily from <a href="https://swcarpentry.github.io/python-novice-inflammation/">this Software Carpentry Python lesson</a>, with some additional topics added.</p>
-</section>
-<section id="goals" class="level2">
-<h2 class="anchored" data-anchor-id="goals">Goals</h2>
-<ul>
-<li>Goal 1: Emphasize good computational and code development practices (scripting, version control, testing, modularity, defensive programming, documentation, commenting, numerical analysis issues).</li>
-<li>Goal 2: Emphasize good practices for workflows, including reproducibility, automation, isolated environments.</li>
-<li>Goal 3: Provide practice with and introduce key tools for version control, testing, documentation, literate programming (documents with runnable code).</li>
-</ul>
+<section id="questions" class="level1">
+<h1>Questions</h1>
+<ol type="1">
+<li><p>Load the <em>senators-list.json</em> and <em>timelines.json</em> files into Python as objects called <em>senators</em> and <em>timelines</em>.</p></li>
+<li><p>What type of datastructure is <em>timelines</em>? How many timelines are there? What does each timeline correspond to?</p></li>
+<li><p>Make a list of the number of followers each senator has.</p></li>
+<li><p>What is the screen name of the senator with the largest number of followers.</p></li>
+<li><p>Make a list of lists where the outer list represents senators and the inner list contains the text of each senator’s tweets, and call it <em>tweets</em>.</p></li>
+<li><p>Write a function, called <em>remove_punct</em>, that takes a word and returns the word with all punctuation characters removed, except for those that occur within a word.</p></li>
+<li><p>Write a function that takes tweet and returns a cleaned up version of the tweet. Here is an example function to get you started:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">def</span> clean<span class="er">(</span><span class="ex">tweet</span><span class="kw">)</span><span class="bu">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">cleaned_words</span> = [word.lower<span class="er">(</span><span class="kw">)</span> <span class="cf">for</span> word <span class="kw">in</span> tweet.split<span class="er">(</span><span class="kw">)</span> <span class="cf">if</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'http'</span> not in word and</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">word.isalpha()</span> <span class="ex">and</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                 <span class="ex">word</span> != <span class="st">'RT'</span>]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">' '</span><span class="ex">.join</span><span class="er">(</span><span class="ex">cleaned_words</span><span class="kw">)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">clean</span><span class="er">(</span><span class="va">tweets</span><span class="op">[</span><span class="dv">0</span><span class="op">][</span><span class="dv">0</span><span class="op">]</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that the function I’ve provided is a bit buggy - it has some problems with some tweets. If your goal is to convert the tweet into a discrete set of words, what is going wrong here? Fix up and extend the example function.</p></li>
+<li><p>Use the following file to create a list, called <em>stopwords</em>, that contains common english words: <a href="http://www.textfixer.com/resources/common-english-words.txt" class="uri">http://www.textfixer.com/resources/common-english-words.txt</a>. Make sure to pull the data into Python by writing Python code to download and suck the data into Python.</p></li>
+<li><p>Write a function, called <em>tokenize</em>, which takes a tweet, cleans it, and removes all punctuation and stopwords.</p></li>
+<li><p>Create a list of lists, tweets_content, using your <em>tokenize</em> function.</p></li>
+<li><p>Create a list, <em>tokens</em>, where all 200 of each senator’s tweets are made into a single string. Hint: this syntax might be useful: <code>" ".join(my_list_of_strings)</code>.</p></li>
+<li><p>Create a Pandas dataFrame with the following columns: senator name or handle, party of the senator, and number of times a prominent politician is mentioned in each senator’s tweets. You might count the number of ‘Obama’, ‘Trump’, or ‘Clinton’ references.</p>
+<p>You can use this to create the party column (1=Republican, 0=Democratic):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">party</span> = np.array<span class="er">(</span><span class="ex">[1,1,1,1,1,1,0,0,1,0,1,1,0,0,0,1,1,1,0,0,0,1,1,1,1,0,1,0,</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">1,1,1,0,0,0,0,0,0,1,0,1,1,1,0,1,1,1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,0,1,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">1,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,1,1,0,0,1,0,1,0,0,1,1,1,0,1]</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>That should correspond to the ordering in <code>timelines</code> but of course it would be more robust to create a dataFrame that has user names and party as columns and merge that with the count information.</p></li>
+<li><p>Use a Poisson GLM to assess the relationship between party and number of Obama/Trump/Clinton mentions. Does one party tend to mention Obama/Trump/Clinton more in their tweets? Can you deduce a pattern by considering the party of the senator and the party of Obama/Trump/Clinton?</p>
+<p>Here’s some syntax to help you get started:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> statsmodels.api as sm</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">model</span> = sm.GLM<span class="er">(</span><span class="ex">endog</span> = .,  exog = ., family = sm.families.Poisson<span class="er">(</span><span class="kw">))</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">model.fit()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Does the statistical result make sense in light of the number of total mentions of Obama/Trump/Clinton by Republicans and the number of total mentions by Democrats?</p></li>
+<li><p>Use <em>matplotlib</em> to make histograms of the number of Obama mentions by senator, stratified by party.</p>
+<p>Is this consistent with the results of your statistical analysis?</p></li>
+</ol>
 
 
 </section>

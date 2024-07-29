@@ -14,7 +14,7 @@
     "href": "index.html",
     "title": "Berkeley Statistics Computational Skills Workshop",
     "section": "",
-    "text": "Ed Discussion\n\n  DataHub\n\n  GitHub\n\n\nNo matching items\n[UNDER CONSTRUCTION]\nSkills related to computation, coding, and reproducibility are crucial for modern statistical work (applied and methodological), as well as for serving as graduate student instructor for Statistics and Data Science courses. Incoming Statistics graduate students arrive with a wide variety of backgrounds in these areas.\nThe department will be holding a (new this year) computational skills workshop the week before classes start, focusing on best practices for computation, code development and statistics/data science workflows.\nAll incoming PhD and MA students are expected to attend the workshop, which will be held August 22-23. Those who already have extensive work or other experience with the topics can request to opt out of the workshop via this form (which will be considered by department faculty), as can PhD students who plan to focus exclusively on theory and feel the computing skills/tools covered in the workshop aren’t relevant.\nIn advance, there will also be an optional introduction to Python for those students (particularly those taking Statistics 243) who do not have a basic familiarity with Python, to be held August 20-21. If you are interested, please sign up for the optional introduction.\nSee the syllabus/overview for more details on workshop content.",
+    "text": "Ed Discussion\n\n  DataHub\n\n  GitHub\n\n\nNo matching items\n[UNDER CONSTRUCTION]\nSkills related to computation, coding, and reproducibility are crucial for modern statistical work (applied and methodological), as well as for serving as graduate student instructor for Statistics and Data Science courses. Incoming Statistics graduate students arrive with a wide variety of backgrounds in these areas.\nThe department will be holding a (new this year) computational skills workshop the week before classes start, focusing on best practices for computation, code development and statistics/data science workflows.\nAll incoming PhD and MA students are expected to attend the workshop, which will be held August 22-23. Those who already have extensive work or other experience with the topics can request to opt out of the workshop via this form (which will be considered by department faculty), as can PhD students who plan to focus exclusively on theory and feel the computing skills/tools covered in the workshop aren’t relevant for them.\nIn advance, there will also be an optional introduction to computing concepts and to Python for those students (particularly those taking Statistics 243) to be held August 20-21. If you are interested, please sign up for the optional introduction.\nSee the syllabus/overview for more details on workshop content.",
     "crumbs": [
       "Home / Schedule"
     ]
@@ -30,36 +30,77 @@
     ]
   },
   {
-    "objectID": "units/additional-topics.html",
-    "href": "units/additional-topics.html",
-    "title": "Additional Topics",
+    "objectID": "units/session4.html",
+    "href": "units/session4.html",
+    "title": "Computational skills workshop",
     "section": "",
-    "text": "[UNDER CONSTRUCTION]",
-    "crumbs": [
-      "Modules",
-      "Additional Topics"
-    ]
+    "text": "Overview\n\n\n\nThis module presents some information on numerical analysis (random number generation and floating point precision), packaging, reproducibility, and automation."
   },
   {
-    "objectID": "units/comp-practices.html",
-    "href": "units/comp-practices.html",
-    "title": "Computational Tools and Practices",
-    "section": "",
-    "text": "[UNDER CONSTRUCTION]",
-    "crumbs": [
-      "Modules",
-      "Computational Tools and Practices"
-    ]
+    "objectID": "units/session4.html#random-number-generation",
+    "href": "units/session4.html#random-number-generation",
+    "title": "Computational skills workshop",
+    "section": "Random number generation",
+    "text": "Random number generation\nRandom numbers on a computer are actually (periodic) deterministic sequences that (hopefully) behave as if they were random.\n\nRandom number seed\nThe seed determines where in the cycle of the periodic sequence you are.\nIt’s critical for ensuring reproducibility when running code that uses random numbers\n\nimport numpy as np\nnp.random.seed(1)\nnp.random.normal(size = 5)\n\narray([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763])\n\n\n\nnp.random.normal(size = 5)\n\narray([-2.3015387 ,  1.74481176, -0.7612069 ,  0.3190391 , -0.24937038])\n\n\n\nnp.random.seed(1)\nnp.random.normal(size = 5)\n\narray([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763])\n\n\n\n\nRandom number generators\nIf you don’t do anything, numpy will use a generator called the Mersenne Twister (that’s the default in R too).\nHowever the “default” RNG in numpy is a newer, better algorithm called PCG64.\n\n## Mersenne twister\nnp.random.seed(1)\nnp.random.normal(size = 5)\n\narray([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763])\n\n\n\n## Mersenne twister, selected specifically\nrng = np.random.Generator(np.random.MT19937(seed = 1))\nrng.normal(size = 5)\n## Not clear why numbers differ from above. Seed setup might differ.\n\narray([ 2.04676909, -1.03653009,  0.72997546,  0.41584996, -0.1922969 ])\n\n\n\n## 'Default' PCG64\nrng = np.random.Generator(np.random.PCG64(seed = 1))\nrng.normal(size = 5)\n\narray([ 0.34558419,  0.82161814,  0.33043708, -1.30315723,  0.90535587])\n\n\n\nrng = np.random.default_rng(seed = 1)\nrng.normal(size = 5)\n\narray([ 0.34558419,  0.82161814,  0.33043708, -1.30315723,  0.90535587])\n\n\nSome cautions (detailed by Philip Stark):\n\nseeds with many zeros can be problematic.\nMersenne Twister not as good as PCG64.\nBe particularly cautious to use a good RNG when doing permutation and taking random samples."
   },
   {
-    "objectID": "units/mini-project.html",
-    "href": "units/mini-project.html",
-    "title": "(Optional) Mini Python Project",
+    "objectID": "units/session4.html#floating-point-precision",
+    "href": "units/session4.html#floating-point-precision",
+    "title": "Computational skills workshop",
+    "section": "Floating point precision",
+    "text": "Floating point precision\n\n0.3 - 0.2 == 0.1\n0.3\n0.2\n0.1 # Hmmm...\n\n0.1\n\n\n\nDouble-precision accuracy\nNumbers in most languages are stored by default as double precision floating point numbers.\n\n8 bytes = 64 bits = double precision\n4 bytes = 32 bits = single precision\n\n(GPU libraries often use 4 bytes or even fewer.)\n\ndef dg(x, form = '.20f'):\n    print(format(x, form))\n\na = 0.3\nb = 0.2\ndg(a)\ndg(b)\ndg(a-b)\ndg(0.1)\n\n0.29999999999999998890\n0.20000000000000001110\n0.09999999999999997780\n0.10000000000000000555\n\n\nHow many digits of accuracy do we have?\nSame thing regardless of the size of the number:\n\n12345678.1234567812345678\n\n12345678.123456782\n\n\n\n12345678123456781234.5678\n\n1.234567812345678e+19\n\n\n\ndg(12345678123456781234.5678)\n\n12345678123456780288.00000000000000000000\n\n\nThis occurs because of how the 64 bits in a double precision floating point number are allocated to give a large range of numbers in terms of magnitude and high precision in terms of digits of accuracy.\n\n\nComparisons\nLet’s see what kinds of numbers we can safely compare for exact equality with ==.\n\nx = .5 - .2\nx == 0.3\n\nx = .5 - .5\nx == 0\nx = .5 - .2  -.3\nx == 0\nx = (.5 - .2) - (.51 - .21)\nx == 0\n\nnp.isclose(x, 0)\n\n\n\nCalculation errors\nLet’s consider accuracy of subtraction.\n\n1.1234 - 1.0\n\n0.12339999999999995\n\n\n\n123456781234.1234 - 123456781234.0\n\n0.1233978271484375\n\n\nThis is called catastrophic cancellation.\nDo you think “catastrophic” is too extreme? If so, consider this.\n\n81.0 - 80.0\n\n1.0\n\n\n\n12345678123456781.0 -12345678123456780.0\n\n0.0\n\n\nWhat’s the derivative of \\(sin(x)\\)? Let’s see what kind of accuracy we can get.\n\ndef deriv(f, x, eps=1e-8):\n   return (f(x+eps) - f(x)) / eps\n\nnp.cos(0.2)\n\nderiv(np.sin, 0.2)\n\nderiv(np.sin, 0.2, 1e-12)\nderiv(np.sin, 0.2, 1e-14)\nderiv(np.sin, 0.2, 1e-15)\nderiv(np.sin, 0.2, 1e-16)\n\n\n\nLinear algebra errors\nThe errors seen in doing calculations, such as catastrophic cancellation, cascaded through derivative estimation. That also happens when doing linear algebra operations.\nHere’s an example where mathematically all the eigenvalues are real-valued and positive, but not on the computer.\n\nimport scipy as sp\n\nxs = np.arange(100)\ndists = np.abs(xs[:, np.newaxis] - xs)\n# This is a p.d. matrix (mathematically).\ncorr_matrix = np.exp(-(dists/10)**2)\n# But not numerically...\nsp.linalg.eigvals(corr_matrix)[80:99]\n\narray([ 1.43024256e-16+1.28433951e-16j,  1.43024256e-16-1.28433951e-16j,\n        1.49210347e-16+4.87070558e-17j,  1.49210347e-16-4.87070558e-17j,\n       -1.54661687e-16+1.25601177e-16j, -1.54661687e-16-1.25601177e-16j,\n       -2.07808543e-16+3.73312254e-17j, -2.07808543e-16-3.73312254e-17j,\n        9.83783628e-17+7.20174529e-17j,  9.83783628e-17-7.20174529e-17j,\n        2.37821218e-18+1.00101181e-16j,  2.37821218e-18-1.00101181e-16j,\n        5.29254936e-17+0.00000000e+00j, -1.62444574e-16+0.00000000e+00j,\n       -2.74621910e-17+7.55223038e-17j, -2.74621910e-17-7.55223038e-17j,\n       -9.08016006e-17+3.79199791e-17j, -9.08016006e-17-3.79199791e-17j,\n       -3.25243092e-17+0.00000000e+00j])\n\n\n\n\nOverflow and underflow\nHaving a finite number of bits to represent each number means there are minimum and maximum numbers that can be expressed.\n\n1.38e5000\n1.38e-400\n\n0.0\n\n\n\n\n\n\n\n\nHow much do we need to worry about overflow and underflow?\n\n\n\nQ: Roughly how many observations would it take before we underflow in calculating a likelihood?\n\n10\n100\n1000\n100000\n100000000\n\n\n\n\nimport numpy as np\nimport scipy as sp\nx = np.random.normal(size=1000)\nnp.prod(sp.stats.norm.pdf(x))\n\nloglik = np.sum(sp.stats.norm.logpdf(x))\nloglik\nnp.exp(loglik)\n\n0.0\n\n\nWork with probabilities and densities on the log scale. Almost always."
+  },
+  {
+    "objectID": "units/session4.html#exercise-numerical-issues-with-newtons-method",
+    "href": "units/session4.html#exercise-numerical-issues-with-newtons-method",
+    "title": "Computational skills workshop",
+    "section": "Exercise: numerical issues with Newton’s method",
+    "text": "Exercise: numerical issues with Newton’s method\nLook at your partner’s code in terms of how it handles the stopping criterion or (for the 1-d case) the finite difference estimate of the gradient and Hessian.\nMake a pull request that tries to improve how that is handled.\nThen review the pull request your partner makes in your repository."
+  },
+  {
+    "objectID": "units/session4.html#basic-python-packages",
+    "href": "units/session4.html#basic-python-packages",
+    "title": "Computational skills workshop",
+    "section": "Basic Python packages",
+    "text": "Basic Python packages\nWhat’s a package? In general it is software that is provided as a bundle that can be downloaded and made available on your computer. Some packages (e.g., R, Python themselves) are stand-alone packages. Others (such as R packages and Python packages) are add-on functionality that works with stand-alone software.\nWhat do we need to have a Python package?\n\nPackages\nA Python package is a directory containing one or more modules and with a file named __init__.py that is called when a package is imported and serves to initialize the package.\nLet’s create a basic package.\nmkdir mypkg\n\ncat &lt;&lt; EOF &gt; mypkg/__init__.py\n## Make objects from mymod.py available as mypkg.foo\nfrom mypkg.mymod import *\n\nprint(\"Welcome to my package.\")\nEOF\n\ncat &lt;&lt; EOF &gt; mypkg/mymod.py\nx = 7\n\ndef myfun(val):\n    print(\"The arg is: \", str(val), \".\", sep = '')\nEOF\nNote that if there were other modules, we could have imported from those as well.\nNow we can use the objects from the module without having to know that it was in a particular module (because of how __init__.py was set up).\n\nimport mypkg\nmypkg.x\nmypkg.myfun(7)\n\nNote that one can set __all__ in an __init__.py to define what is imported, which makes clear what is publicly available and hides what is considered internal.\n\n\nA minimal “real” package\nFernando has a this toy example package.\nLet’s clone the repository and see if we can install it.\ngit clone https://github.com/fperez/mytoy\n\npip install .\nimport mytoy\n\nmytoy.toy(7)\nIt would take more work to make the package available in a repository such as PyPI or via Conda."
+  },
+  {
+    "objectID": "units/session4.html#exercise",
+    "href": "units/session4.html#exercise",
+    "title": "Computational skills workshop",
+    "section": "Exercise",
+    "text": "Exercise\nMake a package out of your Newton method code."
+  },
+  {
+    "objectID": "units/session4.html#installing-packages",
+    "href": "units/session4.html#installing-packages",
+    "title": "Computational skills workshop",
+    "section": "Installing packages",
+    "text": "Installing packages\nIf a package is on PyPI or available through Conda but not on your system, you can install it easily (usually). You don’t need root permission on a machine to install a package, though you may need to use pip install --user or set up a new Conda environment.\nPackages often depend on other packages. In general, if one package depends on another, pip or conda will generally install the dependency automatically.\nOne advantage of Conda is that it can also install non-Python packages on which a Python package depends, whereas with pip you sometimes need to install a system package to satisfy a dependency.\nIt’s not uncommon to run into a case where conda has trouble installing a package because of version inconsistencies amongst the dependencies. mamba is a drop-in replacement for conda and often does a better job of this “dependency resolution”. We use mamba by default on the SCF.\n\nReproducibility and package management\nFor reproducibility, it’s important to know the versions of the packages you use (and the version of Python). pip and conda make it easy to do this. You can create a requirements file that captures the packages you are currently using (and, critically, their versions) and then install exactly that set of packages (and versions) based on that requirements file.\n## Reproducing using pip.\npip freeze &gt; requirements.txt\npip install -r requirements.txt\n\n## Reproducing a Conda environment.\nconda env export &gt; environment.yml\nconda env create -f environment.yml\nConda is a general package manager. You can use it to manage Python packages but lots of other software as well, including R and Julia.\n\nFully isolating your Conda environment\nConda environments provide an additional layer of modularity/reproducibility, allowing you to set up a fully reproducible environment for your computation. Here (by explicitly giving python=3.11) the Python 3.11 executable and all packages you install in the environment are fully independent of whatever Python executables are installed on the system.\ntype python\nconda create -n myenv python=3.11\nsource activate myenv\nconda install numpy\ntype python\n\n\n\n\n\n\nActivating an environment\n\n\n\nIf you use conda activate rather than source activate, Conda will prompt you to run conda init, which will make changes to your ~/.bashrc that, for one, activate the Conda base environment automatically when a shell is started. This may be fine, but it’s helpful to be aware.\n\n\n\n\n\nPackage locations\nPackages in Python (and in R, Julia, etc.) may be installed in various places on the filesystem, and it sometimes it is helpful (e.g., if you end up with multiple versions of a package installed on your system) to be able to figure out where on the filesystem the package is being loaded from.\n\npkgname.__file__ will show where the imported package is installed.\npkname.__version__ will show the version of the package (as will pip list or conda list, for all packages).\nsys.path shows where Python looks for packages on your system.\n\n[TODO: why doesn’t sys.path indicate that ~/.local is used?]\n\n\nSource vs. binary packages\nThe difference between a source package and a binary package is that the source package has the raw Python (and C/C++ and Fortran, in some cases) code as text files, while the binary package has all the non-Python code in a binary/non-text format, with the C/C++ and Fortran code already having been compiled.\nIf you install a package from source, C/C++/Fortran code will be compiled on your system (if the package has such code). That should mean the compiled code will work on your system, but requires you to have a compiler available and things properly configured. A binary package doesn’t need to be compiled on your system, but in some cases the code may not run on your system because it was compiled in such a way that is not compatible with your system.\nPython wheels are a binary package format for Python packages. Wheels for some packages will vary by platform (i.e., operating system) so that the package will install correctly on the system where it is being installed."
+  },
+  {
+    "objectID": "units/session4.html#binder",
+    "href": "units/session4.html#binder",
+    "title": "Computational skills workshop",
+    "section": "Binder",
+    "text": "Binder\nOne example is using Binder to open a Jupyter notebook in an executable environment.\nBased on a configuration (various options are possible), Binder will create a Docker container with the needed software installed.\nThe most common configuration format is to provide a Conda environment file. Binder will then create a Conda environment inside the Docker (Linux) container. The Conda environment will contain the packages specified in the environment file.\nLet’s set up a Notebook with access to the mytoy package. [TODO: that failed]\n[TODO: Show other more interesting binder examples…]"
+  },
+  {
+    "objectID": "units/session4.html#github-actions",
+    "href": "units/session4.html#github-actions",
+    "title": "Computational skills workshop",
+    "section": "GitHub Actions",
+    "text": "GitHub Actions\nA second example is using GitHub Actions (GHA) to automate activities such as testing. To set up a GitHub Actions workflow, one provides instructions for how to set up the environment for the workflow and then the operations that the workflow should run.\nA good example is running tests whenever you make a commit to a repository containing software.\nWith GHA, you specify the operating system and then run the steps you specify in .github/workflows/some_action.yml. Some steps will customize the environment as the initial steps and then additional step(s) will run shell or other code to run your workflow. You use pre-specified operations (called actions) to do common things (such as checking out a GitHub repository and installing commonly used software).\nGH will then run the steps in a virtual machine, which is called the runner.\n[TODO: Find an interesting repo with automated testing set up]\n[TODO: show how environment is created]\n[TODO: show how env is customized]\nThis is all quite powerful, and the use of reproducible environments generally helps with debugging because you can also set up the environment on your own machine. That said, running code remotely or in the cloud can also be hard to debug at times."
+  },
+  {
+    "objectID": "units/intro-python.html",
+    "href": "units/intro-python.html",
+    "title": "(Optional) Introduction to Python",
     "section": "",
     "text": "[UNDER CONSTRUCTION]",
     "crumbs": [
       "Modules",
-      "(Optional) Mini Python Project"
+      "(Optional) Introduction to Python"
     ]
   },
   {
@@ -74,20 +115,217 @@
     ]
   },
   {
-    "objectID": "units/intro-python.html",
-    "href": "units/intro-python.html",
-    "title": "(Optional) Introduction to Python",
+    "objectID": "units/project.html",
+    "href": "units/project.html",
+    "title": "Python bootcamp project",
+    "section": "",
+    "text": "Background\nThe goal of the project is to analyze the tweeting behavior of the 100 US Senators in the US Senate. Each senator has a Twitter account and puts out tweets reflecting their thought and communicating with the people in the state they represent.\n(Note that these tweets were downloaded early in 2017, so they reflect tweeting just before President Obama stepped down and President Trump began his term.)\nThe goal of the project questions is to guide you through the steps of getting the data, processing and cleaning it, putting it in a format that makes it easier to analyze and then doing some basic analysis. The last few questions ask you to see if whether a senator mentions a president or presidential candidate depends on the party that the senator is part of. For example, do Democratic senators mention Barack Obama in their tweets more or less than Republican senators?\nFor background information only: The file project/fetch_senator_tweets.py downloads tweets using the Python twitter package to interact with Twitter’s API. You will only be able to run that code if you set up your own Twitter account and follow the instructions at the start of the file regarding filling in the authentication information (CONSUMER_KEY, CONSUMER_SECRET, etc.).\nI’ve already run the code mentioned above and downloaded the data for you. The downloaded information on the senators’ twitter accounts is in project/senators-list.json in the Github repository, while the downloaded tweets are in timelines.json. timelines.json is too big to put in the Github repository. You can find it at http://www.stat.berkeley.edu/~paciorek/transfer/timelines.json. Note that there are only 200 tweets for each senator because of limits on how many tweets can be accessed in a given request.\n\n\nQuestions\n\nLoad the senators-list.json and timelines.json files into Python as objects called senators and timelines.\nWhat type of datastructure is timelines? How many timelines are there? What does each timeline correspond to?\nMake a list of the number of followers each senator has.\nWhat is the screen name of the senator with the largest number of followers.\nMake a list of lists where the outer list represents senators and the inner list contains the text of each senator’s tweets, and call it tweets.\nWrite a function, called remove_punct, that takes a word and returns the word with all punctuation characters removed, except for those that occur within a word.\nWrite a function that takes tweet and returns a cleaned up version of the tweet. Here is an example function to get you started:\ndef clean(tweet):\n    cleaned_words = [word.lower() for word in tweet.split() if\n                 'http' not in word and\n                 word.isalpha() and\n                 word != 'RT']\n    return ' '.join(cleaned_words)\n\nclean(tweets[0][0])\nNote that the function I’ve provided is a bit buggy - it has some problems with some tweets. If your goal is to convert the tweet into a discrete set of words, what is going wrong here? Fix up and extend the example function.\nUse the following file to create a list, called stopwords, that contains common english words: http://www.textfixer.com/resources/common-english-words.txt. Make sure to pull the data into Python by writing Python code to download and suck the data into Python.\nWrite a function, called tokenize, which takes a tweet, cleans it, and removes all punctuation and stopwords.\nCreate a list of lists, tweets_content, using your tokenize function.\nCreate a list, tokens, where all 200 of each senator’s tweets are made into a single string. Hint: this syntax might be useful: \" \".join(my_list_of_strings).\nCreate a Pandas dataFrame with the following columns: senator name or handle, party of the senator, and number of times a prominent politician is mentioned in each senator’s tweets. You might count the number of ‘Obama’, ‘Trump’, or ‘Clinton’ references.\nYou can use this to create the party column (1=Republican, 0=Democratic):\nparty = np.array([1,1,1,1,1,1,0,0,1,0,1,1,0,0,0,1,1,1,0,0,0,1,1,1,1,0,1,0,\n1,1,1,0,0,0,0,0,0,1,0,1,1,1,0,1,1,1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,0,1,\n1,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,1,1,0,0,1,0,1,0,0,1,1,1,0,1])\nThat should correspond to the ordering in timelines but of course it would be more robust to create a dataFrame that has user names and party as columns and merge that with the count information.\nUse a Poisson GLM to assess the relationship between party and number of Obama/Trump/Clinton mentions. Does one party tend to mention Obama/Trump/Clinton more in their tweets? Can you deduce a pattern by considering the party of the senator and the party of Obama/Trump/Clinton?\nHere’s some syntax to help you get started:\nimport statsmodels.api as sm\nmodel = sm.GLM(endog = .,  exog = ., family = sm.families.Poisson())\nmodel.fit()\nDoes the statistical result make sense in light of the number of total mentions of Obama/Trump/Clinton by Republicans and the number of total mentions by Democrats?\nUse matplotlib to make histograms of the number of Obama mentions by senator, stratified by party.\nIs this consistent with the results of your statistical analysis?"
+  },
+  {
+    "objectID": "units/mini-project.html",
+    "href": "units/mini-project.html",
+    "title": "(Optional) Mini Python Project",
+    "section": "",
+    "text": "[UNDER CONSTRUCTION]\n\nBackground\nThe goal of the project is to analyze the tweeting behavior of the 100 US Senators in the US Senate. Each senator has a Twitter account and puts out tweets reflecting their thought and communicating with the people in the state they represent.\n(Note that these tweets were downloaded early in 2017, so they reflect tweeting just before President Obama stepped down and President Trump began his term.)\nThe goal of the project questions is to guide you through the steps of getting the data, processing and cleaning it, putting it in a format that makes it easier to analyze and then doing some basic analysis. The last few questions ask you to see if whether a senator mentions a president or presidential candidate depends on the party that the senator is part of. For example, do Democratic senators mention Barack Obama in their tweets more or less than Republican senators?\nFor background information only: The file https://github.com/berkeley-scf/python-workshop-2023/blob/gh-pages/project/fetch_senator_tweets.py downloads tweets using the Python twitter package to interact with Twitter’s API. You will only be able to run that code if you set up your own Twitter account and follow the instructions at the start of the file regarding filling in the authentication information (CONSUMER_KEY, CONSUMER_SECRET, etc.).\nI’ve already run the code mentioned above and downloaded the data for you. The downloaded information on the senators’ twitter accounts is in project/senators-list.json in the GitHub repository, while the downloaded tweets are in timelines.json. timelines.json is too big to put in the Github repository. You can find it at http://www.stat.berkeley.edu/~paciorek/transfer/timelines.json. Note that there are only 200 tweets for each senator because of limits on how many tweets can be accessed in a given request.\n\n\nQuestions\n\nLoad the senators-list.json and timelines.json files into Python as objects called senators and timelines, using this syntax:\n\n\nCode\nwith open(\"tmp.json\") as infile:\n     y = json.load(infile)\n\n\nWhat type of datastructure is timelines? How many timelines are there? What does each timeline correspond to?\nMake a list of the number of followers each senator has.\nWhat is the screen name of the senator with the largest number of followers.\nMake a list of lists where the outer list represents senators and the inner list contains the text of each senator’s tweets, and call it tweets.\nWrite a function, called remove_punct, that takes a word and returns the word with all punctuation characters removed, except for those that occur within a word.\nWrite a function that takes tweet and returns a cleaned up version of the tweet. Here is an example function to get you started:\n::: {#d06b2b0c .cell execution_count=2} ``` {.python .cell-code} def clean(tweet): cleaned_words = [word.lower() for word in tweet.split() if ‘http’ not in word and word.isalpha() and word != ‘RT’] return ’ ’.join(cleaned_words)\nclean(tweets[0][0]) ``` :::\nNote that the function I’ve provided is a bit buggy - it has some problems with some tweets. If your goal is to convert the tweet into a discrete set of words, what is going wrong here? Fix up and extend the example function.\nUse the following file to create a list, called stopwords, that contains common english words: http://www.textfixer.com/resources/common-english-words.txt. Make sure to pull the data into Python by writing Python code to download and suck the data into Python.\nWrite a function, called tokenize, which takes a tweet, cleans it, and removes all punctuation and stopwords.\nCreate a list of lists, tweets_content, using your tokenize function.\nCreate a list, tokens, where all 200 of each senator’s tweets are made into a single string. Hint: this syntax might be useful: \" \".join(my_list_of_strings).\nCreate a Pandas dataFrame with the following columns: senator name or handle, party of the senator, and number of times a prominent politician is mentioned in each senator’s tweets. You might count the number of ‘Obama’, ‘Trump’, or ‘Clinton’ references.\nYou can use this to create the party column (1=Republican, 0=Democratic):\n\n\nCode\nparty = np.array([1,1,1,1,1,1,0,0,1,0,1,1,0,0,0,1,1,1,0,0,0,1,1,1,1,0,1,0,\n1,1,1,0,0,0,0,0,0,1,0,1,1,1,0,1,1,1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,0,1,\n1,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,1,1,0,0,1,0,1,0,0,1,1,1,0,1])\n\n\nThat should correspond to the ordering in timelines but of course it would be more robust to create a dataFrame that has user names and party as columns and merge that with the count information.\nUse a Poisson GLM to assess the relationship between party and number of Obama/Trump/Clinton mentions. Does one party tend to mention Obama/Trump/Clinton more in their tweets? Can you deduce a pattern by considering the party of the senator and the party of Obama/Trump/Clinton?\nHere’s some syntax to help you get started:\n\n\nCode\nimport statsmodels.api as sm\nmodel = sm.GLM(endog = .,  exog = ., family = sm.families.Poisson())\nmodel.fit()\n\n\nDoes the statistical result make sense in light of the number of total mentions of Obama/Trump/Clinton by Republicans and the number of total mentions by Democrats?\nUse matplotlib to make histograms of the number of Obama mentions by senator, stratified by party.\nIs this consistent with the results of your statistical analysis?",
+    "crumbs": [
+      "Modules",
+      "(Optional) Mini Python Project"
+    ]
+  },
+  {
+    "objectID": "units/comp-practices.html",
+    "href": "units/comp-practices.html",
+    "title": "Computational Tools and Practices",
     "section": "",
     "text": "[UNDER CONSTRUCTION]",
     "crumbs": [
       "Modules",
-      "(Optional) Introduction to Python"
+      "Computational Tools and Practices"
     ]
+  },
+  {
+    "objectID": "units/additional-topics.html",
+    "href": "units/additional-topics.html",
+    "title": "Additional Topics",
+    "section": "",
+    "text": "[UNDER CONSTRUCTION]",
+    "crumbs": [
+      "Modules",
+      "Additional Topics"
+    ]
+  },
+  {
+    "objectID": "units/Untitled.html",
+    "href": "units/Untitled.html",
+    "title": "",
+    "section": "",
+    "text": "import numpy as np\n\n\nnp.arcsin?\n\n\nCall signature:  np.arcsin(*args, **kwargs)\nType:            ufunc\nString form:     &lt;ufunc 'arcsin'&gt;\nFile:            /system/linux/miniforge-3.12/lib/python3.12/site-packages/numpy/__init__.py\nDocstring:      \narcsin(x, /, out=None, *, where=True, casting='same_kind', order='K', dtype=None, subok=True[, signature, extobj])\nInverse sine, element-wise.\nParameters\n----------\nx : array_like\n    `y`-coordinate on the unit circle.\nout : ndarray, None, or tuple of ndarray and None, optional\n    A location into which the result is stored. If provided, it must have\n    a shape that the inputs broadcast to. If not provided or None,\n    a freshly-allocated array is returned. A tuple (possible only as a\n    keyword argument) must have length equal to the number of outputs.\nwhere : array_like, optional\n    This condition is broadcast over the input. At locations where the\n    condition is True, the `out` array will be set to the ufunc result.\n    Elsewhere, the `out` array will retain its original value.\n    Note that if an uninitialized `out` array is created via the default\n    ``out=None``, locations within it where the condition is False will\n    remain uninitialized.\n**kwargs\n    For other keyword-only arguments, see the\n    :ref:`ufunc docs &lt;ufuncs.kwargs&gt;`.\nReturns\n-------\nangle : ndarray\n    The inverse sine of each element in `x`, in radians and in the\n    closed interval ``[-pi/2, pi/2]``.\n    This is a scalar if `x` is a scalar.\nSee Also\n--------\nsin, cos, arccos, tan, arctan, arctan2, emath.arcsin\nNotes\n-----\n`arcsin` is a multivalued function: for each `x` there are infinitely\nmany numbers `z` such that :math:`sin(z) = x`.  The convention is to\nreturn the angle `z` whose real part lies in [-pi/2, pi/2].\nFor real-valued input data types, *arcsin* always returns real output.\nFor each value that cannot be expressed as a real number or infinity,\nit yields ``nan`` and sets the `invalid` floating point error flag.\nFor complex-valued input, `arcsin` is a complex analytic function that\nhas, by convention, the branch cuts [-inf, -1] and [1, inf]  and is\ncontinuous from above on the former and from below on the latter.\nThe inverse sine is also known as `asin` or sin^{-1}.\nReferences\n----------\nAbramowitz, M. and Stegun, I. A., *Handbook of Mathematical Functions*,\n10th printing, New York: Dover, 1964, pp. 79ff.\nhttps://personal.math.ubc.ca/~cbm/aands/page_79.htm\nExamples\n--------\n&gt;&gt;&gt; np.arcsin(1)     # pi/2\n1.5707963267948966\n&gt;&gt;&gt; np.arcsin(-1)    # -pi/2\n-1.5707963267948966\n&gt;&gt;&gt; np.arcsin(0)\n0.0\nClass docstring:\nFunctions that operate element by element on whole arrays.\nTo see the documentation for a specific ufunc, use `info`.  For\nexample, ``np.info(np.sin)``.  Because ufuncs are written in C\n(for speed) and linked into Python with NumPy's ufunc facility,\nPython's help() function finds this page whenever help() is called\non a ufunc.\nA detailed explanation of ufuncs can be found in the docs for :ref:`ufuncs`.\n**Calling ufuncs:** ``op(*x[, out], where=True, **kwargs)``\nApply `op` to the arguments `*x` elementwise, broadcasting the arguments.\nThe broadcasting rules are:\n* Dimensions of length 1 may be prepended to either array.\n* Arrays may be repeated along dimensions of length 1.\nParameters\n----------\n*x : array_like\n    Input arrays.\nout : ndarray, None, or tuple of ndarray and None, optional\n    Alternate array object(s) in which to put the result; if provided, it\n    must have a shape that the inputs broadcast to. A tuple of arrays\n    (possible only as a keyword argument) must have length equal to the\n    number of outputs; use None for uninitialized outputs to be\n    allocated by the ufunc.\nwhere : array_like, optional\n    This condition is broadcast over the input. At locations where the\n    condition is True, the `out` array will be set to the ufunc result.\n    Elsewhere, the `out` array will retain its original value.\n    Note that if an uninitialized `out` array is created via the default\n    ``out=None``, locations within it where the condition is False will\n    remain uninitialized.\n**kwargs\n    For other keyword-only arguments, see the :ref:`ufunc docs &lt;ufuncs.kwargs&gt;`.\nReturns\n-------\nr : ndarray or tuple of ndarray\n    `r` will have the shape that the arrays in `x` broadcast to; if `out` is\n    provided, it will be returned. If not, `r` will be allocated and\n    may contain uninitialized values. If the function has more than one\n    output, then the result will be a tuple of arrays."
+  },
+  {
+    "objectID": "units/session3.html",
+    "href": "units/session3.html",
+    "title": "Computational skills workshop",
+    "section": "",
+    "text": "CJP development notes\n\n\n\n\n\nlinks:\n\nhttps://software-carpentry.org/lessons/\nhttps://ucb-stat-159-s23.github.io/site (/var/tmp/site/lectures/intro-git)\nhttps://docs.google.com/document/d/1osbFw5hTnt7wH7xnm_lIf2l0Ffn5c-xHyPEssbBvGXo/edit\n\nexport GIT_CONFIG_NOSYSTEM=1\nNOTES: might need to set merging policy: git config pull.rebase false\ninstall ruff in DataHub and on SCF"
+  },
+  {
+    "objectID": "units/session3.html#newtons-method-background",
+    "href": "units/session3.html#newtons-method-background",
+    "title": "Computational skills workshop",
+    "section": "Newton’s method background",
+    "text": "Newton’s method background\nWe’ll use a running example, Newton’s method for optimization, during this workshop. It’s simple enough to be straightforward to code but can involve various modifications, extensions, etc. to be a rich enough example that we can use it to demonstrate various topics and tools.\nRecall that Newton’s method works as follows to optimize some objective function, \\(f(x)\\) as a function of univariate or multivariate \\(x\\), where \\(f(x)\\) is univariate.\nNewton’s method is iterative. If we are at step \\(t-1\\), the next value is:\n\\[\nx_t = x_{t-1} - f^{\\prime}(x_{t-1}) / f^{\\prime\\prime}(x_{t-1})\n\\]\nHere are the steps:\n\ndetermine a starting value, \\(x_0\\)\niterate:\n\nat step \\(t\\), the next value (the update) is given by the equation above\nstop when \\(\\left\\Vert x_{t} - x_{t-1} \\right\\Vert\\) is “small”"
+  },
+  {
+    "objectID": "units/session3.html#exercise-implement-univariate-newtons-method",
+    "href": "units/session3.html#exercise-implement-univariate-newtons-method",
+    "title": "Computational skills workshop",
+    "section": "Exercise: Implement univariate Newton’s method",
+    "text": "Exercise: Implement univariate Newton’s method\nHere’s what you’ll need your code to do:\n\naccept a starting value and the function to optimize\nimplement the iterative algorithm\nimplement the stopping criterion (feel free to keep this simple)\ncalculate the first and second derivatives using a basic finite difference approach to estimating the derivative based on the definition of a derivative as a limit\n\nnote that the second derivative can be seen as calling the first derivative twice…\n\nconsider what to return as the output\n\n\n\n\n\n\n\nWarning\n\n\n\nDon’t make your finite difference (“epsilon”) too small or you’ll actually get inaccurate estimates. (We’ll discuss why when we talk a bit out numerical issues in computing later.)\n\n\n\n\n\n\n\n\nNote\n\n\n\nFor now, please do not use any Python packages that provide finite difference-based derivatives (we’ll do that later, and it’s helpful to have more code available for the work we’ll do today).\n\n\nPut your code into a simple text file, called newton.py. In doing so you’ve created a Python module. You can use it like this:\n\nimport newton\nnewton.optimize(start, fun)   ## Assuming your function is called `optimize`.\n\nA module is a collection of related code in a file with the extension .py. The code can include functions, classes, and variables, as well as runnable code. To access the objects in the module, you need to import the module."
+  },
+  {
+    "objectID": "units/session3.html#exercise-creating-a-git-repository-on-github",
+    "href": "units/session3.html#exercise-creating-a-git-repository-on-github",
+    "title": "Computational skills workshop",
+    "section": "Exercise: Creating a Git repository (on GitHub)",
+    "text": "Exercise: Creating a Git repository (on GitHub)\nGo to github.com/&lt;your_username&gt; and click on the Repositories tag. Then click on the New button. In the form, give the repository the name newton-practice (so others who are working with you can find it easily), provide a short description, and click on “Add a README file”. Leave the repository as “Public” so that others can interact with your repository when we practice later.\n\n\n\n\n\n\nCreating repositories on your laptop first\n\n\n\nIt’s also possible to create the repository from the terminal on your machine and then link it to your GitHub account, but that’s a couple extra steps we won’t go into here at the moment."
+  },
+  {
+    "objectID": "units/session3.html#accessing-github-repositories-from-jupyterhub",
+    "href": "units/session3.html#accessing-github-repositories-from-jupyterhub",
+    "title": "Computational skills workshop",
+    "section": "Accessing GitHub repositories from JupyterHub",
+    "text": "Accessing GitHub repositories from JupyterHub\nAuthenticating with GitHub can be a bit tricky, particularly when using DataHub (i.e., JupyterHub).\n\n\n\n\n\n\nAccessing GitHub from your laptop rather than DataHub\n\n\n\nIf you’re on your laptop and already set up to use GitHub, you don’t need to do the steps in this section, but if you’re using your laptop and not set up to use GitHub, these instructions should work there too. (it may also depend on the version of git you are using; e.g., version 2.34.1 is too old but 2.39 should be fine).\n\n\nWe’ll use a tool (an ‘app’) that helps us with this, provided in the gh_scoped_creds Python package.\nFirst configure git in the terminal:\ngit config --global user.name \"Jane Doe\"\ngit config --global user.email \"jane_doe@berkeley.edu\"\n\ngit config --global color.ui \"auto\"\n\n# git config pull.rebase false\nThen run this in the terminal:\ngh-scoped-creds\nOr you could instead run this in IPython or Jupyter Notebook:\n\nimport gh_scoped_creds\n%ghscopedcreds\n\nWhen you do that you’ll see a link and a code. Go to the link in a browser and input the code; this will grant access to GitHub from JupyterHub for 8 hours (or until you stop your JupyterHub server).\nThen (only the first time you are doing all this) go to the URL that is printed out (which should be https://github.com/apps/stat-computing-jupyterhub) and click on Install. Choose “Only select repositories” and select the repository you are using for the workshop, namely newton-practice."
+  },
+  {
+    "objectID": "units/session3.html#basic-use-of-a-repository",
+    "href": "units/session3.html#basic-use-of-a-repository",
+    "title": "Computational skills workshop",
+    "section": "Basic use of a repository",
+    "text": "Basic use of a repository\nIn the terminal, let’s make a small change to the README, register the change with Git (this is called a commit), and push the changes upstream to GitHub (which has the remote copy of the repository).\n\nStep 1. Clone the repository\nFirst make a local copy of the repository from the remote on GitHub.\ngit clone https://github.com/&lt;your_username&gt;/compute-skills-2024\nIf we run this:\ncd compute-workshop-2024\nls -l .git\ncat .git/config\nwe should see a bunch of output (truncated here) indicating that compute-workshop-2024 is a Git repository, and that in this case the local repository is linked to a remote repository (the repository we created on GitHub):\ntotal 56\ndrwxr-xr-x   2 paciorek scfstaff 4096 Jul 23 17:06 branches\n-rw-r--r--   1 paciorek scfstaff   16 Jul 24 14:48 COMMIT_EDITMSG\n-rw-r--r--   1 paciorek scfstaff  656 Jul 23 18:20 config\n&lt;snip&gt;\n\n&lt;snip&gt;\n[remote \"origin\"]\n    url = https://github.com/berkeley-scf/compute-skills-2024\n&lt;snip&gt;\nStep 2. Add files\nNext move (or copy) your Python module into the repository directory. I’ll use the test module that we’ll work with later, but you’ll do it with your Newton method module.\ncd compute-workshop-2024\ncp ../binary_search.py .\n## Tell git to track the file\ngit add binary_search.py\nStep 3. Edit file(s)\nEdit the README file to indicate that the repository has a basic implementation of Newton’s method. (In DataHub, you can double-click on the README in the file manager pane.)\n## Tell git to keep track of the changes to the file.\ngit add README.md\n## Register the changes with Git.\ngit commit -m\"Add basic implementation of binary search.\"\n## Synchronize the changes with the remote.\ngit push\n\n\n\n\n\n\nNote\n\n\n\nWe could have cloned the (public) repository without the gh_scoped_creds credentials stuff earlier, but if we tried to push to it, we would have been faced with GitHub asking for our password, which would have required us to create a GitHub authentication token that we would paste in.\n\n\n\n\n\n\n\n\nNote\n\n\n\nInstead of having to add the README and commit separately we could do:\ngit add newton.py\ngit commit -a -m\"added basic implementation of binary search\"\nWe do need to explicitly add any new files (e.g., newton.py) that are not yet registered with git via git add.\n\n\n\n\nWriting good commit messages\nSome tips:\n\nConcisely describe what changed (and for more complicated situations, why), not how.\nTwo options (depending on whether the commit makes one or more changes):\n\nKeep it short (one line, &lt;72 characters)\nHave a subject line separated from the body by a blank line.\n\nKeep subject to 50 characters and each body line to 72 characters.\nBest to edit message in an editor – omit the -m flag to git commit.\n\n\nIf you’re working on a project with GitHub issues, reference the issue at the bottom.\nStart each item in the message with a verb (present tense) and provide a complete sentence.\n\nIf you find your commit message is covering multiple topics, it probably means you should have made multiple (“atomic”) commits."
+  },
+  {
+    "objectID": "units/session3.html#exercise-code-review",
+    "href": "units/session3.html#exercise-code-review",
+    "title": "Computational skills workshop",
+    "section": "Exercise: code review",
+    "text": "Exercise: code review\nGo to your partner’s repository at https://github.com/&lt;user_name&gt;/newton-practice.\n\nLook over their code.\nMake some comments/suggestions in a new GitHub issue (go to the Issues button and click on New issue).\n\nIn response to your partner’s comments, make some small change(s) to your newton.py code.\nYou can do this in DataHub (or locally on your laptop if that’s what you’re doing).\nOr you can do the editing in your GitHub browser window by selecting Code, clicking on the file and choosing the pencil icon to edit it. When you save it, a commit will be made. Make sure to provide a commit message. In this case you’ll also want to run git pull to pull down the changes to your local repository on DataHub or your laptop."
+  },
+  {
+    "objectID": "units/session3.html#key-components-and-terminology",
+    "href": "units/session3.html#key-components-and-terminology",
+    "title": "Computational skills workshop",
+    "section": "Key components and terminology",
+    "text": "Key components and terminology\n\nCommits\nA commit is a snapshot of our work at a point in time. So far we’ve been working with a linear sequence of snapshots, but we’ll see in a moment that we can actually have a directed acyclic graph (DAG) of snapshots once we have branches.\nEach commit has:\n\na hash identifier - a unique identifier produced by hashing the changes introduced in the commit and also the parent commit,\nhashes of the files in the repository in their current state, and\nthe changes (from diff) relative to the parent commit.\n\n\n\n\nA Git commit (Credit: ProGit book, CC License)\n\n\n\n\nA repository\nA repository is the set of files for a project with their history. It’s a collection of commits in the form of an acyclic graph.\n\n\n\nA (simple) Git repository (Credit: ProGit book, CC License)\n\n\nSome other terms:\n\nHEAD: a pointer to the current commit\ntag: a label for a commit\nbranch: a commit - often indicating a commit that has “branched” off of some main workflow or some linear sequence of commits\n\n\n\nStaging area / index\nThe index (staging area) keeps track of changes (made to tracked files) that are not yet committed.\nHere’s a visualization of \n\n\n\n\n\n\nRolling back changes (optional)\n\n\n\n\nUncommitted changesStaged but uncommitted changesCommitted changesPushed changes\n\n\nIf I make some changes to a file that I decide are a mistaken, before git add (i.e., before registering the changes with git). I can always still edit the file to undo the mistakes.\nBut I can also go back to the version stored by Git.\n# git checkout -- file.txt\ngit restore file.txt\n\n\nIf we’ve added (staged) files via git add but have not yet committed them, the files are in the index (staging area). We can get those changes out of the staging area like this:\ngit status\n# git reset HEAD file.txt\ngit restore --staged file.txt\ngit status\nNote that the changes still exist in file.txt but they’re no longer registered with Git.\n\n\nSuppose you need to add or modify to your commit. This illustrates a few things you might do.\ngit commit -m 'Initial commit'\ngit add forgotten_file.txt\n# edit file.txt\ngit add file.txt\n# get version of file from previous commit\ngit checkout &lt;commit_hash&gt; file.txt\ngit commit --amend\n\n\ngit revert &lt;commit_hash&gt;\ngit push\nNote that this creates a new commit that undoes the changes you don’t want. So the undoing shows up in the history. This is the safest option.\nIf you’re sure no one else has pulled your changes from the remote:\ngit reset &lt;commit_hash&gt;\n# Make changes\ngit commit -a -m'reworked the mistake'\ngit push -f origin &lt;branch_name&gt;\nThis will remove the previous commit at the remote."
+  },
+  {
+    "objectID": "units/session3.html#git-visuals-understanding-git-concepts",
+    "href": "units/session3.html#git-visuals-understanding-git-concepts",
+    "title": "Computational skills workshop",
+    "section": "Git visuals: Understanding Git concepts",
+    "text": "Git visuals: Understanding Git concepts\nFernando Perez has nice visualization (online version, PDF version) of a basic Git workflow that we’ll walk through.\nNote that we haven’t actually talked about some of what is shown in the visual: tags, branches, and merging, but we’ll see a bit in the visual and discuss more later."
+  },
+  {
+    "objectID": "units/session3.html#linting",
+    "href": "units/session3.html#linting",
+    "title": "Computational skills workshop",
+    "section": "Linting",
+    "text": "Linting\nLinting is the process of applying a tool to your code to enforce style.\nWe’ll demo using ruff to some example code. You might also consider black.\nWe’ll practice with ruff with a small module we’ll use next also for debugging.\n\nFirst, we check for and fix syntax errors.\nruff check binary_search.py\nThen we ask ruff to reformat to conform to standard style.\nruff format binary_search.py\n\nLet’s see what changed:\ndiff binary_search_orig.py binary_search.py"
+  },
+  {
+    "objectID": "units/session3.html#exercise-add-documentation-and-comments-to-your-newton-module",
+    "href": "units/session3.html#exercise-add-documentation-and-comments-to-your-newton-module",
+    "title": "Computational skills workshop",
+    "section": "Exercise: add documentation and comments to your Newton module",
+    "text": "Exercise: add documentation and comments to your Newton module\n\nAdd a doc string to each of your functions. Focus on your main function. Take a look at an example, such as help(numpy.linalg.cholesky) to see the different parts and the format.\nConsider whether to add comments to your code.\nApply ruff to your code.\nCompare the results with the style suggestions above and do additional reformatting as needed."
+  },
+  {
+    "objectID": "units/session3.html#demo-debugging-the-binary_search-example",
+    "href": "units/session3.html#demo-debugging-the-binary_search-example",
+    "title": "Computational skills workshop",
+    "section": "Demo: debugging the binary_search example",
+    "text": "Demo: debugging the binary_search example\nThe function binary_search() in the binary_search.py module attempts to do a binary search for an item in a sorted list. It looks in the middle of the list and if the value in the list is larger than the item, it recurses to look in the first half of the list, otherwise in the second half. It continues in this fashion until it is down to a single item and then checks if that item is what is being searched for.\n\nimport binary_search as bs\nbs.search([3,7,9,13,17,203,205],3)\n\n0\n\n\n\nbs.search([3,7,9,13,17,203,205],13)\n\n-1\n\n\n\nbs.search([3,7,9,13,17,203,205],17)\n\n4\n\n\nClearly that doesn’t always work. Let’s debug the failing case.\nWe’ll work in our Jupyter notebook.\n\nFirst turn on debugging capability by clicking on the small “bug” icon in the upper right (next to the info about the kernel).\nNext we click on a line of code to set a breakpoint.\nNow we run the function. We can:\n\nstep within a function,\nstep into a function, or\nstep out of a function."
+  },
+  {
+    "objectID": "units/session3.html#exercise-debugging-your-newton-code",
+    "href": "units/session3.html#exercise-debugging-your-newton-code",
+    "title": "Computational skills workshop",
+    "section": "Exercise: debugging your Newton code",
+    "text": "Exercise: debugging your Newton code\nRun your Newton method on the following function, x^4/4 - x^3 -x. Sometimes it should fail.\nUse the debugger to try to see what goes wrong. (For our purposes here, do this using the debugger, don’t figure it out from first principles mathematically or graphically.)\nYou can use a conditional breakpoint to try to detect when the next step will be extreme."
+  },
+  {
+    "objectID": "units/session3.html#demo-unit-tests-and-pytest",
+    "href": "units/session3.html#demo-unit-tests-and-pytest",
+    "title": "Computational skills workshop",
+    "section": "Demo: Unit tests and pytest",
+    "text": "Demo: Unit tests and pytest\npytest is a very popular package/framework for testing.\nWe create test functions that check for the expected result.\nWe use assert statements which are ways of generally setting up sanity checks in your code. These are usually used in development, or perhaps data analysis workflows, rather than production code. They are a core part of setting up tests such as here with pytest.\nmkdir tests\nmv test_bs.py tests/.\n\npytest"
+  },
+  {
+    "objectID": "units/session3.html#exercise-test-cases",
+    "href": "units/session3.html#exercise-test-cases",
+    "title": "Computational skills workshop",
+    "section": "Exercise: Test cases",
+    "text": "Exercise: Test cases\nWith a partner, brainstorm some test cases for your implementation of Newton’s method in terms of the user’s function and input values.\nYou’ll want to consider cases where Newton’s method fails and test whether the user gets an informative result. Of course as a starting point, the case we used for the debugging exercise is a good one for a failing case.\nWe’ll collect some possible tests once each group has had a chance to brainstorm."
+  },
+  {
+    "objectID": "units/session3.html#exercise-unit-tests",
+    "href": "units/session3.html#exercise-unit-tests",
+    "title": "Computational skills workshop",
+    "section": "Exercise: Unit tests",
+    "text": "Exercise: Unit tests\nWe’ll implement our test cases as unit tests using the pytest package.\nInclude tests for:\n\nsuccessful optimization\nunsuccessful optimization\ninvalid user inputs\n\nwith the expected output being what you want to happen, not necessarily what your function does.\nYou’ll want cases where you know the correct answer. Start simple.\n\n\n\n\n\n\nOnly write tests now\n\n\n\nFor now don’t modify your code even if you start to suspect how it might fail. Writing the tests and then modifying code so they pass is an example of test-driven development."
+  },
+  {
+    "objectID": "units/session3.html#exercise-error-trapping-robust-code-and-defensive-programming",
+    "href": "units/session3.html#exercise-error-trapping-robust-code-and-defensive-programming",
+    "title": "Computational skills workshop",
+    "section": "Exercise: Error trapping, robust code, and defensive programming",
+    "text": "Exercise: Error trapping, robust code, and defensive programming\nNow we’ll try to go beyond simply returning a failed result and see if we can trap problems early on and write more robust code.\nWork on the following improvements:\n\nCheck user inputs are valid.\nAdd warnings to the user if it seems that Newton’s method is taking a bad step.\nModify your function so that when it fails, the result is informative to the user.\n\nInclude a success/failure code (flag) in your output.\n\n\nNext, if you have time, consider robustifying your code if you have time:\n\nWhat might you do if the next step is worse than the current position? [TODO: backtrack]\nWhat might you do if the next step is outside the range of potential values (assuming a unimodal function)? [TODO: bisect]"
+  },
+  {
+    "objectID": "units/session3.html#demo-branching-and-pull-requests-merge-conflicts",
+    "href": "units/session3.html#demo-branching-and-pull-requests-merge-conflicts",
+    "title": "Computational skills workshop",
+    "section": "Demo: Branching and pull requests, merge conflicts",
+    "text": "Demo: Branching and pull requests, merge conflicts\nWe’ll demo the use of branching and PRs by fixing our binary_search function.\n\nBranching\nFirst, let’s fix the error in our binary_search function in a new branch.\ngit switch -c fix_midpoint_bug\nWe’ll now make the fixes and do the linting (not shown).\nPush the branch with the fix to GitHub.\ngit add test.py\ngit commit -m\"Fix bug in handling midpoint.\n\nLint code.\"\ngit push -u origin fix_midpoint_bug\n\n\nPull requests\nNow we’ll go to GitHub and start a pull request (PR).\nSince we’re the ones who control the repo, we’ll also review and merge in the PR.\n\n\nMerge conflicts\nNext let’s see a basic example of a merge conflict, which occurs when two commits modify (which could include deletion) the same line in a file. In this case Git requires the user to figure out what should be done.\nTo get an example, we need to create a conflict. I will add different documentation in the main and fix_midpoint_bug branches. After pushing the main change, I’ll try to do a PR with the fix_midpoint_bug.\nThe GitHub UI does a nice job of helping you resolve merge conflicts, as we’ll see.\n\n\n\n\n\n\nResolving conflicts at the command line\n\n\n\nYou can also get (and resolve) merge conflicts on the command line. Once you edit the conflicted file to fix the conflict, you can do git add &lt;name_of_file&gt; and then git commit."
+  },
+  {
+    "objectID": "units/session3.html#multivariate-newtons-method",
+    "href": "units/session3.html#multivariate-newtons-method",
+    "title": "Computational skills workshop",
+    "section": "Multivariate Newton’s method",
+    "text": "Multivariate Newton’s method\nRecall that Newton’s method optimizes some objective function, \\(f(x)\\) as a function of univariate or multivariate \\(x\\), where \\(f(x)\\) is univariate.\nThe multivariate method extends the univariate, using the gradient (first derivative) vector and Hessian (second derivative) matrix.\nIf we are at step \\(t-1\\), the next value is:\n\\[\nx_{t+1}=x_{t}-H_{f}(x_{t})^{-1}\\nabla f(x_{t})\n\\]\nwhere \\(\\nabla f(x_{t}\\) is the gradient (first derivative with respect to each element of \\(x\\)) and \\(H_{f}(x_{t})\\) is the Hessian matrix (second derivatives with respect to all pairs of the elements of \\(x\\)).\nHere are the steps:\n\ndetermine a starting value, \\(x_0\\).\niterate:\n\nat step \\(t\\), the next value (the update) is given by the equation above\nstop when \\(\\left\\Vert x_{t} - x_{t-1} \\right\\Vert\\) is “small”"
+  },
+  {
+    "objectID": "units/session3.html#exercise-branching",
+    "href": "units/session3.html#exercise-branching",
+    "title": "Computational skills workshop",
+    "section": "Exercise: Branching",
+    "text": "Exercise: Branching\nWorking with a partner:\n\nChoose either your repository or your partner’s repository to continue working in.\nMake a branch (called multivariate) in which you’ll implement the multivariate version of Newton’s method (see details above)\nImplement the algorithm.\n\nAt this point, if we think about calculating the Hessian it starts to feel more tedious to deal with the finite difference calculations, though it is a straightforward extension of what you already implemented. Feel free to look online to find a Python package that implements finite difference estimation of derivatives and use that in your code.\nAs you are writing the code, you can continue to think about what might go wrong and include defensive programming tactics."
+  },
+  {
+    "objectID": "units/session3.html#exercise-pull-requests",
+    "href": "units/session3.html#exercise-pull-requests",
+    "title": "Computational skills workshop",
+    "section": "Exercise: Pull requests",
+    "text": "Exercise: Pull requests\nWhen you have your branch ready, make a pull request:\n\nMake a pull request into the remote for the repository by pushing the branch to GitHub\ngit push -u origin multivariate\nGo to GitHub to the Pull requests tab and make the PR, making a note of what the PR is about.\n\nDon’t (yet) merge in the PR."
+  },
+  {
+    "objectID": "units/session3.html#exercise-code-review-1",
+    "href": "units/session3.html#exercise-code-review-1",
+    "title": "Computational skills workshop",
+    "section": "Exercise: Code review",
+    "text": "Exercise: Code review\nNow you and your partner should find a separate group with which to work on code reviews as a “supergroup”.\nGive the other group the URL for your repository on GitHub and ask them to look at the PR. In turn get the URL for their repository.\nIn reviewing the PR, make comments in the PR comment/conversation area on GitHub.\nIf you have time, explore these two options for making comments:\n\nReview changes:\n\nClick on the Files changed tab (or go to https://github.com/nimble-dev/nimble/pull/&lt;PULL_ID&gt;/files for the specific “PULL_ID”).\nClick on the Review changes button.\n\nMake comments on specific lines\n\nClick on the Files changed tab (or go to https://github.com/nimble-dev/nimble/pull/&lt;PULL_ID&gt;/files for the specific “PULL_ID”).\nHover over a specific line in a specific file with your mouse. A blue “plus” box should appear. Click on the plus to add a comment.\nClick on Add single comment or optionally experiment with Start a review."
+  },
+  {
+    "objectID": "units/session3.html#exercise-merge-the-pr",
+    "href": "units/session3.html#exercise-merge-the-pr",
+    "title": "Computational skills workshop",
+    "section": "Exercise: Merge the PR",
+    "text": "Exercise: Merge the PR\nOnce you’ve seen the review by the other group, with your partner:\n\nOn DataHub, make changes to the branch that was used in the pull request.\n\nAlternatively, you could make the changes directly on GitHub using its editing capabilities.\n\nOn DataHub, commit and push to GitHub.\nOn GitHub, merge in the pull request and close the request.\n\n\n\n\n\n\n\nThe full cycle of “git virtue”\n\n\n\nCongratulations. In the course of the day, you’ve worked through the steps of complete, albeit small, project using an extensive set of concepts, skills, and tools used in real world projects."
   },
   {
     "objectID": "syllabus.html",
     "href": "syllabus.html",
-    "title": "Syllabus",
+    "title": "Overview",
     "section": "",
     "text": "[UNDER CONSTRUCTION]",
     "crumbs": [
@@ -97,9 +335,9 @@
   {
     "objectID": "syllabus.html#about-the-computational-skills-workshop",
     "href": "syllabus.html#about-the-computational-skills-workshop",
-    "title": "Syllabus",
+    "title": "Overview",
     "section": "About the Computational Skills Workshop",
-    "text": "About the Computational Skills Workshop\nThe workshop will focus on skills related to computation, code development, and statistics/data science workflows, including,\n\nintroduction to version control, Git and GitHub;\ncode style;\ndebugging;\ntesting;\ncollaboration in Git;\nnumerical analysis (random number generation and floating point precision);\npackaging and reproducible environments; and\nautomated workflows.",
+    "text": "About the Computational Skills Workshop\nThe workshop will focus on skills related to computation, code development, and statistics/data science workflows, including,\n\nopen science workflows and literate programming;\nintroduction to version control, Git and GitHub;\ncode style;\ndebugging;\ntesting;\ncollaboration with Git and GitHub;\nnumerical analysis (random number generation and floating point precision);\npackaging and reproducible environments; and\nautomated workflows.",
     "crumbs": [
       "Overview"
     ]
@@ -107,9 +345,9 @@
   {
     "objectID": "syllabus.html#optional-introduction-to-computing-and-python",
     "href": "syllabus.html#optional-introduction-to-computing-and-python",
-    "title": "Syllabus",
+    "title": "Overview",
     "section": "Optional Introduction to Computing and Python",
-    "text": "Optional Introduction to Computing and Python\nThe optional additional sessions (held Tuesday-Wednesday, August 20-21) provide a basic introduction to computing concepts (e.g., parts of a computer, ideas related to parallelization, intro the the shell/command line/terminal) and an introduction to Python.\nThese are intended for those with little experience (or wishing a refresher) with working in a command line context or with using Python, and are particularly important for those taking Statistics 243, which assumes basic knowledge of Python.\nThe introduction to Python will likely borrow heavily from this Software Carpentry Python lesson, with some additional topics added.",
+    "text": "Optional Introduction to Computing and Python\nThe optional additional sessions (held Tuesday-Wednesday, August 20-21) provide a basic introduction to computing concepts (e.g., parts of a computer, ideas related to parallelization, introduction to the the shell/command line/terminal) and an introduction to Python.\nThese are intended for those with little experience (or wishing a refresher) with working in a command line context or with using Python, and are particularly important for those taking Statistics 243, which assumes basic knowledge of Python.\nThe introduction to Python will likely borrow heavily from this Software Carpentry Python lesson, with some additional topics added.",
     "crumbs": [
       "Overview"
     ]
@@ -117,9 +355,9 @@
   {
     "objectID": "syllabus.html#goals",
     "href": "syllabus.html#goals",
-    "title": "Syllabus",
+    "title": "Overview",
     "section": "Goals",
-    "text": "Goals\n\nGoal 1: Emphasize good computational and code development practices (scripting, version control, testing, modularity, defensive programming, documentation, commenting, numerical analysis issues).\n\nGoal 2: Emphasize good practices for workflows, including reproducibility, automation, isolated environments.\nGoal 3: Provide practice with and introduce key tools for version control, testing, documentation, dynamic documents (documents with runnable code).",
+    "text": "Goals\n\nGoal 1: Emphasize good computational and code development practices (scripting, version control, testing, modularity, defensive programming, documentation, commenting, numerical analysis issues).\nGoal 2: Emphasize good practices for workflows, including reproducibility, automation, isolated environments.\nGoal 3: Provide practice with and introduce key tools for version control, testing, documentation, literate programming (documents with runnable code).",
     "crumbs": [
       "Overview"
     ]
