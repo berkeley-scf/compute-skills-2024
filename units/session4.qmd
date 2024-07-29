@@ -4,11 +4,6 @@ subtitle: "Numerics, reproducibility, and automation"
 author: "Chris Paciorek"
 date: "2024-05-29"
 format:
-  pdf:
-    documentclass: article
-    margin-left: 30mm
-    margin-right: 30mm
-    toc: true
   html:
     theme: cosmo
     css: ../styles.css
@@ -297,6 +292,7 @@ Now we can use the objects from the module without having to know
 that it was in a particular module (because of how `__init__.py` was set up).
 
 ```{python}
+#| eval: false
 import mypkg
 mypkg.x
 mypkg.myfun(7)
