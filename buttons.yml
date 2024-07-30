@@ -2,7 +2,7 @@
   link: https://berkeley.edu
   color: purple
 - button: DataHub
-  link: https://datahub.berkeley.edu
+  link: https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fberkeley-scf%2Fcompute-skills-2024&urlpath=lab%2Ftree%2Fcompute-skills-2024%2F&branch=main
   color: green
 - button: GitHub
   link: https://github.com/berkeley-scf/compute-skills-2024

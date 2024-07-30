@@ -4,11 +4,6 @@ subtitle: "Version control, programming, and testing"
 author: "Chris Paciorek"
 date: "2024-05-29"
 format:
-  pdf:
-    documentclass: article
-    margin-left: 30mm
-    margin-right: 30mm
-    toc: true
   html:
     theme: cosmo
     css: ../styles.css
