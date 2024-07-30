@@ -157,6 +157,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Computational Environment</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -254,7 +260,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Questions</h1>
 <ol type="1">
 <li><p>Load the <code>senators-list.json</code> and <code>timelines.json</code> files into Python as objects called <code>senators</code> and <code>timelines</code>, using this syntax:</p>
-<div id="3c3f124a" class="cell" data-execution_count="1">
+<div id="b4cf345f" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"tmp.json"</span>) <span class="im">as</span> infile:</span>
@@ -267,7 +273,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Make a list of lists where the outer list represents senators and the inner list contains the text of each senator’s tweets, and call it <code>tweets</code>.</p></li>
 <li><p>Write a function, called <code>remove_punct</code>, that takes a word and returns the word with all punctuation characters removed, except for those that occur within a word.</p></li>
 <li><p>Write a function that takes tweet and returns a cleaned up version of the tweet. Here is an example function to get you started:</p>
-<p>::: {#d06b2b0c .cell execution_count=2} ``` {.python .cell-code} def clean(tweet): cleaned_words = [word.lower() for word in tweet.split() if ‘http’ not in word and word.isalpha() and word != ‘RT’] return ’ ’.join(cleaned_words)</p>
+<p>::: {#8c537ab3 .cell execution_count=2} ``` {.python .cell-code} def clean(tweet): cleaned_words = [word.lower() for word in tweet.split() if ‘http’ not in word and word.isalpha() and word != ‘RT’] return ’ ’.join(cleaned_words)</p>
 <p>clean(tweets[0][0]) ``` :::</p>
 <p>Note that the function I’ve provided is a bit buggy - it has some problems with some tweets. If your goal is to convert the tweet into a discrete set of words, what is going wrong here? Fix up and extend the example function.</p></li>
 <li><p>Use the following file to create a list, called <code>stopwords</code>, that contains common english words: <a href="http://www.textfixer.com/resources/common-english-words.txt" class="uri">http://www.textfixer.com/resources/common-english-words.txt</a>. Make sure to pull the data into Python by writing Python code to download and suck the data into Python.</p></li>
@@ -276,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Create a list, <code>tokens</code>, where all 200 of each senator’s tweets are made into a single string. Hint: this syntax might be useful: <code>" ".join(my_list_of_strings)</code>.</p></li>
 <li><p>Create a Pandas dataFrame with the following columns: senator name or handle, party of the senator, and number of times a prominent politician is mentioned in each senator’s tweets. You might count the number of ‘Obama’, ‘Trump’, or ‘Clinton’ references.</p>
 <p>You can use this to create the party column (1=Republican, 0=Democratic):</p>
-<div id="004cb38c" class="cell" data-execution_count="3">
+<div id="d82ac967" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>party <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,</span>
@@ -287,7 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>That should correspond to the ordering in <code>timelines</code> but of course it would be more robust to create a dataFrame that has user names and party as columns and merge that with the count information.</p></li>
 <li><p>Use a Poisson GLM to assess the relationship between party and number of Obama/Trump/Clinton mentions. Does one party tend to mention Obama/Trump/Clinton more in their tweets? Can you deduce a pattern by considering the party of the senator and the party of Obama/Trump/Clinton?</p>
 <p>Here’s some syntax to help you get started:</p>
-<div id="b8323b3e" class="cell" data-execution_count="4">
+<div id="2e245c37" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
