@@ -14,11 +14,15 @@ execute:
   freeze: auto
 ---
 
+# Using DataHub as a commmon computational environment
+
 While it's fine to use your laptop, it will be hard for us to diagnose all the different problems that might arise with so many participants. So we recommend using a common computational environment during the workshop. We'll use the Berkeley DataHub for this. You can think of DataHub as providing user-specific virtual machines with identical software for all of us to use.
 
 To access your own machine/server with Python, git, and terminal access on the campus DataHub (also used for various data science, CS, and statistics courses), click [here](https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fberkeley-scf%2Fcompute-skills-2024&urlpath=lab%2Ftree%2Fcompute-skills-2024%2F&branch=main).
 
 That will get you onto your server with the materials for the course, from the `berkeley-scf/compute-skills-2024` repository available on the server.
+
+## Check your environment
 
 To check things look good:
 
@@ -26,3 +30,21 @@ To check things look good:
  2. Check that your working directory is `~/compute-skills-2024` (by looking at the terminal prompt or running `pwd`)
  3. Run `ls` to see the materials.
 
+## Editing files
+
+You can combine text and code in a notebook, which you can start with:
+
+- `New Launcher` -> `Notebook` -> `Python 3 (ipykernel`, or
+- `File` -> `New` -> `Notebook`
+
+To run the code in a cell, a shortcut is `Ctrl` + `Enter/Return`.
+
+To create a script file containing just code, do `File` -> `New` -> `Python file`.
+
+
+
+## Stopping your server
+
+You can stop your server via `File`-> `Hub Control Panel` -> `Stop My Server`.
+
+If you only log out, any ongoing computations will still run in the background.
