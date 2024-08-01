@@ -19,9 +19,11 @@ website:
         text: Computational Environment
       - section: "Modules"
         contents:
-          - units/comp-practices.qmd
+          - href: units/comp-practices.qmd
+            text: Computational Tools and Practices
           - units/additional-topics.qmd
-          - units/intro-computing.qmd
+          - href: units/intro-computing.qmd
+            text Intro to Computing and Command Line
           - units/intro-python.qmd
           - units/mini-project.qmd
       - href: license.qmd

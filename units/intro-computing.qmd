@@ -1,7 +1,6 @@
 ---
 title: "(Optional) Introduction to Computing and the Command Line"
 author: "Chris Paciorek"
-date: "2024-08-19"
 format:
   html:
     theme: cosmo

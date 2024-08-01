@@ -1,9 +1,22 @@
 ---
-title: "Additional Topics"
+title: "Numerics, reproducibility, and automation"
 format:
+  pdf:
+    documentclass: article
+    margin-left: 30mm
+    margin-right: 30mm
+    toc: true
   html:
-    code-fold: show
-    code-tools: true
+    theme: cosmo
+    css: ../styles.css
+    toc: true
+    code-copy: true
+    code-block-background: true
+execute:
+  freeze: auto
 ---
 
-[UNDER CONSTRUCTION]
+::: {.callout-warning}
+## DRAFT CONTENT (2024-08-01)
+This module is drafted but still under construction.
+:::

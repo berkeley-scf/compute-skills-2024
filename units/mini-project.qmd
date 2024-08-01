@@ -1,7 +1,5 @@
 ---
 title: "(Optional) Python Mini-Project"
-author: "Chris Paciorek"
-date: "2024-08-19"
 format:
   html:
     theme: cosmo
