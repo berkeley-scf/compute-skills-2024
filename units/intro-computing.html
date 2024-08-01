@@ -202,7 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../units/mini-project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">(Optional) Mini Python Project</span></a>
+ <span class="menu-text">(Optional) Python Mini-Project</span></a>
   </div>
 </li>
       </ul>
@@ -223,8 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#draft-content-2024-08-01" id="toc-draft-content-2024-08-01" class="nav-link active" data-scroll-target="#draft-content-2024-08-01">DRAFT CONTENT (2024-08-01)</a></li>
-  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation">Preparation</a></li>
+  <li><a href="#preparation" id="toc-preparation" class="nav-link active" data-scroll-target="#preparation">Preparation</a></li>
   <li><a href="#parts-of-a-computer" id="toc-parts-of-a-computer" class="nav-link" data-scroll-target="#parts-of-a-computer">Parts of a computer</a></li>
   <li><a href="#concepts-of-parallelization" id="toc-concepts-of-parallelization" class="nav-link" data-scroll-target="#concepts-of-parallelization">Concepts of parallelization</a></li>
   <li><a href="#the-filesystem" id="toc-the-filesystem" class="nav-link" data-scroll-target="#the-filesystem">The filesystem</a></li>
@@ -291,10 +290,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="draft-content-2024-08-01" class="level2 callout-danger">
-<h2 class="anchored" data-anchor-id="draft-content-2024-08-01">DRAFT CONTENT (2024-08-01)</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+DRAFT CONTENT (2024-08-01)
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>This module is drafted but still under construction.</p>
-</section>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -312,7 +320,7 @@ Overview
 <h1>Preparation</h1>
 <p>Our primary computing context with be the <a href="datahub.berkeley.edu">UC Berkeley DataHub</a>. This provides us with a common platform on which we are assured to get the same behavior as each other, allowing us to use the command line/shell/terminal and Python, including Jupyter notebooks. In particular getting a common command line environment would be hard otherwise.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -321,7 +329,7 @@ Using your own laptop (optional)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>If you want, you can also install Python on your own computer. If you do that, we recommend using <a href="https://github.com/conda-forge/miniforge">Miniforge</a>. Another option is the Anaconda distribution of Python](https://www.anaconda.com/distribution)</p>
 <p>For the shell/terminal parts of this material, you can use the Terminal on your Mac, but not on Windows.</p>
@@ -732,7 +740,7 @@ DataHub memory limits
 <p>Be careful about increasing <code>n</code> in the example below when on DataHub. Basic DataHub virtual machines by default only have 1 GB memory, so don’t increase <code>n</code> below or you may run out of memory if running on DataHub and this can cause problems in your DataHub session. If you’re doing this as part of the workshop, we’ve increased those limits somewhat, so somewhat larger values of <code>n</code> should be fine.</p>
 </div>
 </div>
-<div id="7cd43b5f" class="cell" data-execution_count="1">
+<div id="a80e490f" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1260,7 +1268,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a><span class="co">  freeze: auto</span></span>
 <span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>::: {.callout-danger}</span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
 <span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## DRAFT CONTENT (2024-08-01)</span></span>
 <span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>This module is drafted but still under construction.</span>
 <span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a>:::</span>

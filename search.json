@@ -242,12 +242,12 @@
   {
     "objectID": "units/mini-project.html",
     "href": "units/mini-project.html",
-    "title": "(Optional) Mini Python Project",
+    "title": "(Optional) Python Mini-Project",
     "section": "",
-    "text": "[UNDER CONSTRUCTION]\n\nBackground\nThe goal of the project is to analyze the tweeting behavior of the 100 US Senators in the US Senate. Each senator has a Twitter account and puts out tweets reflecting their thought and communicating with the people in the state they represent.\n(Note that these tweets were downloaded early in 2017, so they reflect tweeting just before President Obama stepped down and President Trump began his term.)\nThe goal of the project questions is to guide you through the steps of getting the data, processing and cleaning it, putting it in a format that makes it easier to analyze and then doing some basic analysis. The last few questions ask you to see if whether a senator mentions a president or presidential candidate depends on the party that the senator is part of. For example, do Democratic senators mention Barack Obama in their tweets more or less than Republican senators?\nFor background information only: The file https://github.com/berkeley-scf/python-workshop-2023/blob/gh-pages/project/fetch_senator_tweets.py downloads tweets using the Python twitter package to interact with Twitter’s API. You will only be able to run that code if you set up your own Twitter account and follow the instructions at the start of the file regarding filling in the authentication information (CONSUMER_KEY, CONSUMER_SECRET, etc.).\nI’ve already run the code mentioned above and downloaded the data for you. The downloaded information on the senators’ twitter accounts is in project/senators-list.json in the GitHub repository, while the downloaded tweets are in timelines.json. timelines.json is too big to put in the Github repository. You can find it at http://www.stat.berkeley.edu/~paciorek/transfer/timelines.json. Note that there are only 200 tweets for each senator because of limits on how many tweets can be accessed in a given request.\n\n\nQuestions\n\nLoad the senators-list.json and timelines.json files into Python as objects called senators and timelines, using this syntax:\n\n\nCode\nwith open(\"tmp.json\") as infile:\n     y = json.load(infile)\n\n\nWhat type of datastructure is timelines? How many timelines are there? What does each timeline correspond to?\nMake a list of the number of followers each senator has.\nWhat is the screen name of the senator with the largest number of followers.\nMake a list of lists where the outer list represents senators and the inner list contains the text of each senator’s tweets, and call it tweets.\nWrite a function, called remove_punct, that takes a word and returns the word with all punctuation characters removed, except for those that occur within a word.\nWrite a function that takes tweet and returns a cleaned up version of the tweet. Here is an example function to get you started:\n::: {#b74de7a9 .cell execution_count=2} ``` {.python .cell-code} def clean(tweet): cleaned_words = [word.lower() for word in tweet.split() if ‘http’ not in word and word.isalpha() and word != ‘RT’] return ’ ’.join(cleaned_words)\nclean(tweets[0][0]) ``` :::\nNote that the function I’ve provided is a bit buggy - it has some problems with some tweets. If your goal is to convert the tweet into a discrete set of words, what is going wrong here? Fix up and extend the example function.\nUse the following file to create a list, called stopwords, that contains common english words: http://www.textfixer.com/resources/common-english-words.txt. Make sure to pull the data into Python by writing Python code to download and suck the data into Python.\nWrite a function, called tokenize, which takes a tweet, cleans it, and removes all punctuation and stopwords.\nCreate a list of lists, tweets_content, using your tokenize function.\nCreate a list, tokens, where all 200 of each senator’s tweets are made into a single string. Hint: this syntax might be useful: \" \".join(my_list_of_strings).\nCreate a Pandas dataFrame with the following columns: senator name or handle, party of the senator, and number of times a prominent politician is mentioned in each senator’s tweets. You might count the number of ‘Obama’, ‘Trump’, or ‘Clinton’ references.\nYou can use this to create the party column (1=Republican, 0=Democratic):\n\n\nCode\nparty = np.array([1,1,1,1,1,1,0,0,1,0,1,1,0,0,0,1,1,1,0,0,0,1,1,1,1,0,1,0,\n1,1,1,0,0,0,0,0,0,1,0,1,1,1,0,1,1,1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,0,1,\n1,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,1,1,0,0,1,0,1,0,0,1,1,1,0,1])\n\n\nThat should correspond to the ordering in timelines but of course it would be more robust to create a dataFrame that has user names and party as columns and merge that with the count information.\nUse a Poisson GLM to assess the relationship between party and number of Obama/Trump/Clinton mentions. Does one party tend to mention Obama/Trump/Clinton more in their tweets? Can you deduce a pattern by considering the party of the senator and the party of Obama/Trump/Clinton?\nHere’s some syntax to help you get started:\n\n\nCode\nimport statsmodels.api as sm\nmodel = sm.GLM(endog = .,  exog = ., family = sm.families.Poisson())\nmodel.fit()\n\n\nDoes the statistical result make sense in light of the number of total mentions of Obama/Trump/Clinton by Republicans and the number of total mentions by Democrats?\nUse matplotlib to make histograms of the number of Obama mentions by senator, stratified by party.\nIs this consistent with the results of your statistical analysis?",
+    "text": "DRAFT CONTENT (2024-08-01)\n\n\n\nThis material is drafted but still under construction.\n\n\n\nBackground\nThe goal of the project is to analyze the tweeting behavior of the 100 US Senators in the US Senate. Each senator has a Twitter account and puts out tweets reflecting their thought and communicating with the people in the state they represent.\n(Note that these tweets were downloaded early in 2017, so they reflect tweeting just before President Obama stepped down and President Trump began his term.)\nThe goal of the project questions is to guide you through the steps of getting the data, processing and cleaning it, putting it in a format that makes it easier to analyze and then doing some basic analysis. The last few questions ask you to see if whether a senator mentions a president or presidential candidate depends on the party that the senator is part of. For example, do Democratic senators mention Barack Obama in their tweets more or less than Republican senators?\nFor background information only: The file https://github.com/berkeley-scf/python-workshop-2023/blob/gh-pages/project/fetch_senator_tweets.py downloads tweets using the Python twitter package to interact with Twitter’s API. You will only be able to run that code if you set up your own Twitter account and follow the instructions at the start of the file regarding filling in the authentication information (CONSUMER_KEY, CONSUMER_SECRET, etc.).\nI’ve already run the code mentioned above and downloaded the data for you. The downloaded information on the senators’ twitter accounts is in project/senators-list.json in the GitHub repository, while the downloaded tweets are in timelines.json. timelines.json is too big to put in the Github repository. You can find it at http://www.stat.berkeley.edu/~paciorek/transfer/timelines.json. Note that there are only 200 tweets for each senator because of limits on how many tweets can be accessed in a given request.\n\n\nQuestions\n\nLoad the senators-list.json and timelines.json files into Python as objects called senators and timelines, using this syntax:\n\n\nCode\nwith open(\"tmp.json\") as infile:\n     y = json.load(infile)\n\n\nWhat type of datastructure is timelines? How many timelines are there? What does each timeline correspond to?\nMake a list of the number of followers each senator has.\nWhat is the screen name of the senator with the largest number of followers.\nMake a list of lists where the outer list represents senators and the inner list contains the text of each senator’s tweets, and call it tweets.\nWrite a function, called remove_punct, that takes a word and returns the word with all punctuation characters removed, except for those that occur within a word.\nWrite a function that takes tweet and returns a cleaned up version of the tweet. Here is an example function to get you started:\n::: {#385a00d0 .cell execution_count=2} ``` {.python .cell-code} def clean(tweet): cleaned_words = [word.lower() for word in tweet.split() if ‘http’ not in word and word.isalpha() and word != ‘RT’] return ’ ’.join(cleaned_words)\nclean(tweets[0][0]) ``` :::\nNote that the function I’ve provided is a bit buggy - it has some problems with some tweets. If your goal is to convert the tweet into a discrete set of words, what is going wrong here? Fix up and extend the example function.\nUse the following file to create a list, called stopwords, that contains common english words: http://www.textfixer.com/resources/common-english-words.txt. Make sure to pull the data into Python by writing Python code to download and suck the data into Python.\nWrite a function, called tokenize, which takes a tweet, cleans it, and removes all punctuation and stopwords.\nCreate a list of lists, tweets_content, using your tokenize function.\nCreate a list, tokens, where all 200 of each senator’s tweets are made into a single string. Hint: this syntax might be useful: \" \".join(my_list_of_strings).\nCreate a Pandas dataFrame with the following columns: senator name or handle, party of the senator, and number of times a prominent politician is mentioned in each senator’s tweets. You might count the number of ‘Obama’, ‘Trump’, or ‘Clinton’ references.\nYou can use this to create the party column (1=Republican, 0=Democratic):\n\n\nCode\nparty = np.array([1,1,1,1,1,1,0,0,1,0,1,1,0,0,0,1,1,1,0,0,0,1,1,1,1,0,1,0,\n1,1,1,0,0,0,0,0,0,1,0,1,1,1,0,1,1,1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,0,1,\n1,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,1,1,0,0,1,0,1,0,0,1,1,1,0,1])\n\n\nThat should correspond to the ordering in timelines but of course it would be more robust to create a dataFrame that has user names and party as columns and merge that with the count information.\nUse a Poisson GLM to assess the relationship between party and number of Obama/Trump/Clinton mentions. Does one party tend to mention Obama/Trump/Clinton more in their tweets? Can you deduce a pattern by considering the party of the senator and the party of Obama/Trump/Clinton?\nHere’s some syntax to help you get started:\n\n\nCode\nimport statsmodels.api as sm\nmodel = sm.GLM(endog = .,  exog = ., family = sm.families.Poisson())\nmodel.fit()\n\n\nDoes the statistical result make sense in light of the number of total mentions of Obama/Trump/Clinton by Republicans and the number of total mentions by Democrats?\nUse matplotlib to make histograms of the number of Obama mentions by senator, stratified by party.\nIs this consistent with the results of your statistical analysis?",
     "crumbs": [
       "Modules",
-      "(Optional) Mini Python Project"
+      "(Optional) Python Mini-Project"
     ]
   },
   {
@@ -255,18 +255,7 @@
     "href": "units/intro-computing.html",
     "title": "(Optional) Introduction to Computing and the Command Line",
     "section": "",
-    "text": "This module is drafted but still under construction.",
-    "crumbs": [
-      "Modules",
-      "(Optional) Introduction to Computing and the Command Line"
-    ]
-  },
-  {
-    "objectID": "units/intro-computing.html#draft-content-2024-08-01",
-    "href": "units/intro-computing.html#draft-content-2024-08-01",
-    "title": "(Optional) Introduction to Computing and the Command Line",
-    "section": "",
-    "text": "This module is drafted but still under construction.",
+    "text": "DRAFT CONTENT (2024-08-01)\n\n\n\nThis module is drafted but still under construction.",
     "crumbs": [
       "Modules",
       "(Optional) Introduction to Computing and the Command Line"
@@ -332,7 +321,117 @@
     "href": "units/intro-python.html",
     "title": "(Optional) Introduction to Python",
     "section": "",
-    "text": "[UNDER CONSTRUCTION]",
+    "text": "DRAFT CONTENT (2024-08-01)\n\n\n\nThis module is drafted but still under construction.",
+    "crumbs": [
+      "Modules",
+      "(Optional) Introduction to Python"
+    ]
+  },
+  {
+    "objectID": "units/intro-python.html#python-fundamentals",
+    "href": "units/intro-python.html#python-fundamentals",
+    "title": "(Optional) Introduction to Python",
+    "section": "1. Python Fundamentals",
+    "text": "1. Python Fundamentals\nWe’ll work through the Python Fundamentals section of the Software Carpentry workshop. The primary ideas covered are variables, data types, and basic function usage.\n\n\n\n\n\n\nExercise 1\n\n\n\n\nUsing the section on “Built-in Types” from the official “The Python Standard Library” reference, figure out how to compute:\n\n3 modulo 4,\n\\((\\lceil \\frac{3}{4} \\rceil \\times 4)^3\\), and\n\\(\\sqrt{-1}\\).\n\n\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\n\nIs the result of 5/3 - 2/3 of the integer type? Is the mathematical value seen in Python an integer? What about 7/3-4/3?\nHere’s a numerical puzzle. Why does the last computation not work, when the others do? And, for those of you coming from R, which of these computations don’t work in R?\n\n\nCode\n100000**10\n100000.0**10\n100000**100\n100000.0**100",
+    "crumbs": [
+      "Modules",
+      "(Optional) Introduction to Python"
+    ]
+  },
+  {
+    "objectID": "units/intro-python.html#analyzing-patient-data",
+    "href": "units/intro-python.html#analyzing-patient-data",
+    "title": "(Optional) Introduction to Python",
+    "section": "2. Analyzing Patient Data",
+    "text": "2. Analyzing Patient Data\nWe’ll work through the Analyzing Patient Data section of the Software Carpentry workshop. The primary ideas covered are libraries (aka packages), numpy arrays, and slicing.\n\n\n\n\n\n\nExercise 1\n\n\n\nWork on the questions about slicing in the section.\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\nNote that ? and ?? only work in IPython (or a Jupyter notebook). For help in plain Python, use help(np.ndim).\n\nWhat happens if you type np.ndim?? (i.e., use two question marks)? What additional do you see?\nWhat does np.ndim() do? How does it execute under the hood? Consider why the following uses of ndim both work.\n\n\nCode\na = np.array([0, 1, 2])\na.ndim\nnp.ndim(a)\n\n\nNow explain why only one of these works.\n\n\nCode\na = [0, 1, 2]\na.ndim\nnp.ndim(a)\n\n\nType np.array? in a Notebook or at the IPython prompt. Briefly skim the docstring. nparray allows you to construct numpy arrays.\nType np. followed by the &lt;Tab&gt; key in a Notebook or at the IPython prompt. Choose two or three of the completions and use ? to view their docstrings. In particular, pay attention to the examples provided near the end of the docstring and see whether you can figure out how you might use this functionality.",
+    "crumbs": [
+      "Modules",
+      "(Optional) Introduction to Python"
+    ]
+  },
+  {
+    "objectID": "units/intro-python.html#visualizing-tabular-data",
+    "href": "units/intro-python.html#visualizing-tabular-data",
+    "title": "(Optional) Introduction to Python",
+    "section": "3. Visualizing Tabular Data",
+    "text": "3. Visualizing Tabular Data\nWe’ll work through the Visualizing Tabular Data section of the Software Carpentry workshop. The primary ideas covered are making basic plots using the matplotlib package.\n\n\n\n\n\n\nExercise\n\n\n\nUsing the following code, read in the GapMinder data using Pandas (to be discussed later) and run the following code to make the variables easily available (you don’t need to know anything about Pandas).\n\n\nCode\nimport numpy as np\nimport pandas as pd\ndat = pd.read_csv('gapminder.csv')\nlifeExp = np.array(dat.lifeExp)\ngdpPercap = np.array(dat.gdpPercap)\nyear = np.array(dat.year)\n\n## Hint: slicing using an array of booleans\n## gdpPercap[year &gt; 2010]\n\n\n\nMake a scatterplot of lifeExp vs gdpPerCap for 2007; make sure you have nice axis labels and title.\nConsider whether plotting income on a logarithmic axis is a better way to display the data.\nUsing at least two years, make an array of plots (in one figure) where each subplot is a different year.",
+    "crumbs": [
+      "Modules",
+      "(Optional) Introduction to Python"
+    ]
+  },
+  {
+    "objectID": "units/intro-python.html#storing-multiple-values-in-lists",
+    "href": "units/intro-python.html#storing-multiple-values-in-lists",
+    "title": "(Optional) Introduction to Python",
+    "section": "4. Storing Multiple Values in Lists",
+    "text": "4. Storing Multiple Values in Lists\nWe’ll work through the Storing Multiple Values in Lists section of the Software Carpentry workshop. The primary ideas covered are creating, extracting from, and manipulating lists.\n\n\n\n\n\n\nExercise 1\n\n\n\nCreate a list of numbers, called x1. Reverse the order of the items in the list using slicing. Now reverse the order of the items using a list method. How does using the method differ from slicing? Hint: you can type x. followed by the &lt;Tab&gt; key in a Notebook or at the IPython prompt to find the various methods that can be applied to a list.\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\n\nFigure out some different ways of combining your list of numbers with your list of strings to create a single list of mixed type elements. (Hint: you can type x. followed by the &lt;Tab&gt; key in a Notebook or at the IPython prompt to find the various methods that can be applied to a list.)\nNow try to sort the resulting list. What happens?\n\n\n\n\n\n\n\n\n\nExercise 3\n\n\n\nAnswer the question related to Overloading in the Software Carpentry section.\n\n\n\n\n\n\n\n\nExercise 4\n\n\n\n\nWhat does the following tell you about copying and use of memory in lists in Python?\n\n\nCode\na = [1, 3, 5]\nb = a\nid(a)\nid(b)\n this should confirm what you might suspect\na[1] = 5",
+    "crumbs": [
+      "Modules",
+      "(Optional) Introduction to Python"
+    ]
+  },
+  {
+    "objectID": "units/intro-python.html#repeating-actions-with-loops",
+    "href": "units/intro-python.html#repeating-actions-with-loops",
+    "title": "(Optional) Introduction to Python",
+    "section": "5. Repeating Actions with Loops",
+    "text": "5. Repeating Actions with Loops\nWe’ll work through the Repeating Actions with Loops section of the Software Carpentry workshop. The primary ideas covered relate to using for loops to automate operations.\nIn addition to the explicit for looping shown in the unit, Python also has a construct called list comprehension to do something similar. Note that some people really dislike the list comprehension syntax as being hard to read.\n\n\nCode\nvals = [0, 5, 7]\nvals_times2 = [val*2 for val in vals]\nvals_times2\n\n\n[0, 10, 14]\n\n\n\n\n\n\n\n\nExercises\n\n\n\n\nSee what [1, 2, 3] + 3 returns. Try to explain what happened and why.\nHow would you do the same task using a for loop? The range function may be helpful as might the enumerate function.\nUse list comprehension to perform the same element-wise addition of the scalar to the list of scalars.\nChange [1, 2, 3] to be a numpy array and then add three using + 3.",
+    "crumbs": [
+      "Modules",
+      "(Optional) Introduction to Python"
+    ]
+  },
+  {
+    "objectID": "units/intro-python.html#making-choices",
+    "href": "units/intro-python.html#making-choices",
+    "title": "(Optional) Introduction to Python",
+    "section": "7. Making Choices",
+    "text": "7. Making Choices\nWe’ll work through the Making Choices section of the Software Carpentry workshop. The primary ideas covered are using conditionals (if-then-else statements) and boolean (logical) operations.\n\n\n\n\n\n\nExercise 1\n\n\n\nAnswer this question from the Software Carpentry section.\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\nAnswer this question from the Software Carpentry section.",
+    "crumbs": [
+      "Modules",
+      "(Optional) Introduction to Python"
+    ]
+  },
+  {
+    "objectID": "units/intro-python.html#creating-functions",
+    "href": "units/intro-python.html#creating-functions",
+    "title": "(Optional) Introduction to Python",
+    "section": "8. Creating Functions",
+    "text": "8. Creating Functions\nWe’ll work through the Creating Functions section of the Software Carpentry workshop. The primary ideas covered are defining, using, testing, and debugging functions.\nWe’ll skip over testing and documentation as we’ll cover those in depth later this week (and definitely NOT because they are unimportant).\nExercises\n\n\n\n\n\n\nExercise 1\n\n\n\nDefine a function called sqrt that will take the squae root of a number and will (if requested by the user) set the square root of a negative number to 0.\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\n\nWhat happens if you modify a list within a function in Python; why do you think this is?\nWhat happens if you modify a single number (scalar) within a function in Python; why do you think this is?\n\n\n\n\n\n\n\n\n\nExercise 3\n\n\n\nAnswer the question related to local vs. global variables in the Software Carpentry section.",
+    "crumbs": [
+      "Modules",
+      "(Optional) Introduction to Python"
+    ]
+  },
+  {
+    "objectID": "units/intro-python.html#errors-and-exceptions",
+    "href": "units/intro-python.html#errors-and-exceptions",
+    "title": "(Optional) Introduction to Python",
+    "section": "9. Errors and Exceptions",
+    "text": "9. Errors and Exceptions\nWe’ll work through the Errors and Exceptions section of the Software Carpentry workshop. The primary ideas covered are understanding error messages and tracebacks and writing your own code that handles errors.\n\n\n\n\n\n\nExercise 1\n\n\n\nAnswer this question from the Software Carpentry section.\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\nAnswer these questions from Sofware Carpentry:\n\nSyntax errors\nName errors\nIndex errors",
+    "crumbs": [
+      "Modules",
+      "(Optional) Introduction to Python"
+    ]
+  },
+  {
+    "objectID": "units/intro-python.html#extra-part-1.-some-other-useful-data-structures",
+    "href": "units/intro-python.html#extra-part-1.-some-other-useful-data-structures",
+    "title": "(Optional) Introduction to Python",
+    "section": "EXTRA Part 1. Some other useful data structures",
+    "text": "EXTRA Part 1. Some other useful data structures\n\nTuples\nTuples are immutable sequences of (zero or more) objects. Functions in Python often return tuples.\n\n\nCode\nx = 1; y = 'foo'\n\nxy = (x, y)\ntype(xy)\nxy = x,y\ntype(xy)\n\nxy\nxy[1]\n\nxy[1] = 3   immutable!\n\n\n\n  Cell In[3], line 11\n    xy[1] = 3   immutable!\n                ^\nSyntaxError: invalid syntax\n\n\n\n\nExercises\n\n\n\n\n\n\nExercise 1\n\n\n\n\nWhat’s weird about this? What are the types involved?\n\n\nCode\nz = x,y\na,b = x,y\n\n\nCreate the following: x=5 and y=6. Now swap their values using a single line of code. (For R users, how would you do this in R?)\n\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\nWhat happens when you multiply a tuple by a number?\n\n\n\n\n\n\n\n\nExercise 3\n\n\n\n\nWhy do you think there is no reverse method for tuples?\nWhat’s nice about using immutable objects in your code?\n\n\n\n\n\nDictionaries\nDictionaries are mutable, unordered collections of key-value pairs. They’re a very important data structure in Python so I’m surprised they weren’t discussed in the Software Carpentry sections.\n\n\nCode\nstudents = {\"Francis Bacon\": ['A', 'B+', 'A-'], \n            \"Marie Curie\": ['A-', 'A-'], \n            \"Aristotle\": 'and now for something completely different'}\nstudents\nstudents.keys()\nstudents.values()\nstudents[\"Marie Curie\"]\nstudents[\"Marie Curie\"][1]\n\n\n'A-'\n\n\n\n\nCode\nstudents.\n\n\nstudents.clear(       students.items(       students.setdefault(\nstudents.copy(        students.keys(        students.update(\nstudents.fromkeys(    students.pop(         students.values(\nstudents.get(         students.popitem()    \n\n\n\n\n\n\nExercise 1\n\n\n\nHow can you add an item to a dictionary?\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\nHow do you combine two dictionaries into a single dictionary?\n\n\n\n\n\n\n\n\nExercise 3 (for R users)\n\n\n\n\nWhat are some analogs to dictionaries in R?\nHow are dictionaries different from such analogous structures in R?",
+    "crumbs": [
+      "Modules",
+      "(Optional) Introduction to Python"
+    ]
+  },
+  {
+    "objectID": "units/intro-python.html#extra-part-2-a-bit-on-numpy-scipy-and-pandas",
+    "href": "units/intro-python.html#extra-part-2-a-bit-on-numpy-scipy-and-pandas",
+    "title": "(Optional) Introduction to Python",
+    "section": "EXTRA Part 2: A bit on numpy, scipy and pandas",
+    "text": "EXTRA Part 2: A bit on numpy, scipy and pandas\n\nNumpy and scipy\nStandard lists in Python are not amenable to mathematical manipulation, unlike standard vectors in R. Instead we generally work with numpy arrays. These arrays can be of various dimensions (i.e., vectors, matrices, multi-dimensional arrays).\n\n\nCode\nimport numpy as np\nz = [0, 1, 2] \n\ny = np.array(z)\ny*3\n\ny.dtype\n\n\nx = np.array([[1, 2], [3, 4]], dtype=np.float64)\nx*x\nx.dot(x)\nx.T\n\nnp.linalg.svd(x)\n\ne = np.linalg.eig(x)\n\ne[0]  # first eigenvalue (not the largest in this case...)\ne[1][:, 0] # corresponding eigenvector\n\n\narray([-0.82456484,  0.56576746])\n\n\nAll of the elements of the array must be of the same type.\nThere are a variety of numpy functions that allow us to do standard mathematical/statistical manipulations.\nHere we’ll use some of those functions in addition to some syntax for subsetting and vectorized calculations.\n\n\nCode\nnp.linspace(0, 1, 5)\n\nnp.random.seed(0)\nx = np.random.normal(size=10)\n\npos = x &gt; 0\n\ny = x[pos]\n\nx[[1, 3, 4]]\n\nx[pos] = 0\n\nnp.cos(x)\n\n\narray([1.        , 1.        , 1.        , 1.        , 1.        ,\n       0.55928119, 1.        , 0.98856735, 0.99467766, 1.        ])\n\n\nscipy has even more numerical routines, including working with distributions and additional linear algebra.\n\n\nCode\nimport scipy.stats as st\nst.norm.cdf(1.96, 0, 1)\nst.norm.cdf(1.96, 0.5, 2)\nst.norm(0.5, 2).cdf(1.96)\n\n\n\n\nPandas\nPandas provides a Python implementation of R’s dataframe capabilities. Let’s see some example code.\n\n\nCode\nimport pandas as pd\ndat = pd.read_csv('gapminder.csv')\ndat.head()\n\ndat.columns\ndat['year']\ndat.year\ndat[0:5]\n\ndat.sort_values(['year', 'country'])\n\ndat.loc[0:5, ['year', 'country']]  # R-style indexing\n\ndat[dat.year == 1952]\n\nndat = dat[['pop','lifeExp','gdpPercap']]\nndat.apply(lambda col: col.max() - col.min())\n\n\npop          1.318623e+09\nlifeExp      5.900400e+01\ngdpPercap    1.132820e+05\ndtype: float64\n\n\nNow let’s see the sort of split-apply-combine functionality that is popular in dplyr and related R packages.\n\n\nCode\ndat2007 = dat[dat.year == 2007].copy()  \n\ndat2007.groupby('continent', as_index=False)[['lifeExp','gdpPercap']].mean()\n\ndef stdize(vals):\n    return((vals - vals.mean()) / vals.std())\n\ndat2007['lifeExpZ'] = dat2007.groupby('continent')['lifeExp'].transform(stdize)",
     "crumbs": [
       "Modules",
       "(Optional) Introduction to Python"
