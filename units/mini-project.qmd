@@ -55,17 +55,17 @@ I've already run the code mentioned above and downloaded the data for you.  The 
 
 7. Write a function that takes tweet and returns a cleaned up version of the tweet. Here is an example function to get you started:
 
-    ```{python}
-    #| eval: false
-    def clean(tweet):
-        cleaned_words = [word.lower() for word in tweet.split() if
-                     'http' not in word and
+   ```{python}
+   #| eval: false
+   def clean(tweet):
+       cleaned_words = [word.lower() for word in tweet.split() if
+                    'http' not in word and
                      word.isalpha() and
                      word != 'RT']
-        return ' '.join(cleaned_words)
+       return ' '.join(cleaned_words)
                                                                                
-    clean(tweets[0][0])
-    ```
+   clean(tweets[0][0])
+   ```
 
     Note that the function I've provided is a bit buggy - it has some problems with some tweets. If your goal is to convert the tweet into a discrete set of words, what is going wrong here? Fix up and extend the example function.
 

@@ -1,6 +1,5 @@
 ---
 title: "(Optional) Introduction to Computing and the Command Line"
-author: "Chris Paciorek"
 format:
   html:
     theme: cosmo
@@ -29,7 +28,7 @@ This module introduces you to some computing concepts and provides a brief tutor
 
 # Preparation
 
-Our primary computing context with be the [UC Berkeley DataHub](datahub.berkeley.edu). This provides us with a common platform on which we are assured to get the same behavior as each other, allowing us to use the command line/shell/terminal and Python, including Jupyter notebooks. In particular getting a common command line environment would be hard otherwise.
+Our primary computing context will be the [UC Berkeley DataHub](../prep.qmd). This provides us with a common platform on which we are assured to get the same behavior as each other, allowing us to use the command line/shell/terminal and Python, including Jupyter notebooks. In particular getting a common command line environment would be hard otherwise. You can get more [details](../prep.qmd).
 
 ::: {.callout-note collapse="true"}
 ## Using your own laptop (optional)

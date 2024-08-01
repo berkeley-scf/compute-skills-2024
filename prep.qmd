@@ -1,8 +1,6 @@
 ---
 title: "Computational skills workshop"
 subtitle: "Accessing DataHub"
-author: "Chris Paciorek"
-date: "2024-05-29"
 format:
   html:
     theme: cosmo
@@ -18,7 +16,7 @@ execute:
 
 While it's fine to use your laptop, it will be hard for us to diagnose all the different problems that might arise with so many participants. So we recommend using a common computational environment during the workshop. We'll use the Berkeley DataHub for this. You can think of DataHub as providing user-specific virtual machines with identical software for all of us to use.
 
-To access your own machine/server with Python, git, and terminal access on the campus DataHub (also used for various data science, CS, and statistics courses), click [here](https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fberkeley-scf%2Fcompute-skills-2024&urlpath=lab%2Ftree%2Fcompute-skills-2024%2F&branch=main).
+Click [here](https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fberkeley-scf%2Fcompute-skills-2024&urlpath=lab%2Ftree%2Fcompute-skills-2024%2F&branch=main){target="_blank"} to access your own machine/server with Python, git, and terminal access on the campus DataHub (also used for various data science, CS, and statistics courses).
 
 That will get you onto your server with the materials for the course, from the `berkeley-scf/compute-skills-2024` repository available on the server.
 
@@ -28,7 +26,7 @@ To check things look good:
 
  1. Click on `Terminal`
  2. Check that your working directory is `~/compute-skills-2024` (by looking at the terminal prompt or running `pwd`)
- 3. Run `ls` to see the materials.
+ 3. Run `ls` to see the files in the repository.
 
 ## Editing files
 
