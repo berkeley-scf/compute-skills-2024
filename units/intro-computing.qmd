@@ -21,24 +21,11 @@ This module is drafted but still under construction.
 ::: {.callout-note}
 ## Overview
 
-This module introduces you to some computing concepts and provides a brief tutorial on working on the command line (aka, the "shell", or the "terminal").
+This module introduces you to some computing concepts and provides a brief tutorial on working on the *command line* (also known as, the *shell*, or the *terminal*).
 :::
 
+{{< include point-to-prep.qmd >}}
 
-
-# Preparation
-
-Our primary computing context will be the [UC Berkeley DataHub](../prep.qmd). This provides us with a common platform on which we are assured to get the same behavior as each other, allowing us to use the command line/shell/terminal and Python, including Jupyter notebooks. In particular getting a common command line environment would be hard otherwise. You can get more [details](../prep.qmd).
-
-::: {.callout-note collapse="true"}
-## Using your own laptop (optional)
-
-If you want, you can also install Python on your own computer. If you do that, we recommend using [Miniforge](https://github.com/conda-forge/miniforge). Another option is the Anaconda distribution of Python](https://www.anaconda.com/distribution)
-
-For the shell/terminal parts of this material, you can use the Terminal on your Mac, but not on Windows.
-
-If you do use your own computer, you'll need to *clone* [this GitHub repository](https://github.com/berkeley-scf/compute-skills-2024). If you don't know how to do that, just download [this zip file](https://github.com/berkeley-scf/compute-skills-2024/archive/refs/heads/main.zip) and unzip it into your home directory on your computer.
-:::
 
 # Parts of a computer
 
@@ -59,7 +46,7 @@ We'll discuss these components via [this overview](https://36-750.github.io/tool
 Depending on what your code is doing, the slow step in a computation might be:
 
  - doing the actual calculations on the CPU,
- - moving data back and forth from memory to the CPU, or
+ - moving data back and forth from (main) memory (RAM) to the CPU, or
  - reading/writing (I/O) data to/from disk.
 
 # Concepts of parallelization
@@ -134,7 +121,7 @@ We'll start a shell on our DataHub (Jupyter) server, which is (basically) a Linu
 On DataHub, the prompt in the shell looks like this:
 
 ```
-jovyyan@jupyter-paciorek:~$
+jovyan@jupyter-paciorek:~$
 ```
 
 but below we'll indicate that simply as:
@@ -155,7 +142,7 @@ Here's how you can see where you are using the `pwd` ("print working directory")
 
 ```bash
 $ pwd
-/home/jovyan
+/home/jovyan/compute-skills-2024
 ```
 
 
@@ -164,12 +151,10 @@ and here's how you use `ls` to list the files (and subdirectories) in the workin
 
 ```bash
 $ ls
-data  howtos  project  ps  README.md  sections  syllabus.lyx  syllabus.pdf  units
+assets       license.qmd  README.md     units           _variables.yml
+buttons.yml  prep.qmd     schedule.yml  Untitled.ipynb
+index.qmd    _quarto.yml  syllabus.qmd  untitled.py
 ```
-
-[TODO: update this output]
-
-
 
 Now suppose I want to be in a different directory so I can see what is there or do things to the files in that directory.
 
@@ -178,18 +163,16 @@ The command you need is `cd` ("change directory") and an important concept you n
 Now let's go into a subdirectory. We can use `cd` with the name of the subdirectory. The subdirectory is found 'relative' to our working directory, i.e., found from where we currently are.
 
 ```bash
-$ cd compute-bootcamp-2024
+$ cd units
 $ pwd
-/home/jovyan/compute-bootcamp-2024
+/home/jovyan/compute-skills-2024/units
 ```
 
-We could also navigate through nested subdirectories. For example, after going back to our home directory (using `cd` alone will do this), let's go to the `mytoy` subdirectory of the `compute-bootcamp-2024` subdirectory. The `/` is a separate character that distinguishes the nested subdirectories.
+We could also navigate through nested subdirectories. For example, after going back to our home directory (using `cd` alone will do this), let's go to the `units` subdirectory of the `compute-skills-2024` subdirectory. The `/` is a separate character that distinguishes the nested subdirectories.
 
 ```bash
 $ cd
-$ cd compute-bootcamp-2024/mytoy
-$ pwd
-/home/jovyan/compute-bootcamp-2024/mytoy
+$ cd compute-skills-2024/units
 ```
 
 You can access the parent directory of any directory using `..`:
@@ -197,24 +180,24 @@ You can access the parent directory of any directory using `..`:
 ```bash
 $ cd ..
 $ pwd
-/home/jovyan/compute-bootcamp-2024
+/home/jovyan/compute-skills-2024
 ```
 
 We can get more complicated in our use of `..` with relative paths. Here we'll go up a directory and then down to a different subdirectory.
 
 ```bash
 $ cd units
-$ cd ../data 
+$ cd ../assets
 $ pwd
-/home/scflocal/stat243-fall-2020/data
+/home/jovyan/compute-skills-2024/assets
 ```
 
-And here we'll go up two directories and then down to another subdirectory.
+And here we'll go up two directories and then down to another subdirectory (but note that `/home/jovyan/tmp` may not exist for your server).
 
 ```bash
-$ cd ../../tutorial-unix-basics  # go up two directories and down
+$ cd ../../tmp  # Go up two directories and down.
 $ pwd
-/home/scflocal/tutorial-unix-basics
+/home/jovyan/tmp
 ```
 
 ### Absolute versus relative paths
@@ -224,9 +207,9 @@ All of the above examples used **relative** paths to navigate based on your work
 We can instead use **absolute** paths so that it doesn't matter where we are when we run the command. Specifying an absolute path is done by having your path start with `/`, such as `/home/jovyan`. If the path doesn't start with `/` then it is interpreted as being a relative path, relative to your working directory. Here we'll go to the `units` subdirectory again, but this time using an absolute path. 
 
 ```bash
-$ cd /home/jovyan/stat243-fall-2020/units 
+$ cd /home/jovyan/compute-skills-2024/units 
 $ pwd
-/home/jovyan/stat243-fall-2020/units
+/home/jovyan/compute-skills-2024/units
 ```
 
 ::: {.callout-warning}
@@ -242,37 +225,36 @@ Using absolute paths is generally a bad idea for reproducibility and automation 
 
 The filesystem is basically a upside-down tree.
 
-For example, if we just consider the `stat243-fall-2020/sections` directory, we can see the tree structure using `tree`:
+For example, if we just consider the `compute-skills-2024` directory, we can see the tree structure using `tree` (not available on DataHub):
 
 ```bash
-$ cd /home/jovyan/stat243-fall-2020/sections
+$ cd /home/jovyan/compute-skills-2024
 $ tree
 ```
 
-Often (as is the case here), that would print out a lot of files and directories, so I'll just print out the first few lines of the result here:
+Often (as is the case here), that would print out a lot of files and directories, so I'll just print out the first few lines of the result here. One doesn't usually use `tree`  that much -- our purpose here is to emphasize the hierarchical, nested structure of the filesystem.
 
 ```
 .
-├── 01
-│   ├── data
-│   │   ├── cpds.csv
-│   │   ├── heights.dta
-│   │   └── stateIncome.txt
-│   ├── README.md
-│   ├── R-practice.pdf
-│   └── solutions
-│       ├── R-practice-solutions.html
-│       ├── R-practice-solutions.Rmd
-│       ├── UNIX-practice-solutions.html
-│       └── UNIX-practice-solutions.Rmd
-├── 02
-│   ├── example_sweave.pdf
-│   ├── example_sweave.Rnw
-│   ├── intro_git_knitr.pdf
-│   └── intro_git_knitr.Rmd
+├── assets
+│   ├── buttons-alt.ejs
+│   ├── buttons.ejs
+│   ├── schedule-alt.ejs
+│   ├── schedule.ejs
+│   ├── stat_bear.png
+│   ├── styles-alt.scss
+│   └── styles.css
+├── buttons.yml
+├── _freeze
+│   ├── site_libs
+│   │   ├── clipboard
+│   │   │   └── clipboard.min.js
+│   │   └── quarto-listing
+│   │       ├── list.min.js
+│   │       └── quarto-listing.js
 ```
 
-The dot (`.`) means "this directory", so the top of the tree here is the `sections` directory itself, within which there are subdirectories, `01`, `02`, `03`, etc. Then within each of these are files and further subdirectories (as seen in the case of `01`, which has subdirectories named `data` and `solutions`.)
+The dot (`.`) means "this directory", so the top of the tree here is the `compute-skills-2024` directory itself, within which there are various subdirectories. Then within each of these are files and further subdirectories.
 
 If we consider the entire filesystem, the top, or root of the tree, is the `/` directory. Within `/` there are subdirectories, such as `/home` (which contains users' home directories where all of the files owned by a user are stored) and `/bin` (containing UNIX programs, aka 'binaries'). We'll use `ls` again, this time telling it the directory to operate on:
 
@@ -292,8 +274,6 @@ jovyan shiny
 
 ```bash
 $ cd /home/jovyan
-$ pwd
-/home/jovyan
 ```
 
 Go to the home directory of the current user (which happens to be the `jovyan` user):
@@ -318,7 +298,7 @@ Another useful directory is `/tmp`, which is a good place to put temporary files
 ```bash
 $ cd /tmp
 $ ls
-tmp.txt
+jupyter-runtime
 ```
 
 
@@ -337,27 +317,35 @@ $ pwd
 Let's look more at various ways to use commands. We just saw the `ls` command. Here's one way we can modify the behavior of the command by passing a command option. Here the `-F` option (also called a *flag*) shows directories by appending `/` to anything that is a directory (rather than a file) and a `*` to anything that is an executable (i.e., a program).
 
 ```bash
-$ cd stat243-fall-2020
+$ cd compute-skills-2024
 $ ls -F
-data/  howtos/  project/  ps/  README.md  sections/  syllabus.lyx  syllabus.pdf  units/
+$ ls -F /usr/bin
 ```
 
 
 Next we'll use multiple options to the `ls` command. `-l` shows extended information about files/directories. `-t` shows files/directories in order of the time at which they were last modified and `-r` shows in reverse order. Before I run `ls`, I'll create an empty file using the `touch` command. 
 
 ```bash
-$ cd ../tutorial-unix-basics
-$ touch myfile
+$ cd
+$ touch example.txt
 $ ls -lrt
-total 144
--rw-rw-r-- 1 jovyan jovyan  1290 Dec 28 13:06 README.md
--rw-rw-r-- 1 jovyan jovyan 29702 Dec 28 13:09 unix-basics.Rmd
-drwxrwxr-x 9 jovyan jovyan  4096 Dec 28 13:09 stat243-fall-2020
--rw------- 1 jovyan jovyan    22 Dec 28 13:09 tmp.txt
--rw-rw-r-- 1 jovyan jovyan     6 Dec 28 13:09 hello.pdf
--rw-rw-r-- 1 jovyan jovyan 41079 Dec 28 13:09 unix-basics.md
--rw-rw-r-- 1 jovyan jovyan 49482 Dec 28 13:09 unix-basics.html
--rw-rw-r-- 1 jovyan jovyan     0 Dec 28 13:32 myfile
+total 14496
+-rw-r--r-- 1 jovyan jovyan    36365 Aug 29  2022 'Screen Shot 2021-10-26 at 10.54.07 AM.png'
+-rw-r--r-- 1 jovyan jovyan 14757718 Oct 25  2022  data_c80_regsample_3.dta
+-rw-r--r-- 1 jovyan jovyan     2436 Oct 25  2022  Untitled1.ipynb
+-rw-r--r-- 1 jovyan jovyan      470 Oct 25  2022  Untitled2.ipynb
+-rw------- 1 jovyan jovyan      438 Jan  3  2023  WHERE-ARE-MY-FILES.txt
+drwxr-xr-x 5 jovyan jovyan     4096 May 30 16:12  python-workshop-2023
+-rw------- 1 jovyan jovyan       75 May 31 16:18  tmphn20xgkx
+-rw------- 1 jovyan jovyan       91 Jun  3 14:56  tmp4d_d65l_
+drwxr-xr-x 3 jovyan jovyan     4096 Jun  4 15:58  test-private
+drwxr-xr-x 4 jovyan jovyan     4096 Jul 19 14:55  test-jh
+-rw-r--r-- 1 jovyan jovyan      918 Jul 19 14:59  Untitled.ipynb
+drwxr-xr-x 2 jovyan jovyan     4096 Jul 19 15:52  tmp
+-rw-r--r-- 1 jovyan jovyan        0 Jul 31 14:10  untitled.py
+-rw-r--r-- 1 jovyan jovyan      617 Jul 31 14:12  Untitled3.ipynb
+drwxr-xr-x 7 jovyan jovyan     4096 Aug  1 15:45  compute-skills-2024
+-rw-r--r-- 1 jovyan jovyan        0 Aug  1 16:03  example.txt
 ```
 
 While each command has its own syntax, there are some rules usually
@@ -371,8 +359,11 @@ followed. Generally, executing a command consists of four things:
 Here's an example:
 
 ```bash
+$ echo "hello there" >> example.txt
+$ echo "and goodbye" >> example.txt
+$ echo "really now" >> example.txt
 $ wc -l example.txt
-4 example.txt
+3 example.txt
 ```
 
 In the above example, `wc` is the command, `-l` is a command option
@@ -404,9 +395,9 @@ or long form (`--lines` here), as seen in the following equivalent invocations:
 
 ```bash
 $ wc -l example.txt
-4 example.txt
+3 example.txt
 $ wc --lines example.txt
-4 example.txt
+3 example.txt
 ```
 
 
@@ -415,9 +406,9 @@ be combined with the `-l` option equivalently in two ways:
 
 ```bash
 $ wc -lm example.txt
-  4 51 example.txt
+  3 35 example.txt
 $ wc -l -m example.txt
-  4 51 example.txt
+  3 35 example.txt
 ```
 
 
@@ -426,10 +417,6 @@ the following invocations are equivalent:
 
 ```bash
 $ head -n 2 example.txt
-Hello there.
-This is a file
-```
-```
 $ head --lines=2 example.txt
 $ head --lines 2 example.txt
 ```
@@ -442,14 +429,16 @@ Anything that follows `#` is a comment and is ignored.
 ```bash
 $ # This is ignored
 $ ls  # Everything after the # is ignored
-example.txt  myfile  README.md  stat243-fall-2020  tmp.txt  unix-basics.html
-unix-basics.md  unix-basics.Rmd
+ compute-skills-2024                          test-jh           Untitled2.ipynb
+ data_c80_regsample_3.dta                     test-private      Untitled3.ipynb
+
 ```
 
 
 ### Getting help with UNIX commands
 
 Essentially all UNIX commands have  help information (called a man page), accessed using `man`.
+Unfortunately the man pages are not available on the DataHub terminal (I can demo it on my laptop terminal instead...).
 
 ```bash
 $ man ls
@@ -464,6 +453,24 @@ Also, UNIX commands as well as other programs run from the command line often pr
 ```bash
 $ ls --help
 ```
+
+### Tab completion
+
+If you hit `Tab` the shell tries to figure out what command or filename you want based on the initial letters you typed.
+
+Try it with:
+
+```bash
+cd com
+ech
+```
+
+The first should allow you to get `compute-skills-2024` and the second `echo`.
+
+::: {.callout-tip}
+## Tab completion everywhere
+Lots of interactive programs have adopted the idea of tab completion, including Python/IPython and R.
+:::
 
 ### Seeing if a command or program is available
 
@@ -485,24 +492,24 @@ python is /srv/conda/bin/python
 You'll often want to make a copy (`cp`) of a file, move it (`mv`) between directories, or remove it (`rm`). 
 
 ```bash
-$ cd ~/stat243-fall-2020/units
-$ cp unit8-bigData.py unit8-bigData-new.py
-$ mv unit8-bigData-new.py /tmp/.
+$ cd ~/compute-skills-2024/units
+$ cp calc.py calc-new.py
+$ mv calc-new.py /tmp/.
 $ cd /tmp
 $ ls -lrt
-total 12
--rw-rw-r-- 1 jovyan jovyan    0 Dec 28 13:31 hello.txt
--rw-rw-r-- 1 jovyan jovyan 9914 Dec 28 13:36 unit8-bigData-new.py
+total 8
+drwx-----T 2 jovyan jovyan 4096 Aug  1 16:15 jupyter-runtime
+-rw-r--r-- 1 jovyan jovyan  413 Aug  1 16:16 calc-new.py
 ```
 
 When we moved the file, the use of `.` in `/tmp/.` indicates we want to use the same name as the original file.
 
 
 ```bash
-$ rm unit8-bigData-new.py
+$ rm calc-new.py
 $ ls -lrt
-total 0
--rw-rw-r-- 1 jovyan jovyan 0 Dec 28 13:31 hello.txt
+total 4
+drwx-----T 2 jovyan jovyan 4096 Aug  1 16:15 jupyter-runtime
 ```
 
 ::: {.callout-important}
@@ -516,28 +523,13 @@ I used `rm` above to remove the file. Be very careful about removing files - the
 
 The `mv` command is also used if you want to rename a file. 
 ```bash
-$ cd ~/stat243-fall-2020/units
-$ mv unit8-bigData.py unit8-bigData-processing.py
+$ cd ~/compute-skills-2020/units
+$ mv session3.qmd _sesson3.qmd
 $ ls
 ```
 
-```
-badCode.R               provision-github.py            unit13-graphics.lyx  unit4-goodPractices.lyx  unit8-bigData.lyx
-calc_mean.py            provision-github-secrets.json  unit13-graphics.pdf  unit4-goodPractices.pdf  unit8-bigData.pdf
-class1-demo.sh          shell.pdf                      unit13-graphics.R    unit5-programming.lyx    unit8-bigData-processing.py
-class2-taboo-game.md    unit10-linalg.lyx              unit1-unix.lyx       unit5-programming.pdf    unit8-bigData.R
-E-step-fixed.png        unit10-linalg.pdf              unit1-unix.pdf       unit5-programming.R      unit8-bigData.sh
-exampleGraphic.png      unit10-linalg.R                unit2-dataTech.lyx   unit6-numbers.lyx        unit9-sim.lyx
-gelmanUnwin2013.pdf     unit11-optim.lyx               unit2-dataTech.pdf   unit6-numbers.pdf        unit9-sim.pdf
-goodCode.R              unit11-optim.pdf               unit2-dataTech.R     unit6-numbers.R          unit9-sim.R
-gordonFinch2015.pdf     unit11-optim.R                 unit3-bash.lyx       unit7-parallel.lyx       wainer1984.pdf
-likLoops.Rda            unit12-integ.lyx               unit3-bash.pdf       unit7-parallel.pdf
-pca_example_unit10.png  unit12-integ.pdf               unit3-bash.sh        unit7-parallel.py
-provision-github.json   unit12-integ.R                 unit3-bash-sol.sh    unit7-parallel.R
-```
 
-
-## Exercise: shell commands
+## Exercises: shell commands
 
 ::: {.callout-tip}
 ## Exercise 1
@@ -598,6 +590,8 @@ if __name__ == '__main__':
 ```bash
 python calc.py
 ```
+
+We might need to run it in a loop to be able to monitor the running process (since it finishes so quickly): `for ((i=0;i<10;i++)); do python calc.py; done```
 
 ### Monitoring CPU and memory use
 

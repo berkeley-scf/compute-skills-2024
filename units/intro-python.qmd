@@ -21,22 +21,10 @@ This module is drafted but still under construction.
 ::: {.callout-note}
 ## Overview
 
-This module introduces you to Python, making heavy use of [this Software Carpentry lesson](https://swcarpentry.github.io/python-novice-inflammation).
+This module introduces you to Python, making heavy use of [this Software Carpentry lesson](https://swcarpentry.github.io/python-novice-inflammation){target="_blank"}.
 :::
 
-# Preparation
-
-Our primary computing context with be the [UC Berkeley DataHub](datahub.berkeley.edu). This provides us with a common platform on which we are assured to get the same behavior as each other, allowing us to use the command line/shell/terminal and Python, including Jupyter notebooks. In particular getting a common command line environment would be hard otherwise.
-
-::: {.callout-note collapse="true"}
-## Using your own laptop (optional)
-
-If you want, you can also install Python on your own computer. If you do that, we recommend using [Miniforge](https://github.com/conda-forge/miniforge). Another option is the Anaconda distribution of Python](https://www.anaconda.com/distribution)
-
-For the shell/terminal parts of this material, you can use the Terminal on your Mac, but not on Windows.
-
-If you do use your own computer, you'll need to *clone* [this GitHub repository](https://github.com/berkeley-scf/compute-skills-2024). If you don't know how to do that, just download [this zip file](https://github.com/berkeley-scf/compute-skills-2024/archive/refs/heads/main.zip) and unzip it into your home directory on your computer.
-:::
+{{< include point-to-prep.qmd >}}
 
 
 # Ways of running Python
@@ -65,7 +53,7 @@ def run_linalg(n):
 
 The file `calc.py` contains a variation on the code shown above and it can be run in the shell as
 
-```{bash}
+```bash
 python calc.py
 ```
 
@@ -89,11 +77,11 @@ Finally running Python within *VS Code* or an IDE such as *PyCharm* is also comm
 
 # Basic use of Python
 
-We'll use [this Software Carpentry lesson](https://swcarpentry.github.io/python-novice-inflammation) for most of this material.
+We'll use [this Software Carpentry lesson](https://swcarpentry.github.io/python-novice-inflammation){target="_blank"} for most of this material.
 
 ## 1. Python Fundamentals
 
-We'll work through the [Python Fundamentals section](https://swcarpentry.github.io/python-novice-inflammation/01-intro.html) of the Software Carpentry workshop. The primary ideas covered are variables, data types, and basic function usage.
+We'll work through the [Python Fundamentals section](https://swcarpentry.github.io/python-novice-inflammation/01-intro.html){target="_blank"} of the Software Carpentry workshop. The primary ideas covered are variables, data types, and basic function usage.
 
 ::: {.callout-tip}
 ## Exercise 1
@@ -110,7 +98,7 @@ Standard Library" reference](https://docs.python.org/3/library/index.html), figu
 ::: {.callout-tip}
 ## Exercise 2
 
-- Is the result of `5/3 - 2/3` of the integer type? Is the mathematical value seen in Python an integer? What about `7/3-4/3`?
+- Is `1.0` of the integer type? What about `1`? Is the result of `5/3 - 2/3` of the integer type? Is the mathematical value seen in Python an integer? 
 - Here's a numerical puzzle. Why does the last computation not work, when the others do? And, for those of you coming from R, which of these computations don't work in R?
   ```{python}
   #| eval: false
@@ -123,12 +111,12 @@ Standard Library" reference](https://docs.python.org/3/library/index.html), figu
 
 ## 2. Analyzing Patient Data
 
-We'll work through the [Analyzing Patient Data section](https://swcarpentry.github.io/python-novice-inflammation/02-numpy.html) of the Software Carpentry workshop. The primary ideas covered are libraries (aka packages), numpy arrays, and slicing.
+We'll work through the [Analyzing Patient Data section](https://swcarpentry.github.io/python-novice-inflammation/02-numpy.html){target="_blank"} of the Software Carpentry workshop. The primary ideas covered are libraries (aka packages), numpy arrays, and slicing.
 
 ::: {.callout-tip}
 ## Exercise 1
 
-Work on the [questions about slicing in the section](https://swcarpentry.github.io/python-novice-inflammation/02-numpy.html#slicing-strings).
+Work on the [questions about slicing in the section](https://swcarpentry.github.io/python-novice-inflammation/02-numpy.html#slicing-strings){target="_blank"}.
 :::
 
 ::: {.callout-tip}
@@ -163,7 +151,7 @@ Note that `?` and `??` only work in IPython (or a Jupyter notebook). For help in
 
 ## 3. Visualizing Tabular Data
 
-We'll work through the [Visualizing Tabular Data section](https://swcarpentry.github.io/python-novice-inflammation/03-matplotlib.html) of the Software Carpentry workshop. The primary ideas covered are making basic plots using the `matplotlib` package.
+We'll work through the [Visualizing Tabular Data section](https://swcarpentry.github.io/python-novice-inflammation/03-matplotlib.html){target="_blank"} of the Software Carpentry workshop. The primary ideas covered are making basic plots using the `matplotlib` package.
 
 ::: {.callout-tip}
 ## Exercise
@@ -191,7 +179,7 @@ year = np.array(dat.year)
 
 ## 4. Storing Multiple Values in Lists
 
-We'll work through the [Storing Multiple Values in Lists section](https://swcarpentry.github.io/python-novice-inflammation/04-lists.html) of the Software Carpentry workshop. The primary ideas covered are creating, extracting from, and manipulating lists.
+We'll work through the [Storing Multiple Values in Lists section](https://swcarpentry.github.io/python-novice-inflammation/04-lists.html){target="_blank"} of the Software Carpentry workshop. The primary ideas covered are creating, extracting from, and manipulating lists.
 
 ::: {.callout-tip}
 ## Exercise 1
@@ -214,7 +202,7 @@ Create a list of numbers, called `x1`. Reverse the order of the items in the lis
 ::: {.callout-tip}
 ## Exercise 3
 
-Answer the [question related to Overloading](https://swcarpentry.github.io/python-novice-inflammation/04-lists.html#overloading) in the Software Carpentry section.
+Answer the [question related to Overloading](https://swcarpentry.github.io/python-novice-inflammation/04-lists.html#overloading){target="_blank"} in the Software Carpentry section.
 
 :::
 
@@ -228,14 +216,14 @@ Answer the [question related to Overloading](https://swcarpentry.github.io/pytho
   b = a
   id(a)
   id(b)
-   this should confirm what you might suspect
+  # this should confirm what you might suspect
   a[1] = 5
   ```
 :::
 
 ## 5. Repeating Actions with Loops
 
-We'll work through the [Repeating Actions with Loops section](https://swcarpentry.github.io/python-novice-inflammation/05-loop.html) of the Software Carpentry workshop. The primary ideas covered relate to using `for` loops to automate operations.
+We'll work through the [Repeating Actions with Loops section](https://swcarpentry.github.io/python-novice-inflammation/05-loop.html){target="_blank"} of the Software Carpentry workshop. The primary ideas covered relate to using `for` loops to automate operations.
 
 In addition to the explicit for looping shown in the unit, Python also has a construct called *list comprehension* to do something similar. Note that some people really dislike the list comprehension syntax as being hard to read.
 
@@ -257,25 +245,25 @@ vals_times2
 
 ## 7. Making Choices
 
-We'll work through the [Making Choices section](https://swcarpentry.github.io/python-novice-inflammation/07-cond.html) of the Software Carpentry workshop. The primary ideas covered are using conditionals (if-then-else statements) and boolean (logical) operations.
+We'll work through the [Making Choices section](https://swcarpentry.github.io/python-novice-inflammation/07-cond.html){target="_blank"} of the Software Carpentry workshop. The primary ideas covered are using conditionals (if-then-else statements) and boolean (logical) operations.
 
 ::: {.callout-tip}
 ## Exercise 1
 
-Answer [this question](https://swcarpentry.github.io/python-novice-inflammation/07-cond.html#what-is-truth) from the Software Carpentry section.
+Answer [this question](https://swcarpentry.github.io/python-novice-inflammation/07-cond.html#what-is-truth){target="_blank"} from the Software Carpentry section.
 
 :::
 
 ::: {.callout-tip}
 ## Exercise 2
 
-Answer [this question](https://swcarpentry.github.io/python-novice-inflammation/07-cond.html#counting-vowels) from the Software Carpentry section.
+Answer [this question](https://swcarpentry.github.io/python-novice-inflammation/07-cond.html#counting-vowels){target="_blank"} from the Software Carpentry section.
 
 :::
 
 ## 8. Creating Functions
 
-We'll work through the [Creating Functions section](https://swcarpentry.github.io/python-novice-inflammation/08-func.html) of the Software Carpentry workshop. The primary ideas covered are defining, using, testing, and debugging functions.
+We'll work through the [Creating Functions section](https://swcarpentry.github.io/python-novice-inflammation/08-func.html){target="_blank"} of the Software Carpentry workshop. The primary ideas covered are defining, using, testing, and debugging functions.
 
 We'll skip over testing and documentation as we'll cover those in depth later this week (and definitely NOT because they are unimportant).
 
@@ -284,7 +272,7 @@ We'll skip over testing and documentation as we'll cover those in depth later th
 ::: {.callout-tip}
 ## Exercise 1
 
-Define a function called `sqrt` that will take the squae root of a number and will (if requested by the user) set the square root of a negative number to 0.
+Define a function called `sqrt` that will take the square root of a number and will (if requested by the user) set the square root of a negative number to 0.
 
 :::
 
@@ -299,18 +287,18 @@ Define a function called `sqrt` that will take the squae root of a number and wi
 ::: {.callout-tip}
 ## Exercise 3
 
-Answer the [question related to local vs. global variables](https://swcarpentry.github.io/python-novice-inflammation/08-func.html#variables-inside-and-outside-functions) in the Software Carpentry section.
+Answer the [question related to local vs. global variables](https://swcarpentry.github.io/python-novice-inflammation/08-func.html#variables-inside-and-outside-functions){target="_blank"} in the Software Carpentry section.
 
 :::
 
 ## 9. Errors and Exceptions 
 
-We'll work through the [Errors and Exceptions section](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html) of the Software Carpentry workshop. The primary ideas covered are understanding error messages and tracebacks and writing your own code that handles errors.
+We'll work through the [Errors and Exceptions section](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html){target="_blank"} of the Software Carpentry workshop. The primary ideas covered are understanding error messages and tracebacks and writing your own code that handles errors.
 
 ::: {.callout-tip}
 ## Exercise 1
 
-Answer [this question](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html#reading-error-messages) from the Software Carpentry section.
+Answer [this question](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html#reading-error-messages){target="_blank"} from the Software Carpentry section.
 
 :::
 
@@ -319,9 +307,9 @@ Answer [this question](https://swcarpentry.github.io/python-novice-inflammation/
 
 Answer these questions from Sofware Carpentry:
 
-- [Syntax errors](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html#identifying-syntax-errors)
-- [Name errors](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html#identifying-variable-name-errors)
-- [Index errors](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html#identifying-index-errors)
+- [Syntax errors](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html#identifying-syntax-errors){target="_blank"}
+- [Name errors](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html#identifying-variable-name-errors){target="_blank"}
+- [Index errors](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html#identifying-index-errors){target="_blank"}
 
 :::
 

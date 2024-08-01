@@ -24,7 +24,8 @@ That will get you onto your server with the materials for the course, from the `
 
 To check things look good:
 
- 1. Click on `Terminal`
+ 1. Click on `Terminal` (in the 3rd row of the `Launcher` tab, under `Other`).
+    (If you have trouble finding the Terminal, go to `File` -> `New` -> `Terminal`.)
  2. Check that your working directory is `~/compute-skills-2024` (by looking at the terminal prompt or running `pwd`)
  3. Run `ls` to see the files in the repository.
 
@@ -32,7 +33,7 @@ To check things look good:
 
 You can combine text and code in a notebook, which you can start with:
 
-- `New Launcher` -> `Notebook` -> `Python 3 (ipykernel`, or
+- `New Launcher` -> `Notebook` -> `Python 3 (ipykernel)`, or
 - `File` -> `New` -> `Notebook`
 
 To run the code in a cell, a shortcut is `Ctrl` + `Enter/Return`.
