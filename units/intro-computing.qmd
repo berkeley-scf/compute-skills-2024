@@ -15,7 +15,7 @@ execute:
   freeze: auto
 ---
 
-::: {.callout-danger}
+::: {.callout-warning}
 ## DRAFT CONTENT (2024-08-01)
 This module is drafted but still under construction.
 :::
