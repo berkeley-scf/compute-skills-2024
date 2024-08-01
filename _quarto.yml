@@ -21,11 +21,14 @@ website:
         contents:
           - href: units/comp-practices.qmd
             text: Computational Tools and Practices
-          - units/additional-topics.qmd
+          - href: units/additional-topics.qmd
+            text: Numerics and Reproducibility
           - href: units/intro-computing.qmd
-            text Intro to Computing and Command Line
-          - units/intro-python.qmd
-          - units/mini-project.qmd
+            text: Intro to Computing and Command Line
+          - href: units/intro-python.qmd
+            text: Intro to Python
+          - href: units/mini-project.qmd
+            text: Python Mini Project
       - href: license.qmd
         text: License
           
