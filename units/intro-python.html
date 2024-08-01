@@ -6,8 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Chris Paciorek">
-<meta name="dcterms.date" content="2024-08-19">
 
 <title>(Optional) Introduction to Python</title>
 <style>
@@ -146,7 +144,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../units/comp-practices.html">Modules</a></li><li class="breadcrumb-item"><a href="../units/intro-python.html">(Optional) Introduction to Python</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../units/comp-practices.html">Modules</a></li><li class="breadcrumb-item"><a href="../units/intro-python.html">Intro to Python</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -213,25 +211,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../units/additional-topics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Additional Topics</span></a>
+ <span class="menu-text">Numerics and Reproducibility</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../units/intro-computing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">(Optional) Introduction to Computing and the Command Line</span></a>
+ <span class="menu-text">Intro to Computing and Command Line</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../units/intro-python.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">(Optional) Introduction to Python</span></a>
+ <span class="menu-text">Intro to Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../units/mini-project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">(Optional) Python Mini-Project</span></a>
+ <span class="menu-text">Python Mini Project</span></a>
   </div>
 </li>
       </ul>
@@ -281,7 +279,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../units/comp-practices.html">Modules</a></li><li class="breadcrumb-item"><a href="../units/intro-python.html">(Optional) Introduction to Python</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../units/comp-practices.html">Modules</a></li><li class="breadcrumb-item"><a href="../units/intro-python.html">Intro to Python</a></li></ol></nav>
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">(Optional) Introduction to Python</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
@@ -290,19 +288,7 @@ window.Quarto = {
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Chris Paciorek </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">August 19, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -365,7 +351,7 @@ Using your own laptop (optional)
 <p>There are various options for how to save our code and in what context to run it.</p>
 <p>For our purposes here, we’ll focus on having the code either in a Jupyter notebook or in a script (a code file in a simple text format).</p>
 <p>Suppose we want to run this code (already seen in the previous session):</p>
-<div id="cf64c29e" class="cell" data-execution_count="1">
+<div id="83f21cd0" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -383,16 +369,16 @@ Using your own laptop (optional)
 <p>The file <code>calc.py</code> contains a variation on the code shown above and it can be run in the shell as</p>
 <pre class="{bash}"><code>python calc.py</code></pre>
 <p>Or we can run the code in a notebook using <code>calc.py</code> as a module that provides the function of interest:</p>
-<div id="4fc5fabc" class="cell" data-execution_count="2">
+<div id="65b70d89" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> calc</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>calc.run_linalg(<span class="dv">4000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>1722550026.5422454
-1722550027.0371041
-1722550027.6782174</code></pre>
+<pre><code>1722550677.455186
+1722550677.9374235
+1722550678.2717657</code></pre>
 </div>
 </div>
 <p>Having code in a script file will be convenient when creating packages, using Git/version control (but see <code>nbdime</code> if using notebooks), and running code in a batch mode (i.e., in the background rather than interactively).</p>
@@ -450,7 +436,7 @@ Exercise 2
 <ul>
 <li><p>Is the result of <code>5/3 - 2/3</code> of the integer type? Is the mathematical value seen in Python an integer? What about <code>7/3-4/3</code>?</p></li>
 <li><p>Here’s a numerical puzzle. Why does the last computation not work, when the others do? And, for those of you coming from R, which of these computations don’t work in R?</p>
-<div id="4179e412" class="cell" data-execution_count="3">
+<div id="1e45b042" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">100000</span><span class="op">**</span><span class="dv">10</span></span>
@@ -493,7 +479,7 @@ Exercise 2
 <ul>
 <li><p>What happens if you type <code>np.ndim??</code> (i.e., use two question marks)? What additional do you see?</p></li>
 <li><p>What does <code>np.ndim()</code> do? How does it execute under the hood? Consider why the following uses of <code>ndim</code> both work.</p>
-<div id="eda308c5" class="cell" data-execution_count="4">
+<div id="91508ffb" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>])</span>
@@ -502,7 +488,7 @@ Exercise 2
 </details>
 </div>
 <p>Now explain why only one of these works.</p>
-<div id="15d73302" class="cell" data-execution_count="5">
+<div id="b548867a" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>]</span>
@@ -530,7 +516,7 @@ Exercise
 </div>
 <div class="callout-body-container callout-body">
 <p>Using the following code, read in the GapMinder data using Pandas (to be discussed later) and run the following code to make the variables easily available (you don’t need to know anything about Pandas).</p>
-<div id="3fdbac0c" class="cell" data-execution_count="6">
+<div id="ca312fdb" class="cell" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -609,7 +595,7 @@ Exercise 4
 <div class="callout-body-container callout-body">
 <ul>
 <li><p>What does the following tell you about copying and use of memory in lists in Python?</p>
-<div id="abc2bf77" class="cell" data-execution_count="7">
+<div id="dd7d2977" class="cell" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>]</span>
@@ -628,7 +614,7 @@ Exercise 4
 <h2 class="anchored" data-anchor-id="repeating-actions-with-loops">5. Repeating Actions with Loops</h2>
 <p>We’ll work through the <a href="https://swcarpentry.github.io/python-novice-inflammation/05-loop.html">Repeating Actions with Loops section</a> of the Software Carpentry workshop. The primary ideas covered relate to using <code>for</code> loops to automate operations.</p>
 <p>In addition to the explicit for looping shown in the unit, Python also has a construct called <em>list comprehension</em> to do something similar. Note that some people really dislike the list comprehension syntax as being hard to read.</p>
-<div id="e7cf3c6c" class="cell" data-execution_count="8">
+<div id="239c270f" class="cell" data-execution_count="8">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>vals <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">7</span>]</span>
@@ -776,7 +762,7 @@ Exercise 2
 <section id="tuples" class="level3">
 <h3 class="anchored" data-anchor-id="tuples">Tuples</h3>
 <p>Tuples are immutable sequences of (zero or more) objects. Functions in Python often return tuples.</p>
-<div id="54d7ff81" class="cell" data-execution_count="9">
+<div id="9bef9747" class="cell" data-execution_count="9">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> y <span class="op">=</span> <span class="st">'foo'</span></span>
@@ -814,7 +800,7 @@ Exercise 1
 <div class="callout-body-container callout-body">
 <ul>
 <li><p>What’s weird about this? What are the types involved?</p>
-<div id="bd2c7136" class="cell" data-execution_count="10">
+<div id="1a9ee89e" class="cell" data-execution_count="10">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> x,y</span>
@@ -858,7 +844,7 @@ Exercise 3
 <section id="dictionaries" class="level3">
 <h3 class="anchored" data-anchor-id="dictionaries">Dictionaries</h3>
 <p>Dictionaries are mutable, unordered collections of key-value pairs. They’re a very important data structure in Python so I’m surprised they weren’t discussed in the Software Carpentry sections.</p>
-<div id="0f21731e" class="cell" data-execution_count="11">
+<div id="239bfa55" class="cell" data-execution_count="11">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> {<span class="st">"Francis Bacon"</span>: [<span class="st">'A'</span>, <span class="st">'B+'</span>, <span class="st">'A-'</span>], </span>
@@ -874,7 +860,7 @@ Exercise 3
 <pre><code>'A-'</code></pre>
 </div>
 </div>
-<div id="ff4a2616" class="cell" data-execution_count="12">
+<div id="10c1044c" class="cell" data-execution_count="12">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>students.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -933,7 +919,7 @@ Exercise 3 (for R users)
 <section id="numpy-and-scipy" class="level3">
 <h3 class="anchored" data-anchor-id="numpy-and-scipy">Numpy and scipy</h3>
 <p>Standard lists in Python are not amenable to mathematical manipulation, unlike standard vectors in R. Instead we generally work with numpy arrays. These arrays can be of various dimensions (i.e., vectors, matrices, multi-dimensional arrays).</p>
-<div id="a9fadbee" class="cell" data-execution_count="13">
+<div id="9a1129ad" class="cell" data-execution_count="13">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -964,7 +950,7 @@ Exercise 3 (for R users)
 <p>All of the elements of the array must be of the same type.</p>
 <p>There are a variety of numpy functions that allow us to do standard mathematical/statistical manipulations.</p>
 <p>Here we’ll use some of those functions in addition to some syntax for subsetting and vectorized calculations.</p>
-<div id="7ec3a65c" class="cell" data-execution_count="14">
+<div id="55649217" class="cell" data-execution_count="14">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">5</span>)</span>
@@ -988,7 +974,7 @@ Exercise 3 (for R users)
 </div>
 </div>
 <p>scipy has even more numerical routines, including working with distributions and additional linear algebra.</p>
-<div id="43e3a0e5" class="cell" data-execution_count="15">
+<div id="dd2fb890" class="cell" data-execution_count="15">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> st</span>
@@ -1001,7 +987,7 @@ Exercise 3 (for R users)
 <section id="pandas" class="level3">
 <h3 class="anchored" data-anchor-id="pandas">Pandas</h3>
 <p>Pandas provides a Python implementation of R’s dataframe capabilities. Let’s see some example code.</p>
-<div id="dad8db41" class="cell" data-execution_count="16">
+<div id="579e66c3" class="cell" data-execution_count="16">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -1030,7 +1016,7 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p>Now let’s see the sort of split-apply-combine functionality that is popular in dplyr and related R packages.</p>
-<div id="d37f2936" class="cell" data-execution_count="17">
+<div id="d7026a0f" class="cell" data-execution_count="17">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>dat2007 <span class="op">=</span> dat[dat.year <span class="op">==</span> <span class="dv">2007</span>].copy()  </span>
@@ -1525,540 +1511,538 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb26" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "(Optional) Introduction to Python"</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Chris Paciorek"</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2024-08-19"</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: cosmo</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co">    css: ../styles.css</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-copy: true</span></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-background: true</span></span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: show</span></span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="co">  freeze: auto</span></span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## DRAFT CONTENT (2024-08-01)</span></span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>This module is drafted but still under construction.</span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
-<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>This module introduces you to Python, making heavy use of <span class="co">[</span><span class="ot">this Software Carpentry lesson</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation)</span>.</span>
-<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: cosmo</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">    css: ../styles.css</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-copy: true</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-background: true</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: show</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="co">  freeze: auto</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## DRAFT CONTENT (2024-08-01)</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>This module is drafted but still under construction.</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>This module introduces you to Python, making heavy use of <span class="co">[</span><span class="ot">this Software Carpentry lesson</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation)</span>.</span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a><span class="fu"># Preparation</span></span>
 <span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a><span class="fu"># Preparation</span></span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>Our primary computing context with be the <span class="co">[</span><span class="ot">UC Berkeley DataHub</span><span class="co">](datahub.berkeley.edu)</span>. This provides us with a common platform on which we are assured to get the same behavior as each other, allowing us to use the command line/shell/terminal and Python, including Jupyter notebooks. In particular getting a common command line environment would be hard otherwise.</span>
 <span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>Our primary computing context with be the <span class="co">[</span><span class="ot">UC Berkeley DataHub</span><span class="co">](datahub.berkeley.edu)</span>. This provides us with a common platform on which we are assured to get the same behavior as each other, allowing us to use the command line/shell/terminal and Python, including Jupyter notebooks. In particular getting a common command line environment would be hard otherwise.</span>
-<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
-<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using your own laptop (optional)</span></span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using your own laptop (optional)</span></span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a>If you want, you can also install Python on your own computer. If you do that, we recommend using <span class="co">[</span><span class="ot">Miniforge</span><span class="co">](https://github.com/conda-forge/miniforge)</span>. Another option is the Anaconda distribution of Python](https://www.anaconda.com/distribution)</span>
 <span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a>If you want, you can also install Python on your own computer. If you do that, we recommend using <span class="co">[</span><span class="ot">Miniforge</span><span class="co">](https://github.com/conda-forge/miniforge)</span>. Another option is the Anaconda distribution of Python](https://www.anaconda.com/distribution)</span>
+<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a>For the shell/terminal parts of this material, you can use the Terminal on your Mac, but not on Windows.</span>
 <span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a>For the shell/terminal parts of this material, you can use the Terminal on your Mac, but not on Windows.</span>
-<span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a>If you do use your own computer, you'll need to *clone* <span class="co">[</span><span class="ot">this GitHub repository</span><span class="co">](https://github.com/berkeley-scf/compute-skills-2024)</span>. If you don't know how to do that, just download <span class="co">[</span><span class="ot">this zip file</span><span class="co">](https://github.com/berkeley-scf/compute-skills-2024/archive/refs/heads/main.zip)</span> and unzip it into your home directory on your computer.</span>
-<span id="cb26-41"><a href="#cb26-41" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb26-42"><a href="#cb26-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a>If you do use your own computer, you'll need to *clone* <span class="co">[</span><span class="ot">this GitHub repository</span><span class="co">](https://github.com/berkeley-scf/compute-skills-2024)</span>. If you don't know how to do that, just download <span class="co">[</span><span class="ot">this zip file</span><span class="co">](https://github.com/berkeley-scf/compute-skills-2024/archive/refs/heads/main.zip)</span> and unzip it into your home directory on your computer.</span>
+<span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-41"><a href="#cb26-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-42"><a href="#cb26-42" aria-hidden="true" tabindex="-1"></a><span class="fu"># Ways of running Python</span></span>
 <span id="cb26-43"><a href="#cb26-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-44"><a href="#cb26-44" aria-hidden="true" tabindex="-1"></a><span class="fu"># Ways of running Python</span></span>
+<span id="cb26-44"><a href="#cb26-44" aria-hidden="true" tabindex="-1"></a>There are various options for how to save our code and in what context to run it.</span>
 <span id="cb26-45"><a href="#cb26-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-46"><a href="#cb26-46" aria-hidden="true" tabindex="-1"></a>There are various options for how to save our code and in what context to run it.</span>
+<span id="cb26-46"><a href="#cb26-46" aria-hidden="true" tabindex="-1"></a>For our purposes here, we'll focus on having the code either in a Jupyter notebook or in a script (a code file in a simple text format).</span>
 <span id="cb26-47"><a href="#cb26-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-48"><a href="#cb26-48" aria-hidden="true" tabindex="-1"></a>For our purposes here, we'll focus on having the code either in a Jupyter notebook or in a script (a code file in a simple text format).</span>
+<span id="cb26-48"><a href="#cb26-48" aria-hidden="true" tabindex="-1"></a>Suppose we want to run this code (already seen in the previous session):</span>
 <span id="cb26-49"><a href="#cb26-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-50"><a href="#cb26-50" aria-hidden="true" tabindex="-1"></a>Suppose we want to run this code (already seen in the previous session):</span>
-<span id="cb26-51"><a href="#cb26-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-52"><a href="#cb26-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-55"><a href="#cb26-55" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb26-56"><a href="#cb26-56" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb26-57"><a href="#cb26-57" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb26-58"><a href="#cb26-58" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb26-59"><a href="#cb26-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-60"><a href="#cb26-60" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_linalg(n):</span>
-<span id="cb26-61"><a href="#cb26-61" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> np.random.normal(<span class="dv">0</span>, <span class="dv">1</span>, size<span class="op">=</span>(n, n))</span>
+<span id="cb26-50"><a href="#cb26-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-53"><a href="#cb26-53" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb26-54"><a href="#cb26-54" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb26-55"><a href="#cb26-55" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb26-56"><a href="#cb26-56" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb26-57"><a href="#cb26-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-58"><a href="#cb26-58" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_linalg(n):</span>
+<span id="cb26-59"><a href="#cb26-59" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> np.random.normal(<span class="dv">0</span>, <span class="dv">1</span>, size<span class="op">=</span>(n, n))</span>
+<span id="cb26-60"><a href="#cb26-60" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(time.time())</span>
+<span id="cb26-61"><a href="#cb26-61" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> z.T.dot(z)   <span class="co"># x = z'z</span></span>
 <span id="cb26-62"><a href="#cb26-62" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(time.time())</span>
-<span id="cb26-63"><a href="#cb26-63" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> z.T.dot(z)   <span class="co"># x = z'z</span></span>
+<span id="cb26-63"><a href="#cb26-63" aria-hidden="true" tabindex="-1"></a>    U <span class="op">=</span> np.linalg.cholesky(x)  <span class="co"># factorize as x = U'U</span></span>
 <span id="cb26-64"><a href="#cb26-64" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(time.time())</span>
-<span id="cb26-65"><a href="#cb26-65" aria-hidden="true" tabindex="-1"></a>    U <span class="op">=</span> np.linalg.cholesky(x)  <span class="co"># factorize as x = U'U</span></span>
-<span id="cb26-66"><a href="#cb26-66" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(time.time())</span>
+<span id="cb26-65"><a href="#cb26-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-66"><a href="#cb26-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb26-67"><a href="#cb26-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-68"><a href="#cb26-68" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-68"><a href="#cb26-68" aria-hidden="true" tabindex="-1"></a>The file <span class="in">`calc.py`</span> contains a variation on the code shown above and it can be run in the shell as</span>
 <span id="cb26-69"><a href="#cb26-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-70"><a href="#cb26-70" aria-hidden="true" tabindex="-1"></a>The file <span class="in">`calc.py`</span> contains a variation on the code shown above and it can be run in the shell as</span>
-<span id="cb26-71"><a href="#cb26-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-74"><a href="#cb26-74" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash}</span></span>
-<span id="cb26-75"><a href="#cb26-75" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> calc.py</span>
-<span id="cb26-76"><a href="#cb26-76" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-72"><a href="#cb26-72" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash}</span></span>
+<span id="cb26-73"><a href="#cb26-73" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> calc.py</span>
+<span id="cb26-74"><a href="#cb26-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-75"><a href="#cb26-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-76"><a href="#cb26-76" aria-hidden="true" tabindex="-1"></a>Or we can run the code in a notebook using <span class="in">`calc.py`</span> as a module that provides the function of interest:</span>
 <span id="cb26-77"><a href="#cb26-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-78"><a href="#cb26-78" aria-hidden="true" tabindex="-1"></a>Or we can run the code in a notebook using <span class="in">`calc.py`</span> as a module that provides the function of interest:</span>
-<span id="cb26-79"><a href="#cb26-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-82"><a href="#cb26-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb26-83"><a href="#cb26-83" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
-<span id="cb26-84"><a href="#cb26-84" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> calc</span>
-<span id="cb26-85"><a href="#cb26-85" aria-hidden="true" tabindex="-1"></a>calc.run_linalg(<span class="dv">4000</span>)</span>
-<span id="cb26-86"><a href="#cb26-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-80"><a href="#cb26-80" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb26-81"><a href="#cb26-81" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb26-82"><a href="#cb26-82" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> calc</span>
+<span id="cb26-83"><a href="#cb26-83" aria-hidden="true" tabindex="-1"></a>calc.run_linalg(<span class="dv">4000</span>)</span>
+<span id="cb26-84"><a href="#cb26-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-85"><a href="#cb26-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-86"><a href="#cb26-86" aria-hidden="true" tabindex="-1"></a>Having code in a script file will be convenient when creating packages, using Git/version control (but see <span class="in">`nbdime`</span> if using notebooks), and running code in a batch mode (i.e., in the background rather than interactively).</span>
 <span id="cb26-87"><a href="#cb26-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-88"><a href="#cb26-88" aria-hidden="true" tabindex="-1"></a>Having code in a script file will be convenient when creating packages, using Git/version control (but see <span class="in">`nbdime`</span> if using notebooks), and running code in a batch mode (i.e., in the background rather than interactively).</span>
-<span id="cb26-89"><a href="#cb26-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-90"><a href="#cb26-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-91"><a href="#cb26-91" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-92"><a href="#cb26-92" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ways to use Python</span></span>
-<span id="cb26-93"><a href="#cb26-93" aria-hidden="true" tabindex="-1"></a>One can also run Python or (IPython for some enhanced capabilities, including easier copy/pasting) from the *terminal*.</span>
-<span id="cb26-94"><a href="#cb26-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-95"><a href="#cb26-95" aria-hidden="true" tabindex="-1"></a>Finally running Python within *VS Code* or an IDE such as *PyCharm* is also common.</span>
-<span id="cb26-96"><a href="#cb26-96" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-88"><a href="#cb26-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-89"><a href="#cb26-89" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-90"><a href="#cb26-90" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ways to use Python</span></span>
+<span id="cb26-91"><a href="#cb26-91" aria-hidden="true" tabindex="-1"></a>One can also run Python or (IPython for some enhanced capabilities, including easier copy/pasting) from the *terminal*.</span>
+<span id="cb26-92"><a href="#cb26-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-93"><a href="#cb26-93" aria-hidden="true" tabindex="-1"></a>Finally running Python within *VS Code* or an IDE such as *PyCharm* is also common.</span>
+<span id="cb26-94"><a href="#cb26-94" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-95"><a href="#cb26-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-96"><a href="#cb26-96" aria-hidden="true" tabindex="-1"></a><span class="fu"># Basic use of Python</span></span>
 <span id="cb26-97"><a href="#cb26-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-98"><a href="#cb26-98" aria-hidden="true" tabindex="-1"></a><span class="fu"># Basic use of Python</span></span>
+<span id="cb26-98"><a href="#cb26-98" aria-hidden="true" tabindex="-1"></a>We'll use <span class="co">[</span><span class="ot">this Software Carpentry lesson</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation)</span> for most of this material.</span>
 <span id="cb26-99"><a href="#cb26-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-100"><a href="#cb26-100" aria-hidden="true" tabindex="-1"></a>We'll use <span class="co">[</span><span class="ot">this Software Carpentry lesson</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation)</span> for most of this material.</span>
+<span id="cb26-100"><a href="#cb26-100" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Python Fundamentals</span></span>
 <span id="cb26-101"><a href="#cb26-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-102"><a href="#cb26-102" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Python Fundamentals</span></span>
+<span id="cb26-102"><a href="#cb26-102" aria-hidden="true" tabindex="-1"></a>We'll work through the <span class="co">[</span><span class="ot">Python Fundamentals section</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/01-intro.html)</span> of the Software Carpentry workshop. The primary ideas covered are variables, data types, and basic function usage.</span>
 <span id="cb26-103"><a href="#cb26-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-104"><a href="#cb26-104" aria-hidden="true" tabindex="-1"></a>We'll work through the <span class="co">[</span><span class="ot">Python Fundamentals section</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/01-intro.html)</span> of the Software Carpentry workshop. The primary ideas covered are variables, data types, and basic function usage.</span>
-<span id="cb26-105"><a href="#cb26-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-106"><a href="#cb26-106" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-107"><a href="#cb26-107" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
-<span id="cb26-108"><a href="#cb26-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-109"><a href="#cb26-109" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Using the section on "Built-in Types" from the [official "The Python</span>
-<span id="cb26-110"><a href="#cb26-110" aria-hidden="true" tabindex="-1"></a>Standard Library" reference](https://docs.python.org/3/library/index.html), figure out how to compute:</span>
-<span id="cb26-111"><a href="#cb26-111" aria-hidden="true" tabindex="-1"></a><span class="ss">    1.  </span>3 modulo 4,</span>
-<span id="cb26-112"><a href="#cb26-112" aria-hidden="true" tabindex="-1"></a><span class="ss">    2.  </span>$(\lceil \frac{3}{4} \rceil \times 4)^3$, </span>
-<span id="cb26-113"><a href="#cb26-113" aria-hidden="true" tabindex="-1"></a>    and</span>
-<span id="cb26-114"><a href="#cb26-114" aria-hidden="true" tabindex="-1"></a><span class="ss">    3.  </span>$\sqrt{-1}$.</span>
+<span id="cb26-104"><a href="#cb26-104" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-105"><a href="#cb26-105" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
+<span id="cb26-106"><a href="#cb26-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-107"><a href="#cb26-107" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Using the section on "Built-in Types" from the [official "The Python</span>
+<span id="cb26-108"><a href="#cb26-108" aria-hidden="true" tabindex="-1"></a>Standard Library" reference](https://docs.python.org/3/library/index.html), figure out how to compute:</span>
+<span id="cb26-109"><a href="#cb26-109" aria-hidden="true" tabindex="-1"></a><span class="ss">    1.  </span>3 modulo 4,</span>
+<span id="cb26-110"><a href="#cb26-110" aria-hidden="true" tabindex="-1"></a><span class="ss">    2.  </span>$(\lceil \frac{3}{4} \rceil \times 4)^3$, </span>
+<span id="cb26-111"><a href="#cb26-111" aria-hidden="true" tabindex="-1"></a>    and</span>
+<span id="cb26-112"><a href="#cb26-112" aria-hidden="true" tabindex="-1"></a><span class="ss">    3.  </span>$\sqrt{-1}$.</span>
+<span id="cb26-113"><a href="#cb26-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-114"><a href="#cb26-114" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb26-115"><a href="#cb26-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-116"><a href="#cb26-116" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb26-117"><a href="#cb26-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-118"><a href="#cb26-118" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-119"><a href="#cb26-119" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
-<span id="cb26-120"><a href="#cb26-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-121"><a href="#cb26-121" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Is the result of <span class="in">`5/3 - 2/3`</span> of the integer type? Is the mathematical value seen in Python an integer? What about <span class="in">`7/3-4/3`</span>?</span>
-<span id="cb26-122"><a href="#cb26-122" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Here's a numerical puzzle. Why does the last computation not work, when the others do? And, for those of you coming from R, which of these computations don't work in R?</span>
-<span id="cb26-123"><a href="#cb26-123" aria-hidden="true" tabindex="-1"></a>  <span class="in">```{python}</span></span>
-<span id="cb26-124"><a href="#cb26-124" aria-hidden="true" tabindex="-1"></a><span class="in">  #| eval: false</span></span>
-<span id="cb26-125"><a href="#cb26-125" aria-hidden="true" tabindex="-1"></a><span class="in">  100000**10</span></span>
-<span id="cb26-126"><a href="#cb26-126" aria-hidden="true" tabindex="-1"></a><span class="in">  100000.0**10</span></span>
-<span id="cb26-127"><a href="#cb26-127" aria-hidden="true" tabindex="-1"></a><span class="in">  100000**100</span></span>
-<span id="cb26-128"><a href="#cb26-128" aria-hidden="true" tabindex="-1"></a><span class="in">  100000.0**100</span></span>
-<span id="cb26-129"><a href="#cb26-129" aria-hidden="true" tabindex="-1"></a><span class="in">  ```</span></span>
-<span id="cb26-130"><a href="#cb26-130" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-116"><a href="#cb26-116" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-117"><a href="#cb26-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
+<span id="cb26-118"><a href="#cb26-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-119"><a href="#cb26-119" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Is the result of <span class="in">`5/3 - 2/3`</span> of the integer type? Is the mathematical value seen in Python an integer? What about <span class="in">`7/3-4/3`</span>?</span>
+<span id="cb26-120"><a href="#cb26-120" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Here's a numerical puzzle. Why does the last computation not work, when the others do? And, for those of you coming from R, which of these computations don't work in R?</span>
+<span id="cb26-121"><a href="#cb26-121" aria-hidden="true" tabindex="-1"></a>  <span class="in">```{python}</span></span>
+<span id="cb26-122"><a href="#cb26-122" aria-hidden="true" tabindex="-1"></a><span class="in">  #| eval: false</span></span>
+<span id="cb26-123"><a href="#cb26-123" aria-hidden="true" tabindex="-1"></a><span class="in">  100000**10</span></span>
+<span id="cb26-124"><a href="#cb26-124" aria-hidden="true" tabindex="-1"></a><span class="in">  100000.0**10</span></span>
+<span id="cb26-125"><a href="#cb26-125" aria-hidden="true" tabindex="-1"></a><span class="in">  100000**100</span></span>
+<span id="cb26-126"><a href="#cb26-126" aria-hidden="true" tabindex="-1"></a><span class="in">  100000.0**100</span></span>
+<span id="cb26-127"><a href="#cb26-127" aria-hidden="true" tabindex="-1"></a><span class="in">  ```</span></span>
+<span id="cb26-128"><a href="#cb26-128" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-129"><a href="#cb26-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-130"><a href="#cb26-130" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. Analyzing Patient Data</span></span>
 <span id="cb26-131"><a href="#cb26-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-132"><a href="#cb26-132" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. Analyzing Patient Data</span></span>
+<span id="cb26-132"><a href="#cb26-132" aria-hidden="true" tabindex="-1"></a>We'll work through the <span class="co">[</span><span class="ot">Analyzing Patient Data section</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/02-numpy.html)</span> of the Software Carpentry workshop. The primary ideas covered are libraries (aka packages), numpy arrays, and slicing.</span>
 <span id="cb26-133"><a href="#cb26-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-134"><a href="#cb26-134" aria-hidden="true" tabindex="-1"></a>We'll work through the <span class="co">[</span><span class="ot">Analyzing Patient Data section</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/02-numpy.html)</span> of the Software Carpentry workshop. The primary ideas covered are libraries (aka packages), numpy arrays, and slicing.</span>
-<span id="cb26-135"><a href="#cb26-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-136"><a href="#cb26-136" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-137"><a href="#cb26-137" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
-<span id="cb26-138"><a href="#cb26-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-139"><a href="#cb26-139" aria-hidden="true" tabindex="-1"></a>Work on the <span class="co">[</span><span class="ot">questions about slicing in the section</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/02-numpy.html#slicing-strings)</span>.</span>
-<span id="cb26-140"><a href="#cb26-140" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb26-141"><a href="#cb26-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-142"><a href="#cb26-142" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-143"><a href="#cb26-143" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
+<span id="cb26-134"><a href="#cb26-134" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-135"><a href="#cb26-135" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
+<span id="cb26-136"><a href="#cb26-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-137"><a href="#cb26-137" aria-hidden="true" tabindex="-1"></a>Work on the <span class="co">[</span><span class="ot">questions about slicing in the section</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/02-numpy.html#slicing-strings)</span>.</span>
+<span id="cb26-138"><a href="#cb26-138" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-139"><a href="#cb26-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-140"><a href="#cb26-140" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-141"><a href="#cb26-141" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
+<span id="cb26-142"><a href="#cb26-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-143"><a href="#cb26-143" aria-hidden="true" tabindex="-1"></a>Note that <span class="in">`?`</span> and <span class="in">`??`</span> only work in IPython (or a Jupyter notebook). For help in plain Python, use <span class="in">`help(np.ndim)`</span>.</span>
 <span id="cb26-144"><a href="#cb26-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-145"><a href="#cb26-145" aria-hidden="true" tabindex="-1"></a>Note that <span class="in">`?`</span> and <span class="in">`??`</span> only work in IPython (or a Jupyter notebook). For help in plain Python, use <span class="in">`help(np.ndim)`</span>.</span>
-<span id="cb26-146"><a href="#cb26-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-147"><a href="#cb26-147" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What happens if you type <span class="in">`np.ndim??`</span> (i.e., use two question marks)? What additional do you see?</span>
-<span id="cb26-148"><a href="#cb26-148" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What does <span class="in">`np.ndim()`</span> do? How does it execute under the hood? Consider why the following uses of <span class="in">`ndim`</span> both work.</span>
-<span id="cb26-149"><a href="#cb26-149" aria-hidden="true" tabindex="-1"></a>  <span class="in">```{python}</span></span>
-<span id="cb26-150"><a href="#cb26-150" aria-hidden="true" tabindex="-1"></a><span class="in">  #| eval: false</span></span>
-<span id="cb26-151"><a href="#cb26-151" aria-hidden="true" tabindex="-1"></a><span class="in">  a = np.array([0, 1, 2])</span></span>
-<span id="cb26-152"><a href="#cb26-152" aria-hidden="true" tabindex="-1"></a><span class="in">  a.ndim</span></span>
-<span id="cb26-153"><a href="#cb26-153" aria-hidden="true" tabindex="-1"></a><span class="in">  np.ndim(a)</span></span>
-<span id="cb26-154"><a href="#cb26-154" aria-hidden="true" tabindex="-1"></a><span class="in">  ```</span></span>
-<span id="cb26-155"><a href="#cb26-155" aria-hidden="true" tabindex="-1"></a>  Now explain why only one of these works.</span>
-<span id="cb26-156"><a href="#cb26-156" aria-hidden="true" tabindex="-1"></a>  <span class="in">```{python}</span></span>
-<span id="cb26-157"><a href="#cb26-157" aria-hidden="true" tabindex="-1"></a><span class="in">  #| eval: false</span></span>
-<span id="cb26-158"><a href="#cb26-158" aria-hidden="true" tabindex="-1"></a><span class="in">  a = [0, 1, 2]</span></span>
-<span id="cb26-159"><a href="#cb26-159" aria-hidden="true" tabindex="-1"></a><span class="in">  a.ndim</span></span>
-<span id="cb26-160"><a href="#cb26-160" aria-hidden="true" tabindex="-1"></a><span class="in">  np.ndim(a)</span></span>
-<span id="cb26-161"><a href="#cb26-161" aria-hidden="true" tabindex="-1"></a><span class="in">  ```</span></span>
-<span id="cb26-162"><a href="#cb26-162" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Type <span class="in">`np.array?`</span> in a Notebook or at the IPython prompt. Briefly skim the docstring.</span>
-<span id="cb26-163"><a href="#cb26-163" aria-hidden="true" tabindex="-1"></a>    <span class="in">`nparray`</span> allows you to construct numpy arrays.</span>
-<span id="cb26-164"><a href="#cb26-164" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Type <span class="in">`np.`</span> followed by the <span class="in">`&lt;Tab&gt;`</span> key in a Notebook or at the IPython prompt. Choose</span>
-<span id="cb26-165"><a href="#cb26-165" aria-hidden="true" tabindex="-1"></a>    two or three of the completions and use <span class="in">`?`</span> to view their</span>
-<span id="cb26-166"><a href="#cb26-166" aria-hidden="true" tabindex="-1"></a>    docstrings. In particular, pay attention to the examples provided</span>
-<span id="cb26-167"><a href="#cb26-167" aria-hidden="true" tabindex="-1"></a>    near the end of the docstring and see whether you can figure out how</span>
-<span id="cb26-168"><a href="#cb26-168" aria-hidden="true" tabindex="-1"></a>    you might use this functionality. </span>
+<span id="cb26-145"><a href="#cb26-145" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What happens if you type <span class="in">`np.ndim??`</span> (i.e., use two question marks)? What additional do you see?</span>
+<span id="cb26-146"><a href="#cb26-146" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What does <span class="in">`np.ndim()`</span> do? How does it execute under the hood? Consider why the following uses of <span class="in">`ndim`</span> both work.</span>
+<span id="cb26-147"><a href="#cb26-147" aria-hidden="true" tabindex="-1"></a>  <span class="in">```{python}</span></span>
+<span id="cb26-148"><a href="#cb26-148" aria-hidden="true" tabindex="-1"></a><span class="in">  #| eval: false</span></span>
+<span id="cb26-149"><a href="#cb26-149" aria-hidden="true" tabindex="-1"></a><span class="in">  a = np.array([0, 1, 2])</span></span>
+<span id="cb26-150"><a href="#cb26-150" aria-hidden="true" tabindex="-1"></a><span class="in">  a.ndim</span></span>
+<span id="cb26-151"><a href="#cb26-151" aria-hidden="true" tabindex="-1"></a><span class="in">  np.ndim(a)</span></span>
+<span id="cb26-152"><a href="#cb26-152" aria-hidden="true" tabindex="-1"></a><span class="in">  ```</span></span>
+<span id="cb26-153"><a href="#cb26-153" aria-hidden="true" tabindex="-1"></a>  Now explain why only one of these works.</span>
+<span id="cb26-154"><a href="#cb26-154" aria-hidden="true" tabindex="-1"></a>  <span class="in">```{python}</span></span>
+<span id="cb26-155"><a href="#cb26-155" aria-hidden="true" tabindex="-1"></a><span class="in">  #| eval: false</span></span>
+<span id="cb26-156"><a href="#cb26-156" aria-hidden="true" tabindex="-1"></a><span class="in">  a = [0, 1, 2]</span></span>
+<span id="cb26-157"><a href="#cb26-157" aria-hidden="true" tabindex="-1"></a><span class="in">  a.ndim</span></span>
+<span id="cb26-158"><a href="#cb26-158" aria-hidden="true" tabindex="-1"></a><span class="in">  np.ndim(a)</span></span>
+<span id="cb26-159"><a href="#cb26-159" aria-hidden="true" tabindex="-1"></a><span class="in">  ```</span></span>
+<span id="cb26-160"><a href="#cb26-160" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Type <span class="in">`np.array?`</span> in a Notebook or at the IPython prompt. Briefly skim the docstring.</span>
+<span id="cb26-161"><a href="#cb26-161" aria-hidden="true" tabindex="-1"></a>    <span class="in">`nparray`</span> allows you to construct numpy arrays.</span>
+<span id="cb26-162"><a href="#cb26-162" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Type <span class="in">`np.`</span> followed by the <span class="in">`&lt;Tab&gt;`</span> key in a Notebook or at the IPython prompt. Choose</span>
+<span id="cb26-163"><a href="#cb26-163" aria-hidden="true" tabindex="-1"></a>    two or three of the completions and use <span class="in">`?`</span> to view their</span>
+<span id="cb26-164"><a href="#cb26-164" aria-hidden="true" tabindex="-1"></a>    docstrings. In particular, pay attention to the examples provided</span>
+<span id="cb26-165"><a href="#cb26-165" aria-hidden="true" tabindex="-1"></a>    near the end of the docstring and see whether you can figure out how</span>
+<span id="cb26-166"><a href="#cb26-166" aria-hidden="true" tabindex="-1"></a>    you might use this functionality. </span>
+<span id="cb26-167"><a href="#cb26-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-168"><a href="#cb26-168" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb26-169"><a href="#cb26-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-170"><a href="#cb26-170" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-170"><a href="#cb26-170" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Visualizing Tabular Data</span></span>
 <span id="cb26-171"><a href="#cb26-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-172"><a href="#cb26-172" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Visualizing Tabular Data</span></span>
+<span id="cb26-172"><a href="#cb26-172" aria-hidden="true" tabindex="-1"></a>We'll work through the <span class="co">[</span><span class="ot">Visualizing Tabular Data section</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/03-matplotlib.html)</span> of the Software Carpentry workshop. The primary ideas covered are making basic plots using the <span class="in">`matplotlib`</span> package.</span>
 <span id="cb26-173"><a href="#cb26-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-174"><a href="#cb26-174" aria-hidden="true" tabindex="-1"></a>We'll work through the <span class="co">[</span><span class="ot">Visualizing Tabular Data section</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/03-matplotlib.html)</span> of the Software Carpentry workshop. The primary ideas covered are making basic plots using the <span class="in">`matplotlib`</span> package.</span>
-<span id="cb26-175"><a href="#cb26-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-176"><a href="#cb26-176" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-177"><a href="#cb26-177" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise</span></span>
+<span id="cb26-174"><a href="#cb26-174" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-175"><a href="#cb26-175" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise</span></span>
+<span id="cb26-176"><a href="#cb26-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-177"><a href="#cb26-177" aria-hidden="true" tabindex="-1"></a>Using the following code, read in the GapMinder data using Pandas (to be discussed later) and run the following code to make the variables easily available (you don't need to know anything about Pandas).</span>
 <span id="cb26-178"><a href="#cb26-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-179"><a href="#cb26-179" aria-hidden="true" tabindex="-1"></a>Using the following code, read in the GapMinder data using Pandas (to be discussed later) and run the following code to make the variables easily available (you don't need to know anything about Pandas).</span>
-<span id="cb26-180"><a href="#cb26-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-183"><a href="#cb26-183" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb26-184"><a href="#cb26-184" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb26-185"><a href="#cb26-185" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb26-186"><a href="#cb26-186" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb26-187"><a href="#cb26-187" aria-hidden="true" tabindex="-1"></a>dat <span class="op">=</span> pd.read_csv(<span class="st">'gapminder.csv'</span>)</span>
-<span id="cb26-188"><a href="#cb26-188" aria-hidden="true" tabindex="-1"></a>lifeExp <span class="op">=</span> np.array(dat.lifeExp)</span>
-<span id="cb26-189"><a href="#cb26-189" aria-hidden="true" tabindex="-1"></a>gdpPercap <span class="op">=</span> np.array(dat.gdpPercap)</span>
-<span id="cb26-190"><a href="#cb26-190" aria-hidden="true" tabindex="-1"></a>year <span class="op">=</span> np.array(dat.year)</span>
-<span id="cb26-191"><a href="#cb26-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-192"><a href="#cb26-192" aria-hidden="true" tabindex="-1"></a><span class="co">## Hint: slicing using an array of booleans</span></span>
-<span id="cb26-193"><a href="#cb26-193" aria-hidden="true" tabindex="-1"></a><span class="co">## gdpPercap[year &gt; 2010]</span></span>
-<span id="cb26-194"><a href="#cb26-194" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb26-195"><a href="#cb26-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-196"><a href="#cb26-196" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Make a scatterplot of <span class="in">`lifeExp`</span> vs <span class="in">`gdpPerCap`</span> for 2007; make sure you have nice axis labels and title.</span>
-<span id="cb26-197"><a href="#cb26-197" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Consider whether plotting income on a logarithmic axis is a better way to display the data.</span>
-<span id="cb26-198"><a href="#cb26-198" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Using at least two years, make an array of plots (in one figure) where each subplot is a different year.</span>
+<span id="cb26-181"><a href="#cb26-181" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb26-182"><a href="#cb26-182" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb26-183"><a href="#cb26-183" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb26-184"><a href="#cb26-184" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb26-185"><a href="#cb26-185" aria-hidden="true" tabindex="-1"></a>dat <span class="op">=</span> pd.read_csv(<span class="st">'gapminder.csv'</span>)</span>
+<span id="cb26-186"><a href="#cb26-186" aria-hidden="true" tabindex="-1"></a>lifeExp <span class="op">=</span> np.array(dat.lifeExp)</span>
+<span id="cb26-187"><a href="#cb26-187" aria-hidden="true" tabindex="-1"></a>gdpPercap <span class="op">=</span> np.array(dat.gdpPercap)</span>
+<span id="cb26-188"><a href="#cb26-188" aria-hidden="true" tabindex="-1"></a>year <span class="op">=</span> np.array(dat.year)</span>
+<span id="cb26-189"><a href="#cb26-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-190"><a href="#cb26-190" aria-hidden="true" tabindex="-1"></a><span class="co">## Hint: slicing using an array of booleans</span></span>
+<span id="cb26-191"><a href="#cb26-191" aria-hidden="true" tabindex="-1"></a><span class="co">## gdpPercap[year &gt; 2010]</span></span>
+<span id="cb26-192"><a href="#cb26-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-193"><a href="#cb26-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-194"><a href="#cb26-194" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Make a scatterplot of <span class="in">`lifeExp`</span> vs <span class="in">`gdpPerCap`</span> for 2007; make sure you have nice axis labels and title.</span>
+<span id="cb26-195"><a href="#cb26-195" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Consider whether plotting income on a logarithmic axis is a better way to display the data.</span>
+<span id="cb26-196"><a href="#cb26-196" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Using at least two years, make an array of plots (in one figure) where each subplot is a different year.</span>
+<span id="cb26-197"><a href="#cb26-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-198"><a href="#cb26-198" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb26-199"><a href="#cb26-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-200"><a href="#cb26-200" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-200"><a href="#cb26-200" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4. Storing Multiple Values in Lists</span></span>
 <span id="cb26-201"><a href="#cb26-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-202"><a href="#cb26-202" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4. Storing Multiple Values in Lists</span></span>
+<span id="cb26-202"><a href="#cb26-202" aria-hidden="true" tabindex="-1"></a>We'll work through the <span class="co">[</span><span class="ot">Storing Multiple Values in Lists section</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/04-lists.html)</span> of the Software Carpentry workshop. The primary ideas covered are creating, extracting from, and manipulating lists.</span>
 <span id="cb26-203"><a href="#cb26-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-204"><a href="#cb26-204" aria-hidden="true" tabindex="-1"></a>We'll work through the <span class="co">[</span><span class="ot">Storing Multiple Values in Lists section</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/04-lists.html)</span> of the Software Carpentry workshop. The primary ideas covered are creating, extracting from, and manipulating lists.</span>
-<span id="cb26-205"><a href="#cb26-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-206"><a href="#cb26-206" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-207"><a href="#cb26-207" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
-<span id="cb26-208"><a href="#cb26-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-209"><a href="#cb26-209" aria-hidden="true" tabindex="-1"></a>Create a list of numbers, called <span class="in">`x1`</span>. Reverse the order of the items in the list</span>
-<span id="cb26-210"><a href="#cb26-210" aria-hidden="true" tabindex="-1"></a>    using slicing. Now reverse the order of the items using a list</span>
-<span id="cb26-211"><a href="#cb26-211" aria-hidden="true" tabindex="-1"></a>    method. How does using the method differ from slicing? Hint: you can type <span class="in">`x.`</span> followed by the <span class="in">`&lt;Tab&gt;`</span> key in a Notebook or at the IPython prompt to find the various methods that can be applied to a list.</span>
+<span id="cb26-204"><a href="#cb26-204" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-205"><a href="#cb26-205" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
+<span id="cb26-206"><a href="#cb26-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-207"><a href="#cb26-207" aria-hidden="true" tabindex="-1"></a>Create a list of numbers, called <span class="in">`x1`</span>. Reverse the order of the items in the list</span>
+<span id="cb26-208"><a href="#cb26-208" aria-hidden="true" tabindex="-1"></a>    using slicing. Now reverse the order of the items using a list</span>
+<span id="cb26-209"><a href="#cb26-209" aria-hidden="true" tabindex="-1"></a>    method. How does using the method differ from slicing? Hint: you can type <span class="in">`x.`</span> followed by the <span class="in">`&lt;Tab&gt;`</span> key in a Notebook or at the IPython prompt to find the various methods that can be applied to a list.</span>
+<span id="cb26-210"><a href="#cb26-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-211"><a href="#cb26-211" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb26-212"><a href="#cb26-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-213"><a href="#cb26-213" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb26-214"><a href="#cb26-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-215"><a href="#cb26-215" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-216"><a href="#cb26-216" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
-<span id="cb26-217"><a href="#cb26-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-218"><a href="#cb26-218" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Figure out some different ways of combining your list of numbers with your list of strings to create a single list of mixed type elements. (Hint: you can type <span class="in">`x.`</span> followed by the <span class="in">`&lt;Tab&gt;`</span> key in a Notebook or at the IPython prompt to find the various methods that can be applied to a list.)</span>
-<span id="cb26-219"><a href="#cb26-219" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Now try to sort the resulting list. What happens?</span>
+<span id="cb26-213"><a href="#cb26-213" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-214"><a href="#cb26-214" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
+<span id="cb26-215"><a href="#cb26-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-216"><a href="#cb26-216" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Figure out some different ways of combining your list of numbers with your list of strings to create a single list of mixed type elements. (Hint: you can type <span class="in">`x.`</span> followed by the <span class="in">`&lt;Tab&gt;`</span> key in a Notebook or at the IPython prompt to find the various methods that can be applied to a list.)</span>
+<span id="cb26-217"><a href="#cb26-217" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Now try to sort the resulting list. What happens?</span>
+<span id="cb26-218"><a href="#cb26-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-219"><a href="#cb26-219" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb26-220"><a href="#cb26-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-221"><a href="#cb26-221" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb26-222"><a href="#cb26-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-223"><a href="#cb26-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-224"><a href="#cb26-224" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-225"><a href="#cb26-225" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 3</span></span>
+<span id="cb26-221"><a href="#cb26-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-222"><a href="#cb26-222" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-223"><a href="#cb26-223" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 3</span></span>
+<span id="cb26-224"><a href="#cb26-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-225"><a href="#cb26-225" aria-hidden="true" tabindex="-1"></a>Answer the <span class="co">[</span><span class="ot">question related to Overloading</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/04-lists.html#overloading)</span> in the Software Carpentry section.</span>
 <span id="cb26-226"><a href="#cb26-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-227"><a href="#cb26-227" aria-hidden="true" tabindex="-1"></a>Answer the <span class="co">[</span><span class="ot">question related to Overloading</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/04-lists.html#overloading)</span> in the Software Carpentry section.</span>
+<span id="cb26-227"><a href="#cb26-227" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb26-228"><a href="#cb26-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-229"><a href="#cb26-229" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb26-230"><a href="#cb26-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-231"><a href="#cb26-231" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-232"><a href="#cb26-232" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 4</span></span>
-<span id="cb26-233"><a href="#cb26-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-234"><a href="#cb26-234" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What does the following tell you about copying and use of memory in lists in Python?</span>
-<span id="cb26-235"><a href="#cb26-235" aria-hidden="true" tabindex="-1"></a>  <span class="in">```{python}</span></span>
-<span id="cb26-236"><a href="#cb26-236" aria-hidden="true" tabindex="-1"></a><span class="in">  #| eval: false</span></span>
-<span id="cb26-237"><a href="#cb26-237" aria-hidden="true" tabindex="-1"></a><span class="in">  a = [1, 3, 5]</span></span>
-<span id="cb26-238"><a href="#cb26-238" aria-hidden="true" tabindex="-1"></a><span class="in">  b = a</span></span>
-<span id="cb26-239"><a href="#cb26-239" aria-hidden="true" tabindex="-1"></a><span class="in">  id(a)</span></span>
-<span id="cb26-240"><a href="#cb26-240" aria-hidden="true" tabindex="-1"></a><span class="in">  id(b)</span></span>
-<span id="cb26-241"><a href="#cb26-241" aria-hidden="true" tabindex="-1"></a><span class="in">   this should confirm what you might suspect</span></span>
-<span id="cb26-242"><a href="#cb26-242" aria-hidden="true" tabindex="-1"></a><span class="in">  a[1] = 5</span></span>
-<span id="cb26-243"><a href="#cb26-243" aria-hidden="true" tabindex="-1"></a><span class="in">  ```</span></span>
-<span id="cb26-244"><a href="#cb26-244" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-229"><a href="#cb26-229" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-230"><a href="#cb26-230" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 4</span></span>
+<span id="cb26-231"><a href="#cb26-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-232"><a href="#cb26-232" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What does the following tell you about copying and use of memory in lists in Python?</span>
+<span id="cb26-233"><a href="#cb26-233" aria-hidden="true" tabindex="-1"></a>  <span class="in">```{python}</span></span>
+<span id="cb26-234"><a href="#cb26-234" aria-hidden="true" tabindex="-1"></a><span class="in">  #| eval: false</span></span>
+<span id="cb26-235"><a href="#cb26-235" aria-hidden="true" tabindex="-1"></a><span class="in">  a = [1, 3, 5]</span></span>
+<span id="cb26-236"><a href="#cb26-236" aria-hidden="true" tabindex="-1"></a><span class="in">  b = a</span></span>
+<span id="cb26-237"><a href="#cb26-237" aria-hidden="true" tabindex="-1"></a><span class="in">  id(a)</span></span>
+<span id="cb26-238"><a href="#cb26-238" aria-hidden="true" tabindex="-1"></a><span class="in">  id(b)</span></span>
+<span id="cb26-239"><a href="#cb26-239" aria-hidden="true" tabindex="-1"></a><span class="in">   this should confirm what you might suspect</span></span>
+<span id="cb26-240"><a href="#cb26-240" aria-hidden="true" tabindex="-1"></a><span class="in">  a[1] = 5</span></span>
+<span id="cb26-241"><a href="#cb26-241" aria-hidden="true" tabindex="-1"></a><span class="in">  ```</span></span>
+<span id="cb26-242"><a href="#cb26-242" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-243"><a href="#cb26-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-244"><a href="#cb26-244" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5. Repeating Actions with Loops</span></span>
 <span id="cb26-245"><a href="#cb26-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-246"><a href="#cb26-246" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5. Repeating Actions with Loops</span></span>
+<span id="cb26-246"><a href="#cb26-246" aria-hidden="true" tabindex="-1"></a>We'll work through the <span class="co">[</span><span class="ot">Repeating Actions with Loops section</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/05-loop.html)</span> of the Software Carpentry workshop. The primary ideas covered relate to using <span class="in">`for`</span> loops to automate operations.</span>
 <span id="cb26-247"><a href="#cb26-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-248"><a href="#cb26-248" aria-hidden="true" tabindex="-1"></a>We'll work through the <span class="co">[</span><span class="ot">Repeating Actions with Loops section</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/05-loop.html)</span> of the Software Carpentry workshop. The primary ideas covered relate to using <span class="in">`for`</span> loops to automate operations.</span>
+<span id="cb26-248"><a href="#cb26-248" aria-hidden="true" tabindex="-1"></a>In addition to the explicit for looping shown in the unit, Python also has a construct called *list comprehension* to do something similar. Note that some people really dislike the list comprehension syntax as being hard to read.</span>
 <span id="cb26-249"><a href="#cb26-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-250"><a href="#cb26-250" aria-hidden="true" tabindex="-1"></a>In addition to the explicit for looping shown in the unit, Python also has a construct called *list comprehension* to do something similar. Note that some people really dislike the list comprehension syntax as being hard to read.</span>
-<span id="cb26-251"><a href="#cb26-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-254"><a href="#cb26-254" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb26-255"><a href="#cb26-255" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
-<span id="cb26-256"><a href="#cb26-256" aria-hidden="true" tabindex="-1"></a>vals <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">7</span>]</span>
-<span id="cb26-257"><a href="#cb26-257" aria-hidden="true" tabindex="-1"></a>vals_times2 <span class="op">=</span> [val<span class="op">*</span><span class="dv">2</span> <span class="cf">for</span> val <span class="kw">in</span> vals]</span>
-<span id="cb26-258"><a href="#cb26-258" aria-hidden="true" tabindex="-1"></a>vals_times2</span>
-<span id="cb26-259"><a href="#cb26-259" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb26-260"><a href="#cb26-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-261"><a href="#cb26-261" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-262"><a href="#cb26-262" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises</span></span>
-<span id="cb26-263"><a href="#cb26-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-264"><a href="#cb26-264" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>See what <span class="in">`[1, 2, 3] + 3`</span> returns. Try to explain what happened and why.</span>
-<span id="cb26-265"><a href="#cb26-265" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How would you do the same task using a for loop? The <span class="in">`range`</span> function may be helpful as might the <span class="in">`enumerate`</span> function.</span>
-<span id="cb26-266"><a href="#cb26-266" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use list comprehension to perform the same element-wise addition of the scalar to the list of scalars.</span>
-<span id="cb26-267"><a href="#cb26-267" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Change <span class="in">`[1, 2, 3]`</span> to be a numpy array and then add three using <span class="in">`+ 3`</span>. </span>
-<span id="cb26-268"><a href="#cb26-268" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-252"><a href="#cb26-252" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb26-253"><a href="#cb26-253" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb26-254"><a href="#cb26-254" aria-hidden="true" tabindex="-1"></a>vals <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">7</span>]</span>
+<span id="cb26-255"><a href="#cb26-255" aria-hidden="true" tabindex="-1"></a>vals_times2 <span class="op">=</span> [val<span class="op">*</span><span class="dv">2</span> <span class="cf">for</span> val <span class="kw">in</span> vals]</span>
+<span id="cb26-256"><a href="#cb26-256" aria-hidden="true" tabindex="-1"></a>vals_times2</span>
+<span id="cb26-257"><a href="#cb26-257" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-258"><a href="#cb26-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-259"><a href="#cb26-259" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-260"><a href="#cb26-260" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises</span></span>
+<span id="cb26-261"><a href="#cb26-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-262"><a href="#cb26-262" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>See what <span class="in">`[1, 2, 3] + 3`</span> returns. Try to explain what happened and why.</span>
+<span id="cb26-263"><a href="#cb26-263" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How would you do the same task using a for loop? The <span class="in">`range`</span> function may be helpful as might the <span class="in">`enumerate`</span> function.</span>
+<span id="cb26-264"><a href="#cb26-264" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use list comprehension to perform the same element-wise addition of the scalar to the list of scalars.</span>
+<span id="cb26-265"><a href="#cb26-265" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Change <span class="in">`[1, 2, 3]`</span> to be a numpy array and then add three using <span class="in">`+ 3`</span>. </span>
+<span id="cb26-266"><a href="#cb26-266" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-267"><a href="#cb26-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-268"><a href="#cb26-268" aria-hidden="true" tabindex="-1"></a><span class="fu">## 7. Making Choices</span></span>
 <span id="cb26-269"><a href="#cb26-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-270"><a href="#cb26-270" aria-hidden="true" tabindex="-1"></a><span class="fu">## 7. Making Choices</span></span>
+<span id="cb26-270"><a href="#cb26-270" aria-hidden="true" tabindex="-1"></a>We'll work through the <span class="co">[</span><span class="ot">Making Choices section</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/07-cond.html)</span> of the Software Carpentry workshop. The primary ideas covered are using conditionals (if-then-else statements) and boolean (logical) operations.</span>
 <span id="cb26-271"><a href="#cb26-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-272"><a href="#cb26-272" aria-hidden="true" tabindex="-1"></a>We'll work through the <span class="co">[</span><span class="ot">Making Choices section</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/07-cond.html)</span> of the Software Carpentry workshop. The primary ideas covered are using conditionals (if-then-else statements) and boolean (logical) operations.</span>
-<span id="cb26-273"><a href="#cb26-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-274"><a href="#cb26-274" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-275"><a href="#cb26-275" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
+<span id="cb26-272"><a href="#cb26-272" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-273"><a href="#cb26-273" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
+<span id="cb26-274"><a href="#cb26-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-275"><a href="#cb26-275" aria-hidden="true" tabindex="-1"></a>Answer <span class="co">[</span><span class="ot">this question</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/07-cond.html#what-is-truth)</span> from the Software Carpentry section.</span>
 <span id="cb26-276"><a href="#cb26-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-277"><a href="#cb26-277" aria-hidden="true" tabindex="-1"></a>Answer <span class="co">[</span><span class="ot">this question</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/07-cond.html#what-is-truth)</span> from the Software Carpentry section.</span>
+<span id="cb26-277"><a href="#cb26-277" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb26-278"><a href="#cb26-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-279"><a href="#cb26-279" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb26-280"><a href="#cb26-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-281"><a href="#cb26-281" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-282"><a href="#cb26-282" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
+<span id="cb26-279"><a href="#cb26-279" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-280"><a href="#cb26-280" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
+<span id="cb26-281"><a href="#cb26-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-282"><a href="#cb26-282" aria-hidden="true" tabindex="-1"></a>Answer <span class="co">[</span><span class="ot">this question</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/07-cond.html#counting-vowels)</span> from the Software Carpentry section.</span>
 <span id="cb26-283"><a href="#cb26-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-284"><a href="#cb26-284" aria-hidden="true" tabindex="-1"></a>Answer <span class="co">[</span><span class="ot">this question</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/07-cond.html#counting-vowels)</span> from the Software Carpentry section.</span>
+<span id="cb26-284"><a href="#cb26-284" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb26-285"><a href="#cb26-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-286"><a href="#cb26-286" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-286"><a href="#cb26-286" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8. Creating Functions</span></span>
 <span id="cb26-287"><a href="#cb26-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-288"><a href="#cb26-288" aria-hidden="true" tabindex="-1"></a><span class="fu">## 8. Creating Functions</span></span>
+<span id="cb26-288"><a href="#cb26-288" aria-hidden="true" tabindex="-1"></a>We'll work through the <span class="co">[</span><span class="ot">Creating Functions section</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/08-func.html)</span> of the Software Carpentry workshop. The primary ideas covered are defining, using, testing, and debugging functions.</span>
 <span id="cb26-289"><a href="#cb26-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-290"><a href="#cb26-290" aria-hidden="true" tabindex="-1"></a>We'll work through the <span class="co">[</span><span class="ot">Creating Functions section</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/08-func.html)</span> of the Software Carpentry workshop. The primary ideas covered are defining, using, testing, and debugging functions.</span>
+<span id="cb26-290"><a href="#cb26-290" aria-hidden="true" tabindex="-1"></a>We'll skip over testing and documentation as we'll cover those in depth later this week (and definitely NOT because they are unimportant).</span>
 <span id="cb26-291"><a href="#cb26-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-292"><a href="#cb26-292" aria-hidden="true" tabindex="-1"></a>We'll skip over testing and documentation as we'll cover those in depth later this week (and definitely NOT because they are unimportant).</span>
+<span id="cb26-292"><a href="#cb26-292" aria-hidden="true" tabindex="-1"></a>**Exercises**</span>
 <span id="cb26-293"><a href="#cb26-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-294"><a href="#cb26-294" aria-hidden="true" tabindex="-1"></a>**Exercises**</span>
-<span id="cb26-295"><a href="#cb26-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-296"><a href="#cb26-296" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-297"><a href="#cb26-297" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
+<span id="cb26-294"><a href="#cb26-294" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-295"><a href="#cb26-295" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
+<span id="cb26-296"><a href="#cb26-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-297"><a href="#cb26-297" aria-hidden="true" tabindex="-1"></a>Define a function called <span class="in">`sqrt`</span> that will take the squae root of a number and will (if requested by the user) set the square root of a negative number to 0.</span>
 <span id="cb26-298"><a href="#cb26-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-299"><a href="#cb26-299" aria-hidden="true" tabindex="-1"></a>Define a function called <span class="in">`sqrt`</span> that will take the squae root of a number and will (if requested by the user) set the square root of a negative number to 0.</span>
+<span id="cb26-299"><a href="#cb26-299" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb26-300"><a href="#cb26-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-301"><a href="#cb26-301" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb26-302"><a href="#cb26-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-303"><a href="#cb26-303" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-304"><a href="#cb26-304" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
-<span id="cb26-305"><a href="#cb26-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-306"><a href="#cb26-306" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What happens if you modify a list within a function in Python; why do you think this is?</span>
-<span id="cb26-307"><a href="#cb26-307" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What happens if you modify a single number (scalar) within a function in Python; why do you think this is?</span>
+<span id="cb26-301"><a href="#cb26-301" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-302"><a href="#cb26-302" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
+<span id="cb26-303"><a href="#cb26-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-304"><a href="#cb26-304" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What happens if you modify a list within a function in Python; why do you think this is?</span>
+<span id="cb26-305"><a href="#cb26-305" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What happens if you modify a single number (scalar) within a function in Python; why do you think this is?</span>
+<span id="cb26-306"><a href="#cb26-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-307"><a href="#cb26-307" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb26-308"><a href="#cb26-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-309"><a href="#cb26-309" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb26-310"><a href="#cb26-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-311"><a href="#cb26-311" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-312"><a href="#cb26-312" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 3</span></span>
+<span id="cb26-309"><a href="#cb26-309" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-310"><a href="#cb26-310" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 3</span></span>
+<span id="cb26-311"><a href="#cb26-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-312"><a href="#cb26-312" aria-hidden="true" tabindex="-1"></a>Answer the <span class="co">[</span><span class="ot">question related to local vs. global variables</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/08-func.html#variables-inside-and-outside-functions)</span> in the Software Carpentry section.</span>
 <span id="cb26-313"><a href="#cb26-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-314"><a href="#cb26-314" aria-hidden="true" tabindex="-1"></a>Answer the <span class="co">[</span><span class="ot">question related to local vs. global variables</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/08-func.html#variables-inside-and-outside-functions)</span> in the Software Carpentry section.</span>
+<span id="cb26-314"><a href="#cb26-314" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb26-315"><a href="#cb26-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-316"><a href="#cb26-316" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-316"><a href="#cb26-316" aria-hidden="true" tabindex="-1"></a><span class="fu">## 9. Errors and Exceptions </span></span>
 <span id="cb26-317"><a href="#cb26-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-318"><a href="#cb26-318" aria-hidden="true" tabindex="-1"></a><span class="fu">## 9. Errors and Exceptions </span></span>
+<span id="cb26-318"><a href="#cb26-318" aria-hidden="true" tabindex="-1"></a>We'll work through the <span class="co">[</span><span class="ot">Errors and Exceptions section</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html)</span> of the Software Carpentry workshop. The primary ideas covered are understanding error messages and tracebacks and writing your own code that handles errors.</span>
 <span id="cb26-319"><a href="#cb26-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-320"><a href="#cb26-320" aria-hidden="true" tabindex="-1"></a>We'll work through the <span class="co">[</span><span class="ot">Errors and Exceptions section</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html)</span> of the Software Carpentry workshop. The primary ideas covered are understanding error messages and tracebacks and writing your own code that handles errors.</span>
-<span id="cb26-321"><a href="#cb26-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-322"><a href="#cb26-322" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-323"><a href="#cb26-323" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
+<span id="cb26-320"><a href="#cb26-320" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-321"><a href="#cb26-321" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
+<span id="cb26-322"><a href="#cb26-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-323"><a href="#cb26-323" aria-hidden="true" tabindex="-1"></a>Answer <span class="co">[</span><span class="ot">this question</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html#reading-error-messages)</span> from the Software Carpentry section.</span>
 <span id="cb26-324"><a href="#cb26-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-325"><a href="#cb26-325" aria-hidden="true" tabindex="-1"></a>Answer <span class="co">[</span><span class="ot">this question</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html#reading-error-messages)</span> from the Software Carpentry section.</span>
+<span id="cb26-325"><a href="#cb26-325" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb26-326"><a href="#cb26-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-327"><a href="#cb26-327" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb26-328"><a href="#cb26-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-329"><a href="#cb26-329" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-330"><a href="#cb26-330" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
+<span id="cb26-327"><a href="#cb26-327" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-328"><a href="#cb26-328" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
+<span id="cb26-329"><a href="#cb26-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-330"><a href="#cb26-330" aria-hidden="true" tabindex="-1"></a>Answer these questions from Sofware Carpentry:</span>
 <span id="cb26-331"><a href="#cb26-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-332"><a href="#cb26-332" aria-hidden="true" tabindex="-1"></a>Answer these questions from Sofware Carpentry:</span>
-<span id="cb26-333"><a href="#cb26-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-334"><a href="#cb26-334" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Syntax errors</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html#identifying-syntax-errors)</span></span>
-<span id="cb26-335"><a href="#cb26-335" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Name errors</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html#identifying-variable-name-errors)</span></span>
-<span id="cb26-336"><a href="#cb26-336" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Index errors</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html#identifying-index-errors)</span></span>
+<span id="cb26-332"><a href="#cb26-332" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Syntax errors</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html#identifying-syntax-errors)</span></span>
+<span id="cb26-333"><a href="#cb26-333" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Name errors</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html#identifying-variable-name-errors)</span></span>
+<span id="cb26-334"><a href="#cb26-334" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Index errors</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html#identifying-index-errors)</span></span>
+<span id="cb26-335"><a href="#cb26-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-336"><a href="#cb26-336" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb26-337"><a href="#cb26-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-338"><a href="#cb26-338" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-338"><a href="#cb26-338" aria-hidden="true" tabindex="-1"></a><span class="fu">## EXTRA Part 1. Some other useful data structures</span></span>
 <span id="cb26-339"><a href="#cb26-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-340"><a href="#cb26-340" aria-hidden="true" tabindex="-1"></a><span class="fu">## EXTRA Part 1. Some other useful data structures</span></span>
+<span id="cb26-340"><a href="#cb26-340" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tuples</span></span>
 <span id="cb26-341"><a href="#cb26-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-342"><a href="#cb26-342" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tuples</span></span>
-<span id="cb26-343"><a href="#cb26-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-344"><a href="#cb26-344" aria-hidden="true" tabindex="-1"></a>Tuples are immutable sequences of (zero or more) objects. Functions in</span>
-<span id="cb26-345"><a href="#cb26-345" aria-hidden="true" tabindex="-1"></a>Python often return tuples.</span>
-<span id="cb26-346"><a href="#cb26-346" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-349"><a href="#cb26-349" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb26-350"><a href="#cb26-350" aria-hidden="true" tabindex="-1"></a><span class="co">#| error: true</span></span>
-<span id="cb26-351"><a href="#cb26-351" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> y <span class="op">=</span> <span class="st">'foo'</span></span>
-<span id="cb26-352"><a href="#cb26-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-353"><a href="#cb26-353" aria-hidden="true" tabindex="-1"></a>xy <span class="op">=</span> (x, y)</span>
+<span id="cb26-342"><a href="#cb26-342" aria-hidden="true" tabindex="-1"></a>Tuples are immutable sequences of (zero or more) objects. Functions in</span>
+<span id="cb26-343"><a href="#cb26-343" aria-hidden="true" tabindex="-1"></a>Python often return tuples.</span>
+<span id="cb26-344"><a href="#cb26-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-347"><a href="#cb26-347" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb26-348"><a href="#cb26-348" aria-hidden="true" tabindex="-1"></a><span class="co">#| error: true</span></span>
+<span id="cb26-349"><a href="#cb26-349" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> y <span class="op">=</span> <span class="st">'foo'</span></span>
+<span id="cb26-350"><a href="#cb26-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-351"><a href="#cb26-351" aria-hidden="true" tabindex="-1"></a>xy <span class="op">=</span> (x, y)</span>
+<span id="cb26-352"><a href="#cb26-352" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(xy)</span>
+<span id="cb26-353"><a href="#cb26-353" aria-hidden="true" tabindex="-1"></a>xy <span class="op">=</span> x,y</span>
 <span id="cb26-354"><a href="#cb26-354" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(xy)</span>
-<span id="cb26-355"><a href="#cb26-355" aria-hidden="true" tabindex="-1"></a>xy <span class="op">=</span> x,y</span>
-<span id="cb26-356"><a href="#cb26-356" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(xy)</span>
-<span id="cb26-357"><a href="#cb26-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-358"><a href="#cb26-358" aria-hidden="true" tabindex="-1"></a>xy</span>
-<span id="cb26-359"><a href="#cb26-359" aria-hidden="true" tabindex="-1"></a>xy[<span class="dv">1</span>]</span>
-<span id="cb26-360"><a href="#cb26-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-361"><a href="#cb26-361" aria-hidden="true" tabindex="-1"></a>xy[<span class="dv">1</span>] <span class="op">=</span> <span class="dv">3</span>   immutable<span class="op">!</span></span>
-<span id="cb26-362"><a href="#cb26-362" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-355"><a href="#cb26-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-356"><a href="#cb26-356" aria-hidden="true" tabindex="-1"></a>xy</span>
+<span id="cb26-357"><a href="#cb26-357" aria-hidden="true" tabindex="-1"></a>xy[<span class="dv">1</span>]</span>
+<span id="cb26-358"><a href="#cb26-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-359"><a href="#cb26-359" aria-hidden="true" tabindex="-1"></a>xy[<span class="dv">1</span>] <span class="op">=</span> <span class="dv">3</span>   immutable<span class="op">!</span></span>
+<span id="cb26-360"><a href="#cb26-360" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-361"><a href="#cb26-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-362"><a href="#cb26-362" aria-hidden="true" tabindex="-1"></a>**Exercises**</span>
 <span id="cb26-363"><a href="#cb26-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-364"><a href="#cb26-364" aria-hidden="true" tabindex="-1"></a>**Exercises**</span>
-<span id="cb26-365"><a href="#cb26-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-366"><a href="#cb26-366" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-367"><a href="#cb26-367" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
-<span id="cb26-368"><a href="#cb26-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-369"><a href="#cb26-369" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What's weird about this? What are the types involved?</span>
-<span id="cb26-370"><a href="#cb26-370" aria-hidden="true" tabindex="-1"></a>  <span class="in">```{python}</span></span>
-<span id="cb26-371"><a href="#cb26-371" aria-hidden="true" tabindex="-1"></a><span class="in">  #| eval: false</span></span>
-<span id="cb26-372"><a href="#cb26-372" aria-hidden="true" tabindex="-1"></a><span class="in">  z = x,y</span></span>
-<span id="cb26-373"><a href="#cb26-373" aria-hidden="true" tabindex="-1"></a><span class="in">  a,b = x,y</span></span>
-<span id="cb26-374"><a href="#cb26-374" aria-hidden="true" tabindex="-1"></a><span class="in">  ```</span></span>
-<span id="cb26-375"><a href="#cb26-375" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Create the following: <span class="in">`x=5`</span> and <span class="in">`y=6`</span>. Now swap their values using a single line of code. (For R users, how would you do this in R?)</span>
+<span id="cb26-364"><a href="#cb26-364" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-365"><a href="#cb26-365" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
+<span id="cb26-366"><a href="#cb26-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-367"><a href="#cb26-367" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What's weird about this? What are the types involved?</span>
+<span id="cb26-368"><a href="#cb26-368" aria-hidden="true" tabindex="-1"></a>  <span class="in">```{python}</span></span>
+<span id="cb26-369"><a href="#cb26-369" aria-hidden="true" tabindex="-1"></a><span class="in">  #| eval: false</span></span>
+<span id="cb26-370"><a href="#cb26-370" aria-hidden="true" tabindex="-1"></a><span class="in">  z = x,y</span></span>
+<span id="cb26-371"><a href="#cb26-371" aria-hidden="true" tabindex="-1"></a><span class="in">  a,b = x,y</span></span>
+<span id="cb26-372"><a href="#cb26-372" aria-hidden="true" tabindex="-1"></a><span class="in">  ```</span></span>
+<span id="cb26-373"><a href="#cb26-373" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Create the following: <span class="in">`x=5`</span> and <span class="in">`y=6`</span>. Now swap their values using a single line of code. (For R users, how would you do this in R?)</span>
+<span id="cb26-374"><a href="#cb26-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-375"><a href="#cb26-375" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb26-376"><a href="#cb26-376" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-377"><a href="#cb26-377" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb26-378"><a href="#cb26-378" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-379"><a href="#cb26-379" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-380"><a href="#cb26-380" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
+<span id="cb26-377"><a href="#cb26-377" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-378"><a href="#cb26-378" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
+<span id="cb26-379"><a href="#cb26-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-380"><a href="#cb26-380" aria-hidden="true" tabindex="-1"></a>What happens when you multiply a tuple by a number?</span>
 <span id="cb26-381"><a href="#cb26-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-382"><a href="#cb26-382" aria-hidden="true" tabindex="-1"></a>What happens when you multiply a tuple by a number?</span>
+<span id="cb26-382"><a href="#cb26-382" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb26-383"><a href="#cb26-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-384"><a href="#cb26-384" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb26-385"><a href="#cb26-385" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-386"><a href="#cb26-386" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-387"><a href="#cb26-387" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 3</span></span>
-<span id="cb26-388"><a href="#cb26-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-389"><a href="#cb26-389" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Why do you think there is no <span class="in">`reverse`</span> method for tuples?</span>
-<span id="cb26-390"><a href="#cb26-390" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What's nice about using immutable objects in your code?</span>
-<span id="cb26-391"><a href="#cb26-391" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-384"><a href="#cb26-384" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-385"><a href="#cb26-385" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 3</span></span>
+<span id="cb26-386"><a href="#cb26-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-387"><a href="#cb26-387" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Why do you think there is no <span class="in">`reverse`</span> method for tuples?</span>
+<span id="cb26-388"><a href="#cb26-388" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What's nice about using immutable objects in your code?</span>
+<span id="cb26-389"><a href="#cb26-389" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-390"><a href="#cb26-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-391"><a href="#cb26-391" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dictionaries</span></span>
 <span id="cb26-392"><a href="#cb26-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-393"><a href="#cb26-393" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dictionaries</span></span>
-<span id="cb26-394"><a href="#cb26-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-393"><a href="#cb26-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-394"><a href="#cb26-394" aria-hidden="true" tabindex="-1"></a>Dictionaries are mutable, unordered collections of key-value pairs. They're a very important data structure in Python so I'm surprised they weren't discussed in the Software Carpentry sections.</span>
 <span id="cb26-395"><a href="#cb26-395" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-396"><a href="#cb26-396" aria-hidden="true" tabindex="-1"></a>Dictionaries are mutable, unordered collections of key-value pairs. They're a very important data structure in Python so I'm surprised they weren't discussed in the Software Carpentry sections.</span>
-<span id="cb26-397"><a href="#cb26-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-400"><a href="#cb26-400" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb26-401"><a href="#cb26-401" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
-<span id="cb26-402"><a href="#cb26-402" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> {<span class="st">"Francis Bacon"</span>: [<span class="st">'A'</span>, <span class="st">'B+'</span>, <span class="st">'A-'</span>], </span>
-<span id="cb26-403"><a href="#cb26-403" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Marie Curie"</span>: [<span class="st">'A-'</span>, <span class="st">'A-'</span>], </span>
-<span id="cb26-404"><a href="#cb26-404" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Aristotle"</span>: <span class="st">'and now for something completely different'</span>}</span>
-<span id="cb26-405"><a href="#cb26-405" aria-hidden="true" tabindex="-1"></a>students</span>
-<span id="cb26-406"><a href="#cb26-406" aria-hidden="true" tabindex="-1"></a>students.keys()</span>
-<span id="cb26-407"><a href="#cb26-407" aria-hidden="true" tabindex="-1"></a>students.values()</span>
-<span id="cb26-408"><a href="#cb26-408" aria-hidden="true" tabindex="-1"></a>students[<span class="st">"Marie Curie"</span>]</span>
-<span id="cb26-409"><a href="#cb26-409" aria-hidden="true" tabindex="-1"></a>students[<span class="st">"Marie Curie"</span>][<span class="dv">1</span>]</span>
-<span id="cb26-410"><a href="#cb26-410" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb26-411"><a href="#cb26-411" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-414"><a href="#cb26-414" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb26-415"><a href="#cb26-415" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb26-416"><a href="#cb26-416" aria-hidden="true" tabindex="-1"></a>students.</span>
+<span id="cb26-398"><a href="#cb26-398" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb26-399"><a href="#cb26-399" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb26-400"><a href="#cb26-400" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> {<span class="st">"Francis Bacon"</span>: [<span class="st">'A'</span>, <span class="st">'B+'</span>, <span class="st">'A-'</span>], </span>
+<span id="cb26-401"><a href="#cb26-401" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Marie Curie"</span>: [<span class="st">'A-'</span>, <span class="st">'A-'</span>], </span>
+<span id="cb26-402"><a href="#cb26-402" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Aristotle"</span>: <span class="st">'and now for something completely different'</span>}</span>
+<span id="cb26-403"><a href="#cb26-403" aria-hidden="true" tabindex="-1"></a>students</span>
+<span id="cb26-404"><a href="#cb26-404" aria-hidden="true" tabindex="-1"></a>students.keys()</span>
+<span id="cb26-405"><a href="#cb26-405" aria-hidden="true" tabindex="-1"></a>students.values()</span>
+<span id="cb26-406"><a href="#cb26-406" aria-hidden="true" tabindex="-1"></a>students[<span class="st">"Marie Curie"</span>]</span>
+<span id="cb26-407"><a href="#cb26-407" aria-hidden="true" tabindex="-1"></a>students[<span class="st">"Marie Curie"</span>][<span class="dv">1</span>]</span>
+<span id="cb26-408"><a href="#cb26-408" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-409"><a href="#cb26-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-412"><a href="#cb26-412" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb26-413"><a href="#cb26-413" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb26-414"><a href="#cb26-414" aria-hidden="true" tabindex="-1"></a>students.</span>
+<span id="cb26-415"><a href="#cb26-415" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-416"><a href="#cb26-416" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-417"><a href="#cb26-417" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb26-418"><a href="#cb26-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-419"><a href="#cb26-419" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb26-420"><a href="#cb26-420" aria-hidden="true" tabindex="-1"></a><span class="in">students.clear(       students.items(       students.setdefault(</span></span>
-<span id="cb26-421"><a href="#cb26-421" aria-hidden="true" tabindex="-1"></a><span class="in">students.copy(        students.keys(        students.update(</span></span>
-<span id="cb26-422"><a href="#cb26-422" aria-hidden="true" tabindex="-1"></a><span class="in">students.fromkeys(    students.pop(         students.values(</span></span>
-<span id="cb26-423"><a href="#cb26-423" aria-hidden="true" tabindex="-1"></a><span class="in">students.get(         students.popitem()    </span></span>
-<span id="cb26-424"><a href="#cb26-424" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb26-425"><a href="#cb26-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-426"><a href="#cb26-426" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-427"><a href="#cb26-427" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
+<span id="cb26-418"><a href="#cb26-418" aria-hidden="true" tabindex="-1"></a><span class="in">students.clear(       students.items(       students.setdefault(</span></span>
+<span id="cb26-419"><a href="#cb26-419" aria-hidden="true" tabindex="-1"></a><span class="in">students.copy(        students.keys(        students.update(</span></span>
+<span id="cb26-420"><a href="#cb26-420" aria-hidden="true" tabindex="-1"></a><span class="in">students.fromkeys(    students.pop(         students.values(</span></span>
+<span id="cb26-421"><a href="#cb26-421" aria-hidden="true" tabindex="-1"></a><span class="in">students.get(         students.popitem()    </span></span>
+<span id="cb26-422"><a href="#cb26-422" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-423"><a href="#cb26-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-424"><a href="#cb26-424" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-425"><a href="#cb26-425" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
+<span id="cb26-426"><a href="#cb26-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-427"><a href="#cb26-427" aria-hidden="true" tabindex="-1"></a>How can you add an item to a dictionary?</span>
 <span id="cb26-428"><a href="#cb26-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-429"><a href="#cb26-429" aria-hidden="true" tabindex="-1"></a>How can you add an item to a dictionary?</span>
+<span id="cb26-429"><a href="#cb26-429" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb26-430"><a href="#cb26-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-431"><a href="#cb26-431" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb26-432"><a href="#cb26-432" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-433"><a href="#cb26-433" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-434"><a href="#cb26-434" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
+<span id="cb26-431"><a href="#cb26-431" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-432"><a href="#cb26-432" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
+<span id="cb26-433"><a href="#cb26-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-434"><a href="#cb26-434" aria-hidden="true" tabindex="-1"></a>How do you combine two dictionaries into a single dictionary?</span>
 <span id="cb26-435"><a href="#cb26-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-436"><a href="#cb26-436" aria-hidden="true" tabindex="-1"></a>How do you combine two dictionaries into a single dictionary?</span>
+<span id="cb26-436"><a href="#cb26-436" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb26-437"><a href="#cb26-437" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-438"><a href="#cb26-438" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb26-439"><a href="#cb26-439" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-440"><a href="#cb26-440" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb26-441"><a href="#cb26-441" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 3 (for R users)</span></span>
-<span id="cb26-442"><a href="#cb26-442" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-443"><a href="#cb26-443" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What are some analogs to dictionaries in R? </span>
-<span id="cb26-444"><a href="#cb26-444" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How are dictionaries different from such analogous structures in R?</span>
-<span id="cb26-445"><a href="#cb26-445" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb26-446"><a href="#cb26-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-438"><a href="#cb26-438" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb26-439"><a href="#cb26-439" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 3 (for R users)</span></span>
+<span id="cb26-440"><a href="#cb26-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-441"><a href="#cb26-441" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What are some analogs to dictionaries in R? </span>
+<span id="cb26-442"><a href="#cb26-442" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How are dictionaries different from such analogous structures in R?</span>
+<span id="cb26-443"><a href="#cb26-443" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-444"><a href="#cb26-444" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-445"><a href="#cb26-445" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-446"><a href="#cb26-446" aria-hidden="true" tabindex="-1"></a><span class="fu">## EXTRA Part 2: A bit on numpy, scipy and pandas</span></span>
 <span id="cb26-447"><a href="#cb26-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-448"><a href="#cb26-448" aria-hidden="true" tabindex="-1"></a><span class="fu">## EXTRA Part 2: A bit on numpy, scipy and pandas</span></span>
+<span id="cb26-448"><a href="#cb26-448" aria-hidden="true" tabindex="-1"></a><span class="fu">### Numpy and scipy</span></span>
 <span id="cb26-449"><a href="#cb26-449" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-450"><a href="#cb26-450" aria-hidden="true" tabindex="-1"></a><span class="fu">### Numpy and scipy</span></span>
-<span id="cb26-451"><a href="#cb26-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-450"><a href="#cb26-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-451"><a href="#cb26-451" aria-hidden="true" tabindex="-1"></a>Standard lists in Python are not amenable to mathematical manipulation, unlike standard vectors in R. Instead we generally work with numpy arrays. These arrays can be of various dimensions (i.e., vectors, matrices, multi-dimensional arrays).</span>
 <span id="cb26-452"><a href="#cb26-452" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-453"><a href="#cb26-453" aria-hidden="true" tabindex="-1"></a>Standard lists in Python are not amenable to mathematical manipulation, unlike standard vectors in R. Instead we generally work with numpy arrays. These arrays can be of various dimensions (i.e., vectors, matrices, multi-dimensional arrays).</span>
-<span id="cb26-454"><a href="#cb26-454" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-457"><a href="#cb26-457" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb26-458"><a href="#cb26-458" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
-<span id="cb26-459"><a href="#cb26-459" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb26-460"><a href="#cb26-460" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>] </span>
-<span id="cb26-461"><a href="#cb26-461" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-462"><a href="#cb26-462" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array(z)</span>
-<span id="cb26-463"><a href="#cb26-463" aria-hidden="true" tabindex="-1"></a>y<span class="op">*</span><span class="dv">3</span></span>
+<span id="cb26-455"><a href="#cb26-455" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb26-456"><a href="#cb26-456" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb26-457"><a href="#cb26-457" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb26-458"><a href="#cb26-458" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>] </span>
+<span id="cb26-459"><a href="#cb26-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-460"><a href="#cb26-460" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array(z)</span>
+<span id="cb26-461"><a href="#cb26-461" aria-hidden="true" tabindex="-1"></a>y<span class="op">*</span><span class="dv">3</span></span>
+<span id="cb26-462"><a href="#cb26-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-463"><a href="#cb26-463" aria-hidden="true" tabindex="-1"></a>y.dtype</span>
 <span id="cb26-464"><a href="#cb26-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-465"><a href="#cb26-465" aria-hidden="true" tabindex="-1"></a>y.dtype</span>
-<span id="cb26-466"><a href="#cb26-466" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-467"><a href="#cb26-467" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-468"><a href="#cb26-468" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>]], dtype<span class="op">=</span>np.float64)</span>
-<span id="cb26-469"><a href="#cb26-469" aria-hidden="true" tabindex="-1"></a>x<span class="op">*</span>x</span>
-<span id="cb26-470"><a href="#cb26-470" aria-hidden="true" tabindex="-1"></a>x.dot(x)</span>
-<span id="cb26-471"><a href="#cb26-471" aria-hidden="true" tabindex="-1"></a>x.T</span>
+<span id="cb26-465"><a href="#cb26-465" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-466"><a href="#cb26-466" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>]], dtype<span class="op">=</span>np.float64)</span>
+<span id="cb26-467"><a href="#cb26-467" aria-hidden="true" tabindex="-1"></a>x<span class="op">*</span>x</span>
+<span id="cb26-468"><a href="#cb26-468" aria-hidden="true" tabindex="-1"></a>x.dot(x)</span>
+<span id="cb26-469"><a href="#cb26-469" aria-hidden="true" tabindex="-1"></a>x.T</span>
+<span id="cb26-470"><a href="#cb26-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-471"><a href="#cb26-471" aria-hidden="true" tabindex="-1"></a>np.linalg.svd(x)</span>
 <span id="cb26-472"><a href="#cb26-472" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-473"><a href="#cb26-473" aria-hidden="true" tabindex="-1"></a>np.linalg.svd(x)</span>
+<span id="cb26-473"><a href="#cb26-473" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> np.linalg.eig(x)</span>
 <span id="cb26-474"><a href="#cb26-474" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-475"><a href="#cb26-475" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> np.linalg.eig(x)</span>
-<span id="cb26-476"><a href="#cb26-476" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-477"><a href="#cb26-477" aria-hidden="true" tabindex="-1"></a>e[<span class="dv">0</span>]  <span class="co"># first eigenvalue (not the largest in this case...)</span></span>
-<span id="cb26-478"><a href="#cb26-478" aria-hidden="true" tabindex="-1"></a>e[<span class="dv">1</span>][:, <span class="dv">0</span>] <span class="co"># corresponding eigenvector</span></span>
-<span id="cb26-479"><a href="#cb26-479" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-475"><a href="#cb26-475" aria-hidden="true" tabindex="-1"></a>e[<span class="dv">0</span>]  <span class="co"># first eigenvalue (not the largest in this case...)</span></span>
+<span id="cb26-476"><a href="#cb26-476" aria-hidden="true" tabindex="-1"></a>e[<span class="dv">1</span>][:, <span class="dv">0</span>] <span class="co"># corresponding eigenvector</span></span>
+<span id="cb26-477"><a href="#cb26-477" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-478"><a href="#cb26-478" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-479"><a href="#cb26-479" aria-hidden="true" tabindex="-1"></a>All of the elements of the array must be of the same type.</span>
 <span id="cb26-480"><a href="#cb26-480" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-481"><a href="#cb26-481" aria-hidden="true" tabindex="-1"></a>All of the elements of the array must be of the same type.</span>
+<span id="cb26-481"><a href="#cb26-481" aria-hidden="true" tabindex="-1"></a>There are a variety of numpy functions that allow us to do standard mathematical/statistical manipulations. </span>
 <span id="cb26-482"><a href="#cb26-482" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-483"><a href="#cb26-483" aria-hidden="true" tabindex="-1"></a>There are a variety of numpy functions that allow us to do standard mathematical/statistical manipulations. </span>
+<span id="cb26-483"><a href="#cb26-483" aria-hidden="true" tabindex="-1"></a>Here we'll use some of those functions in addition to some syntax for subsetting and vectorized calculations.</span>
 <span id="cb26-484"><a href="#cb26-484" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-485"><a href="#cb26-485" aria-hidden="true" tabindex="-1"></a>Here we'll use some of those functions in addition to some syntax for subsetting and vectorized calculations.</span>
-<span id="cb26-486"><a href="#cb26-486" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-489"><a href="#cb26-489" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb26-490"><a href="#cb26-490" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
-<span id="cb26-491"><a href="#cb26-491" aria-hidden="true" tabindex="-1"></a>np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">5</span>)</span>
-<span id="cb26-492"><a href="#cb26-492" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-493"><a href="#cb26-493" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">0</span>)</span>
-<span id="cb26-494"><a href="#cb26-494" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb26-487"><a href="#cb26-487" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb26-488"><a href="#cb26-488" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb26-489"><a href="#cb26-489" aria-hidden="true" tabindex="-1"></a>np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">5</span>)</span>
+<span id="cb26-490"><a href="#cb26-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-491"><a href="#cb26-491" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">0</span>)</span>
+<span id="cb26-492"><a href="#cb26-492" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb26-493"><a href="#cb26-493" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-494"><a href="#cb26-494" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> x <span class="op">&gt;</span> <span class="dv">0</span></span>
 <span id="cb26-495"><a href="#cb26-495" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-496"><a href="#cb26-496" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> x <span class="op">&gt;</span> <span class="dv">0</span></span>
+<span id="cb26-496"><a href="#cb26-496" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x[pos]</span>
 <span id="cb26-497"><a href="#cb26-497" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-498"><a href="#cb26-498" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x[pos]</span>
+<span id="cb26-498"><a href="#cb26-498" aria-hidden="true" tabindex="-1"></a>x[[<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>]]</span>
 <span id="cb26-499"><a href="#cb26-499" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-500"><a href="#cb26-500" aria-hidden="true" tabindex="-1"></a>x[[<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>]]</span>
+<span id="cb26-500"><a href="#cb26-500" aria-hidden="true" tabindex="-1"></a>x[pos] <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb26-501"><a href="#cb26-501" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-502"><a href="#cb26-502" aria-hidden="true" tabindex="-1"></a>x[pos] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb26-503"><a href="#cb26-503" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-504"><a href="#cb26-504" aria-hidden="true" tabindex="-1"></a>np.cos(x)</span>
-<span id="cb26-505"><a href="#cb26-505" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-502"><a href="#cb26-502" aria-hidden="true" tabindex="-1"></a>np.cos(x)</span>
+<span id="cb26-503"><a href="#cb26-503" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-504"><a href="#cb26-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-505"><a href="#cb26-505" aria-hidden="true" tabindex="-1"></a>scipy has even more numerical routines, including working with distributions and additional linear algebra.</span>
 <span id="cb26-506"><a href="#cb26-506" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-507"><a href="#cb26-507" aria-hidden="true" tabindex="-1"></a>scipy has even more numerical routines, including working with distributions and additional linear algebra.</span>
-<span id="cb26-508"><a href="#cb26-508" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-511"><a href="#cb26-511" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb26-512"><a href="#cb26-512" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb26-513"><a href="#cb26-513" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> st</span>
-<span id="cb26-514"><a href="#cb26-514" aria-hidden="true" tabindex="-1"></a>st.norm.cdf(<span class="fl">1.96</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb26-515"><a href="#cb26-515" aria-hidden="true" tabindex="-1"></a>st.norm.cdf(<span class="fl">1.96</span>, <span class="fl">0.5</span>, <span class="dv">2</span>)</span>
-<span id="cb26-516"><a href="#cb26-516" aria-hidden="true" tabindex="-1"></a>st.norm(<span class="fl">0.5</span>, <span class="dv">2</span>).cdf(<span class="fl">1.96</span>)</span>
-<span id="cb26-517"><a href="#cb26-517" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb26-518"><a href="#cb26-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-509"><a href="#cb26-509" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb26-510"><a href="#cb26-510" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb26-511"><a href="#cb26-511" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> st</span>
+<span id="cb26-512"><a href="#cb26-512" aria-hidden="true" tabindex="-1"></a>st.norm.cdf(<span class="fl">1.96</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb26-513"><a href="#cb26-513" aria-hidden="true" tabindex="-1"></a>st.norm.cdf(<span class="fl">1.96</span>, <span class="fl">0.5</span>, <span class="dv">2</span>)</span>
+<span id="cb26-514"><a href="#cb26-514" aria-hidden="true" tabindex="-1"></a>st.norm(<span class="fl">0.5</span>, <span class="dv">2</span>).cdf(<span class="fl">1.96</span>)</span>
+<span id="cb26-515"><a href="#cb26-515" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-516"><a href="#cb26-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-517"><a href="#cb26-517" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-518"><a href="#cb26-518" aria-hidden="true" tabindex="-1"></a><span class="fu">### Pandas</span></span>
 <span id="cb26-519"><a href="#cb26-519" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-520"><a href="#cb26-520" aria-hidden="true" tabindex="-1"></a><span class="fu">### Pandas</span></span>
-<span id="cb26-521"><a href="#cb26-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-520"><a href="#cb26-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-521"><a href="#cb26-521" aria-hidden="true" tabindex="-1"></a>Pandas provides a Python implementation of R's dataframe capabilities. Let's see some example code.</span>
 <span id="cb26-522"><a href="#cb26-522" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-523"><a href="#cb26-523" aria-hidden="true" tabindex="-1"></a>Pandas provides a Python implementation of R's dataframe capabilities. Let's see some example code.</span>
-<span id="cb26-524"><a href="#cb26-524" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-527"><a href="#cb26-527" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb26-528"><a href="#cb26-528" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
-<span id="cb26-529"><a href="#cb26-529" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb26-530"><a href="#cb26-530" aria-hidden="true" tabindex="-1"></a>dat <span class="op">=</span> pd.read_csv(<span class="st">'gapminder.csv'</span>)</span>
-<span id="cb26-531"><a href="#cb26-531" aria-hidden="true" tabindex="-1"></a>dat.head()</span>
-<span id="cb26-532"><a href="#cb26-532" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-533"><a href="#cb26-533" aria-hidden="true" tabindex="-1"></a>dat.columns</span>
-<span id="cb26-534"><a href="#cb26-534" aria-hidden="true" tabindex="-1"></a>dat[<span class="st">'year'</span>]</span>
-<span id="cb26-535"><a href="#cb26-535" aria-hidden="true" tabindex="-1"></a>dat.year</span>
-<span id="cb26-536"><a href="#cb26-536" aria-hidden="true" tabindex="-1"></a>dat[<span class="dv">0</span>:<span class="dv">5</span>]</span>
+<span id="cb26-525"><a href="#cb26-525" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb26-526"><a href="#cb26-526" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb26-527"><a href="#cb26-527" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb26-528"><a href="#cb26-528" aria-hidden="true" tabindex="-1"></a>dat <span class="op">=</span> pd.read_csv(<span class="st">'gapminder.csv'</span>)</span>
+<span id="cb26-529"><a href="#cb26-529" aria-hidden="true" tabindex="-1"></a>dat.head()</span>
+<span id="cb26-530"><a href="#cb26-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-531"><a href="#cb26-531" aria-hidden="true" tabindex="-1"></a>dat.columns</span>
+<span id="cb26-532"><a href="#cb26-532" aria-hidden="true" tabindex="-1"></a>dat[<span class="st">'year'</span>]</span>
+<span id="cb26-533"><a href="#cb26-533" aria-hidden="true" tabindex="-1"></a>dat.year</span>
+<span id="cb26-534"><a href="#cb26-534" aria-hidden="true" tabindex="-1"></a>dat[<span class="dv">0</span>:<span class="dv">5</span>]</span>
+<span id="cb26-535"><a href="#cb26-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-536"><a href="#cb26-536" aria-hidden="true" tabindex="-1"></a>dat.sort_values([<span class="st">'year'</span>, <span class="st">'country'</span>])</span>
 <span id="cb26-537"><a href="#cb26-537" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-538"><a href="#cb26-538" aria-hidden="true" tabindex="-1"></a>dat.sort_values([<span class="st">'year'</span>, <span class="st">'country'</span>])</span>
+<span id="cb26-538"><a href="#cb26-538" aria-hidden="true" tabindex="-1"></a>dat.loc[<span class="dv">0</span>:<span class="dv">5</span>, [<span class="st">'year'</span>, <span class="st">'country'</span>]]  <span class="co"># R-style indexing</span></span>
 <span id="cb26-539"><a href="#cb26-539" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-540"><a href="#cb26-540" aria-hidden="true" tabindex="-1"></a>dat.loc[<span class="dv">0</span>:<span class="dv">5</span>, [<span class="st">'year'</span>, <span class="st">'country'</span>]]  <span class="co"># R-style indexing</span></span>
+<span id="cb26-540"><a href="#cb26-540" aria-hidden="true" tabindex="-1"></a>dat[dat.year <span class="op">==</span> <span class="dv">1952</span>]</span>
 <span id="cb26-541"><a href="#cb26-541" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-542"><a href="#cb26-542" aria-hidden="true" tabindex="-1"></a>dat[dat.year <span class="op">==</span> <span class="dv">1952</span>]</span>
-<span id="cb26-543"><a href="#cb26-543" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-544"><a href="#cb26-544" aria-hidden="true" tabindex="-1"></a>ndat <span class="op">=</span> dat[[<span class="st">'pop'</span>,<span class="st">'lifeExp'</span>,<span class="st">'gdpPercap'</span>]]</span>
-<span id="cb26-545"><a href="#cb26-545" aria-hidden="true" tabindex="-1"></a>ndat.<span class="bu">apply</span>(<span class="kw">lambda</span> col: col.<span class="bu">max</span>() <span class="op">-</span> col.<span class="bu">min</span>())</span>
-<span id="cb26-546"><a href="#cb26-546" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-542"><a href="#cb26-542" aria-hidden="true" tabindex="-1"></a>ndat <span class="op">=</span> dat[[<span class="st">'pop'</span>,<span class="st">'lifeExp'</span>,<span class="st">'gdpPercap'</span>]]</span>
+<span id="cb26-543"><a href="#cb26-543" aria-hidden="true" tabindex="-1"></a>ndat.<span class="bu">apply</span>(<span class="kw">lambda</span> col: col.<span class="bu">max</span>() <span class="op">-</span> col.<span class="bu">min</span>())</span>
+<span id="cb26-544"><a href="#cb26-544" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-545"><a href="#cb26-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-546"><a href="#cb26-546" aria-hidden="true" tabindex="-1"></a>Now let's see the sort of split-apply-combine functionality that is popular in dplyr and related R packages.</span>
 <span id="cb26-547"><a href="#cb26-547" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-548"><a href="#cb26-548" aria-hidden="true" tabindex="-1"></a>Now let's see the sort of split-apply-combine functionality that is popular in dplyr and related R packages.</span>
-<span id="cb26-549"><a href="#cb26-549" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-552"><a href="#cb26-552" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb26-553"><a href="#cb26-553" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
-<span id="cb26-554"><a href="#cb26-554" aria-hidden="true" tabindex="-1"></a>dat2007 <span class="op">=</span> dat[dat.year <span class="op">==</span> <span class="dv">2007</span>].copy()  </span>
+<span id="cb26-550"><a href="#cb26-550" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb26-551"><a href="#cb26-551" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb26-552"><a href="#cb26-552" aria-hidden="true" tabindex="-1"></a>dat2007 <span class="op">=</span> dat[dat.year <span class="op">==</span> <span class="dv">2007</span>].copy()  </span>
+<span id="cb26-553"><a href="#cb26-553" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-554"><a href="#cb26-554" aria-hidden="true" tabindex="-1"></a>dat2007.groupby(<span class="st">'continent'</span>, as_index<span class="op">=</span><span class="va">False</span>)[[<span class="st">'lifeExp'</span>,<span class="st">'gdpPercap'</span>]].mean()</span>
 <span id="cb26-555"><a href="#cb26-555" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-556"><a href="#cb26-556" aria-hidden="true" tabindex="-1"></a>dat2007.groupby(<span class="st">'continent'</span>, as_index<span class="op">=</span><span class="va">False</span>)[[<span class="st">'lifeExp'</span>,<span class="st">'gdpPercap'</span>]].mean()</span>
-<span id="cb26-557"><a href="#cb26-557" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-558"><a href="#cb26-558" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> stdize(vals):</span>
-<span id="cb26-559"><a href="#cb26-559" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>((vals <span class="op">-</span> vals.mean()) <span class="op">/</span> vals.std())</span>
-<span id="cb26-560"><a href="#cb26-560" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-561"><a href="#cb26-561" aria-hidden="true" tabindex="-1"></a>dat2007[<span class="st">'lifeExpZ'</span>] <span class="op">=</span> dat2007.groupby(<span class="st">'continent'</span>)[<span class="st">'lifeExp'</span>].transform(stdize)</span>
-<span id="cb26-562"><a href="#cb26-562" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-556"><a href="#cb26-556" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> stdize(vals):</span>
+<span id="cb26-557"><a href="#cb26-557" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>((vals <span class="op">-</span> vals.mean()) <span class="op">/</span> vals.std())</span>
+<span id="cb26-558"><a href="#cb26-558" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-559"><a href="#cb26-559" aria-hidden="true" tabindex="-1"></a>dat2007[<span class="st">'lifeExpZ'</span>] <span class="op">=</span> dat2007.groupby(<span class="st">'continent'</span>)[<span class="st">'lifeExp'</span>].transform(stdize)</span>
+<span id="cb26-560"><a href="#cb26-560" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
