@@ -17,3 +17,719 @@ execute:
 ## DRAFT CONTENT (2024-08-01)
 This module is drafted but still under construction.
 :::
+
+::: {.callout-note collapse="true"}
+## CJP development notes
+links:
+
+- https://software-carpentry.org/lessons/
+- https://ucb-stat-159-s23.github.io/site (/var/tmp/site/lectures/intro-git)
+- https://docs.google.com/document/d/1osbFw5hTnt7wH7xnm_lIf2l0Ffn5c-xHyPEssbBvGXo/edit
+
+export GIT_CONFIG_NOSYSTEM=1
+
+NOTES:
+might need to set merging policy:
+git config pull.rebase false
+
+install ruff in DataHub and on SCF
+
+:::
+
+::: {.callout-note}
+## Overview
+
+This module presents the core content of the workshop on version control (using Git), code style, documentation, and testing.
+:::
+
+
+
+# 1. Our running example: Newton's method for optimization
+
+## Newton's method background
+
+We'll use a running example, Newton's method for optimization, during this workshop. It's simple enough to be straightforward to code but can involve various modifications, extensions, etc. to be a rich enough example that we can use it to demonstrate various topics and tools.
+
+Recall that Newton's method works as follows to optimize some objective function, $f(x)$ as a function of univariate or multivariate $x$, where $f(x)$ is univariate.
+
+Newton's method is iterative. If we are at step $t-1$, the next value is:
+
+$$
+x_t = x_{t-1} - f^{\prime}(x_{t-1}) / f^{\prime\prime}(x_{t-1})
+$$
+
+Here are the steps:
+
+- determine a starting value, $x_0$
+- iterate:
+  - at step $t$, the next value (the update) is given by the equation above
+  - stop when $\left\Vert x_{t} - x_{t-1} \right\Vert$ is "small"
+
+## Exercise: Implement univariate Newton's method
+
+
+Here's what you'll need your code to do:
+
+- accept a starting value and the function to optimize
+- implement the iterative algorithm
+- implement the stopping criterion (feel free to keep this simple)
+- calculate the first and second derivatives using a basic finite difference approach to estimating the derivative based on the definition of a derivative as a limit
+    - note that the second derivative can be seen as calling the first derivative twice...
+- consider what to return as the output
+
+
+   
+::: {.callout-warning}
+Don't make your finite difference ("epsilon") too small or you'll actually get inaccurate estimates. (We'll discuss why when we talk a bit out numerical issues in computing later.)
+:::
+
+::: {.callout-note}
+For now, please do not use any Python packages that provide finite difference-based derivatives (we'll do that later, and it's helpful to have more code available for the work we'll do today).
+
+:::
+
+Put your code into a simple text file, called `newton.py`. In doing so you've created a Python *module*. You can use it like this:
+
+```{python}
+#| eval: false
+import newton
+newton.optimize(start, fun)   ## Assuming your function is called `optimize`.
+newton.optimize(2.5, np.cos)  ## Minimizing cos(x) from close-ish to one minimum.
+```
+
+A *module* is a collection of related code in a file with the extension `.py`.
+The code can include functions, classes, and variables, as well as
+runnable code. To access the objects in the module, you need to import the module.
+
+
+# 2. Introduction to Git and GitHub
+
+## Exercise: Creating a Git repository (on GitHub)
+
+Go to `github.com/<your_username>` and click on the `Repositories` tag. Then click on the `New` button. In the form, give the repository the name `newton-practice` (so others who are working with you can find it easily), provide a short description, and click on "Add a README file". Leave the repository as "Public" so that others can interact with your repository when we practice later.
+
+::: {.callout-note}
+## Creating repositories on your laptop first
+It's also possible to [create the repository from the terminal on your machine](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#initializing-a-git-repository) and then link it to your GitHub account, but that's a couple extra steps we won't go into here at the moment.
+
+:::
+
+## Accessing  GitHub repositories from JupyterHub
+
+Authenticating with GitHub can be a bit tricky, particularly when using DataHub (i.e., JupyterHub).
+
+::: {.callout-note}
+## Accessing GitHub from your laptop rather than DataHub
+If you're on your laptop and already set up to use GitHub, you don't need to do the steps in this section,
+but if you're using your laptop and not set up to use GitHub, these instructions should work there too.
+(it may also depend on the version of `git` you are using; e.g., version 2.34.1 is too old but 2.39 should be fine).
+:::
+
+We'll use a tool (an 'app') that helps us with this, provided in the `gh_scoped_creds` Python package.
+
+First configure git in the terminal:
+
+```bash
+git config --global user.name "Jane Doe"
+git config --global user.email "jane_doe@berkeley.edu"
+
+git config --global color.ui "auto"
+
+# git config pull.rebase false
+```
+
+Then run this in the terminal:
+
+```bash
+gh-scoped-creds
+```
+
+Or you could instead run this in IPython or Jupyter Notebook:
+
+```{python}
+#| eval: false
+import gh_scoped_creds
+%ghscopedcreds
+```
+
+When you do that you'll see a link and a code. Go to the link in a browser and input the code; this will grant access to GitHub from JupyterHub for 8 hours (or until you stop your JupyterHub server).
+
+Then (only the first time you are doing all this) go to the URL that is printed out (which should be <https://github.com/apps/stat-computing-jupyterhub)> and click on `Install`. Choose "Only select repositories" and select the repository you are using for the workshop, namely `newton-practice`.
+
+## Basic use of a repository
+
+In the terminal, let's make a small change to the README, register the change with Git (this is called a *commit*), and push the changes upstream to GitHub (which has the *remote* copy of the repository).
+
+#### Step 1. Clone the repository
+
+First make a local copy of the repository from the remote on GitHub.
+
+```bash
+git clone https://github.com/<your_username>/compute-skills-2024
+```
+
+If we run this:
+
+```bash
+cd compute-workshop-2024
+ls -l .git
+cat .git/config
+```
+
+we should see a bunch of output (truncated here) indicating that `compute-workshop-2024` is a Git repository, and that in this case the local repository is linked to a *remote* repository (the repository we created on GitHub):
+
+```bash
+total 56
+drwxr-xr-x   2 paciorek scfstaff 4096 Jul 23 17:06 branches
+-rw-r--r--   1 paciorek scfstaff   16 Jul 24 14:48 COMMIT_EDITMSG
+-rw-r--r--   1 paciorek scfstaff  656 Jul 23 18:20 config
+<snip>
+
+<snip>
+[remote "origin"]
+	url = https://github.com/berkeley-scf/compute-skills-2024
+<snip>
+```
+
+Step 2. Add files
+
+Next move (or copy) your Python module into the repository directory. I'll use the test module that we'll work with later, but you'll do it with your Newton method module.
+
+```bash
+cd compute-workshop-2024
+cp ../binary_search.py .
+## Tell git to track the file
+git add binary_search.py
+```
+
+Step 3. Edit file(s)
+
+Edit the README file to indicate that the repository has a basic implementation
+of Newton's method. (In DataHub, you can double-click on the README in the file manager
+pane.)
+
+```bash
+## Tell git to keep track of the changes to the file.
+git add README.md
+```
+
+```bash
+## Register the changes with Git.
+git commit -m"Add basic implementation of binary search."
+## Synchronize the changes with the remote.
+git push
+```
+
+::: {.callout-note}
+We could have cloned the (public) repository without the `gh_scoped_creds` credentials stuff earlier, but if we tried to push to it, we would have been faced with GitHub asking for our password, which would have required us to create a GitHub authentication token that we would paste in.
+:::
+
+::: {.callout-note}
+Instead of having to `add` the README and `commit` separately we could do:
+```bash
+git add newton.py
+git commit -a -m"added basic implementation of binary search"
+```
+We do need to explicitly add any **new** files (e.g., `newton.py`) that are not yet registered with git via `git add`.
+:::
+
+### Writing good commit messages
+
+Some tips:
+
+- Concisely describe what changed (and for more complicated situations, why), not how.
+- Two options (depending on whether the commit makes one or more changes):
+  - Keep it short (one line, <72 characters)
+  - Have a subject line separated from the body by a blank line.
+      - Keep subject to 50 characters and each body line to 72 characters.
+      - Best to edit message in an editor -- omit the `-m` flag to `git commit`.
+- If you're working on a project with GitHub issues, reference the issue at the bottom.
+- Start each item in the message with a verb (present tense) and provide a complete sentence.
+
+If you find your commit message is covering multiple topics, it probably means you should
+have made multiple ("atomic") commits.
+
+## Exercise: code review
+
+Go to your partner's repository at `https://github.com/<user_name>/newton-practice`.
+
+1. Look over their code.
+2. Make some comments/suggestions in a new GitHub issue (go to the `Issues` button and click on `New issue`).
+
+In response to your partner's comments, make some small change(s) to your `newton.py` code.
+
+You can do this in DataHub (or locally on your laptop if that's what you're doing).
+
+Or you can do the editing in your GitHub browser window by selecting `Code`, clicking on the file and choosing the pencil icon to edit it. When you save it, a commit will be made. Make sure to provide a commit message. In this case you'll also want to run `git pull` to pull down the changes to your local repository on DataHub or your laptop.
+
+# 3. Understanding Git
+
+::: {.callout-note}
+## More than the syntax
+
+So far we've just introduced Git by its mechanics/syntax. This is ok (but not ideal) for basic one-person operation, but to really use Git effectively you need to understand conceptually how it works.
+
+More generally if you understand things conceptually, then looking up the syntax of a command or the mechanics of how to do something will be straightforward.
+
+:::
+
+## Key components and terminology
+
+### Commits
+
+A *commit* is a snapshot of our work at a point in time. So far we've been working with a linear sequence of snapshots, but we'll see in a moment that we can actually have a directed acyclic graph (DAG) of snapshots once we have *branches*.
+
+Each commit has:
+
+ - a hash identifier - a unique identifier produced by hashing the changes introduced in the commit and also the parent commit,
+ - hashes of the files in the repository in their current state, and
+ - the changes (from `diff`) relative to the parent commit.
+
+![A Git commit (Credit: ProGit book, CC License)](commit.png)
+
+### A repository
+
+A *repository* is the set of files for a project with their history. It's a collection of commits in the form of an acyclic graph.
+
+![A (simple) Git repository (Credit: ProGit book, CC License)](tree.png)
+
+Some other terms:
+
+- HEAD: a pointer to the current commit
+- tag: a label for a commit
+- branch: a commit - often indicating a commit that has "branched" off of some main workflow or some linear sequence of commits
+
+### Staging area / index
+
+The index (staging area) keeps track of changes (made to tracked files) that are not yet committed.
+
+![local operations in a repository (Credit: ProGit book, CC License)](staging.png "Visualization of local operations in Git")
+
+::: {.callout-tip}
+## Rolling back changes (optional)
+
+::: {.panel-tabset}
+
+## Uncommitted changes
+
+If I make some changes to a file that I decide are a mistaken, before `git add` (i.e., before registering the changes with `git`). I can always still edit the file to undo the mistakes.
+
+But I can also go back to the version stored by Git.
+
+```bash
+# git checkout -- file.txt
+git restore file.txt
+```
+
+## Staged but uncommitted changes
+
+If we've added (staged) files via `git add` but have not yet committed them,
+the files are in the index (staging area). We can get those changes out
+of the staging area like this:
+
+```bash
+git status
+# git reset HEAD file.txt
+git restore --staged file.txt
+git status
+```
+
+Note that the changes still exist in `file.txt` but they're no longer registered with Git.
+
+## Committed changes
+
+Suppose you need to add or modify to your commit. This illustrates a few things you might do.
+
+```bash
+git commit -m 'Initial commit'
+git add forgotten_file.txt
+# edit file.txt
+git add file.txt
+# get version of file from previous commit
+git checkout <commit_hash> file.txt
+git commit --amend
+```
+
+## Pushed changes
+
+```bash
+git revert <commit_hash>
+git push
+```
+
+Note that this creates a new commit that undoes the changes you don't want. So the undoing shows up in the history.
+This is the safest option.
+
+If you're *sure* no one else has pulled your changes from the remote:
+
+```bash
+git reset <commit_hash>
+# Make changes
+git commit -a -m'reworked the mistake'
+git push -f origin <branch_name>
+```
+
+This will remove the previous commit at the remote. 
+
+:::
+:::
+
+## Git visuals: Understanding Git concepts
+
+Fernando Perez has nice visualization ([online version](https://docs.google.com/presentation/d/1YlM3boYLE8DwbxGNO3ZVVt3e9gEoBgD1uc9RtItUYCU), [PDF version](git_visuals.pdf)) of a basic Git workflow that we'll walk through.
+
+Note that we haven't actually talked about some of what is shown in the visual: tags, branches, and merging, but we'll see a bit in the visual and discuss more later.
+
+
+
+# 4. Code style and documentation
+
+Having a (reasonably) consistent and clean style, plus documentation, is important for being able to
+read and maintain your code.
+
+::: {.callout-tip collapse="true"}
+## Q: Who is the person most likely to use your code again?
+
+A: You, but at some point in the future by which you will have forgotten what the code does and why.
+
+I can't tell you how many times I've looked back at my
+own code and been amazed at how little I remember and frustrated with the former self who wrote it.
+:::
+
+A go-to reference on Python code style is the [PEP8 style guide](https://peps.python.org/pep-0008). That said, it's extensive, quite detailed, and hard to absorb quickly.
+
+Here are a few key suggestions:
+
+- Indentation:
+    - Python is strict about indentation of course.
+    - Use 4 spaces per indentation level (avoid tabs if possible).
+- Whitespace: use it in a variety of places. Some places where it is good to have it
+    are
+    - around operators (assignment and arithmetic), e.g., `x = x * 3`;
+    - between function arguments, e.g., `myfun(x, 3, data)`;
+    - between list/tuple elements, e.g., `x = [3, 5, 7]`; and
+    - between matrix/array indices, e.g., `x[3, :4]`.
+- Use blank lines to separate blocks of code with comments to say what
+    the block does.
+- Use whitespaces or parentheses for clarity even if not needed for order of
+    operations. For example, `a/y*x` will work but is not easy to read
+    and you can easily induce a bug if you forget the order of ops. Instead,
+    use `a/y * x` or `(a/y) * x`.
+- Avoid code lines longer than 79 characters and comment/docstring lines
+    longer than 72 characters.
+- Comments:
+    - Add comments to explain why, not how.
+    - Don't belabor the obvious; avoid things like `x = x + 1  # Increment x.`.
+    - Some key things to document:
+      - summarizing a block of code,
+      - explaining a complicated piece of code or particular construction,
+      - explaining non-obvious values or steps, such as `x = x + 1 # Compensate for border.`
+    - Comments should generally be complete sentences.
+- You can use parentheses to group operations such that they can be split up into lines
+  and easily commented, e.g.,
+  ```{python}
+  #| eval: false
+  newdf = (
+          pd.read_csv('file.csv')                   # 1988 census data.
+          .rename(columns = {'STATE': 'us_state'})  # Adjust column names.
+          .dropna()                                 # Remove rows with missing values.
+          )
+  ```
+- Being consistent about the naming style for objects and functions is hard, but try to be consistent. PEP8 suggests:
+    - Class names should be UpperCamelCase.
+    - Function, method, and variable names should be snake_case, e.g., `number_of_its` or `n_its`.
+    - Non-public methods and variables should have a leading underscore.
+- Try to have the names be informative without being overly long.
+- Don't overwrite names of objects/functions that already exist in Python. E.g., don't use `len`. That said, the namespace system helps with the unavoidable cases where there are name conflicts.
+- Use active names for functions (e.g., `calc_loglik`, `calc_log_lik`
+    rather than `loglik` or `loglik_calc`). Functions are akin to verbs.
+- Learn from others' code
+
+## Linting
+
+Linting is the process of applying a tool to your code to enforce style.
+
+We'll demo using `ruff` to some example code. You might also consider `black`.
+
+We'll practice with `ruff` with a small module we'll use next also for debugging.
+
+- First, we check for and fix syntax errors.
+  ```bash
+  ruff check binary_search.py
+  ```
+- Then we ask `ruff` to reformat to conform to standard style.
+  ```bash
+  ruff format binary_search.py
+  ```
+
+Let's see what changed:
+
+```bash
+diff binary_search_orig.py binary_search.py
+```
+
+## Exercise: add documentation and comments to your Newton module
+
+1. Add a [doc string](https://peps.python.org/pep-0257) to each of your functions. Focus on your main function. Take a look at an example, such as `help(numpy.linalg.cholesky)` to see the different parts and the format.
+2. Consider whether to add comments to your code.
+3. Apply `ruff` to your code.
+4. Compare the results with the style suggestions above and do additional reformatting as needed.
+
+# 5. Debugging
+
+Once you start writing more complicated code, even in an interpreted language such as Python that you can run line-by-line, you'll want to use a debugger, particularly when you have nested function calls.
+
+Debugging can be a slow process, so you typically start a debugging session by deciding which line in your code you would like to start tracing the behavior from, and you place a *breakpoint*. Then you can have the debugger run the program up to that point and stop at it, allowing you to:
+
+1. inspect the current state of variables,
+2. step through the code line by line,
+3. step over or into functions as they are called, and
+4. resume program execution.
+
+
+The *stack* is the series of nested function calls. When an error occurs, Python will print the *stack trace* showing the sequence of calls leading to the error. This can be helpful and distracting/confusing.
+
+We'll use the debugger in JupyterLab; similar functionality is in VS Code. And you can use `pdb` directly from the command line; the ideas are all the same.
+
+## Demo: debugging the `binary_search` example
+
+The function `binary_search()` in the `binary_search.py` module attempts to do a binary search for an item in a sorted list. It looks in the middle of the list and if the value in the list is larger than the item, it recurses to look in the first half of the list, otherwise in the second half. It continues in this fashion until it is down to a single item and then checks if that item is what is being searched for.
+
+```{python}
+import binary_search as bs
+bs.search([3,7,9,13,17,203,205],3)
+```
+```{python}
+bs.search([3,7,9,13,17,203,205],13)
+```
+```{python}
+bs.search([3,7,9,13,17,203,205],17)
+```
+
+Clearly that doesn't always work. Let's debug the failing case.
+
+We'll work in our Jupyter notebook.
+
+- First turn on debugging capability by clicking on the small "bug" icon in the upper right (next to the info about the kernel).
+- Next we click on a line of code to set a breakpoint.
+- Now we run the function. We can:
+  - step within a function,
+  - step into a function, or
+  - step out of a function.
+
+
+
+## Exercise: debugging your Newton code
+
+Run your Newton method on the following function, `x^4/4 - x^3 -x`.
+Sometimes it should fail.
+
+Use the debugger to try to see what goes wrong. (For our purposes here, do this using the debugger, don't figure it out from first principles mathematically or graphically.)
+
+You can use a conditional breakpoint to try to detect when the next step will be extreme.
+
+# 6. Defensive programming, error checking and testing
+
+## Demo: Unit tests and `pytest`
+
+`pytest` is a very popular package/framework for testing. 
+
+We create test functions that check for the expected result.
+
+We use `assert` statements which are ways of generally setting up sanity checks in your code. These are usually used in development, or perhaps data analysis workflows, rather than production code. They are a core part of setting up tests such as here with `pytest`.
+
+```bash
+mkdir tests
+mv test_bs.py tests/.
+
+pytest
+```
+
+## Exercise: Test cases
+
+With a partner, brainstorm some test cases for your implementation of Newton's method in terms of the user's function and input values.
+
+You'll want to consider cases where Newton's method fails and test whether the user gets an informative result.
+Of course as a starting point, the case we used for the debugging exercise is a good one for a failing case. 
+
+We'll collect some possible tests once each group has had a chance to brainstorm.
+
+## Exercise: Unit tests
+
+We'll implement our test cases as unit tests using the `pytest` package.
+
+Include tests for:
+
+- successful optimization
+- unsuccessful optimization
+- invalid user inputs
+
+with the expected output being what you *want* to happen, not necessarily what your function does.
+
+You'll want cases where you know the correct answer. Start simple.
+
+::: {.callout-caution}
+## Only write tests now
+For now don't modify your code even if you start to suspect how it might fail. Writing the tests and then modifying code so they pass is an example of *test-driven development*.
+:::
+
+## Exercise: Error trapping, robust code, and defensive programming
+
+Now we'll try to go beyond simply returning a failed result and see if we can trap problems early on and write more robust code. 
+
+Work on the following improvements:
+
+- Check user inputs are valid.
+- Add warnings to the user if it seems that Newton's method is taking a bad step.
+- Modify your function so that when it fails, the result is informative to the user.
+  - Include a success/failure code (flag) in your output.
+
+Next, if you have time, consider robustifying your code if you have time:
+
+- What might you do if the next step is worse than the current position?  [TODO: backtrack]
+- What might you do if the next step is outside the range of potential values (assuming a unimodal function)? [TODO: bisect]
+
+# 7. Multi-user Git
+
+Once you are working on more complicated projects and particularly when working with multiple people, you'll want to be able to use branches and pull requests (PRs) to manage the work.
+
+::: {.callout-tip collapse="true"}
+## Why use branches and pull requests?
+
+- Experiment without worrying about breaking the current code.
+- Test your code before finalizing changes (particularly with testing via continuous integration / GitHub Actions).
+- Organize aspects of the project for clarity and collaboration.
+- Manage collaboration:
+   - Manage code contributions from others.
+   - Discuss changes.
+   - Keep track of changes.
+   - Accept external contributions.
+   - Resolve conflicts between different changes.
+:::
+
+Before going further, let's review our visualization of working with Git ([online version](https://docs.google.com/presentation/d/1YlM3boYLE8DwbxGNO3ZVVt3e9gEoBgD1uc9RtItUYCU), [PDF version](git_visuals.pdf))
+
+## Demo: Branching and pull requests, merge conflicts
+
+We'll demo the use of branching and PRs by fixing our `binary_search` function.
+
+### Branching
+
+First, let's fix the error in our `binary_search` function in a new branch.
+
+```bash
+git switch -c fix_midpoint_bug
+```
+
+We'll now make the fixes and do the linting (not shown).
+
+Push the branch with the fix to GitHub.
+
+```bash
+git add test.py
+git commit -m"Fix bug in handling midpoint.
+
+Lint code."
+git push -u origin fix_midpoint_bug
+```
+
+### Pull requests
+
+Now we'll go to GitHub and start a pull request (PR).
+
+Since we're the ones who control the repo, we'll also review and merge in the PR.
+
+### Merge conflicts
+
+Next let's see a basic example of a *merge conflict*, which occurs when two commits modify (which could include deletion) the same line in a file. In this case Git requires the user to figure out what should be done.
+
+To get an example, we need to create a conflict. I will add different documentation in the `main` and `fix_midpoint_bug` branches. After pushing the `main` change, I'll try to do a PR with the `fix_midpoint_bug`.
+
+The GitHub UI does a nice job of helping you resolve merge conflicts, as we'll see.
+
+::: {.callout-tip}
+## Resolving conflicts at the command line
+
+You can also get (and resolve) merge conflicts on the command line. Once you edit the conflicted file to fix the conflict, you can do `git add <name_of_file>` and then `git commit`.
+:::
+
+## Multivariate Newton's method
+
+Recall that Newton's method optimizes some objective function, $f(x)$ as a function of univariate or multivariate $x$, where $f(x)$ is univariate.
+
+The multivariate method extends the univariate, using the gradient (first derivative) vector and Hessian (second derivative) matrix.
+
+If we are at step $t-1$, the next value is:
+
+$$
+x_{t+1}=x_{t}-H_{f}(x_{t})^{-1}\nabla f(x_{t})
+$$
+
+where $\nabla f(x_{t}$ is the gradient (first derivative with respect to each element of $x$) and $H_{f}(x_{t})$ is the Hessian matrix (second derivatives with respect to all pairs of the elements of $x$).
+
+
+Here are the steps:
+
+- determine a starting value, $x_0$.
+- iterate:
+  - at step $t$, the next value (the update) is given by the equation above
+  - stop when $\left\Vert x_{t} - x_{t-1} \right\Vert$ is "small"
+
+## Exercise: Branching
+
+Working with a partner:
+
+1. Choose either your repository or your partner's repository to continue working in.
+2. Make a branch (called `multivariate`) in which you'll implement the multivariate version of Newton's method (see details above)
+3. Implement the algorithm.
+
+At this point, if we think about calculating the Hessian it starts to feel more tedious to deal with the finite difference calculations, though it is a straightforward extension of what you already implemented. Feel free to look online to find a Python package that implements finite difference estimation of derivatives and use that in your code.
+
+As you are writing the code, you can continue to think about what might go wrong and include defensive programming tactics. 
+
+## Exercise: Pull requests
+
+When you have your branch ready, make a pull request:
+
+1. Make a pull request into the remote for the repository by pushing the branch to GitHub
+   ```bash
+   git push -u origin multivariate
+   ```
+   
+2. Go to GitHub to the `Pull requests` tab and make the PR, making a note of what the PR is about.
+
+Don't (yet) merge in the PR.
+
+## Exercise: Code review
+
+Now you and your partner should find a separate group with which to work on code reviews as a "supergroup".
+
+Give the other group the URL for your repository on GitHub and ask them to look at the PR.
+In turn get the URL for their repository.
+
+In reviewing the PR, make comments in the PR comment/conversation area on GitHub.
+
+If you have time, explore these two options for making comments:
+
+1. Review changes:
+   - Click on the `Files changed` tab (or go to `https://github.com/nimble-dev/nimble/pull/<PULL_ID>/files` for the specific "PULL_ID").
+   - Click on the `Review changes` button.
+2. Make comments on specific lines
+   - Click on the `Files changed` tab (or go to `https://github.com/nimble-dev/nimble/pull/<PULL_ID>/files` for the specific "PULL_ID").
+   - Hover over a specific line in a specific file with your mouse. A blue "plus" box should appear. Click on the plus to add a comment.
+   - Click on `Add single comment` or optionally experiment with `Start a review`.
+
+## Exercise: Merge the PR
+
+Once you've seen the review by the other group, with your partner:
+
+- On DataHub, make changes to the branch that was used in the pull request.
+  - Alternatively, you could make the changes directly on GitHub using its editing capabilities.
+- On DataHub, commit and push to GitHub.
+- On GitHub, merge in the pull request and close the request.
+
+::: {.callout-important}
+## The full cycle of "git virtue"
+
+Congratulations. In the course of the day, you've worked through the steps of complete, albeit small, project using an extensive set of concepts, skills, and tools used in real world projects.
+:::
