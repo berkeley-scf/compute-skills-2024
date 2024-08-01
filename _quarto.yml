@@ -24,11 +24,11 @@ website:
           - href: units/additional-topics.qmd
             text: Numerics and Reproducibility
           - href: units/intro-computing.qmd
-            text: Intro to Computing and Command Line
+            text: Intro to Computing and Command Line (optional)
           - href: units/intro-python.qmd
-            text: Intro to Python
+            text: Intro to Python (optional)
           - href: units/mini-project.qmd
-            text: Python Mini Project
+            text: Python Mini Project (optional)
       - href: license.qmd
         text: License
           
