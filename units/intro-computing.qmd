@@ -1,9 +1,616 @@
 ---
-title: "(Optional) Introduction to Computing"
+title: "(Optional) Introduction to Computing and the Command Line"
+author: "Chris Paciorek"
+date: "2024-08-19"
 format:
   html:
+    theme: cosmo
+    css: ../styles.css
+    toc: true
+    code-copy: true
+    code-block-background: true
     code-fold: show
     code-tools: true
+execute:
+  freeze: auto
 ---
 
-[UNDER CONSTRUCTION]
+::: {.callout-danger}
+## DRAFT CONTENT (2024-08-01)
+This module is drafted but still under construction.
+:::
+
+::: {.callout-note}
+## Overview
+
+This module introduces you to some computing concepts and provides a brief tutorial on working on the command line (aka, the "shell", or the "terminal").
+:::
+
+
+
+# Preparation
+
+Our primary computing context with be the [UC Berkeley DataHub](datahub.berkeley.edu). This provides us with a common platform on which we are assured to get the same behavior as each other, allowing us to use the command line/shell/terminal and Python, including Jupyter notebooks. In particular getting a common command line environment would be hard otherwise.
+
+::: {.callout-note collapse="true"}
+## Using your own laptop (optional)
+
+If you want, you can also install Python on your own computer. If you do that, we recommend using [Miniforge](https://github.com/conda-forge/miniforge). Another option is the Anaconda distribution of Python](https://www.anaconda.com/distribution)
+
+For the shell/terminal parts of this material, you can use the Terminal on your Mac, but not on Windows.
+
+If you do use your own computer, you'll need to *clone* [this GitHub repository](https://github.com/berkeley-scf/compute-skills-2024). If you don't know how to do that, just download [this zip file](https://github.com/berkeley-scf/compute-skills-2024/archive/refs/heads/main.zip) and unzip it into your home directory on your computer.
+:::
+
+# Parts of a computer
+
+We won't spend a lot of time thinking about computer hardware, but we do
+need to know some of the basics that relate to using a computer and
+programming effectively. There are many layers of technical detail one
+could get into, but the key things for now are to have a basic
+understanding of these components of a computer:
+
+-   CPU
+    - cache (limited fast memory easily accessible from the CPU)
+-   main memory (RAM)
+-   bus
+-   disk
+
+We'll discuss these components via [this overview](https://36-750.github.io/tools/computer-architecture/) from a class at CMU.
+
+Depending on what your code is doing, the slow step in a computation might be:
+
+ - doing the actual calculations on the CPU,
+ - moving data back and forth from memory to the CPU, or
+ - reading/writing (I/O) data to/from disk.
+
+# Concepts of parallelization
+
+Computers now come with multiple processors for doing computation. Basically, physical constraints have made it harder to keep increasing the speed of individual processors, so the chip industry is now putting multiple processing units in a given computer and trying/hoping to rely on implementing computations in a way that takes advantage of the multiple processors.
+
+Everyday personal computers usually have more than one processor (more than one chip) and on a given processor, often have more than one core (multi-core). A multi-core processor has multiple processors on a single computer chip. On personal computers, all the processors and cores share the same memory.
+
+Here are some key terms relating to hardware:
+
+- **cores**: We'll use this term to mean the different processing units available on a single machine or node of a cluster. A given CPU will have multiple cores. (E.g, the AMD EPYC 7763 has 64 cores per CPU.)
+   - **hardware threads**: these are very different than the (software) threads discussed below: hardware hyperthreading involves separate hyperthreads ("virtual cores") on a single (physical) core that behave like separate cores
+- **nodes**: We'll use this term to mean the different computers, each with their own distinct memory, that make up a cluster or supercomputer.
+- **GPUs**: a GPU has a very large number of simple processing units that operate many tasks in parallel.
+
+Here are some key terms related to computation:
+
+- **processes**: instances of a program(s) executing on a machine; multiple processes may be executing at once. A given program may start up multiple processes at once. Ideally we have no more processes than cores on a node.
+   - **threads**: multiple paths of execution within a single process; the operating system sees the threads as a single process, but one can think of them as ‘lightweight’ processes. Ideally when considering the processes and their threads, we would have the same number of cores available to our code as we have processes and threads combined.
+- **workers**: the individual processes that are carrying out the (parallelized) computation. We’ll use worker and process interchangeably.
+- **tasks**: individual units of computation; one or more tasks will be executed by a given process on a given core.
+
+As an example, suppose we were carrying out 20-fold cross-validation and we were using a laptop with 4 cores.
+
+We would generally use 4 workers (4 processes) to carry out the 20 tasks (each task being to fit the model on the non-held out data and make predictions on the held-out data in the fold). So 4 of the tasks could be executing at the same time. When a process finishes a task assigned to it, it can start on the next task that is still left to be done.
+
+# The filesystem
+
+The filesystem is the organization of data/files on a storage device, such as the local disk on your machine.
+
+The filesystem on a Linux or MacOS machine can be thought of as an upside-down tree, with `/` as the root (top) of the tree.
+
+For example, a basic tree on a Linux machine might look like this:
+
+```
+.
+├── accounts
+│   ├── biost
+│   │   ├── wang
+│   │   ├── jones
+│   │   └── mcfadden
+│   ├── grad
+│       ├── smith
+│       ├── sanchez
+│       ├── zhang
+├── bin
+│   ├── echo
+│   ├── grep
+│   ├── tmux
+├── lib
+│   ├── gcc
+│   ├── grep
+│   ├── tmux
+```
+
+`/accounts`, `/bin`, and `/lib` are the directories at the root in the example above.
+
+We'll see more examples when we start using the shell.
+
+Things are similar on Windows, though there the root is a lettered drive, such as `C:`.
+
+For scientific computing, you'll often be connecting remotely to other machines/clusters and navigating the filesystem on those other systems. 
+
+# The shell and UNIX commands
+
+Operating on the UNIX command line is also known as *using the terminal* and *using the shell*.
+
+The shell is the UNIX program that you interact with when in a terminal window interacting with a UNIX-style operating system (e.g., Linux or MacOS). The shell sits between you and the operating system and provides useful commands and functionality. Basically, the shell is a program that serves to run other commands for you and show you the results. There are actually different shells that you can use, of which bash is very common and is the default on many systems. In recent versions of MacOS, zsh is the default shell. zsh is an extension of bash.
+
+We'll start a shell on our DataHub (Jupyter) server, which is (basically) a Linux virtual machine running in the cloud.
+
+On DataHub, the prompt in the shell looks like this:
+
+```
+jovyyan@jupyter-paciorek:~$
+```
+
+but below we'll indicate that simply as:
+
+```
+$
+```
+
+## Files and directories
+
+### Moving around and listing information
+
+We'll start by thinking about the filesystem, which organizes our information/data into files on the computer's disk.
+
+Anytime you are at the UNIX command line, you have a **working directory**, which is your current location in the file system. 
+
+Here's how you can see where you are using the `pwd` ("print working directory") command:
+
+```bash
+$ pwd
+/home/jovyan
+```
+
+
+
+and here's how you use `ls` to list the files (and subdirectories) in the working directory...
+
+```bash
+$ ls
+data  howtos  project  ps  README.md  sections  syllabus.lyx  syllabus.pdf  units
+```
+
+[TODO: update this output]
+
+
+
+Now suppose I want to be in a different directory so I can see what is there or do things to the files in that directory.
+
+The command you need is `cd` ("change directory") and an important concept you need to become familiar with is the notion of 'relative' versus 'absolute' *path*. A path is the set of nested directories that specify a location of interest on the filesystem.
+
+Now let's go into a subdirectory. We can use `cd` with the name of the subdirectory. The subdirectory is found 'relative' to our working directory, i.e., found from where we currently are.
+
+```bash
+$ cd compute-bootcamp-2024
+$ pwd
+/home/jovyan/compute-bootcamp-2024
+```
+
+We could also navigate through nested subdirectories. For example, after going back to our home directory (using `cd` alone will do this), let's go to the `mytoy` subdirectory of the `compute-bootcamp-2024` subdirectory. The `/` is a separate character that distinguishes the nested subdirectories.
+
+```bash
+$ cd
+$ cd compute-bootcamp-2024/mytoy
+$ pwd
+/home/jovyan/compute-bootcamp-2024/mytoy
+```
+
+You can access the parent directory of any directory using `..`:
+
+```bash
+$ cd ..
+$ pwd
+/home/jovyan/compute-bootcamp-2024
+```
+
+We can get more complicated in our use of `..` with relative paths. Here we'll go up a directory and then down to a different subdirectory.
+
+```bash
+$ cd units
+$ cd ../data 
+$ pwd
+/home/scflocal/stat243-fall-2020/data
+```
+
+And here we'll go up two directories and then down to another subdirectory.
+
+```bash
+$ cd ../../tutorial-unix-basics  # go up two directories and down
+$ pwd
+/home/scflocal/tutorial-unix-basics
+```
+
+### Absolute versus relative paths
+
+All of the above examples used **relative** paths to navigate based on your working directory at the moment you ran the command.
+
+We can instead use **absolute** paths so that it doesn't matter where we are when we run the command. Specifying an absolute path is done by having your path start with `/`, such as `/home/jovyan`. If the path doesn't start with `/` then it is interpreted as being a relative path, relative to your working directory. Here we'll go to the `units` subdirectory again, but this time using an absolute path. 
+
+```bash
+$ cd /home/jovyan/stat243-fall-2020/units 
+$ pwd
+/home/jovyan/stat243-fall-2020/units
+```
+
+::: {.callout-warning}
+## Absolute paths can be dangerous
+
+It's best to generally use relative paths, relative to the main directory of a project.
+
+Using absolute paths is generally a bad idea for reproducibility and automation because the file system will be different on different machines, so your code wouldn't work correctly anywhere other than your current machine. 
+
+:::
+
+### The filesystem
+
+The filesystem is basically a upside-down tree.
+
+For example, if we just consider the `stat243-fall-2020/sections` directory, we can see the tree structure using `tree`:
+
+```bash
+$ cd /home/jovyan/stat243-fall-2020/sections
+$ tree
+```
+
+Often (as is the case here), that would print out a lot of files and directories, so I'll just print out the first few lines of the result here:
+
+```
+.
+├── 01
+│   ├── data
+│   │   ├── cpds.csv
+│   │   ├── heights.dta
+│   │   └── stateIncome.txt
+│   ├── README.md
+│   ├── R-practice.pdf
+│   └── solutions
+│       ├── R-practice-solutions.html
+│       ├── R-practice-solutions.Rmd
+│       ├── UNIX-practice-solutions.html
+│       └── UNIX-practice-solutions.Rmd
+├── 02
+│   ├── example_sweave.pdf
+│   ├── example_sweave.Rnw
+│   ├── intro_git_knitr.pdf
+│   └── intro_git_knitr.Rmd
+```
+
+The dot (`.`) means "this directory", so the top of the tree here is the `sections` directory itself, within which there are subdirectories, `01`, `02`, `03`, etc. Then within each of these are files and further subdirectories (as seen in the case of `01`, which has subdirectories named `data` and `solutions`.)
+
+If we consider the entire filesystem, the top, or root of the tree, is the `/` directory. Within `/` there are subdirectories, such as `/home` (which contains users' home directories where all of the files owned by a user are stored) and `/bin` (containing UNIX programs, aka 'binaries'). We'll use `ls` again, this time telling it the directory to operate on:
+
+```bash
+$ ls /
+bin   dev  home  lib32  libx32  mnt  proc  run   srv  tmp  var
+boot  etc  lib   lib64  media   opt  root  sbin  sys  usr
+```
+
+If there is a user named *jovyan*, everything specific to that user would be stored in `/home/jovyan`. The shortcut `~jovyan` refers to `/home/jovyan`. If you are the `jovyan` user, you can also refer to `/home/jovyan` by the shortcut `~`.
+
+
+```bash
+$ ls /home
+jovyan shiny
+```
+
+```bash
+$ cd /home/jovyan
+$ pwd
+/home/jovyan
+```
+
+Go to the home directory of the current user (which happens to be the `jovyan` user):
+
+
+```bash
+$ cd ~
+$ pwd
+/home/jovyan
+```
+
+Go to the home directory of the jovyan user explicitly:
+
+```bash
+$ cd ~jovyan
+$ pwd
+/home/jovyan
+```
+
+Another useful directory is `/tmp`, which is a good place to put temporary files that you only need briefly and don't need to save. These will disappear when a machine is rebooted. 
+
+```bash
+$ cd /tmp
+$ ls
+tmp.txt
+```
+
+
+We can return to the most recent directory we were in like this:
+
+```bash
+$ cd -
+$ pwd
+/home/jovyan
+```
+
+## Using commands
+
+### Overview
+
+Let's look more at various ways to use commands. We just saw the `ls` command. Here's one way we can modify the behavior of the command by passing a command option. Here the `-F` option (also called a *flag*) shows directories by appending `/` to anything that is a directory (rather than a file) and a `*` to anything that is an executable (i.e., a program).
+
+```bash
+$ cd stat243-fall-2020
+$ ls -F
+data/  howtos/  project/  ps/  README.md  sections/  syllabus.lyx  syllabus.pdf  units/
+```
+
+
+Next we'll use multiple options to the `ls` command. `-l` shows extended information about files/directories. `-t` shows files/directories in order of the time at which they were last modified and `-r` shows in reverse order. Before I run `ls`, I'll create an empty file using the `touch` command. 
+
+```bash
+$ cd ../tutorial-unix-basics
+$ touch myfile
+$ ls -lrt
+total 144
+-rw-rw-r-- 1 jovyan jovyan  1290 Dec 28 13:06 README.md
+-rw-rw-r-- 1 jovyan jovyan 29702 Dec 28 13:09 unix-basics.Rmd
+drwxrwxr-x 9 jovyan jovyan  4096 Dec 28 13:09 stat243-fall-2020
+-rw------- 1 jovyan jovyan    22 Dec 28 13:09 tmp.txt
+-rw-rw-r-- 1 jovyan jovyan     6 Dec 28 13:09 hello.pdf
+-rw-rw-r-- 1 jovyan jovyan 41079 Dec 28 13:09 unix-basics.md
+-rw-rw-r-- 1 jovyan jovyan 49482 Dec 28 13:09 unix-basics.html
+-rw-rw-r-- 1 jovyan jovyan     0 Dec 28 13:32 myfile
+```
+
+While each command has its own syntax, there are some rules usually
+followed. Generally, executing a command consists of four things:
+
+  - the command
+  - command option(s)
+  - argument(s) 
+  - line acceptance (i.e., hitting <Return>)
+  
+Here's an example:
+
+```bash
+$ wc -l example.txt
+4 example.txt
+```
+
+In the above example, `wc` is the command, `-l` is a command option
+specifying to count the number of lines, `example.txt` is the argument, and the
+line acceptance is indicated by hitting the `<Return>` key at the end of
+the line.
+
+So that invocation counts the number of lines in the file named `example.txt`.
+
+The spaces are required and distinguish the different parts of the invocation. For this reason,
+it's generally a bad idea to have spaces within file names. But if you do, you can
+use quotation marks to distinguish the file name, e.g.,
+
+```bash
+$ ls -l "name of my file with spaces.txt"
+```
+
+Also, capitalization matters. For example `-l` and `-L` are different options.
+
+Note that options, arguments, or both might not be included in some cases. Recall that we've used `ls`
+without either options or arguments.
+
+Arguments are usually one or more files or directories.
+
+### Options
+
+Often we can specify an option either in short form (as with `-l` here)
+or long form (`--lines` here), as seen in the following equivalent invocations:
+
+```bash
+$ wc -l example.txt
+4 example.txt
+$ wc --lines example.txt
+4 example.txt
+```
+
+
+We can also ask for the number of characters with the `-m` option, which can
+be combined with the `-l` option equivalently in two ways:
+
+```bash
+$ wc -lm example.txt
+  4 51 example.txt
+$ wc -l -m example.txt
+  4 51 example.txt
+```
+
+
+Options will often take values, e.g., if we want to get the first two lines of the file,
+the following invocations are equivalent:
+
+```bash
+$ head -n 2 example.txt
+Hello there.
+This is a file
+```
+```
+$ head --lines=2 example.txt
+$ head --lines 2 example.txt
+```
+
+
+### Comments
+
+Anything that follows `#` is a comment and is ignored.
+
+```bash
+$ # This is ignored
+$ ls  # Everything after the # is ignored
+example.txt  myfile  README.md  stat243-fall-2020  tmp.txt  unix-basics.html
+unix-basics.md  unix-basics.Rmd
+```
+
+
+### Getting help with UNIX commands
+
+Essentially all UNIX commands have  help information (called a man page), accessed using `man`.
+
+```bash
+$ man ls
+```
+
+Once you are in the *man* page, you can navigate by hitting `<space>` (to scroll down) and the `<up>` and `<down>` arrows. You can search by typing `/`, typing the string you want to search for and hitting `<Return>`. You can use `n` and `p` for the next and previous search hits and `q` to quit out of the search.
+
+Unfortunately *man* pages are often quite long, hard to understand, and without examples. But the information you need is usually there if you take the time to look for it.
+
+Also, UNIX commands as well as other programs run from the command line often provide help information via the `--help` option, e.g., for help on `ls`:
+
+```bash
+$ ls --help
+```
+
+### Seeing if a command or program is available
+
+You can see if a command or program is installed (and where it is installed) using `type`.
+
+```bash
+$ type grep
+grep is /usr/bin/grep
+$ type R
+R is /usr/bin/R
+$ type python
+python is /srv/conda/bin/python
+```
+
+## Working with files
+
+### Copying and removing files
+
+You'll often want to make a copy (`cp`) of a file, move it (`mv`) between directories, or remove it (`rm`). 
+
+```bash
+$ cd ~/stat243-fall-2020/units
+$ cp unit8-bigData.py unit8-bigData-new.py
+$ mv unit8-bigData-new.py /tmp/.
+$ cd /tmp
+$ ls -lrt
+total 12
+-rw-rw-r-- 1 jovyan jovyan    0 Dec 28 13:31 hello.txt
+-rw-rw-r-- 1 jovyan jovyan 9914 Dec 28 13:36 unit8-bigData-new.py
+```
+
+When we moved the file, the use of `.` in `/tmp/.` indicates we want to use the same name as the original file.
+
+
+```bash
+$ rm unit8-bigData-new.py
+$ ls -lrt
+total 0
+-rw-rw-r-- 1 jovyan jovyan 0 Dec 28 13:31 hello.txt
+```
+
+::: {.callout-important}
+
+## `rm` cannot be undone
+
+I used `rm` above to remove the file. Be very careful about removing files - there is no Trash folder in UNIX - once a file is removed, it's gone for good.
+
+:::
+
+
+The `mv` command is also used if you want to rename a file. 
+```bash
+$ cd ~/stat243-fall-2020/units
+$ mv unit8-bigData.py unit8-bigData-processing.py
+$ ls
+```
+
+```
+badCode.R               provision-github.py            unit13-graphics.lyx  unit4-goodPractices.lyx  unit8-bigData.lyx
+calc_mean.py            provision-github-secrets.json  unit13-graphics.pdf  unit4-goodPractices.pdf  unit8-bigData.pdf
+class1-demo.sh          shell.pdf                      unit13-graphics.R    unit5-programming.lyx    unit8-bigData-processing.py
+class2-taboo-game.md    unit10-linalg.lyx              unit1-unix.lyx       unit5-programming.pdf    unit8-bigData.R
+E-step-fixed.png        unit10-linalg.pdf              unit1-unix.pdf       unit5-programming.R      unit8-bigData.sh
+exampleGraphic.png      unit10-linalg.R                unit2-dataTech.lyx   unit6-numbers.lyx        unit9-sim.lyx
+gelmanUnwin2013.pdf     unit11-optim.lyx               unit2-dataTech.pdf   unit6-numbers.pdf        unit9-sim.pdf
+goodCode.R              unit11-optim.pdf               unit2-dataTech.R     unit6-numbers.R          unit9-sim.R
+gordonFinch2015.pdf     unit11-optim.R                 unit3-bash.lyx       unit7-parallel.lyx       wainer1984.pdf
+likLoops.Rda            unit12-integ.lyx               unit3-bash.pdf       unit7-parallel.pdf
+pca_example_unit10.png  unit12-integ.pdf               unit3-bash.sh        unit7-parallel.py
+provision-github.json   unit12-integ.R                 unit3-bash-sol.sh    unit7-parallel.R
+```
+
+
+## Exercise: shell commands
+
+::: {.callout-tip}
+## Exercise 1
+
+Where is `gzip` installed on the system? What are some other commands/executables that are installed in the same directory?
+
+:::
+
+::: {.callout-tip}
+## Exercise 2
+
+Try to run the following command `mkdir ~/projects/drought`. It will fail. Look in the help information on `mkdir` to figure out how to make it work without first creating the `projects` directory.
+:::
+
+::: {.callout-tip}
+## Exercise 3
+
+Figure out how to list out the files in a directory in order of decreasing file size, as a way to see easily what the big files are that are taking up the most space. Modify this command to get the result in the ascending order.
+:::
+
+::: {.callout-tip}
+## Exercise 4
+
+Figure out how to copy an entire directory and have the timestamps of the files retained rather than having the timestamps be the time that you copied the files.
+
+:::
+
+## Running processes
+
+We'll run a simple linear algebra operation in Python to illustrate how we can monitor what is happening on a machine.
+
+::: {.callout-warning}
+## DataHub memory limits
+
+Be careful about increasing `n` in the example below when on DataHub. Basic DataHub virtual machines by default only have 1 GB memory, so don't increase `n` below or you may run out of memory if running on DataHub and this can cause problems in your DataHub session. If you're doing this as part of the workshop, we've increased those limits somewhat, so somewhat larger values of `n` should be fine.
+
+:::
+
+```{python}
+#| eval: false
+import numpy as np
+import time
+
+def run_linalg(n):
+    z = np.random.normal(0, 1, size=(n, n))
+    print(time.time())
+    x = z.T.dot(z)   # x = z'z
+    print(time.time())
+    U = np.linalg.cholesky(x)  # factorize as x = U'U
+    print(time.time())
+
+## This allows us to run the code from the command line
+## without running it when we import the file as a module.
+if __name__ == '__main__':
+    run_linalg(4000)
+```
+
+```bash
+python calc.py
+```
+
+### Monitoring CPU and memory use
+
+We can see CPU and memory usage via `top`.
+
+If we see more than 100% CPU usage, that indicates that the process is running a computation in parallel using multiple threads.
+
+What about if we see less than 100% CPU usage?
+
+ - Our process might be busy doing I/O (reading/writing to/from disk).
+ - Our process might be waiting for data from the internet or from another machine on the network.
+ - The machine might be running low on physical memory, which in some cases will involve using disk as additional memory (slow!).
+ 
+
