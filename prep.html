@@ -156,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./units/intro-computing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">(Optional) Introduction to Computing</span></a>
+ <span class="menu-text">(Optional) Introduction to Computing and the Command Line</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -184,8 +184,19 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#using-datahub-as-a-commmon-computational-environment" id="toc-using-datahub-as-a-commmon-computational-environment" class="nav-link active" data-scroll-target="#using-datahub-as-a-commmon-computational-environment">Using DataHub as a commmon computational environment</a>
+  <ul class="collapse">
+  <li><a href="#check-your-environment" id="toc-check-your-environment" class="nav-link" data-scroll-target="#check-your-environment">Check your environment</a></li>
+  <li><a href="#editing-files" id="toc-editing-files" class="nav-link" data-scroll-target="#editing-files">Editing files</a></li>
+  <li><a href="#stopping-your-server" id="toc-stopping-your-server" class="nav-link" data-scroll-target="#stopping-your-server">Stopping your server</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -222,17 +233,38 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="using-datahub-as-a-commmon-computational-environment" class="level1">
+<h1>Using DataHub as a commmon computational environment</h1>
 <p>While it’s fine to use your laptop, it will be hard for us to diagnose all the different problems that might arise with so many participants. So we recommend using a common computational environment during the workshop. We’ll use the Berkeley DataHub for this. You can think of DataHub as providing user-specific virtual machines with identical software for all of us to use.</p>
 <p>To access your own machine/server with Python, git, and terminal access on the campus DataHub (also used for various data science, CS, and statistics courses), click <a href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fberkeley-scf%2Fcompute-skills-2024&amp;urlpath=lab%2Ftree%2Fcompute-skills-2024%2F&amp;branch=main">here</a>.</p>
 <p>That will get you onto your server with the materials for the course, from the <code>berkeley-scf/compute-skills-2024</code> repository available on the server.</p>
+<section id="check-your-environment" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-environment">Check your environment</h2>
 <p>To check things look good:</p>
 <ol type="1">
 <li>Click on <code>Terminal</code></li>
 <li>Check that your working directory is <code>~/compute-skills-2024</code> (by looking at the terminal prompt or running <code>pwd</code>)</li>
 <li>Run <code>ls</code> to see the materials.</li>
 </ol>
+</section>
+<section id="editing-files" class="level2">
+<h2 class="anchored" data-anchor-id="editing-files">Editing files</h2>
+<p>You can combine text and code in a notebook, which you can start with:</p>
+<ul>
+<li><code>New Launcher</code> -&gt; <code>Notebook</code> -&gt; <code>Python 3 (ipykernel</code>, or</li>
+<li><code>File</code> -&gt; <code>New</code> -&gt; <code>Notebook</code></li>
+</ul>
+<p>To run the code in a cell, a shortcut is <code>Ctrl</code> + <code>Enter/Return</code>.</p>
+<p>To create a script file containing just code, do <code>File</code> -&gt; <code>New</code> -&gt; <code>Python file</code>.</p>
+</section>
+<section id="stopping-your-server" class="level2">
+<h2 class="anchored" data-anchor-id="stopping-your-server">Stopping your server</h2>
+<p>You can stop your server via <code>File</code>-&gt; <code>Hub Control Panel</code> -&gt; <code>Stop My Server</code>.</p>
+<p>If you only log out, any ongoing computations will still run in the background.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
