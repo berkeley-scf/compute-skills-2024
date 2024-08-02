@@ -472,6 +472,13 @@ The first should allow you to get `compute-skills-2024` and the second `echo`.
 Lots of interactive programs have adopted the idea of tab completion, including Python/IPython and R.
 :::
 
+### Command history
+
+Hit the `up` key. You should see the previous command you typed.
+Hit it again. You should see the 2nd most recent command.
+
+`Ctrl-a` and `Ctrl-e` navigate to the beginning and end of a line. You can edit your previous command and then hit `Enter` to run the modified code.
+
 ### Seeing if a command or program is available
 
 You can see if a command or program is installed (and where it is installed) using `type`.

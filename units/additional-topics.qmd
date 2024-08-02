@@ -47,7 +47,7 @@ np.random.normal(size = 5)
 ```
 ```{python}
 np.random.seed(1)
-np.random.normal(size = 5)
+np.random.normal(size = 10)
 ```
 
 
@@ -79,7 +79,7 @@ rng = np.random.default_rng(seed = 1)
 rng.normal(size = 5)
 ```
 
-Some cautions ([detailed by Philip Stark](https://arxiv.org/pdf/1810.10985)):
+Some cautions ([detailed by Philip Stark and Kellie Ottoboni](https://arxiv.org/pdf/1810.10985)):
 
 - seeds with many zeros can be problematic.
 - Mersenne Twister not as good as PCG64.
@@ -142,6 +142,8 @@ Let's see what kinds of numbers we can safely compare for exact equality with `=
 #| eval: false
 x = .5 - .2
 x == 0.3
+x = 1.5 - .2
+x == 0.3
 
 x = .5 - .5
 x == 0
@@ -166,7 +168,7 @@ Let's consider accuracy of subtraction.
 
 This is called catastrophic cancellation.
 
-Do you think "catastrophic" is too extreme? If so, consider this.
+Do you think calling it "catastrophic" is too extreme? If so, consider this.
 
 ```{python}
 81.0 - 80.0
@@ -191,6 +193,7 @@ deriv(np.sin, 0.2, 1e-12)
 deriv(np.sin, 0.2, 1e-14)
 deriv(np.sin, 0.2, 1e-15)
 deriv(np.sin, 0.2, 1e-16)
+deriv(np.sin, 0.2, 1e-17)
 ```
 
 ### Linear algebra errors
@@ -247,7 +250,9 @@ loglik
 np.exp(loglik)
 ```
 
-Work with probabilities and densities on the log scale. Almost always.
+::: {callout-important}
+## Work with probabilities and densities on the log scale. Almost always.
+:::
 
 ## Exercise: numerical issues with Newton's method
 
@@ -318,11 +323,14 @@ Let's clone the repository and see if we can install it.
 
 ```bash
 git clone https://github.com/fperez/mytoy
-
-pip install .
+cd mytoy
+pip install --user .
+cd
+ls .local/lib/python3.11/site-packages
 ```
 
-```{bash}
+```{python}
+#| eval: false
 import mytoy
 
 mytoy.toy(7)
@@ -372,14 +380,14 @@ Conda is a general package manager. You can use it to manage Python packages but
 
 #### Fully isolating your Conda environment
 
-Conda environments provide an additional layer of modularity/reproducibility, allowing you to set up a fully reproducible environment for your computation. Here (by explicitly giving `python=3.11`) the Python 3.11 executable and all packages you install in the environment are fully independent of whatever Python executables are installed on the system.
+Conda environments provide an additional layer of modularity/reproducibility, allowing you to set up a fully reproducible environment for your computation. Here (by explicitly giving `python=3.11`) the Python 3.11 executable and all packages you install in the environment are fully independent (there are [some caveats](https://statistics.berkeley.edu/computing/software/install#conda-isolate) of whatever Python executables are installed on the system.
 
 ```bash
 type python
-conda create -n myenv python=3.11
-source activate myenv
-conda install numpy
+conda create -n my_iso_env python=3.11
+source activate my_iso_env
 type python
+conda install numpy
 ```
 
 ::: {.callout-warning}
