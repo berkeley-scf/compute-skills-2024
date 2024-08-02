@@ -458,8 +458,8 @@ Here are a few key suggestions:
     - Don't belabor the obvious; avoid things like `x = x + 1  # Increment x.`.
     - Some key things to document:
       - summarizing a block of code,
-      - explaining a complicated piece of code or particular construction,
-      - explaining non-obvious values or steps, such as `x = x + 1 # Compensate for border.`
+      - explaining a complicated piece of code or particular construction, and
+      - explaining non-obvious values or steps, such as `x = x + 1 # Compensate for image border.`
     - Comments should generally be complete sentences.
 - You can use parentheses to group operations such that they can be split up into lines
   and easily commented, e.g.,
@@ -476,7 +476,7 @@ Here are a few key suggestions:
     - Function, method, and variable names should be snake_case, e.g., `number_of_its` or `n_its`.
     - Non-public methods and variables should have a leading underscore.
 - Try to have the names be informative without being overly long.
-- Don't overwrite names of objects/functions that already exist in Python. E.g., don't use `len`. That said, the namespace system helps with the unavoidable cases where there are name conflicts.
+- Don't overwrite names of objects/functions that already exist in the language. E.g., don't use `len` in Python. That said, the namespace system helps with the unavoidable cases where there are name conflicts.
 - Use active names for functions (e.g., `calc_loglik`, `calc_log_lik`
     rather than `loglik` or `loglik_calc`). Functions are akin to verbs.
 - Learn from others' code
