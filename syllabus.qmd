@@ -2,9 +2,6 @@
 title: "Overview"
 ---
 
-[UNDER CONSTRUCTION]
-
-
 ## About the Computational Skills Workshop
 
 The workshop will focus on skills related to computation, code development, and statistics/data science workflows, including,
@@ -19,17 +16,19 @@ The workshop will focus on skills related to computation, code development, and 
  - packaging and reproducible environments; and
  - automated workflows.
 
-## Optional Introduction to Computing and Python
+### Goals
+
+- Goal 1: Emphasize good computational and code development practices (scripting, version control, testing, modularity, defensive programming, documentation, commenting, numerical analysis issues).
+- Goal 2: Emphasize good practices for workflows, including reproducibility, automation, isolated environments.
+- Goal 3: Provide practice with and introduce key tools for version control, testing, documentation, literate programming (documents with runnable code).
+
+
+## (Optional) Introduction to Computing and Python
 
 The optional additional sessions (held Tuesday-Wednesday, August 20-21) provide a basic introduction to computing concepts (e.g., parts of a computer, ideas related to parallelization, introduction to the the shell/command line/terminal) and an introduction to Python.
 
 These are intended for those with little experience (or wishing a refresher) with working in a command line context or with using Python, and are particularly important for those taking Statistics 243, which assumes basic knowledge of Python.
 
-The introduction to Python will likely borrow heavily from [this Software Carpentry Python lesson](https://swcarpentry.github.io/python-novice-inflammation/), with some additional topics added.
+The introduction to Python will borrow heavily from [this Software Carpentry Python lesson](https://swcarpentry.github.io/python-novice-inflammation/), with some additional topics added.
 
-## Goals
-
-- Goal 1: Emphasize good computational and code development practices (scripting, version control, testing, modularity, defensive programming, documentation, commenting, numerical analysis issues).
-- Goal 2: Emphasize good practices for workflows, including reproducibility, automation, isolated environments.
-- Goal 3: Provide practice with and introduce key tools for version control, testing, documentation, literate programming (documents with runnable code).
 
