@@ -30,7 +30,7 @@ export GIT_CONFIG_NOSYSTEM=1
 
 NOTES:
 might need to set merging policy:
-git config pull.rebase false
+
 
 install ruff in DataHub and on SCF
 
@@ -50,9 +50,9 @@ This module presents the core content of the workshop on version control (using 
 
 We'll use a running example, Newton's method for optimization, during this workshop. It's simple enough to be straightforward to code but can involve various modifications, extensions, etc. to be a rich enough example that we can use it to demonstrate various topics and tools.
 
-Recall that Newton's method works as follows to optimize some objective function, $f(x)$ as a function of univariate or multivariate $x$, where $f(x)$ is univariate.
+Recall that Newton's method works as follows to optimize some objective function, $f(x)$, as a function of univariate or multivariate $x$, where $f(x)$ is univariate. 
 
-Newton's method is iterative. If we are at step $t-1$, the next value is:
+Newton's method is iterative. If we are at step $t-1$, the next value (when minimizing a function) is:
 
 $$
 x_t = x_{t-1} - f^{\prime}(x_{t-1}) / f^{\prime\prime}(x_{t-1})
@@ -65,17 +65,20 @@ Here are the steps:
   - at step $t$, the next value (the update) is given by the equation above
   - stop when $\left\Vert x_{t} - x_{t-1} \right\Vert$ is "small"
 
+You can derive it by finding the root of the gradient function using a Taylor series approximation to the gradient.
+
 ## Exercise: Implement univariate Newton's method
 
 
 Here's what you'll need your code to do:
 
-- accept a starting value and the function to optimize
+- accept a starting value, $x_0$, and the function, $f(\cdot)$, to optimize
 - implement the iterative algorithm
 - implement the stopping criterion (feel free to keep this simple)
 - calculate the first and second derivatives using a basic finite difference approach to estimating the derivative based on the definition of a derivative as a limit
     - note that the second derivative can be seen as calling the first derivative twice...
-- consider what to return as the output
+- consider what to return as the output (feel free to keep it simple)
+- don't worry much for now about making your code robust or dealing with tricky situations
 
 
    
@@ -88,7 +91,11 @@ For now, please do not use any Python packages that provide finite difference-ba
 
 :::
 
-Put your code into a simple text file, called `newton.py`. In doing so you've created a Python *module*. You can use it like this:
+::: {.callout-tip}
+You're welcome to develop your code in a Notebook or in the DataHub editor or in a separate editor on your laptop.
+:::
+
+Once you've written your Python functions, put your code into a simple text file, called `newton.py`. In doing so you've created a Python *module*. Once you have your module, you can use it like this:
 
 ```{python}
 #| eval: false
@@ -106,7 +113,14 @@ runnable code. To access the objects in the module, you need to import the modul
 
 ## Exercise: Creating a Git repository (on GitHub)
 
-Go to `github.com/<your_username>` and click on the `Repositories` tag. Then click on the `New` button. In the form, give the repository the name `newton-practice` (so others who are working with you can find it easily), provide a short description, and click on "Add a README file". Leave the repository as "Public" so that others can interact with your repository when we practice later.
+Go to `github.com/<your_username>` and click on the `Repositories` tag. Then click on the `New` button.
+
+- In the form, give the repository the name `newton-practice` (so others who are working with you can find it easily)
+- Provide a short description
+- Click on "Add a README file".
+- Leave the repository as "Public" so that others can interact with your repository when we practice later.
+- Scroll down to `Python` under `Add .gitignore`.
+- Select a license (the BSD 3 Clause license is a good "permissive" one).
 
 ::: {.callout-note}
 ## Creating repositories on your laptop first
@@ -135,8 +149,10 @@ git config --global user.email "jane_doe@berkeley.edu"
 
 git config --global color.ui "auto"
 
-# git config pull.rebase false
+git config --global pull.rebase false
 ```
+
+That will modify your `~/.gitconfig` file. 
 
 Then run this in the terminal:
 
@@ -152,9 +168,11 @@ import gh_scoped_creds
 %ghscopedcreds
 ```
 
-When you do that you'll see a link and a code. Go to the link in a browser and input the code; this will grant access to GitHub from JupyterHub for 8 hours (or until you stop your JupyterHub server).
+When you do that you'll see a [link](https://github.com/login/device) and a code. Go to the link in a browser (on your laptop, outside of DataHub), click `Continue`, input the code, and click `Authorize Berkeley-Datahub-Git-Access`. This will grant access to GitHub from JupyterHub for 8 hours (or until you stop your JupyterHub server).
 
-Then (only the first time you are doing all this) go to the URL that is printed out (which should be <https://github.com/apps/stat-computing-jupyterhub)> and click on `Install`. Choose "Only select repositories" and select the repository you are using for the workshop, namely `newton-practice`.
+Then (only the first time you are doing all this) go to the URL that is printed out (which should be <https://github.com/apps/stat-computing-jupyterhub)> and click on `Install` (and then if you have access to multiple GitHub organizations, choose your personal org, namely your GitHub username). Choose `Only select repositories` and select the repository you are using for the workshop, namely `newton-practice`. Then click `Install`.
+
+[TODO: check the last set of instructions to make sure they are correct and easy to follow.]
 
 ## Basic use of a repository
 
@@ -162,32 +180,36 @@ In the terminal, let's make a small change to the README, register the change wi
 
 #### Step 1. Clone the repository
 
-First make a local copy of the repository from the remote on GitHub.
+First make a local copy of the repository from the remote on GitHub. It's best do this **outside** of the `compute-skills-2024` directory; otherwise you'll have a repository nested within a repository. 
 
 ```bash
-git clone https://github.com/<your_username>/compute-skills-2024
+cd  # Avoid cloning into the `compute-skills-2024` repository.
+git clone https://github.com/<your_username>/newton-practice
 ```
 
 If we run this:
 
 ```bash
-cd compute-workshop-2024
+cd newton-practice
 ls -l .git
 cat .git/config
 ```
 
-we should see a bunch of output (truncated here) indicating that `compute-workshop-2024` is a Git repository, and that in this case the local repository is linked to a *remote* repository (the repository we created on GitHub):
+we should see a bunch of output (truncated here) indicating that `newton-practice` is a Git repository, and that in this case the local repository is linked to a *remote* repository (the repository we created on GitHub):
 
 ```bash
-total 56
-drwxr-xr-x   2 paciorek scfstaff 4096 Jul 23 17:06 branches
+total 40
+-rw-r--r-- 1 jovyan jovyan  264 Aug  2 15:04 config
+-rw-r--r-- 1 jovyan jovyan   73 Aug  2 15:04 description
+-rw-r--r-- 1 jovyan jovyan   21 Aug  2 15:04 HEAD
 -rw-r--r--   1 paciorek scfstaff   16 Jul 24 14:48 COMMIT_EDITMSG
 -rw-r--r--   1 paciorek scfstaff  656 Jul 23 18:20 config
 <snip>
 
 <snip>
 [remote "origin"]
-	url = https://github.com/berkeley-scf/compute-skills-2024
+        url = https://github.com/paciorek/newton-practice
+        fetch = +refs/heads/*:refs/remotes/origin/*
 <snip>
 ```
 
@@ -196,8 +218,8 @@ Step 2. Add files
 Next move (or copy) your Python module into the repository directory. I'll use the test module that we'll work with later, but you'll do it with your Newton method module.
 
 ```bash
-cd compute-workshop-2024
-cp ../binary_search.py .
+cd newton-practice
+cp ../compute-skills-2024/units/binary_search.py .
 ## Tell git to track the file
 git add binary_search.py
 ```
@@ -209,13 +231,16 @@ of Newton's method. (In DataHub, you can double-click on the README in the file 
 pane.)
 
 ```bash
+git status
 ## Tell git to keep track of the changes to the file.
 git add README.md
+git status
 ```
 
 ```bash
 ## Register the changes with Git.
-git commit -m"Add basic implementation of binary search."
+git commit -m"Add basic implementation of Newton's method."
+git status
 ## Synchronize the changes with the remote.
 git push
 ```
@@ -225,13 +250,17 @@ We could have cloned the (public) repository without the `gh_scoped_creds` crede
 :::
 
 ::: {.callout-note}
-Instead of having to `add` the README and `commit` separately we could do:
+Instead of having to `add` files that already part of the repository (such as `README.md`) we could do:
 ```bash
-git add newton.py
-git commit -a -m"added basic implementation of binary search"
+git commit -a -m"Update README."
 ```
 We do need to explicitly add any **new** files (e.g., `newton.py`) that are not yet registered with git via `git add`.
 :::
+
+::: {.callout-note}
+You can also edit and add files directly to your GitHub repository in a browser window. This is a good backup if you run into problems making commits from DataHub or your laptop.
+:::
+
 
 ### Writing good commit messages
 
@@ -251,16 +280,20 @@ have made multiple ("atomic") commits.
 
 ## Exercise: code review
 
+#### Step 1: Make suggestions
+
 Go to your partner's repository at `https://github.com/<user_name>/newton-practice`.
 
 1. Look over their code.
 2. Make some comments/suggestions in a new GitHub issue (go to the `Issues` button and click on `New issue`).
 
+#### Step 2: Respond to suggestions
+
 In response to your partner's comments, make some small change(s) to your `newton.py` code.
 
-You can do this in DataHub (or locally on your laptop if that's what you're doing).
+You can do this in DataHub (or locally on your laptop if that's what you're doing) and make a commit as we did in the previous exercise.
 
-Or you can do the editing in your GitHub browser window by selecting `Code`, clicking on the file and choosing the pencil icon to edit it. When you save it, a commit will be made. Make sure to provide a commit message. In this case you'll also want to run `git pull` to pull down the changes to your local repository on DataHub or your laptop.
+Or you can do the editing in your GitHub browser window by clicking on the file and choosing the pencil icon (far right) to edit it. When you save it, a commit will be made. Make sure to provide a commit message. You can also create new files via the `+` button in the top of the left sidebar. If you make changes directly on GitHub, you'll also want to run `git pull` to pull down the changes to your local repository on DataHub or your laptop.
 
 # 3. Understanding Git
 
@@ -273,23 +306,32 @@ More generally if you understand things conceptually, then looking up the syntax
 
 :::
 
+We'll start with some visuals and then go back to some Git terminology and to the structure of a repository.
+
+## Git visuals: Understanding Git concepts
+
+Fernando Perez has nice visualization ([online version](https://docs.google.com/presentation/d/1YlM3boYLE8DwbxGNO3ZVVt3e9gEoBgD1uc9RtItUYCU), [PDF version](git_visuals.pdf)) of a basic Git workflow that we'll walk through.
+
+Note that we haven't actually seen in prtacie some of what is shown in the visual: tags, branches, and merging, but we'll be using those ideas later.
+
+
 ## Key components and terminology
 
 ### Commits
 
-A *commit* is a snapshot of our work at a point in time. So far we've been working with a linear sequence of snapshots, but we'll see in a moment that we can actually have a directed acyclic graph (DAG) of snapshots once we have *branches*.
+A *commit* is a snapshot of our work at a point in time. So far in our own repository, we've been working with a linear sequence of snapshots, but the visualization showed that we can actually have a directed acyclic graph (DAG) of snapshots once we have *branches*.
 
 Each commit has:
 
  - a hash identifier - a unique identifier produced by hashing the changes introduced in the commit and also the parent commit,
  - hashes of the files in the repository in their current state, and
- - the changes (from `diff`) relative to the parent commit.
+ - the changes (based on the `diff` tool) relative to the parent commit.
 
 ![A Git commit (Credit: ProGit book, CC License)](commit.png)
 
 ### A repository
 
-A *repository* is the set of files for a project with their history. It's a collection of commits in the form of an acyclic graph.
+A *repository* is the set of files for a project with their history. It's a collection of commits in the form of an directed acyclic graph.
 
 ![A (simple) Git repository (Credit: ProGit book, CC License)](tree.png)
 
@@ -301,7 +343,7 @@ Some other terms:
 
 ### Staging area / index
 
-The index (staging area) keeps track of changes (made to tracked files) that are not yet committed.
+The index (staging area) keeps track of changes (made to tracked files) that are added, but that are not yet committed.
 
 ![local operations in a repository (Credit: ProGit book, CC License)](staging.png "Visualization of local operations in Git")
 
@@ -312,16 +354,16 @@ The index (staging area) keeps track of changes (made to tracked files) that are
 
 ## Uncommitted changes
 
-If I make some changes to a file that I decide are a mistaken, before `git add` (i.e., before registering the changes with `git`). I can always still edit the file to undo the mistakes.
+If I make some changes to a file that I decide are a mistaken, before `git add` (i.e., before registering/staging the changes with `git`), I can always still edit the file to undo the mistakes.
 
 But I can also go back to the version stored by Git.
 
 ```bash
-# git checkout -- file.txt
+# git checkout -- file.txt  # This is older syntax.
 git restore file.txt
 ```
 
-## Staged but uncommitted changes
+## Staged, uncommitted changes
 
 If we've added (staged) files via `git add` but have not yet committed them,
 the files are in the index (staging area). We can get those changes out
@@ -329,23 +371,23 @@ of the staging area like this:
 
 ```bash
 git status
-# git reset HEAD file.txt
+# git reset HEAD file.txt  # This is older syntax.
 git restore --staged file.txt
 git status
 ```
 
-Note that the changes still exist in `file.txt` but they're no longer registered with Git.
+Note that the changes still exist in `file.txt` but they're no longer registered/staged with Git.
 
 ## Committed changes
 
-Suppose you need to add or modify to your commit. This illustrates a few things you might do.
+Suppose you need to add or modify to your commit. This illustrates a few things you might do to update your commit.
 
 ```bash
 git commit -m 'Initial commit'
 git add forgotten_file.txt
-# edit file.txt
+# Edit file.txt.
 git add file.txt
-# get version of file from previous commit
+# Get version of file from previous commit.
 git checkout <commit_hash> file.txt
 git commit --amend
 ```
@@ -369,16 +411,10 @@ git commit -a -m'reworked the mistake'
 git push -f origin <branch_name>
 ```
 
-This will remove the previous commit at the remote. 
+This will remove the previous commit at the remote (GitHub in our case). 
 
 :::
 :::
-
-## Git visuals: Understanding Git concepts
-
-Fernando Perez has nice visualization ([online version](https://docs.google.com/presentation/d/1YlM3boYLE8DwbxGNO3ZVVt3e9gEoBgD1uc9RtItUYCU), [PDF version](git_visuals.pdf)) of a basic Git workflow that we'll walk through.
-
-Note that we haven't actually talked about some of what is shown in the visual: tags, branches, and merging, but we'll see a bit in the visual and discuss more later.
 
 
 
