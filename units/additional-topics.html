@@ -265,6 +265,7 @@ window.Quarto = {
   <li><a href="#linear-algebra-errors" id="toc-linear-algebra-errors" class="nav-link" data-scroll-target="#linear-algebra-errors">Linear algebra errors</a></li>
   <li><a href="#overflow-and-underflow" id="toc-overflow-and-underflow" class="nav-link" data-scroll-target="#overflow-and-underflow">Overflow and underflow</a></li>
   </ul></li>
+  <li><a href="#work-with-probabilities-and-densities-on-the-log-scale.-almost-always." id="toc-work-with-probabilities-and-densities-on-the-log-scale.-almost-always." class="nav-link" data-scroll-target="#work-with-probabilities-and-densities-on-the-log-scale.-almost-always.">Work with probabilities and densities on the log scale. Almost always.</a></li>
   <li><a href="#exercise-numerical-issues-with-newtons-method" id="toc-exercise-numerical-issues-with-newtons-method" class="nav-link" data-scroll-target="#exercise-numerical-issues-with-newtons-method">Exercise: numerical issues with Newton’s method</a></li>
   </ul></li>
   <li><a href="#packaging-and-conda-environments" id="toc-packaging-and-conda-environments" class="nav-link" data-scroll-target="#packaging-and-conda-environments">9. Packaging and Conda environments</a>
@@ -348,7 +349,7 @@ Overview
 <h3 class="anchored" data-anchor-id="random-number-seed">Random number seed</h3>
 <p>The <em>seed</em> determines where in the cycle of the periodic sequence you are.</p>
 <p>It’s critical for ensuring reproducibility when running code that uses random numbers</p>
-<div id="9bf2ba1e" class="cell" data-execution_count="1">
+<div id="ec59a4a1" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -359,7 +360,7 @@ Overview
 <pre><code>array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763])</code></pre>
 </div>
 </div>
-<div id="b4f5d645" class="cell" data-execution_count="2">
+<div id="526fb412" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>np.random.normal(size <span class="op">=</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -368,14 +369,15 @@ Overview
 <pre><code>array([-2.3015387 ,  1.74481176, -0.7612069 ,  0.3190391 , -0.24937038])</code></pre>
 </div>
 </div>
-<div id="419a3e1d" class="cell" data-execution_count="3">
+<div id="987c895a" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">1</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>np.random.normal(size <span class="op">=</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>np.random.normal(size <span class="op">=</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763])</code></pre>
+<pre><code>array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763,
+       -2.3015387 ,  1.74481176, -0.7612069 ,  0.3190391 , -0.24937038])</code></pre>
 </div>
 </div>
 </section>
@@ -383,7 +385,7 @@ Overview
 <h3 class="anchored" data-anchor-id="random-number-generators">Random number generators</h3>
 <p>If you don’t do anything, numpy will use a generator called the Mersenne Twister (that’s the default in R too).</p>
 <p>However the “default” RNG in numpy is a newer, better algorithm called PCG64.</p>
-<div id="964bfacb" class="cell" data-execution_count="4">
+<div id="b0cf6b4e" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Mersenne twister</span></span>
@@ -394,7 +396,7 @@ Overview
 <pre><code>array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763])</code></pre>
 </div>
 </div>
-<div id="a008897e" class="cell" data-execution_count="5">
+<div id="7c2765f7" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Mersenne twister, selected specifically</span></span>
@@ -406,7 +408,7 @@ Overview
 <pre><code>array([ 2.04676909, -1.03653009,  0.72997546,  0.41584996, -0.1922969 ])</code></pre>
 </div>
 </div>
-<div id="f0175d8f" class="cell" data-execution_count="6">
+<div id="9fbf078a" class="cell" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 'Default' PCG64</span></span>
@@ -417,7 +419,7 @@ Overview
 <pre><code>array([ 0.34558419,  0.82161814,  0.33043708, -1.30315723,  0.90535587])</code></pre>
 </div>
 </div>
-<div id="0231d05d" class="cell" data-execution_count="7">
+<div id="e8b87ced" class="cell" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(seed <span class="op">=</span> <span class="dv">1</span>)</span>
@@ -427,7 +429,7 @@ Overview
 <pre><code>array([ 0.34558419,  0.82161814,  0.33043708, -1.30315723,  0.90535587])</code></pre>
 </div>
 </div>
-<p>Some cautions (<a href="https://arxiv.org/pdf/1810.10985">detailed by Philip Stark</a>):</p>
+<p>Some cautions (<a href="https://arxiv.org/pdf/1810.10985">detailed by Philip Stark and Kellie Ottoboni</a>):</p>
 <ul>
 <li>seeds with many zeros can be problematic.</li>
 <li>Mersenne Twister not as good as PCG64.</li>
@@ -437,7 +439,7 @@ Overview
 </section>
 <section id="floating-point-precision" class="level2">
 <h2 class="anchored" data-anchor-id="floating-point-precision">Floating point precision</h2>
-<div id="6a3ecb52" class="cell" data-execution_count="8">
+<div id="28284cf5" class="cell" data-execution_count="8">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.3</span> <span class="op">-</span> <span class="fl">0.2</span> <span class="op">==</span> <span class="fl">0.1</span></span>
@@ -457,7 +459,7 @@ Overview
 <li>4 bytes = 32 bits = single precision</li>
 </ul>
 <p>(GPU libraries often use 4 bytes or even fewer.)</p>
-<div id="a08b24e9" class="cell" data-execution_count="9">
+<div id="ece31f4a" class="cell" data-execution_count="9">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dg(x, form <span class="op">=</span> <span class="st">'.20f'</span>):</span>
@@ -479,7 +481,7 @@ Overview
 </div>
 <p>How many digits of accuracy do we have?</p>
 <p>Same thing regardless of the size of the number:</p>
-<div id="aaf694cb" class="cell" data-execution_count="10">
+<div id="d1b8d0a3" class="cell" data-execution_count="10">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fl">12345678.1234567812345678</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -488,7 +490,7 @@ Overview
 <pre><code>12345678.123456782</code></pre>
 </div>
 </div>
-<div id="d1b09950" class="cell" data-execution_count="11">
+<div id="6c8da339" class="cell" data-execution_count="11">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fl">12345678123456781234.5678</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -497,7 +499,7 @@ Overview
 <pre><code>1.234567812345678e+19</code></pre>
 </div>
 </div>
-<div id="84890ccc" class="cell" data-execution_count="12">
+<div id="efa86dbc" class="cell" data-execution_count="12">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>dg(<span class="fl">12345678123456781234.5678</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -511,27 +513,29 @@ Overview
 <section id="comparisons" class="level3">
 <h3 class="anchored" data-anchor-id="comparisons">Comparisons</h3>
 <p>Let’s see what kinds of numbers we can safely compare for exact equality with <code>==</code>.</p>
-<div id="4a465f4c" class="cell" data-execution_count="13">
+<div id="5078f643" class="cell" data-execution_count="13">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">.5</span> <span class="op">-</span> <span class="fl">.2</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">==</span> <span class="fl">0.3</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">.5</span> <span class="op">-</span> <span class="fl">.5</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">==</span> <span class="dv">0</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">.5</span> <span class="op">-</span> <span class="fl">.2</span>  <span class="op">-</span><span class="fl">.3</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">1.5</span> <span class="op">-</span> <span class="fl">.2</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">==</span> <span class="fl">0.3</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">.5</span> <span class="op">-</span> <span class="fl">.5</span></span>
 <span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>x <span class="op">==</span> <span class="dv">0</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> (<span class="fl">.5</span> <span class="op">-</span> <span class="fl">.2</span>) <span class="op">-</span> (<span class="fl">.51</span> <span class="op">-</span> <span class="fl">.21</span>)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">.5</span> <span class="op">-</span> <span class="fl">.2</span>  <span class="op">-</span><span class="fl">.3</span></span>
 <span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>x <span class="op">==</span> <span class="dv">0</span></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>np.isclose(x, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> (<span class="fl">.5</span> <span class="op">-</span> <span class="fl">.2</span>) <span class="op">-</span> (<span class="fl">.51</span> <span class="op">-</span> <span class="fl">.21</span>)</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>x <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>np.isclose(x, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
 <section id="calculation-errors" class="level3">
 <h3 class="anchored" data-anchor-id="calculation-errors">Calculation errors</h3>
 <p>Let’s consider accuracy of subtraction.</p>
-<div id="e6466272" class="cell" data-execution_count="14">
+<div id="a7b6c4e1" class="cell" data-execution_count="14">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.1234</span> <span class="op">-</span> <span class="fl">1.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -540,7 +544,7 @@ Overview
 <pre><code>0.12339999999999995</code></pre>
 </div>
 </div>
-<div id="7c31f0da" class="cell" data-execution_count="15">
+<div id="2e2dd772" class="cell" data-execution_count="15">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fl">123456781234.1234</span> <span class="op">-</span> <span class="fl">123456781234.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -550,8 +554,8 @@ Overview
 </div>
 </div>
 <p>This is called catastrophic cancellation.</p>
-<p>Do you think “catastrophic” is too extreme? If so, consider this.</p>
-<div id="628cab7e" class="cell" data-execution_count="16">
+<p>Do you think calling it “catastrophic” is too extreme? If so, consider this.</p>
+<div id="7ecf5ba8" class="cell" data-execution_count="16">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fl">81.0</span> <span class="op">-</span> <span class="fl">80.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -560,7 +564,7 @@ Overview
 <pre><code>1.0</code></pre>
 </div>
 </div>
-<div id="726f2dc8" class="cell" data-execution_count="17">
+<div id="e04a3953" class="cell" data-execution_count="17">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fl">12345678123456781.0</span> <span class="op">-</span><span class="fl">12345678123456780.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -570,7 +574,7 @@ Overview
 </div>
 </div>
 <p>What’s the derivative of <span class="math inline">\(sin(x)\)</span>? Let’s see what kind of accuracy we can get.</p>
-<div id="5bcebb63" class="cell" data-execution_count="18">
+<div id="bd623f01" class="cell" data-execution_count="18">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> deriv(f, x, eps<span class="op">=</span><span class="fl">1e-8</span>):</span>
@@ -583,7 +587,8 @@ Overview
 <span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>deriv(np.sin, <span class="fl">0.2</span>, <span class="fl">1e-12</span>)</span>
 <span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>deriv(np.sin, <span class="fl">0.2</span>, <span class="fl">1e-14</span>)</span>
 <span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>deriv(np.sin, <span class="fl">0.2</span>, <span class="fl">1e-15</span>)</span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>deriv(np.sin, <span class="fl">0.2</span>, <span class="fl">1e-16</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>deriv(np.sin, <span class="fl">0.2</span>, <span class="fl">1e-16</span>)</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>deriv(np.sin, <span class="fl">0.2</span>, <span class="fl">1e-17</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -591,7 +596,7 @@ Overview
 <h3 class="anchored" data-anchor-id="linear-algebra-errors">Linear algebra errors</h3>
 <p>The errors seen in doing calculations, such as catastrophic cancellation, cascaded through derivative estimation. That also happens when doing linear algebra operations.</p>
 <p>Here’s an example where mathematically all the eigenvalues are real-valued and positive, but not on the computer.</p>
-<div id="d1d25696" class="cell" data-execution_count="19">
+<div id="b8a015cb" class="cell" data-execution_count="19">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
@@ -620,7 +625,7 @@ Overview
 <section id="overflow-and-underflow" class="level3">
 <h3 class="anchored" data-anchor-id="overflow-and-underflow">Overflow and underflow</h3>
 <p>Having a finite number of bits to represent each number means there are minimum and maximum numbers that can be expressed.</p>
-<div id="d470a261" class="cell" data-execution_count="20">
+<div id="438533a5" class="cell" data-execution_count="20">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.38e5000</span></span>
@@ -650,7 +655,7 @@ How much do we need to worry about overflow and underflow?
 </ul>
 </div>
 </div>
-<div id="cb932a1e" class="cell" data-execution_count="21">
+<div id="8c4903ed" class="cell" data-execution_count="21">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -669,8 +674,10 @@ How much do we need to worry about overflow and underflow?
 <pre><code>2.0739518337814167e-08</code></pre>
 </div>
 </div>
-<p>Work with probabilities and densities on the log scale. Almost always.</p>
 </section>
+</section>
+<section id="work-with-probabilities-and-densities-on-the-log-scale.-almost-always." class="level2 {callout-important}">
+<h2 class="anchored" data-anchor-id="work-with-probabilities-and-densities-on-the-log-scale.-almost-always.">Work with probabilities and densities on the log scale. Almost always.</h2>
 </section>
 <section id="exercise-numerical-issues-with-newtons-method" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-numerical-issues-with-newtons-method">Exercise: numerical issues with Newton’s method</h2>
@@ -706,7 +713,7 @@ How much do we need to worry about overflow and underflow?
 <span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a><span class="op">EOF</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that if there were other modules, we could have imported from those as well.</p>
 <p>Now we can use the objects from the module without having to know that it was in a particular module (because of how <code>__init__.py</code> was set up).</p>
-<div id="a96e9a64" class="cell" data-execution_count="22">
+<div id="14fb4903" class="cell" data-execution_count="22">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mypkg</span>
@@ -721,11 +728,18 @@ How much do we need to worry about overflow and underflow?
 <p>Fernando has a <a href="https://github.com/fperez/mytoy">this toy example package</a>.</p>
 <p>Let’s clone the repository and see if we can install it.</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/fperez/mytoy</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="{bash}"><code>import mytoy
-
-mytoy.toy(7)</code></pre>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> mytoy</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--user</span> .</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> .local/lib/python3.11/site-packages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ffb52672" class="cell" data-execution_count="23">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mytoy</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>mytoy.toy(<span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <p>It would take more work to make the package available in a repository such as PyPI or via Conda.</p>
 </section>
 </section>
@@ -752,12 +766,12 @@ mytoy.toy(7)</code></pre>
 <p>Conda is a general package manager. You can use it to manage Python packages but lots of other software as well, including R and Julia.</p>
 <section id="fully-isolating-your-conda-environment" class="level4">
 <h4 class="anchored" data-anchor-id="fully-isolating-your-conda-environment">Fully isolating your Conda environment</h4>
-<p>Conda environments provide an additional layer of modularity/reproducibility, allowing you to set up a fully reproducible environment for your computation. Here (by explicitly giving <code>python=3.11</code>) the Python 3.11 executable and all packages you install in the environment are fully independent of whatever Python executables are installed on the system.</p>
+<p>Conda environments provide an additional layer of modularity/reproducibility, allowing you to set up a fully reproducible environment for your computation. Here (by explicitly giving <code>python=3.11</code>) the Python 3.11 executable and all packages you install in the environment are fully independent (there are <a href="https://statistics.berkeley.edu/computing/software/install#conda-isolate">some caveats</a> of whatever Python executables are installed on the system.</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span> python</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> myenv python=3.11</span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> activate myenv</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install numpy</span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span> python</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> my_iso_env python=3.11</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> activate my_iso_env</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span> python</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install numpy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1359,7 +1373,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb48-51"><a href="#cb48-51" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb48-54"><a href="#cb48-54" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb48-55"><a href="#cb48-55" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">1</span>)</span>
-<span id="cb48-56"><a href="#cb48-56" aria-hidden="true" tabindex="-1"></a>np.random.normal(size <span class="op">=</span> <span class="dv">5</span>)</span>
+<span id="cb48-56"><a href="#cb48-56" aria-hidden="true" tabindex="-1"></a>np.random.normal(size <span class="op">=</span> <span class="dv">10</span>)</span>
 <span id="cb48-57"><a href="#cb48-57" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb48-58"><a href="#cb48-58" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-59"><a href="#cb48-59" aria-hidden="true" tabindex="-1"></a></span>
@@ -1391,7 +1405,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb48-93"><a href="#cb48-93" aria-hidden="true" tabindex="-1"></a>rng.normal(size <span class="op">=</span> <span class="dv">5</span>)</span>
 <span id="cb48-94"><a href="#cb48-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb48-95"><a href="#cb48-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-96"><a href="#cb48-96" aria-hidden="true" tabindex="-1"></a>Some cautions (<span class="co">[</span><span class="ot">detailed by Philip Stark</span><span class="co">](https://arxiv.org/pdf/1810.10985)</span>):</span>
+<span id="cb48-96"><a href="#cb48-96" aria-hidden="true" tabindex="-1"></a>Some cautions (<span class="co">[</span><span class="ot">detailed by Philip Stark and Kellie Ottoboni</span><span class="co">](https://arxiv.org/pdf/1810.10985)</span>):</span>
 <span id="cb48-97"><a href="#cb48-97" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-98"><a href="#cb48-98" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>seeds with many zeros can be problematic.</span>
 <span id="cb48-99"><a href="#cb48-99" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Mersenne Twister not as good as PCG64.</span>
@@ -1454,344 +1468,352 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb48-168"><a href="#cb48-168" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
 <span id="cb48-169"><a href="#cb48-169" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">.5</span> <span class="op">-</span> <span class="fl">.2</span></span>
 <span id="cb48-170"><a href="#cb48-170" aria-hidden="true" tabindex="-1"></a>x <span class="op">==</span> <span class="fl">0.3</span></span>
-<span id="cb48-171"><a href="#cb48-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-172"><a href="#cb48-172" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">.5</span> <span class="op">-</span> <span class="fl">.5</span></span>
-<span id="cb48-173"><a href="#cb48-173" aria-hidden="true" tabindex="-1"></a>x <span class="op">==</span> <span class="dv">0</span></span>
-<span id="cb48-174"><a href="#cb48-174" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">.5</span> <span class="op">-</span> <span class="fl">.2</span>  <span class="op">-</span><span class="fl">.3</span></span>
+<span id="cb48-171"><a href="#cb48-171" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">1.5</span> <span class="op">-</span> <span class="fl">.2</span></span>
+<span id="cb48-172"><a href="#cb48-172" aria-hidden="true" tabindex="-1"></a>x <span class="op">==</span> <span class="fl">0.3</span></span>
+<span id="cb48-173"><a href="#cb48-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-174"><a href="#cb48-174" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">.5</span> <span class="op">-</span> <span class="fl">.5</span></span>
 <span id="cb48-175"><a href="#cb48-175" aria-hidden="true" tabindex="-1"></a>x <span class="op">==</span> <span class="dv">0</span></span>
-<span id="cb48-176"><a href="#cb48-176" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> (<span class="fl">.5</span> <span class="op">-</span> <span class="fl">.2</span>) <span class="op">-</span> (<span class="fl">.51</span> <span class="op">-</span> <span class="fl">.21</span>)</span>
+<span id="cb48-176"><a href="#cb48-176" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">.5</span> <span class="op">-</span> <span class="fl">.2</span>  <span class="op">-</span><span class="fl">.3</span></span>
 <span id="cb48-177"><a href="#cb48-177" aria-hidden="true" tabindex="-1"></a>x <span class="op">==</span> <span class="dv">0</span></span>
-<span id="cb48-178"><a href="#cb48-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-179"><a href="#cb48-179" aria-hidden="true" tabindex="-1"></a>np.isclose(x, <span class="dv">0</span>)</span>
-<span id="cb48-180"><a href="#cb48-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb48-181"><a href="#cb48-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-182"><a href="#cb48-182" aria-hidden="true" tabindex="-1"></a><span class="fu">### Calculation errors</span></span>
+<span id="cb48-178"><a href="#cb48-178" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> (<span class="fl">.5</span> <span class="op">-</span> <span class="fl">.2</span>) <span class="op">-</span> (<span class="fl">.51</span> <span class="op">-</span> <span class="fl">.21</span>)</span>
+<span id="cb48-179"><a href="#cb48-179" aria-hidden="true" tabindex="-1"></a>x <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb48-180"><a href="#cb48-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-181"><a href="#cb48-181" aria-hidden="true" tabindex="-1"></a>np.isclose(x, <span class="dv">0</span>)</span>
+<span id="cb48-182"><a href="#cb48-182" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb48-183"><a href="#cb48-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-184"><a href="#cb48-184" aria-hidden="true" tabindex="-1"></a>Let's consider accuracy of subtraction.</span>
+<span id="cb48-184"><a href="#cb48-184" aria-hidden="true" tabindex="-1"></a><span class="fu">### Calculation errors</span></span>
 <span id="cb48-185"><a href="#cb48-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-188"><a href="#cb48-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb48-189"><a href="#cb48-189" aria-hidden="true" tabindex="-1"></a><span class="fl">1.1234</span> <span class="op">-</span> <span class="fl">1.0</span></span>
-<span id="cb48-190"><a href="#cb48-190" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb48-193"><a href="#cb48-193" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb48-194"><a href="#cb48-194" aria-hidden="true" tabindex="-1"></a><span class="fl">123456781234.1234</span> <span class="op">-</span> <span class="fl">123456781234.0</span></span>
-<span id="cb48-195"><a href="#cb48-195" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb48-196"><a href="#cb48-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-197"><a href="#cb48-197" aria-hidden="true" tabindex="-1"></a>This is called catastrophic cancellation.</span>
+<span id="cb48-186"><a href="#cb48-186" aria-hidden="true" tabindex="-1"></a>Let's consider accuracy of subtraction.</span>
+<span id="cb48-187"><a href="#cb48-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-190"><a href="#cb48-190" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb48-191"><a href="#cb48-191" aria-hidden="true" tabindex="-1"></a><span class="fl">1.1234</span> <span class="op">-</span> <span class="fl">1.0</span></span>
+<span id="cb48-192"><a href="#cb48-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb48-195"><a href="#cb48-195" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb48-196"><a href="#cb48-196" aria-hidden="true" tabindex="-1"></a><span class="fl">123456781234.1234</span> <span class="op">-</span> <span class="fl">123456781234.0</span></span>
+<span id="cb48-197"><a href="#cb48-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb48-198"><a href="#cb48-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-199"><a href="#cb48-199" aria-hidden="true" tabindex="-1"></a>Do you think "catastrophic" is too extreme? If so, consider this.</span>
+<span id="cb48-199"><a href="#cb48-199" aria-hidden="true" tabindex="-1"></a>This is called catastrophic cancellation.</span>
 <span id="cb48-200"><a href="#cb48-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-203"><a href="#cb48-203" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb48-204"><a href="#cb48-204" aria-hidden="true" tabindex="-1"></a><span class="fl">81.0</span> <span class="op">-</span> <span class="fl">80.0</span></span>
-<span id="cb48-205"><a href="#cb48-205" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb48-208"><a href="#cb48-208" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb48-209"><a href="#cb48-209" aria-hidden="true" tabindex="-1"></a><span class="fl">12345678123456781.0</span> <span class="op">-</span><span class="fl">12345678123456780.0</span></span>
-<span id="cb48-210"><a href="#cb48-210" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb48-211"><a href="#cb48-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-212"><a href="#cb48-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-213"><a href="#cb48-213" aria-hidden="true" tabindex="-1"></a>What's the derivative of $sin(x)$? Let's see what kind of accuracy we can get.</span>
+<span id="cb48-201"><a href="#cb48-201" aria-hidden="true" tabindex="-1"></a>Do you think calling it "catastrophic" is too extreme? If so, consider this.</span>
+<span id="cb48-202"><a href="#cb48-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-205"><a href="#cb48-205" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb48-206"><a href="#cb48-206" aria-hidden="true" tabindex="-1"></a><span class="fl">81.0</span> <span class="op">-</span> <span class="fl">80.0</span></span>
+<span id="cb48-207"><a href="#cb48-207" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb48-210"><a href="#cb48-210" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb48-211"><a href="#cb48-211" aria-hidden="true" tabindex="-1"></a><span class="fl">12345678123456781.0</span> <span class="op">-</span><span class="fl">12345678123456780.0</span></span>
+<span id="cb48-212"><a href="#cb48-212" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb48-213"><a href="#cb48-213" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-214"><a href="#cb48-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-217"><a href="#cb48-217" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb48-218"><a href="#cb48-218" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb48-219"><a href="#cb48-219" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> deriv(f, x, eps<span class="op">=</span><span class="fl">1e-8</span>):</span>
-<span id="cb48-220"><a href="#cb48-220" aria-hidden="true" tabindex="-1"></a>   <span class="cf">return</span> (f(x<span class="op">+</span>eps) <span class="op">-</span> f(x)) <span class="op">/</span> eps</span>
-<span id="cb48-221"><a href="#cb48-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-222"><a href="#cb48-222" aria-hidden="true" tabindex="-1"></a>np.cos(<span class="fl">0.2</span>)</span>
+<span id="cb48-215"><a href="#cb48-215" aria-hidden="true" tabindex="-1"></a>What's the derivative of $sin(x)$? Let's see what kind of accuracy we can get.</span>
+<span id="cb48-216"><a href="#cb48-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-219"><a href="#cb48-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb48-220"><a href="#cb48-220" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb48-221"><a href="#cb48-221" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> deriv(f, x, eps<span class="op">=</span><span class="fl">1e-8</span>):</span>
+<span id="cb48-222"><a href="#cb48-222" aria-hidden="true" tabindex="-1"></a>   <span class="cf">return</span> (f(x<span class="op">+</span>eps) <span class="op">-</span> f(x)) <span class="op">/</span> eps</span>
 <span id="cb48-223"><a href="#cb48-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-224"><a href="#cb48-224" aria-hidden="true" tabindex="-1"></a>deriv(np.sin, <span class="fl">0.2</span>)</span>
+<span id="cb48-224"><a href="#cb48-224" aria-hidden="true" tabindex="-1"></a>np.cos(<span class="fl">0.2</span>)</span>
 <span id="cb48-225"><a href="#cb48-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-226"><a href="#cb48-226" aria-hidden="true" tabindex="-1"></a>deriv(np.sin, <span class="fl">0.2</span>, <span class="fl">1e-12</span>)</span>
-<span id="cb48-227"><a href="#cb48-227" aria-hidden="true" tabindex="-1"></a>deriv(np.sin, <span class="fl">0.2</span>, <span class="fl">1e-14</span>)</span>
-<span id="cb48-228"><a href="#cb48-228" aria-hidden="true" tabindex="-1"></a>deriv(np.sin, <span class="fl">0.2</span>, <span class="fl">1e-15</span>)</span>
-<span id="cb48-229"><a href="#cb48-229" aria-hidden="true" tabindex="-1"></a>deriv(np.sin, <span class="fl">0.2</span>, <span class="fl">1e-16</span>)</span>
-<span id="cb48-230"><a href="#cb48-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb48-231"><a href="#cb48-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-232"><a href="#cb48-232" aria-hidden="true" tabindex="-1"></a><span class="fu">### Linear algebra errors</span></span>
-<span id="cb48-233"><a href="#cb48-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-234"><a href="#cb48-234" aria-hidden="true" tabindex="-1"></a>The errors seen in doing calculations, such as catastrophic cancellation, cascaded through derivative estimation. That also happens when doing linear algebra operations.</span>
-<span id="cb48-235"><a href="#cb48-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-236"><a href="#cb48-236" aria-hidden="true" tabindex="-1"></a>Here's an example where mathematically all the eigenvalues are real-valued and positive, but not on the computer.</span>
-<span id="cb48-237"><a href="#cb48-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-240"><a href="#cb48-240" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb48-241"><a href="#cb48-241" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
-<span id="cb48-242"><a href="#cb48-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-243"><a href="#cb48-243" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> np.arange(<span class="dv">100</span>)</span>
-<span id="cb48-244"><a href="#cb48-244" aria-hidden="true" tabindex="-1"></a>dists <span class="op">=</span> np.<span class="bu">abs</span>(xs[:, np.newaxis] <span class="op">-</span> xs)</span>
-<span id="cb48-245"><a href="#cb48-245" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a p.d. matrix (mathematically).</span></span>
-<span id="cb48-246"><a href="#cb48-246" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="op">=</span> np.exp(<span class="op">-</span>(dists<span class="op">/</span><span class="dv">10</span>)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb48-247"><a href="#cb48-247" aria-hidden="true" tabindex="-1"></a><span class="co"># But not numerically...</span></span>
-<span id="cb48-248"><a href="#cb48-248" aria-hidden="true" tabindex="-1"></a>sp.linalg.eigvals(corr_matrix)[<span class="dv">80</span>:<span class="dv">99</span>]</span>
-<span id="cb48-249"><a href="#cb48-249" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb48-250"><a href="#cb48-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-251"><a href="#cb48-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-252"><a href="#cb48-252" aria-hidden="true" tabindex="-1"></a><span class="fu">### Overflow and underflow</span></span>
+<span id="cb48-226"><a href="#cb48-226" aria-hidden="true" tabindex="-1"></a>deriv(np.sin, <span class="fl">0.2</span>)</span>
+<span id="cb48-227"><a href="#cb48-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-228"><a href="#cb48-228" aria-hidden="true" tabindex="-1"></a>deriv(np.sin, <span class="fl">0.2</span>, <span class="fl">1e-12</span>)</span>
+<span id="cb48-229"><a href="#cb48-229" aria-hidden="true" tabindex="-1"></a>deriv(np.sin, <span class="fl">0.2</span>, <span class="fl">1e-14</span>)</span>
+<span id="cb48-230"><a href="#cb48-230" aria-hidden="true" tabindex="-1"></a>deriv(np.sin, <span class="fl">0.2</span>, <span class="fl">1e-15</span>)</span>
+<span id="cb48-231"><a href="#cb48-231" aria-hidden="true" tabindex="-1"></a>deriv(np.sin, <span class="fl">0.2</span>, <span class="fl">1e-16</span>)</span>
+<span id="cb48-232"><a href="#cb48-232" aria-hidden="true" tabindex="-1"></a>deriv(np.sin, <span class="fl">0.2</span>, <span class="fl">1e-17</span>)</span>
+<span id="cb48-233"><a href="#cb48-233" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb48-234"><a href="#cb48-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-235"><a href="#cb48-235" aria-hidden="true" tabindex="-1"></a><span class="fu">### Linear algebra errors</span></span>
+<span id="cb48-236"><a href="#cb48-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-237"><a href="#cb48-237" aria-hidden="true" tabindex="-1"></a>The errors seen in doing calculations, such as catastrophic cancellation, cascaded through derivative estimation. That also happens when doing linear algebra operations.</span>
+<span id="cb48-238"><a href="#cb48-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-239"><a href="#cb48-239" aria-hidden="true" tabindex="-1"></a>Here's an example where mathematically all the eigenvalues are real-valued and positive, but not on the computer.</span>
+<span id="cb48-240"><a href="#cb48-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-243"><a href="#cb48-243" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb48-244"><a href="#cb48-244" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
+<span id="cb48-245"><a href="#cb48-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-246"><a href="#cb48-246" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> np.arange(<span class="dv">100</span>)</span>
+<span id="cb48-247"><a href="#cb48-247" aria-hidden="true" tabindex="-1"></a>dists <span class="op">=</span> np.<span class="bu">abs</span>(xs[:, np.newaxis] <span class="op">-</span> xs)</span>
+<span id="cb48-248"><a href="#cb48-248" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a p.d. matrix (mathematically).</span></span>
+<span id="cb48-249"><a href="#cb48-249" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="op">=</span> np.exp(<span class="op">-</span>(dists<span class="op">/</span><span class="dv">10</span>)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb48-250"><a href="#cb48-250" aria-hidden="true" tabindex="-1"></a><span class="co"># But not numerically...</span></span>
+<span id="cb48-251"><a href="#cb48-251" aria-hidden="true" tabindex="-1"></a>sp.linalg.eigvals(corr_matrix)[<span class="dv">80</span>:<span class="dv">99</span>]</span>
+<span id="cb48-252"><a href="#cb48-252" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb48-253"><a href="#cb48-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-254"><a href="#cb48-254" aria-hidden="true" tabindex="-1"></a>Having a finite number of bits to represent each number means there are minimum and maximum numbers that can be expressed.</span>
-<span id="cb48-255"><a href="#cb48-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-258"><a href="#cb48-258" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb48-259"><a href="#cb48-259" aria-hidden="true" tabindex="-1"></a><span class="fl">1.38e5000</span></span>
-<span id="cb48-260"><a href="#cb48-260" aria-hidden="true" tabindex="-1"></a><span class="fl">1.38e-400</span></span>
-<span id="cb48-261"><a href="#cb48-261" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb48-262"><a href="#cb48-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-263"><a href="#cb48-263" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb48-264"><a href="#cb48-264" aria-hidden="true" tabindex="-1"></a><span class="fu">## How much do we need to worry about overflow and underflow?</span></span>
+<span id="cb48-254"><a href="#cb48-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-255"><a href="#cb48-255" aria-hidden="true" tabindex="-1"></a><span class="fu">### Overflow and underflow</span></span>
+<span id="cb48-256"><a href="#cb48-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-257"><a href="#cb48-257" aria-hidden="true" tabindex="-1"></a>Having a finite number of bits to represent each number means there are minimum and maximum numbers that can be expressed.</span>
+<span id="cb48-258"><a href="#cb48-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-261"><a href="#cb48-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb48-262"><a href="#cb48-262" aria-hidden="true" tabindex="-1"></a><span class="fl">1.38e5000</span></span>
+<span id="cb48-263"><a href="#cb48-263" aria-hidden="true" tabindex="-1"></a><span class="fl">1.38e-400</span></span>
+<span id="cb48-264"><a href="#cb48-264" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb48-265"><a href="#cb48-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-266"><a href="#cb48-266" aria-hidden="true" tabindex="-1"></a>Q: Roughly how many observations would it take before we underflow in calculating a likelihood?</span>
-<span id="cb48-267"><a href="#cb48-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-268"><a href="#cb48-268" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>10</span>
-<span id="cb48-269"><a href="#cb48-269" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>100</span>
-<span id="cb48-270"><a href="#cb48-270" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>1000</span>
-<span id="cb48-271"><a href="#cb48-271" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>100000</span>
-<span id="cb48-272"><a href="#cb48-272" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>100000000</span>
-<span id="cb48-273"><a href="#cb48-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-274"><a href="#cb48-274" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb48-275"><a href="#cb48-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-278"><a href="#cb48-278" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb48-279"><a href="#cb48-279" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb48-280"><a href="#cb48-280" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
-<span id="cb48-281"><a href="#cb48-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-282"><a href="#cb48-282" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb48-283"><a href="#cb48-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-284"><a href="#cb48-284" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.normal(size<span class="op">=</span>n)</span>
-<span id="cb48-285"><a href="#cb48-285" aria-hidden="true" tabindex="-1"></a>np.prod(sp.stats.norm.pdf(x))</span>
+<span id="cb48-266"><a href="#cb48-266" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb48-267"><a href="#cb48-267" aria-hidden="true" tabindex="-1"></a><span class="fu">## How much do we need to worry about overflow and underflow?</span></span>
+<span id="cb48-268"><a href="#cb48-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-269"><a href="#cb48-269" aria-hidden="true" tabindex="-1"></a>Q: Roughly how many observations would it take before we underflow in calculating a likelihood?</span>
+<span id="cb48-270"><a href="#cb48-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-271"><a href="#cb48-271" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>10</span>
+<span id="cb48-272"><a href="#cb48-272" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>100</span>
+<span id="cb48-273"><a href="#cb48-273" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>1000</span>
+<span id="cb48-274"><a href="#cb48-274" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>100000</span>
+<span id="cb48-275"><a href="#cb48-275" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>100000000</span>
+<span id="cb48-276"><a href="#cb48-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-277"><a href="#cb48-277" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb48-278"><a href="#cb48-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-281"><a href="#cb48-281" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb48-282"><a href="#cb48-282" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb48-283"><a href="#cb48-283" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
+<span id="cb48-284"><a href="#cb48-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-285"><a href="#cb48-285" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb48-286"><a href="#cb48-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-287"><a href="#cb48-287" aria-hidden="true" tabindex="-1"></a>loglik <span class="op">=</span> np.<span class="bu">sum</span>(sp.stats.norm.logpdf(x))</span>
-<span id="cb48-288"><a href="#cb48-288" aria-hidden="true" tabindex="-1"></a>loglik</span>
-<span id="cb48-289"><a href="#cb48-289" aria-hidden="true" tabindex="-1"></a>np.exp(loglik)</span>
-<span id="cb48-290"><a href="#cb48-290" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb48-291"><a href="#cb48-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-292"><a href="#cb48-292" aria-hidden="true" tabindex="-1"></a>Work with probabilities and densities on the log scale. Almost always.</span>
-<span id="cb48-293"><a href="#cb48-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-294"><a href="#cb48-294" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: numerical issues with Newton's method</span></span>
-<span id="cb48-295"><a href="#cb48-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-296"><a href="#cb48-296" aria-hidden="true" tabindex="-1"></a>Look at your partner's code in terms of how it handles the stopping criterion or (for the 1-d case) the finite difference estimate of the gradient and Hessian.</span>
-<span id="cb48-297"><a href="#cb48-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-298"><a href="#cb48-298" aria-hidden="true" tabindex="-1"></a>Make a pull request that tries to improve how that is handled.</span>
-<span id="cb48-299"><a href="#cb48-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-300"><a href="#cb48-300" aria-hidden="true" tabindex="-1"></a>Then review the pull request your partner makes in your repository.</span>
-<span id="cb48-301"><a href="#cb48-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-287"><a href="#cb48-287" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.normal(size<span class="op">=</span>n)</span>
+<span id="cb48-288"><a href="#cb48-288" aria-hidden="true" tabindex="-1"></a>np.prod(sp.stats.norm.pdf(x))</span>
+<span id="cb48-289"><a href="#cb48-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-290"><a href="#cb48-290" aria-hidden="true" tabindex="-1"></a>loglik <span class="op">=</span> np.<span class="bu">sum</span>(sp.stats.norm.logpdf(x))</span>
+<span id="cb48-291"><a href="#cb48-291" aria-hidden="true" tabindex="-1"></a>loglik</span>
+<span id="cb48-292"><a href="#cb48-292" aria-hidden="true" tabindex="-1"></a>np.exp(loglik)</span>
+<span id="cb48-293"><a href="#cb48-293" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb48-294"><a href="#cb48-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-295"><a href="#cb48-295" aria-hidden="true" tabindex="-1"></a>::: {callout-important}</span>
+<span id="cb48-296"><a href="#cb48-296" aria-hidden="true" tabindex="-1"></a><span class="fu">## Work with probabilities and densities on the log scale. Almost always.</span></span>
+<span id="cb48-297"><a href="#cb48-297" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb48-298"><a href="#cb48-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-299"><a href="#cb48-299" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: numerical issues with Newton's method</span></span>
+<span id="cb48-300"><a href="#cb48-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-301"><a href="#cb48-301" aria-hidden="true" tabindex="-1"></a>Look at your partner's code in terms of how it handles the stopping criterion or (for the 1-d case) the finite difference estimate of the gradient and Hessian.</span>
 <span id="cb48-302"><a href="#cb48-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-303"><a href="#cb48-303" aria-hidden="true" tabindex="-1"></a><span class="fu"># 9. Packaging and Conda environments</span></span>
+<span id="cb48-303"><a href="#cb48-303" aria-hidden="true" tabindex="-1"></a>Make a pull request that tries to improve how that is handled.</span>
 <span id="cb48-304"><a href="#cb48-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-305"><a href="#cb48-305" aria-hidden="true" tabindex="-1"></a><span class="fu">## Basic Python packages</span></span>
+<span id="cb48-305"><a href="#cb48-305" aria-hidden="true" tabindex="-1"></a>Then review the pull request your partner makes in your repository.</span>
 <span id="cb48-306"><a href="#cb48-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-307"><a href="#cb48-307" aria-hidden="true" tabindex="-1"></a>What's a package? In general it is software that is provided as a bundle that can be downloaded and made available on your computer.</span>
-<span id="cb48-308"><a href="#cb48-308" aria-hidden="true" tabindex="-1"></a>Some packages (e.g., R, Python themselves) are stand-alone packages. Others (such as R packages and Python packages) are add-on functionality that works with stand-alone software.</span>
+<span id="cb48-307"><a href="#cb48-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-308"><a href="#cb48-308" aria-hidden="true" tabindex="-1"></a><span class="fu"># 9. Packaging and Conda environments</span></span>
 <span id="cb48-309"><a href="#cb48-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-310"><a href="#cb48-310" aria-hidden="true" tabindex="-1"></a>What do we need to have a Python package?</span>
+<span id="cb48-310"><a href="#cb48-310" aria-hidden="true" tabindex="-1"></a><span class="fu">## Basic Python packages</span></span>
 <span id="cb48-311"><a href="#cb48-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-312"><a href="#cb48-312" aria-hidden="true" tabindex="-1"></a><span class="fu">### Packages</span></span>
-<span id="cb48-313"><a href="#cb48-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-314"><a href="#cb48-314" aria-hidden="true" tabindex="-1"></a>A Python package is a directory containing one or more modules and with a file</span>
-<span id="cb48-315"><a href="#cb48-315" aria-hidden="true" tabindex="-1"></a>named <span class="in">`__init__.py`</span> that is called when a package is imported and</span>
-<span id="cb48-316"><a href="#cb48-316" aria-hidden="true" tabindex="-1"></a>serves to initialize the package.</span>
-<span id="cb48-317"><a href="#cb48-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-318"><a href="#cb48-318" aria-hidden="true" tabindex="-1"></a>Let's create a basic package.</span>
-<span id="cb48-319"><a href="#cb48-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-320"><a href="#cb48-320" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb48-321"><a href="#cb48-321" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> mypkg</span>
+<span id="cb48-312"><a href="#cb48-312" aria-hidden="true" tabindex="-1"></a>What's a package? In general it is software that is provided as a bundle that can be downloaded and made available on your computer.</span>
+<span id="cb48-313"><a href="#cb48-313" aria-hidden="true" tabindex="-1"></a>Some packages (e.g., R, Python themselves) are stand-alone packages. Others (such as R packages and Python packages) are add-on functionality that works with stand-alone software.</span>
+<span id="cb48-314"><a href="#cb48-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-315"><a href="#cb48-315" aria-hidden="true" tabindex="-1"></a>What do we need to have a Python package?</span>
+<span id="cb48-316"><a href="#cb48-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-317"><a href="#cb48-317" aria-hidden="true" tabindex="-1"></a><span class="fu">### Packages</span></span>
+<span id="cb48-318"><a href="#cb48-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-319"><a href="#cb48-319" aria-hidden="true" tabindex="-1"></a>A Python package is a directory containing one or more modules and with a file</span>
+<span id="cb48-320"><a href="#cb48-320" aria-hidden="true" tabindex="-1"></a>named <span class="in">`__init__.py`</span> that is called when a package is imported and</span>
+<span id="cb48-321"><a href="#cb48-321" aria-hidden="true" tabindex="-1"></a>serves to initialize the package.</span>
 <span id="cb48-322"><a href="#cb48-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-323"><a href="#cb48-323" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="op">&lt;&lt; EOF</span> <span class="op">&gt;</span> mypkg/__init__.py</span>
-<span id="cb48-324"><a href="#cb48-324" aria-hidden="true" tabindex="-1"></a><span class="st">## Make objects from mymod.py available as mypkg.foo</span></span>
-<span id="cb48-325"><a href="#cb48-325" aria-hidden="true" tabindex="-1"></a><span class="st">from mypkg.mymod import *</span></span>
-<span id="cb48-326"><a href="#cb48-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-327"><a href="#cb48-327" aria-hidden="true" tabindex="-1"></a><span class="st">print("Welcome to my package.")</span></span>
-<span id="cb48-328"><a href="#cb48-328" aria-hidden="true" tabindex="-1"></a><span class="op">EOF</span></span>
-<span id="cb48-329"><a href="#cb48-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-330"><a href="#cb48-330" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="op">&lt;&lt; EOF</span> <span class="op">&gt;</span> mypkg/mymod.py</span>
-<span id="cb48-331"><a href="#cb48-331" aria-hidden="true" tabindex="-1"></a><span class="st">x = 7</span></span>
-<span id="cb48-332"><a href="#cb48-332" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-333"><a href="#cb48-333" aria-hidden="true" tabindex="-1"></a><span class="st">def myfun(val):</span></span>
-<span id="cb48-334"><a href="#cb48-334" aria-hidden="true" tabindex="-1"></a><span class="st">    print("The arg is: ", str(val), ".", sep = '')</span></span>
-<span id="cb48-335"><a href="#cb48-335" aria-hidden="true" tabindex="-1"></a><span class="op">EOF</span></span>
-<span id="cb48-336"><a href="#cb48-336" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb48-323"><a href="#cb48-323" aria-hidden="true" tabindex="-1"></a>Let's create a basic package.</span>
+<span id="cb48-324"><a href="#cb48-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-325"><a href="#cb48-325" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb48-326"><a href="#cb48-326" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> mypkg</span>
+<span id="cb48-327"><a href="#cb48-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-328"><a href="#cb48-328" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="op">&lt;&lt; EOF</span> <span class="op">&gt;</span> mypkg/__init__.py</span>
+<span id="cb48-329"><a href="#cb48-329" aria-hidden="true" tabindex="-1"></a><span class="st">## Make objects from mymod.py available as mypkg.foo</span></span>
+<span id="cb48-330"><a href="#cb48-330" aria-hidden="true" tabindex="-1"></a><span class="st">from mypkg.mymod import *</span></span>
+<span id="cb48-331"><a href="#cb48-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-332"><a href="#cb48-332" aria-hidden="true" tabindex="-1"></a><span class="st">print("Welcome to my package.")</span></span>
+<span id="cb48-333"><a href="#cb48-333" aria-hidden="true" tabindex="-1"></a><span class="op">EOF</span></span>
+<span id="cb48-334"><a href="#cb48-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-335"><a href="#cb48-335" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="op">&lt;&lt; EOF</span> <span class="op">&gt;</span> mypkg/mymod.py</span>
+<span id="cb48-336"><a href="#cb48-336" aria-hidden="true" tabindex="-1"></a><span class="st">x = 7</span></span>
 <span id="cb48-337"><a href="#cb48-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-338"><a href="#cb48-338" aria-hidden="true" tabindex="-1"></a>Note that if there were other modules, we could have imported from those as well.</span>
-<span id="cb48-339"><a href="#cb48-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-340"><a href="#cb48-340" aria-hidden="true" tabindex="-1"></a>Now we can use the objects from the module without having to know</span>
-<span id="cb48-341"><a href="#cb48-341" aria-hidden="true" tabindex="-1"></a>that it was in a particular module (because of how <span class="in">`__init__.py`</span> was set up).</span>
+<span id="cb48-338"><a href="#cb48-338" aria-hidden="true" tabindex="-1"></a><span class="st">def myfun(val):</span></span>
+<span id="cb48-339"><a href="#cb48-339" aria-hidden="true" tabindex="-1"></a><span class="st">    print("The arg is: ", str(val), ".", sep = '')</span></span>
+<span id="cb48-340"><a href="#cb48-340" aria-hidden="true" tabindex="-1"></a><span class="op">EOF</span></span>
+<span id="cb48-341"><a href="#cb48-341" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb48-342"><a href="#cb48-342" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-345"><a href="#cb48-345" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb48-346"><a href="#cb48-346" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb48-347"><a href="#cb48-347" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mypkg</span>
-<span id="cb48-348"><a href="#cb48-348" aria-hidden="true" tabindex="-1"></a>mypkg.x</span>
-<span id="cb48-349"><a href="#cb48-349" aria-hidden="true" tabindex="-1"></a>mypkg.myfun(<span class="dv">7</span>)</span>
-<span id="cb48-350"><a href="#cb48-350" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb48-351"><a href="#cb48-351" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-352"><a href="#cb48-352" aria-hidden="true" tabindex="-1"></a>Note that one can set <span class="in">`__all__`</span> in an <span class="in">`__init__.py`</span> to define what is imported,</span>
-<span id="cb48-353"><a href="#cb48-353" aria-hidden="true" tabindex="-1"></a>which makes clear what is publicly available and hides what is considered</span>
-<span id="cb48-354"><a href="#cb48-354" aria-hidden="true" tabindex="-1"></a>internal.</span>
-<span id="cb48-355"><a href="#cb48-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-356"><a href="#cb48-356" aria-hidden="true" tabindex="-1"></a><span class="fu">### A minimal "real" package</span></span>
-<span id="cb48-357"><a href="#cb48-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-358"><a href="#cb48-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-359"><a href="#cb48-359" aria-hidden="true" tabindex="-1"></a>Fernando has a <span class="co">[</span><span class="ot">this toy example package</span><span class="co">](https://github.com/fperez/mytoy)</span>.</span>
+<span id="cb48-343"><a href="#cb48-343" aria-hidden="true" tabindex="-1"></a>Note that if there were other modules, we could have imported from those as well.</span>
+<span id="cb48-344"><a href="#cb48-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-345"><a href="#cb48-345" aria-hidden="true" tabindex="-1"></a>Now we can use the objects from the module without having to know</span>
+<span id="cb48-346"><a href="#cb48-346" aria-hidden="true" tabindex="-1"></a>that it was in a particular module (because of how <span class="in">`__init__.py`</span> was set up).</span>
+<span id="cb48-347"><a href="#cb48-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-350"><a href="#cb48-350" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb48-351"><a href="#cb48-351" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb48-352"><a href="#cb48-352" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mypkg</span>
+<span id="cb48-353"><a href="#cb48-353" aria-hidden="true" tabindex="-1"></a>mypkg.x</span>
+<span id="cb48-354"><a href="#cb48-354" aria-hidden="true" tabindex="-1"></a>mypkg.myfun(<span class="dv">7</span>)</span>
+<span id="cb48-355"><a href="#cb48-355" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb48-356"><a href="#cb48-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-357"><a href="#cb48-357" aria-hidden="true" tabindex="-1"></a>Note that one can set <span class="in">`__all__`</span> in an <span class="in">`__init__.py`</span> to define what is imported,</span>
+<span id="cb48-358"><a href="#cb48-358" aria-hidden="true" tabindex="-1"></a>which makes clear what is publicly available and hides what is considered</span>
+<span id="cb48-359"><a href="#cb48-359" aria-hidden="true" tabindex="-1"></a>internal.</span>
 <span id="cb48-360"><a href="#cb48-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-361"><a href="#cb48-361" aria-hidden="true" tabindex="-1"></a>Let's clone the repository and see if we can install it.</span>
+<span id="cb48-361"><a href="#cb48-361" aria-hidden="true" tabindex="-1"></a><span class="fu">### A minimal "real" package</span></span>
 <span id="cb48-362"><a href="#cb48-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-363"><a href="#cb48-363" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb48-364"><a href="#cb48-364" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/fperez/mytoy</span>
+<span id="cb48-363"><a href="#cb48-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-364"><a href="#cb48-364" aria-hidden="true" tabindex="-1"></a>Fernando has a <span class="co">[</span><span class="ot">this toy example package</span><span class="co">](https://github.com/fperez/mytoy)</span>.</span>
 <span id="cb48-365"><a href="#cb48-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-366"><a href="#cb48-366" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install .</span>
-<span id="cb48-367"><a href="#cb48-367" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb48-368"><a href="#cb48-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-371"><a href="#cb48-371" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash}</span></span>
-<span id="cb48-372"><a href="#cb48-372" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> mytoy</span>
-<span id="cb48-373"><a href="#cb48-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-374"><a href="#cb48-374" aria-hidden="true" tabindex="-1"></a><span class="ex">mytoy.toy</span><span class="er">(</span><span class="ex">7</span><span class="kw">)</span></span>
-<span id="cb48-375"><a href="#cb48-375" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb48-376"><a href="#cb48-376" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-377"><a href="#cb48-377" aria-hidden="true" tabindex="-1"></a>It would take more work to make the package available in a repository such as PyPI or via Conda.</span>
-<span id="cb48-378"><a href="#cb48-378" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-379"><a href="#cb48-379" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise</span></span>
-<span id="cb48-380"><a href="#cb48-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-381"><a href="#cb48-381" aria-hidden="true" tabindex="-1"></a>Make a package out of your Newton method code.</span>
-<span id="cb48-382"><a href="#cb48-382" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-383"><a href="#cb48-383" aria-hidden="true" tabindex="-1"></a><span class="fu">## Installing packages</span></span>
+<span id="cb48-366"><a href="#cb48-366" aria-hidden="true" tabindex="-1"></a>Let's clone the repository and see if we can install it.</span>
+<span id="cb48-367"><a href="#cb48-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-368"><a href="#cb48-368" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb48-369"><a href="#cb48-369" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/fperez/mytoy</span>
+<span id="cb48-370"><a href="#cb48-370" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> mytoy</span>
+<span id="cb48-371"><a href="#cb48-371" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--user</span> .</span>
+<span id="cb48-372"><a href="#cb48-372" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span>
+<span id="cb48-373"><a href="#cb48-373" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> .local/lib/python3.11/site-packages</span>
+<span id="cb48-374"><a href="#cb48-374" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb48-375"><a href="#cb48-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-378"><a href="#cb48-378" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb48-379"><a href="#cb48-379" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb48-380"><a href="#cb48-380" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mytoy</span>
+<span id="cb48-381"><a href="#cb48-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-382"><a href="#cb48-382" aria-hidden="true" tabindex="-1"></a>mytoy.toy(<span class="dv">7</span>)</span>
+<span id="cb48-383"><a href="#cb48-383" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb48-384"><a href="#cb48-384" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-385"><a href="#cb48-385" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-386"><a href="#cb48-386" aria-hidden="true" tabindex="-1"></a>If a package is on PyPI or available through Conda but not on your system, you can install it</span>
-<span id="cb48-387"><a href="#cb48-387" aria-hidden="true" tabindex="-1"></a>easily (usually). You don't need root permission on a machine to install</span>
-<span id="cb48-388"><a href="#cb48-388" aria-hidden="true" tabindex="-1"></a>a package, though you may need to use <span class="in">`pip install --user`</span> or set up a new Conda environment.</span>
-<span id="cb48-389"><a href="#cb48-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-390"><a href="#cb48-390" aria-hidden="true" tabindex="-1"></a>Packages often depend on other packages. In general, if one package depends on another,</span>
-<span id="cb48-391"><a href="#cb48-391" aria-hidden="true" tabindex="-1"></a>pip or conda will generally install the dependency automatically.</span>
+<span id="cb48-385"><a href="#cb48-385" aria-hidden="true" tabindex="-1"></a>It would take more work to make the package available in a repository such as PyPI or via Conda.</span>
+<span id="cb48-386"><a href="#cb48-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-387"><a href="#cb48-387" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise</span></span>
+<span id="cb48-388"><a href="#cb48-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-389"><a href="#cb48-389" aria-hidden="true" tabindex="-1"></a>Make a package out of your Newton method code.</span>
+<span id="cb48-390"><a href="#cb48-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-391"><a href="#cb48-391" aria-hidden="true" tabindex="-1"></a><span class="fu">## Installing packages</span></span>
 <span id="cb48-392"><a href="#cb48-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-393"><a href="#cb48-393" aria-hidden="true" tabindex="-1"></a>One advantage of Conda is that it can also install non-Python packages on which a Python</span>
-<span id="cb48-394"><a href="#cb48-394" aria-hidden="true" tabindex="-1"></a>package depends, whereas with pip you sometimes need to install a system package to</span>
-<span id="cb48-395"><a href="#cb48-395" aria-hidden="true" tabindex="-1"></a>satisfy a dependency.</span>
-<span id="cb48-396"><a href="#cb48-396" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-397"><a href="#cb48-397" aria-hidden="true" tabindex="-1"></a>It's not uncommon to run into a case where conda has trouble installing a package</span>
-<span id="cb48-398"><a href="#cb48-398" aria-hidden="true" tabindex="-1"></a>because of version inconsistencies amongst the dependencies. <span class="in">`mamba`</span> is a drop-in</span>
-<span id="cb48-399"><a href="#cb48-399" aria-hidden="true" tabindex="-1"></a>replacement for <span class="in">`conda`</span> and often does a better job of this "dependency resolution".</span>
-<span id="cb48-400"><a href="#cb48-400" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">We use `mamba` by default on the SCF</span><span class="co">](https://statistics.berkeley.edu/computing/software/install)</span>.</span>
-<span id="cb48-401"><a href="#cb48-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-402"><a href="#cb48-402" aria-hidden="true" tabindex="-1"></a><span class="fu">### Reproducibility and package management</span></span>
-<span id="cb48-403"><a href="#cb48-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-404"><a href="#cb48-404" aria-hidden="true" tabindex="-1"></a>For reproducibility, it's important to know the versions of the packages you use (and the version of Python).</span>
-<span id="cb48-405"><a href="#cb48-405" aria-hidden="true" tabindex="-1"></a><span class="in">`pip`</span> and <span class="in">`conda`</span> make it easy to do this. You can create a *requirements* file that captures the packages you are currently using (and, critically, their versions) and then install exactly that set of packages (and versions) based on that requirements file.</span>
-<span id="cb48-406"><a href="#cb48-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-407"><a href="#cb48-407" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb48-408"><a href="#cb48-408" aria-hidden="true" tabindex="-1"></a><span class="co">## Reproducing using pip.</span></span>
-<span id="cb48-409"><a href="#cb48-409" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> freeze <span class="op">&gt;</span> requirements.txt</span>
-<span id="cb48-410"><a href="#cb48-410" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
+<span id="cb48-393"><a href="#cb48-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-394"><a href="#cb48-394" aria-hidden="true" tabindex="-1"></a>If a package is on PyPI or available through Conda but not on your system, you can install it</span>
+<span id="cb48-395"><a href="#cb48-395" aria-hidden="true" tabindex="-1"></a>easily (usually). You don't need root permission on a machine to install</span>
+<span id="cb48-396"><a href="#cb48-396" aria-hidden="true" tabindex="-1"></a>a package, though you may need to use <span class="in">`pip install --user`</span> or set up a new Conda environment.</span>
+<span id="cb48-397"><a href="#cb48-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-398"><a href="#cb48-398" aria-hidden="true" tabindex="-1"></a>Packages often depend on other packages. In general, if one package depends on another,</span>
+<span id="cb48-399"><a href="#cb48-399" aria-hidden="true" tabindex="-1"></a>pip or conda will generally install the dependency automatically.</span>
+<span id="cb48-400"><a href="#cb48-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-401"><a href="#cb48-401" aria-hidden="true" tabindex="-1"></a>One advantage of Conda is that it can also install non-Python packages on which a Python</span>
+<span id="cb48-402"><a href="#cb48-402" aria-hidden="true" tabindex="-1"></a>package depends, whereas with pip you sometimes need to install a system package to</span>
+<span id="cb48-403"><a href="#cb48-403" aria-hidden="true" tabindex="-1"></a>satisfy a dependency.</span>
+<span id="cb48-404"><a href="#cb48-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-405"><a href="#cb48-405" aria-hidden="true" tabindex="-1"></a>It's not uncommon to run into a case where conda has trouble installing a package</span>
+<span id="cb48-406"><a href="#cb48-406" aria-hidden="true" tabindex="-1"></a>because of version inconsistencies amongst the dependencies. <span class="in">`mamba`</span> is a drop-in</span>
+<span id="cb48-407"><a href="#cb48-407" aria-hidden="true" tabindex="-1"></a>replacement for <span class="in">`conda`</span> and often does a better job of this "dependency resolution".</span>
+<span id="cb48-408"><a href="#cb48-408" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">We use `mamba` by default on the SCF</span><span class="co">](https://statistics.berkeley.edu/computing/software/install)</span>.</span>
+<span id="cb48-409"><a href="#cb48-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-410"><a href="#cb48-410" aria-hidden="true" tabindex="-1"></a><span class="fu">### Reproducibility and package management</span></span>
 <span id="cb48-411"><a href="#cb48-411" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-412"><a href="#cb48-412" aria-hidden="true" tabindex="-1"></a><span class="co">## Reproducing a Conda environment.</span></span>
-<span id="cb48-413"><a href="#cb48-413" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env export <span class="op">&gt;</span> environment.yml</span>
-<span id="cb48-414"><a href="#cb48-414" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml</span>
-<span id="cb48-415"><a href="#cb48-415" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb48-416"><a href="#cb48-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-417"><a href="#cb48-417" aria-hidden="true" tabindex="-1"></a>Conda is a general package manager. You can use it to manage Python packages but lots of other software as well, including R and Julia.</span>
-<span id="cb48-418"><a href="#cb48-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-419"><a href="#cb48-419" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Fully isolating your Conda environment</span></span>
-<span id="cb48-420"><a href="#cb48-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-421"><a href="#cb48-421" aria-hidden="true" tabindex="-1"></a>Conda environments provide an additional layer of modularity/reproducibility, allowing you to set up a fully reproducible environment for your computation. Here (by explicitly giving <span class="in">`python=3.11`</span>) the Python 3.11 executable and all packages you install in the environment are fully independent of whatever Python executables are installed on the system.</span>
-<span id="cb48-422"><a href="#cb48-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-423"><a href="#cb48-423" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb48-424"><a href="#cb48-424" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span> python</span>
-<span id="cb48-425"><a href="#cb48-425" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> myenv python=3.11</span>
-<span id="cb48-426"><a href="#cb48-426" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> activate myenv</span>
-<span id="cb48-427"><a href="#cb48-427" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install numpy</span>
-<span id="cb48-428"><a href="#cb48-428" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span> python</span>
-<span id="cb48-429"><a href="#cb48-429" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb48-412"><a href="#cb48-412" aria-hidden="true" tabindex="-1"></a>For reproducibility, it's important to know the versions of the packages you use (and the version of Python).</span>
+<span id="cb48-413"><a href="#cb48-413" aria-hidden="true" tabindex="-1"></a><span class="in">`pip`</span> and <span class="in">`conda`</span> make it easy to do this. You can create a *requirements* file that captures the packages you are currently using (and, critically, their versions) and then install exactly that set of packages (and versions) based on that requirements file.</span>
+<span id="cb48-414"><a href="#cb48-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-415"><a href="#cb48-415" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb48-416"><a href="#cb48-416" aria-hidden="true" tabindex="-1"></a><span class="co">## Reproducing using pip.</span></span>
+<span id="cb48-417"><a href="#cb48-417" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> freeze <span class="op">&gt;</span> requirements.txt</span>
+<span id="cb48-418"><a href="#cb48-418" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
+<span id="cb48-419"><a href="#cb48-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-420"><a href="#cb48-420" aria-hidden="true" tabindex="-1"></a><span class="co">## Reproducing a Conda environment.</span></span>
+<span id="cb48-421"><a href="#cb48-421" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env export <span class="op">&gt;</span> environment.yml</span>
+<span id="cb48-422"><a href="#cb48-422" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml</span>
+<span id="cb48-423"><a href="#cb48-423" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb48-424"><a href="#cb48-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-425"><a href="#cb48-425" aria-hidden="true" tabindex="-1"></a>Conda is a general package manager. You can use it to manage Python packages but lots of other software as well, including R and Julia.</span>
+<span id="cb48-426"><a href="#cb48-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-427"><a href="#cb48-427" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Fully isolating your Conda environment</span></span>
+<span id="cb48-428"><a href="#cb48-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-429"><a href="#cb48-429" aria-hidden="true" tabindex="-1"></a>Conda environments provide an additional layer of modularity/reproducibility, allowing you to set up a fully reproducible environment for your computation. Here (by explicitly giving <span class="in">`python=3.11`</span>) the Python 3.11 executable and all packages you install in the environment are fully independent (there are <span class="co">[</span><span class="ot">some caveats</span><span class="co">](https://statistics.berkeley.edu/computing/software/install#conda-isolate)</span> of whatever Python executables are installed on the system.</span>
 <span id="cb48-430"><a href="#cb48-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-431"><a href="#cb48-431" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
-<span id="cb48-432"><a href="#cb48-432" aria-hidden="true" tabindex="-1"></a><span class="fu">## Activating an environment</span></span>
-<span id="cb48-433"><a href="#cb48-433" aria-hidden="true" tabindex="-1"></a>If you use <span class="in">`conda activate`</span> rather than <span class="in">`source activate`</span>, Conda will prompt you to run <span class="in">`conda init`</span>, which will make changes to your <span class="in">`~/.bashrc`</span> that, for one, activate the Conda base environment automatically when a shell is started. This may be fine, but it's helpful to be aware.</span>
-<span id="cb48-434"><a href="#cb48-434" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb48-435"><a href="#cb48-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-436"><a href="#cb48-436" aria-hidden="true" tabindex="-1"></a><span class="fu">### Package locations</span></span>
-<span id="cb48-437"><a href="#cb48-437" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-438"><a href="#cb48-438" aria-hidden="true" tabindex="-1"></a>Packages in Python (and in R, Julia, etc.) may be installed in various places</span>
-<span id="cb48-439"><a href="#cb48-439" aria-hidden="true" tabindex="-1"></a>on the filesystem, and it sometimes it is helpful (e.g., if you end up with multiple</span>
-<span id="cb48-440"><a href="#cb48-440" aria-hidden="true" tabindex="-1"></a>versions of a package installed on your system) to be able to figure out </span>
-<span id="cb48-441"><a href="#cb48-441" aria-hidden="true" tabindex="-1"></a>where on the filesystem the package is being loaded from. </span>
-<span id="cb48-442"><a href="#cb48-442" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-443"><a href="#cb48-443" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`pkgname.__file__`</span> will show where the imported package is installed.</span>
-<span id="cb48-444"><a href="#cb48-444" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`pkname.__version__`</span> will show the version of the package (as will <span class="in">`pip list`</span> or <span class="in">`conda list`</span>, for all packages).</span>
-<span id="cb48-445"><a href="#cb48-445" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`sys.path`</span> shows where Python looks for packages on your system.</span>
-<span id="cb48-446"><a href="#cb48-446" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>packages installed via <span class="in">`pip`</span> will generally be in <span class="in">`~/.local/lib/python3.X/site-packages`</span>.</span>
-<span id="cb48-447"><a href="#cb48-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-448"><a href="#cb48-448" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-449"><a href="#cb48-449" aria-hidden="true" tabindex="-1"></a><span class="fu">### Source vs. binary packages</span></span>
+<span id="cb48-431"><a href="#cb48-431" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb48-432"><a href="#cb48-432" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span> python</span>
+<span id="cb48-433"><a href="#cb48-433" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> my_iso_env python=3.11</span>
+<span id="cb48-434"><a href="#cb48-434" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> activate my_iso_env</span>
+<span id="cb48-435"><a href="#cb48-435" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span> python</span>
+<span id="cb48-436"><a href="#cb48-436" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install numpy</span>
+<span id="cb48-437"><a href="#cb48-437" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb48-438"><a href="#cb48-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-439"><a href="#cb48-439" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb48-440"><a href="#cb48-440" aria-hidden="true" tabindex="-1"></a><span class="fu">## Activating an environment</span></span>
+<span id="cb48-441"><a href="#cb48-441" aria-hidden="true" tabindex="-1"></a>If you use <span class="in">`conda activate`</span> rather than <span class="in">`source activate`</span>, Conda will prompt you to run <span class="in">`conda init`</span>, which will make changes to your <span class="in">`~/.bashrc`</span> that, for one, activate the Conda base environment automatically when a shell is started. This may be fine, but it's helpful to be aware.</span>
+<span id="cb48-442"><a href="#cb48-442" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb48-443"><a href="#cb48-443" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-444"><a href="#cb48-444" aria-hidden="true" tabindex="-1"></a><span class="fu">### Package locations</span></span>
+<span id="cb48-445"><a href="#cb48-445" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-446"><a href="#cb48-446" aria-hidden="true" tabindex="-1"></a>Packages in Python (and in R, Julia, etc.) may be installed in various places</span>
+<span id="cb48-447"><a href="#cb48-447" aria-hidden="true" tabindex="-1"></a>on the filesystem, and it sometimes it is helpful (e.g., if you end up with multiple</span>
+<span id="cb48-448"><a href="#cb48-448" aria-hidden="true" tabindex="-1"></a>versions of a package installed on your system) to be able to figure out </span>
+<span id="cb48-449"><a href="#cb48-449" aria-hidden="true" tabindex="-1"></a>where on the filesystem the package is being loaded from. </span>
 <span id="cb48-450"><a href="#cb48-450" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-451"><a href="#cb48-451" aria-hidden="true" tabindex="-1"></a>The difference between a *source* package and a *binary* package is that</span>
-<span id="cb48-452"><a href="#cb48-452" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a *source* package has the raw Python (and C/C++ and Fortran, in some cases) code</span>
-<span id="cb48-453"><a href="#cb48-453" aria-hidden="true" tabindex="-1"></a>as text files</span>
-<span id="cb48-454"><a href="#cb48-454" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a *binary* package has all the non-Python code in a binary/non-text format, with the  C/C++ and Fortran code already having been compiled.</span>
+<span id="cb48-451"><a href="#cb48-451" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`pkgname.__file__`</span> will show where the imported package is installed.</span>
+<span id="cb48-452"><a href="#cb48-452" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`pkname.__version__`</span> will show the version of the package (as will <span class="in">`pip list`</span> or <span class="in">`conda list`</span>, for all packages).</span>
+<span id="cb48-453"><a href="#cb48-453" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`sys.path`</span> shows where Python looks for packages on your system.</span>
+<span id="cb48-454"><a href="#cb48-454" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>packages installed via <span class="in">`pip`</span> will generally be in <span class="in">`~/.local/lib/python3.X/site-packages`</span>.</span>
 <span id="cb48-455"><a href="#cb48-455" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-456"><a href="#cb48-456" aria-hidden="true" tabindex="-1"></a>If you install a package from source, C/C++/Fortran code will be compiled on your system</span>
-<span id="cb48-457"><a href="#cb48-457" aria-hidden="true" tabindex="-1"></a>(if the package has such code).</span>
-<span id="cb48-458"><a href="#cb48-458" aria-hidden="true" tabindex="-1"></a>That should mean the compiled code will work on your system, but requires you to have a</span>
-<span id="cb48-459"><a href="#cb48-459" aria-hidden="true" tabindex="-1"></a>compiler available and things properly configured. A binary package doesn't need to be</span>
-<span id="cb48-460"><a href="#cb48-460" aria-hidden="true" tabindex="-1"></a>compiled on your system, but in some cases (e.g., if you got the wrong binary version) the code may not run on your system because</span>
-<span id="cb48-461"><a href="#cb48-461" aria-hidden="true" tabindex="-1"></a>it was compiled in such a way that is not compatible with your system.</span>
-<span id="cb48-462"><a href="#cb48-462" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-463"><a href="#cb48-463" aria-hidden="true" tabindex="-1"></a>Python *wheels* are a binary package format for Python packages. Wheels for some packages will vary by platform</span>
-<span id="cb48-464"><a href="#cb48-464" aria-hidden="true" tabindex="-1"></a>(i.e., operating system) so that the package will install correctly on the system where it is being installed.</span>
-<span id="cb48-465"><a href="#cb48-465" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-466"><a href="#cb48-466" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-467"><a href="#cb48-467" aria-hidden="true" tabindex="-1"></a><span class="fu"># 10. GitHub Actions and Continuous Integration</span></span>
-<span id="cb48-468"><a href="#cb48-468" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-469"><a href="#cb48-469" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">VERY MUCH UNDER CONSTRUCTION</span><span class="co">]</span></span>
+<span id="cb48-456"><a href="#cb48-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-457"><a href="#cb48-457" aria-hidden="true" tabindex="-1"></a><span class="fu">### Source vs. binary packages</span></span>
+<span id="cb48-458"><a href="#cb48-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-459"><a href="#cb48-459" aria-hidden="true" tabindex="-1"></a>The difference between a *source* package and a *binary* package is that</span>
+<span id="cb48-460"><a href="#cb48-460" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a *source* package has the raw Python (and C/C++ and Fortran, in some cases) code</span>
+<span id="cb48-461"><a href="#cb48-461" aria-hidden="true" tabindex="-1"></a>as text files</span>
+<span id="cb48-462"><a href="#cb48-462" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a *binary* package has all the non-Python code in a binary/non-text format, with the  C/C++ and Fortran code already having been compiled.</span>
+<span id="cb48-463"><a href="#cb48-463" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-464"><a href="#cb48-464" aria-hidden="true" tabindex="-1"></a>If you install a package from source, C/C++/Fortran code will be compiled on your system</span>
+<span id="cb48-465"><a href="#cb48-465" aria-hidden="true" tabindex="-1"></a>(if the package has such code).</span>
+<span id="cb48-466"><a href="#cb48-466" aria-hidden="true" tabindex="-1"></a>That should mean the compiled code will work on your system, but requires you to have a</span>
+<span id="cb48-467"><a href="#cb48-467" aria-hidden="true" tabindex="-1"></a>compiler available and things properly configured. A binary package doesn't need to be</span>
+<span id="cb48-468"><a href="#cb48-468" aria-hidden="true" tabindex="-1"></a>compiled on your system, but in some cases (e.g., if you got the wrong binary version) the code may not run on your system because</span>
+<span id="cb48-469"><a href="#cb48-469" aria-hidden="true" tabindex="-1"></a>it was compiled in such a way that is not compatible with your system.</span>
 <span id="cb48-470"><a href="#cb48-470" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-471"><a href="#cb48-471" aria-hidden="true" tabindex="-1"></a>Having reproducible environments (e.g., Conda environments or Docker containers) provides the ability to run (and automate) various actions to run on remote/cloud computational resources and know that they (should) work.</span>
-<span id="cb48-472"><a href="#cb48-472" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-473"><a href="#cb48-473" aria-hidden="true" tabindex="-1"></a>::: {callout-tip}</span>
-<span id="cb48-474"><a href="#cb48-474" aria-hidden="true" tabindex="-1"></a><span class="fu">## Docker containers</span></span>
-<span id="cb48-475"><a href="#cb48-475" aria-hidden="true" tabindex="-1"></a>Docker containers share some similarities with Conda environments except that you provide a full specification for the Linux operating system you want to use and software you want installed.</span>
-<span id="cb48-476"><a href="#cb48-476" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb48-477"><a href="#cb48-477" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-478"><a href="#cb48-478" aria-hidden="true" tabindex="-1"></a>You need to provide the recipe for the environment or container. The automation system can then set up the environment as a virtual environment/container on the remote machine and run the action/code you request. This could simply be giving you a terminal or starting a Jupyter notebook in the environment and giving you access via your browser.</span>
-<span id="cb48-479"><a href="#cb48-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-480"><a href="#cb48-480" aria-hidden="true" tabindex="-1"></a>Below are a couple examples.</span>
-<span id="cb48-481"><a href="#cb48-481" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-482"><a href="#cb48-482" aria-hidden="true" tabindex="-1"></a>There are a lot more out there. In fact, DataHub is based on Docker containers (and a container management service called Kubernetes). Let's see what OS is being run in the container that your DataHub server is using.</span>
-<span id="cb48-483"><a href="#cb48-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-484"><a href="#cb48-484" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb48-485"><a href="#cb48-485" aria-hidden="true" tabindex="-1"></a><span class="in">$ cat /etc/issue</span></span>
-<span id="cb48-486"><a href="#cb48-486" aria-hidden="true" tabindex="-1"></a><span class="in">Ubuntu 22.04.4 LTS \n \l</span></span>
-<span id="cb48-487"><a href="#cb48-487" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb48-488"><a href="#cb48-488" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-489"><a href="#cb48-489" aria-hidden="true" tabindex="-1"></a><span class="fu">## Binder</span></span>
-<span id="cb48-490"><a href="#cb48-490" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-491"><a href="#cb48-491" aria-hidden="true" tabindex="-1"></a>One example is using Binder to open a Jupyter notebook in an executable environment.</span>
-<span id="cb48-492"><a href="#cb48-492" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-493"><a href="#cb48-493" aria-hidden="true" tabindex="-1"></a>Based on a configuration (various options are possible for how to specify the configuration), Binder will create a Docker container with the needed software installed.</span>
-<span id="cb48-494"><a href="#cb48-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-495"><a href="#cb48-495" aria-hidden="true" tabindex="-1"></a>The most common configuration format is to provide a Conda environment file. Binder will then create a Conda environment inside the Docker (Linux) container. The Conda environment will contain the packages specified in the environment file. </span>
+<span id="cb48-471"><a href="#cb48-471" aria-hidden="true" tabindex="-1"></a>Python *wheels* are a binary package format for Python packages. Wheels for some packages will vary by platform</span>
+<span id="cb48-472"><a href="#cb48-472" aria-hidden="true" tabindex="-1"></a>(i.e., operating system) so that the package will install correctly on the system where it is being installed.</span>
+<span id="cb48-473"><a href="#cb48-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-474"><a href="#cb48-474" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-475"><a href="#cb48-475" aria-hidden="true" tabindex="-1"></a><span class="fu"># 10. GitHub Actions and Continuous Integration</span></span>
+<span id="cb48-476"><a href="#cb48-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-477"><a href="#cb48-477" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">VERY MUCH UNDER CONSTRUCTION</span><span class="co">]</span></span>
+<span id="cb48-478"><a href="#cb48-478" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-479"><a href="#cb48-479" aria-hidden="true" tabindex="-1"></a>Having reproducible environments (e.g., Conda environments or Docker containers) provides the ability to run (and automate) various actions to run on remote/cloud computational resources and know that they (should) work.</span>
+<span id="cb48-480"><a href="#cb48-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-481"><a href="#cb48-481" aria-hidden="true" tabindex="-1"></a>::: {callout-tip}</span>
+<span id="cb48-482"><a href="#cb48-482" aria-hidden="true" tabindex="-1"></a><span class="fu">## Docker containers</span></span>
+<span id="cb48-483"><a href="#cb48-483" aria-hidden="true" tabindex="-1"></a>Docker containers share some similarities with Conda environments except that you provide a full specification for the Linux operating system you want to use and software you want installed.</span>
+<span id="cb48-484"><a href="#cb48-484" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb48-485"><a href="#cb48-485" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-486"><a href="#cb48-486" aria-hidden="true" tabindex="-1"></a>You need to provide the recipe for the environment or container. The automation system can then set up the environment as a virtual environment/container on the remote machine and run the action/code you request. This could simply be giving you a terminal or starting a Jupyter notebook in the environment and giving you access via your browser.</span>
+<span id="cb48-487"><a href="#cb48-487" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-488"><a href="#cb48-488" aria-hidden="true" tabindex="-1"></a>Below are a couple examples.</span>
+<span id="cb48-489"><a href="#cb48-489" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-490"><a href="#cb48-490" aria-hidden="true" tabindex="-1"></a>There are a lot more out there. In fact, DataHub is based on Docker containers (and a container management service called Kubernetes). Let's see what OS is being run in the container that your DataHub server is using.</span>
+<span id="cb48-491"><a href="#cb48-491" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-492"><a href="#cb48-492" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb48-493"><a href="#cb48-493" aria-hidden="true" tabindex="-1"></a><span class="in">$ cat /etc/issue</span></span>
+<span id="cb48-494"><a href="#cb48-494" aria-hidden="true" tabindex="-1"></a><span class="in">Ubuntu 22.04.4 LTS \n \l</span></span>
+<span id="cb48-495"><a href="#cb48-495" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb48-496"><a href="#cb48-496" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-497"><a href="#cb48-497" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-498"><a href="#cb48-498" aria-hidden="true" tabindex="-1"></a>Let's set up a Binder environment "Geospatial analytics in Python with Geopandas" that can access the <span class="co">[</span><span class="ot">notebooks and materials provided in the repository</span><span class="co">](https://github.com/jorisvandenbossche/geopandas-tutorial)</span> in a <span class="co">[</span><span class="ot">computational environment</span><span class="co">](https://github.com/jorisvandenbossche/geopandas-tutorial/blob/main/environment.yml)</span> designed to use the notebooks reliably and reproducibly. </span>
-<span id="cb48-499"><a href="#cb48-499" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-497"><a href="#cb48-497" aria-hidden="true" tabindex="-1"></a><span class="fu">## Binder</span></span>
+<span id="cb48-498"><a href="#cb48-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-499"><a href="#cb48-499" aria-hidden="true" tabindex="-1"></a>One example is using Binder to open a Jupyter notebook in an executable environment.</span>
 <span id="cb48-500"><a href="#cb48-500" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-501"><a href="#cb48-501" aria-hidden="true" tabindex="-1"></a>In some cases an *image* for the container will already be available, and all that needs to happen is to start a virtual machine using that image as the computational environment.</span>
+<span id="cb48-501"><a href="#cb48-501" aria-hidden="true" tabindex="-1"></a>Based on a configuration (various options are possible for how to specify the configuration), Binder will create a Docker container with the needed software installed.</span>
 <span id="cb48-502"><a href="#cb48-502" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-503"><a href="#cb48-503" aria-hidden="true" tabindex="-1"></a>In other cases (e.g., with a configuration you've just created), the Docker container and Conda environment need to be set up.</span>
+<span id="cb48-503"><a href="#cb48-503" aria-hidden="true" tabindex="-1"></a>The most common configuration format is to provide a Conda environment file. Binder will then create a Conda environment inside the Docker (Linux) container. The Conda environment will contain the packages specified in the environment file. </span>
 <span id="cb48-504"><a href="#cb48-504" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-505"><a href="#cb48-505" aria-hidden="true" tabindex="-1"></a>If we're familiar with what happens when Docker containers and Conda environments are set up, we can see in the Binder logs that a Docker container is set up (using Ubuntu Linux) and one of the steps of doing that is to create a Conda environment within the container. We'll see that if we use the <span class="in">`mytoy`</span> repository to start a Binder environment at <span class="in">`ovh.mybinder.org`</span>, specifying <span class="in">`fperez/mytoy`</span> as the repository. (Note that in a number of cases, the startup has failed, probably because <span class="in">`mybinder`</span> has very limited resources for providing cloud compute resources. I am using <span class="in">`ovh.mybinder.org`</span> rather than <span class="in">`mybinder.org`</span> in hopes that is more likely to succeed.</span>
-<span id="cb48-506"><a href="#cb48-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-505"><a href="#cb48-505" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-506"><a href="#cb48-506" aria-hidden="true" tabindex="-1"></a>Let's set up a Binder environment "Geospatial analytics in Python with Geopandas" that can access the <span class="co">[</span><span class="ot">notebooks and materials provided in the repository</span><span class="co">](https://github.com/jorisvandenbossche/geopandas-tutorial)</span> in a <span class="co">[</span><span class="ot">computational environment</span><span class="co">](https://github.com/jorisvandenbossche/geopandas-tutorial/blob/main/environment.yml)</span> designed to use the notebooks reliably and reproducibly. </span>
 <span id="cb48-507"><a href="#cb48-507" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-508"><a href="#cb48-508" aria-hidden="true" tabindex="-1"></a><span class="fu">## GitHub Actions</span></span>
-<span id="cb48-509"><a href="#cb48-509" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-510"><a href="#cb48-510" aria-hidden="true" tabindex="-1"></a>A second example is using GitHub Actions (GHA) to automate activities such as testing. To set up a GitHub Actions workflow, one</span>
-<span id="cb48-511"><a href="#cb48-511" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-512"><a href="#cb48-512" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>specifies when the workflow will run (e.g., when a push or pull request is made, or only manually)</span>
-<span id="cb48-513"><a href="#cb48-513" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>provides instructions for how to set up the environment for the workflow</span>
-<span id="cb48-514"><a href="#cb48-514" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>provides the operations that the workflow should run.</span>
+<span id="cb48-508"><a href="#cb48-508" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-509"><a href="#cb48-509" aria-hidden="true" tabindex="-1"></a>In some cases an *image* for the container will already be available, and all that needs to happen is to start a virtual machine using that image as the computational environment.</span>
+<span id="cb48-510"><a href="#cb48-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-511"><a href="#cb48-511" aria-hidden="true" tabindex="-1"></a>In other cases (e.g., with a configuration you've just created), the Docker container and Conda environment need to be set up.</span>
+<span id="cb48-512"><a href="#cb48-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-513"><a href="#cb48-513" aria-hidden="true" tabindex="-1"></a>If we're familiar with what happens when Docker containers and Conda environments are set up, we can see in the Binder logs that a Docker container is set up (using Ubuntu Linux) and one of the steps of doing that is to create a Conda environment within the container. We'll see that if we use the <span class="in">`mytoy`</span> repository to start a Binder environment at <span class="in">`ovh.mybinder.org`</span>, specifying <span class="in">`fperez/mytoy`</span> as the repository. (Note that in a number of cases, the startup has failed, probably because <span class="in">`mybinder`</span> has very limited resources for providing cloud compute resources. I am using <span class="in">`ovh.mybinder.org`</span> rather than <span class="in">`mybinder.org`</span> in hopes that is more likely to succeed.</span>
+<span id="cb48-514"><a href="#cb48-514" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-515"><a href="#cb48-515" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-516"><a href="#cb48-516" aria-hidden="true" tabindex="-1"></a>A good example is running tests whenever you make a commit to a repository containing software.</span>
+<span id="cb48-516"><a href="#cb48-516" aria-hidden="true" tabindex="-1"></a><span class="fu">## GitHub Actions</span></span>
 <span id="cb48-517"><a href="#cb48-517" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-518"><a href="#cb48-518" aria-hidden="true" tabindex="-1"></a>With GHA, you specify the operating system and then run the steps you specify in <span class="in">`.github/workflows/some_action.yml`</span>. Some steps will  customize the environment as the initial steps and then additional step(s) will run shell or other code to run your workflow. You use pre-specified operations (called *actions*) to do common things (such as checking out a GitHub repository and installing commonly used software). </span>
+<span id="cb48-518"><a href="#cb48-518" aria-hidden="true" tabindex="-1"></a>A second example is using GitHub Actions (GHA) to automate activities such as testing. To set up a GitHub Actions workflow, one</span>
 <span id="cb48-519"><a href="#cb48-519" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-520"><a href="#cb48-520" aria-hidden="true" tabindex="-1"></a>GH will then run the steps in a virtual machine, which is called the *runner*.</span>
-<span id="cb48-521"><a href="#cb48-521" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-522"><a href="#cb48-522" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">TODO: Find an interesting repo with automated testing set up</span><span class="co">]</span></span>
+<span id="cb48-520"><a href="#cb48-520" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>specifies when the workflow will run (e.g., when a push or pull request is made, or only manually)</span>
+<span id="cb48-521"><a href="#cb48-521" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>provides instructions for how to set up the environment for the workflow</span>
+<span id="cb48-522"><a href="#cb48-522" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>provides the operations that the workflow should run.</span>
 <span id="cb48-523"><a href="#cb48-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-524"><a href="#cb48-524" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">TODO: show how environment is created</span><span class="co">]</span></span>
+<span id="cb48-524"><a href="#cb48-524" aria-hidden="true" tabindex="-1"></a>A good example is running tests whenever you make a commit to a repository containing software.</span>
 <span id="cb48-525"><a href="#cb48-525" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-526"><a href="#cb48-526" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">TODO: show how env is customized</span><span class="co">]</span></span>
+<span id="cb48-526"><a href="#cb48-526" aria-hidden="true" tabindex="-1"></a>With GHA, you specify the operating system and then run the steps you specify in <span class="in">`.github/workflows/some_action.yml`</span>. Some steps will  customize the environment as the initial steps and then additional step(s) will run shell or other code to run your workflow. You use pre-specified operations (called *actions*) to do common things (such as checking out a GitHub repository and installing commonly used software). </span>
 <span id="cb48-527"><a href="#cb48-527" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-528"><a href="#cb48-528" aria-hidden="true" tabindex="-1"></a>This is all quite powerful, and the use of reproducible environments generally helps with debugging because you can also set up the environment on your own machine. That said, running code remotely or in the cloud can also be hard to debug at times.</span>
+<span id="cb48-528"><a href="#cb48-528" aria-hidden="true" tabindex="-1"></a>GH will then run the steps in a virtual machine, which is called the *runner*.</span>
+<span id="cb48-529"><a href="#cb48-529" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-530"><a href="#cb48-530" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">TODO: Find an interesting repo with automated testing set up</span><span class="co">]</span></span>
+<span id="cb48-531"><a href="#cb48-531" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-532"><a href="#cb48-532" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">TODO: show how environment is created</span><span class="co">]</span></span>
+<span id="cb48-533"><a href="#cb48-533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-534"><a href="#cb48-534" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">TODO: show how env is customized</span><span class="co">]</span></span>
+<span id="cb48-535"><a href="#cb48-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-536"><a href="#cb48-536" aria-hidden="true" tabindex="-1"></a>This is all quite powerful, and the use of reproducible environments generally helps with debugging because you can also set up the environment on your own machine. That said, running code remotely or in the cloud can also be hard to debug at times.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

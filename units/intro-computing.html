@@ -240,6 +240,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments">Comments</a></li>
   <li><a href="#getting-help-with-unix-commands" id="toc-getting-help-with-unix-commands" class="nav-link" data-scroll-target="#getting-help-with-unix-commands">Getting help with UNIX commands</a></li>
   <li><a href="#tab-completion" id="toc-tab-completion" class="nav-link" data-scroll-target="#tab-completion">Tab completion</a></li>
+  <li><a href="#command-history" id="toc-command-history" class="nav-link" data-scroll-target="#command-history">Command history</a></li>
   <li><a href="#seeing-if-a-command-or-program-is-available" id="toc-seeing-if-a-command-or-program-is-available" class="nav-link" data-scroll-target="#seeing-if-a-command-or-program-is-available">Seeing if a command or program is available</a></li>
   </ul></li>
   <li><a href="#working-with-files" id="toc-working-with-files" class="nav-link" data-scroll-target="#working-with-files">Working with files</a>
@@ -625,6 +626,11 @@ Tab completion everywhere
 </div>
 </div>
 </section>
+<section id="command-history" class="level3">
+<h3 class="anchored" data-anchor-id="command-history">Command history</h3>
+<p>Hit the <code>up</code> key. You should see the previous command you typed. Hit it again. You should see the 2nd most recent command.</p>
+<p><code>Ctrl-a</code> and <code>Ctrl-e</code> navigate to the beginning and end of a line. You can edit your previous command and then hit <code>Enter</code> to run the modified code.</p>
+</section>
 <section id="seeing-if-a-command-or-program-is-available" class="level3">
 <h3 class="anchored" data-anchor-id="seeing-if-a-command-or-program-is-available">Seeing if a command or program is available</h3>
 <p>You can see if a command or program is installed (and where it is installed) using <code>type</code>.</p>
@@ -744,7 +750,7 @@ DataHub memory limits
 <p>Be careful about increasing <code>n</code> in the example below when on DataHub. Basic DataHub virtual machines by default only have 1 GB memory, so don’t increase <code>n</code> below or you may run out of memory if running on DataHub and this can cause problems in your DataHub session. If you’re doing this as part of the workshop, we’ve increased those limits somewhat, so somewhat larger values of <code>n</code> should be fine.</p>
 </div>
 </div>
-<div id="7b63c5bf" class="cell" data-execution_count="1">
+<div id="cb968fe2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
