@@ -595,21 +595,17 @@ b path/to/script.py:999, x==5
 
 We create test functions that check for the expected result.
 
-We use `assert` statements which are ways of generally setting up sanity checks in your code. These are usually used in development, or perhaps data analysis workflows, rather than production code. They are a core part of setting up tests such as here with `pytest`.
+We use `assert` statements. These are ways of generally setting up sanity checks in your code. They are usually used in development, or perhaps data analysis workflows, rather than production code. They are a core part of setting up tests such as here with `pytest`.
 
 ```bash
-mkdir tests
-mv test_bs.py tests/.
-
-pytest
+pytest test_bs.py
 ```
 
 ## Exercise: Test cases
 
-With a partner, brainstorm some test cases for your implementation of Newton's method in terms of the user's function and input values.
+With a partner, brainstorm some test cases for your implementation of Newton's method in terms of the user's function and input values a user might provide.
 
-You'll want to consider cases where Newton's method fails and test whether the user gets an informative result.
-Of course as a starting point, the case we used for the debugging exercise is a good one for a failing case. 
+In addition to cases where it should succeed, you'll want to consider cases where Newton's method fails and test whether the user gets an informative result. Of course as a starting point, the case we used for the debugging exercise is a good one for a failing case. 
 
 We'll collect some possible tests once each group has had a chance to brainstorm.
 
@@ -643,10 +639,28 @@ Work on the following improvements:
 - Modify your function so that when it fails, the result is informative to the user.
   - Include a success/failure code (flag) in your output.
 
+We don't have time to go fully into how Python handles errors (called exceptions). Here are a few basic things you can do to *raise* an *exception* (i.e., to report an error):
+
+```
+if not callable(f):
+   raise TypeError(f"Argument is not a function, it is of type {type(f)}")
+```
+
+```
+if x > 1e7:
+   raise RuntimeError(f"At iteration {iter}, optimization appears to be diverging")
+```
+
+```
+import warnings
+if x > 3:
+   warnings.warn(f"{x} is greater than 3.")
+```  
+
 Next, if you have time, consider robustifying your code if you have time:
 
-- What might you do if the next step is worse than the current position?  [TODO: backtrack]
-- What might you do if the next step is outside the range of potential values (assuming a unimodal function)? [TODO: bisect]
+- What might you do if the next step is worse than the current position?  
+- What might you do if the next step is outside the range of potential values (assuming a unimodal function)? 
 
 # 7. Multi-user Git
 
