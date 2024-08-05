@@ -699,7 +699,7 @@ We'll now make the fixes and do the linting (not shown).
 Push the branch with the fix to GitHub.
 
 ```bash
-git add test.py
+git add binary_search.py
 git commit -m"Fix bug in handling midpoint.
 
 Lint code."
@@ -723,7 +723,7 @@ The GitHub UI does a nice job of helping you resolve merge conflicts, as we'll s
 ::: {.callout-tip}
 ## Resolving conflicts at the command line
 
-You can also get (and resolve) merge conflicts on the command line. Once you edit the conflicted file to fix the conflict, you can do `git add <name_of_file>` and then `git commit`.
+You can also get (and resolve) merge conflicts on the command line. Git will add some syntax to the conflicted file pointing out the conflicts that need to be resolved. Once you edit the conflicted file to fix the conflict, you can do `git add <name_of_file>` and then `git commit`.
 :::
 
 ## Multivariate Newton's method
@@ -760,7 +760,7 @@ At this point, if we think about calculating the Hessian it starts to feel more 
 
 As you are writing the code, you can continue to think about what might go wrong and include defensive programming tactics. 
 
-## Exercise: Pull requests
+## Exercise: Pull requests (PRs)
 
 When you have your branch ready, make a pull request:
 
@@ -771,7 +771,7 @@ When you have your branch ready, make a pull request:
    
 2. Go to GitHub to the `Pull requests` tab and make the PR, making a note of what the PR is about.
 
-Don't (yet) merge in the PR.
+Don't (yet) merge in the PR. We want someone else to review it to have additional eyes on the code.
 
 ## Exercise: Code review
 
@@ -780,15 +780,15 @@ Now you and your partner should find a separate group with which to work on code
 Give the other group the URL for your repository on GitHub and ask them to look at the PR.
 In turn get the URL for their repository.
 
-In reviewing the PR, make comments in the PR comment/conversation area on GitHub.
+In reviewing the PR, make comments in the PR comment/conversation area on GitHub. You and your partner can work together to make comments or you can each make separate comments.
 
-If you have time, explore these two options for making comments:
+If you have time, explore these two additional options for making comments:
 
 1. Review changes:
-   - Click on the `Files changed` tab (or go to `https://github.com/nimble-dev/nimble/pull/<PULL_ID>/files` for the specific "PULL_ID").
+   - Click on the `Files changed` tab (or go to `https://github.com/<USERNAME>/newton-practice/pull/<PULL_ID>/files` for the specific "PULL_ID").
    - Click on the `Review changes` button.
 2. Make comments on specific lines
-   - Click on the `Files changed` tab (or go to `https://github.com/nimble-dev/nimble/pull/<PULL_ID>/files` for the specific "PULL_ID").
+   - Click on the `Files changed` tab (or go to `https://github.com/<USERNAME>/newton-practice/pull/<PULL_ID>/files` for the specific "PULL_ID").
    - Hover over a specific line in a specific file with your mouse. A blue "plus" box should appear. Click on the plus to add a comment.
    - Click on `Add single comment` or optionally experiment with `Start a review`.
 
@@ -800,6 +800,8 @@ Once you've seen the review by the other group, with your partner:
   - Alternatively, you could make the changes directly on GitHub using its editing capabilities.
 - On DataHub, commit and push to GitHub.
 - On GitHub, merge in the pull request and close the request.
+  - You may want to delete the branch. This helps avoid having a profusion of unneeded branches.
+- On DataHub, run `git pull` to get the changes updated in the `main` branch of your local repository.
 
 ::: {.callout-important}
 ## The full cycle of "git virtue"
