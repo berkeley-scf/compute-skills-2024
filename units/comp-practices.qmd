@@ -510,6 +510,7 @@ diff binary_search_orig.py binary_search.py
 2. Consider whether to add comments to your code.
 3. Apply `ruff` to your code.
 4. Compare the results with the style suggestions above and do additional reformatting as needed.
+5. Commit and push to GitHub. Remember to have a good commit message!
 
 # 5. Debugging
 
@@ -529,6 +530,8 @@ We'll use the debugger in JupyterLab; similar functionality is in VS Code. And y
 
 ## Demo: debugging the `binary_search` example
 
+### Using the JupyterLab visual debugger
+
 The function `binary_search()` in the `binary_search.py` module attempts to do a binary search for an item in a sorted list. It looks in the middle of the list and if the value in the list is larger than the item, it recurses to look in the first half of the list, otherwise in the second half. It continues in this fashion until it is down to a single item and then checks if that item is what is being searched for.
 
 ```{python}
@@ -546,23 +549,43 @@ Clearly that doesn't always work. Let's debug the failing case.
 
 We'll work in our Jupyter notebook.
 
-- First turn on debugging capability by clicking on the small "bug" icon in the upper right (next to the info about the kernel).
-- Next we click on a line of code to set a breakpoint.
-- Now we run the function. We can:
-  - step within a function,
-  - step into a function, or
-  - step out of a function.
+- First turn on debugging capability by clicking on the small "bug" icon of the top navigation bar under the file tabs and to the left of the  info about the kernel.
+- Next we click on a line of code to set a breakpoint (or add `breakpoint()` in a line of a source file).
+- Now we run the function by executing the cell containing the function call. We can:
+  - continue (to the end or the next breakpoint),
+  - run the next line,
+  - step (in/down) into a nested function, or
+  - step (out/up) out of a function.
 
 
+### Using the IPython debugger (`ipdb`)
+
+We can use the IPython `%debug` "magic" to activate a debugger as well.
+
+One way this is particularly useful is "post-mortem" debugging, i.e., debugging when exceptions (errors) have occurred. We just invoke `%debug` and then (re)run the code that is failing.
+
+Once in the ipdb debugger, we can use these commands (most of which correspond to icons we used to control the JupyterLab debugger behavior
+
+- `p expr` to print the result of the `expr` code
+- `c` to continue execution (until the end or the next breakpoint)
+- `n` to run the next line of code
+- `u` and `d` to step up and down through the stack of function calls
+- `q` to quit the debugger
+
+We'll put a silly error into the `binary_search` code, restart the kernel, and use the post-mortem debugging approach as an illustration.
 
 ## Exercise: debugging your Newton code
 
-Run your Newton method on the following function, `x^4/4 - x^3 -x`.
+Run your Newton method on the following function, $x^4/4 - x^3 -x$.
 Sometimes it should fail.
 
-Use the debugger to try to see what goes wrong. (For our purposes here, do this using the debugger, don't figure it out from first principles mathematically or graphically.)
+Use the debugger to try to see what goes wrong. (For our purposes here, do this using the debugger; don't figure it out from first principles mathematically or graphically.)
 
-You can use a conditional breakpoint to try to detect when the next step will be extreme.
+Conditional breakpoints are a useful tool that causes the debugger to stop at a breakpoint only if some condition is true (e.g., if some extreme value is reached in the Newton iterations). I don't see that it's possible to do this with the JupyterLab debugger, but with the `ipdb` debugger you can do things like this to debug a particular line of a particular file if a condition (here `x==5`) is met:
+
+```
+b path/to/script.py:999, x==5
+```
 
 # 6. Defensive programming, error checking and testing
 
