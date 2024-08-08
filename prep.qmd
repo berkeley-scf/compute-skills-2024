@@ -1,6 +1,5 @@
 ---
-title: "Computational skills workshop"
-subtitle: "Accessing DataHub"
+title: "Accessing DataHub"
 format:
   html:
     theme: cosmo
@@ -16,7 +15,7 @@ execute:
 
 While in principle, it's fine to use your laptop, it will be hard for us to diagnose all the different problems that might arise with so many participants. So we recommend using a common computational environment during the workshop. We'll use the Berkeley DataHub for this. You can think of DataHub as providing user-specific virtual machines with identical software for all of us to use.
 
-The exception is that if you already have experience using your laptop with the shell/terminal, Git (and pushing to GitHub) and Python.
+The exception is that if you already have experience using your laptop with the shell/terminal, Git (and pushing to GitHub) and Python. 
 
 Click [here](https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fberkeley-scf%2Fcompute-skills-2024&urlpath=lab%2Ftree%2Fcompute-skills-2024%2F&branch=main){target="_blank"} to access your own machine/server with Python, git, and terminal access on the campus DataHub (also used for various data science, CS, and statistics courses).
 
