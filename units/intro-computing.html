@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>(Optional) Introduction to Computing and the Command Line</title>
+<title>Introduction to Computing and the Command Line (optional)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -261,7 +261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../units/comp-practices.html">Modules</a></li><li class="breadcrumb-item"><a href="../units/intro-computing.html">Intro to Computing and Command Line (optional)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">(Optional) Introduction to Computing and the Command Line</h1>
+<div class="quarto-title-block"><div><h1 class="title">Introduction to Computing and the Command Line (optional)</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -304,9 +304,6 @@ Overview
 <p>This module introduces you to some computing concepts and provides a brief tutorial on working on the <em>command line</em> (also known as, the <em>shell</em>, or the <em>terminal</em>).</p>
 </div>
 </div>
-<hr>
-<p>format: html: theme: cosmo css: ../styles.css toc: true code-copy: true code-block-background: true</p>
-<hr>
 <section id="preparation" class="level1">
 <h1>Preparation</h1>
 <p>Our primary computing context will be the <a href="../prep.html">UC Berkeley DataHub</a>. This provides us with a common platform on which we are assured to get the same behavior as each other, allowing us to use the command line/shell/terminal and Python, including Jupyter notebooks. In particular getting a common command line environment would be hard otherwise.</p>
@@ -322,9 +319,10 @@ Using your own laptop (optional)
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>If you want, you can also install Python on your own computer. If you do that, we recommend using <a href="https://github.com/conda-forge/miniforge">Miniforge</a>. Another option is the Anaconda distribution of Python](https://www.anaconda.com/distribution)</p>
+<p>If you haven’t already used the shell/terminal and Python on your laptop, we recommend you use the DataHub so that we don’t have to troubleshoot problems on multiple laptops.</p>
+<p>If you do use your laptop, you’ll need Python installed, for which we recommend using <a href="https://github.com/conda-forge/miniforge">Miniforge</a>. Another option is the Anaconda distribution of Python](https://www.anaconda.com/distribution)</p>
 <p>For the shell/terminal parts of this material, you can use the Terminal on your Mac, but not on Windows.</p>
-<p>If you do use your own computer, you’ll need to <em>clone</em> <a href="https://github.com/berkeley-scf/compute-skills-2024">this GitHub repository</a>. If you don’t know how to do that, just download <a href="https://github.com/berkeley-scf/compute-skills-2024/archive/refs/heads/main.zip">this zip file</a> and unzip it into your home directory on your computer.</p>
+<p>If you do use your own laptop, you’ll need to <em>clone</em> <a href="https://github.com/berkeley-scf/compute-skills-2024">this GitHub repository</a>. If you don’t know how to do that, just download <a href="https://github.com/berkeley-scf/compute-skills-2024/archive/refs/heads/main.zip">this zip file</a> and unzip it into your home directory on your computer.</p>
 </div>
 </div>
 </div>
@@ -750,7 +748,9 @@ DataHub memory limits
 <p>Be careful about increasing <code>n</code> in the example below when on DataHub. Basic DataHub virtual machines by default only have 1 GB memory, so don’t increase <code>n</code> below or you may run out of memory if running on DataHub and this can cause problems in your DataHub session. If you’re doing this as part of the workshop, we’ve increased those limits somewhat, so somewhat larger values of <code>n</code> should be fine.</p>
 </div>
 </div>
-<div id="cb968fe2" class="cell" data-execution_count="1">
+<div id="be9d78c1" class="cell" data-execution_count="1">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -766,6 +766,7 @@ DataHub memory limits
 <span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a><span class="co">## without running it when we import the file as a module.</span></span>
 <span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
 <span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>    run_linalg(<span class="dv">4000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> calc.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We might need to run it in a loop to be able to monitor the running process (since it finishes so quickly): `for ((i=0;i&lt;10;i++)); do python calc.py; done```</p>
@@ -780,6 +781,8 @@ DataHub memory limits
 <li>The machine might be running low on physical memory, which in some cases will involve using disk as additional memory (slow!).</li>
 </ul>
 
+
+<!-- -->
 
 </section>
 </section>
@@ -875,6 +878,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -1205,7 +1259,623 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb38" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Introduction to Computing and the Command Line (optional)"</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: cosmo</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="co">    css: ../styles.css</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-copy: true</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-block-background: true</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: show</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="co">  freeze: auto</span></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## DRAFT CONTENT (2024-08-01)</span></span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>This module is drafted but still under construction.</span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a>This module introduces you to some computing concepts and provides a brief tutorial on working on the *command line* (also known as, the *shell*, or the *terminal*).</span>
+<span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb38-26"><a href="#cb38-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-27"><a href="#cb38-27" aria-hidden="true" tabindex="-1"></a>{{&lt; include point-to-prep.qmd &gt;}}</span>
+<span id="cb38-28"><a href="#cb38-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-29"><a href="#cb38-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-30"><a href="#cb38-30" aria-hidden="true" tabindex="-1"></a><span class="fu"># Parts of a computer</span></span>
+<span id="cb38-31"><a href="#cb38-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-32"><a href="#cb38-32" aria-hidden="true" tabindex="-1"></a>We won't spend a lot of time thinking about computer hardware, but we do</span>
+<span id="cb38-33"><a href="#cb38-33" aria-hidden="true" tabindex="-1"></a>need to know some of the basics that relate to using a computer and</span>
+<span id="cb38-34"><a href="#cb38-34" aria-hidden="true" tabindex="-1"></a>programming effectively. There are many layers of technical detail one</span>
+<span id="cb38-35"><a href="#cb38-35" aria-hidden="true" tabindex="-1"></a>could get into, but the key things for now are to have a basic</span>
+<span id="cb38-36"><a href="#cb38-36" aria-hidden="true" tabindex="-1"></a>understanding of these components of a computer:</span>
+<span id="cb38-37"><a href="#cb38-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-38"><a href="#cb38-38" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>CPU</span>
+<span id="cb38-39"><a href="#cb38-39" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>cache (limited fast memory easily accessible from the CPU)</span>
+<span id="cb38-40"><a href="#cb38-40" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>main memory (RAM)</span>
+<span id="cb38-41"><a href="#cb38-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>bus</span>
+<span id="cb38-42"><a href="#cb38-42" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>disk</span>
+<span id="cb38-43"><a href="#cb38-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-44"><a href="#cb38-44" aria-hidden="true" tabindex="-1"></a>We'll discuss these components via <span class="co">[</span><span class="ot">this overview</span><span class="co">](https://36-750.github.io/tools/computer-architecture/)</span> from a class at CMU.</span>
+<span id="cb38-45"><a href="#cb38-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-46"><a href="#cb38-46" aria-hidden="true" tabindex="-1"></a>Depending on what your code is doing, the slow step in a computation might be:</span>
+<span id="cb38-47"><a href="#cb38-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-48"><a href="#cb38-48" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>doing the actual calculations on the CPU,</span>
+<span id="cb38-49"><a href="#cb38-49" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>moving data back and forth from (main) memory (RAM) to the CPU, or</span>
+<span id="cb38-50"><a href="#cb38-50" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>reading/writing (I/O) data to/from disk.</span>
+<span id="cb38-51"><a href="#cb38-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-52"><a href="#cb38-52" aria-hidden="true" tabindex="-1"></a><span class="fu"># Concepts of parallelization</span></span>
+<span id="cb38-53"><a href="#cb38-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-54"><a href="#cb38-54" aria-hidden="true" tabindex="-1"></a>Computers now come with multiple processors for doing computation. Basically, physical constraints have made it harder to keep increasing the speed of individual processors, so the chip industry is now putting multiple processing units in a given computer and trying/hoping to rely on implementing computations in a way that takes advantage of the multiple processors.</span>
+<span id="cb38-55"><a href="#cb38-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-56"><a href="#cb38-56" aria-hidden="true" tabindex="-1"></a>Everyday personal computers usually have more than one processor (more than one chip) and on a given processor, often have more than one core (multi-core). A multi-core processor has multiple processors on a single computer chip. On personal computers, all the processors and cores share the same memory.</span>
+<span id="cb38-57"><a href="#cb38-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-58"><a href="#cb38-58" aria-hidden="true" tabindex="-1"></a>Here are some key terms relating to hardware:</span>
+<span id="cb38-59"><a href="#cb38-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-60"><a href="#cb38-60" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**cores**: We'll use this term to mean the different processing units available on a single machine or node of a cluster. A given CPU will have multiple cores. (E.g, the AMD EPYC 7763 has 64 cores per CPU.)</span>
+<span id="cb38-61"><a href="#cb38-61" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**hardware threads**: these are very different than the (software) threads discussed below: hardware hyperthreading involves separate hyperthreads ("virtual cores") on a single (physical) core that behave like separate cores</span>
+<span id="cb38-62"><a href="#cb38-62" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**nodes**: We'll use this term to mean the different computers, each with their own distinct memory, that make up a cluster or supercomputer.</span>
+<span id="cb38-63"><a href="#cb38-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**GPUs**: a GPU has a very large number of simple processing units that operate many tasks in parallel.</span>
+<span id="cb38-64"><a href="#cb38-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-65"><a href="#cb38-65" aria-hidden="true" tabindex="-1"></a>Here are some key terms related to computation:</span>
+<span id="cb38-66"><a href="#cb38-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-67"><a href="#cb38-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**processes**: instances of a program(s) executing on a machine; multiple processes may be executing at once. A given program may start up multiple processes at once. Ideally we have no more processes than cores on a node.</span>
+<span id="cb38-68"><a href="#cb38-68" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**threads**: multiple paths of execution within a single process; the operating system sees the threads as a single process, but one can think of them as ‘lightweight’ processes. Ideally when considering the processes and their threads, we would have the same number of cores available to our code as we have processes and threads combined.</span>
+<span id="cb38-69"><a href="#cb38-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**workers**: the individual processes that are carrying out the (parallelized) computation. We’ll use worker and process interchangeably.</span>
+<span id="cb38-70"><a href="#cb38-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**tasks**: individual units of computation; one or more tasks will be executed by a given process on a given core.</span>
+<span id="cb38-71"><a href="#cb38-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-72"><a href="#cb38-72" aria-hidden="true" tabindex="-1"></a>As an example, suppose we were carrying out 20-fold cross-validation and we were using a laptop with 4 cores.</span>
+<span id="cb38-73"><a href="#cb38-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-74"><a href="#cb38-74" aria-hidden="true" tabindex="-1"></a>We would generally use 4 workers (4 processes) to carry out the 20 tasks (each task being to fit the model on the non-held out data and make predictions on the held-out data in the fold). So 4 of the tasks could be executing at the same time. When a process finishes a task assigned to it, it can start on the next task that is still left to be done.</span>
+<span id="cb38-75"><a href="#cb38-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-76"><a href="#cb38-76" aria-hidden="true" tabindex="-1"></a><span class="fu"># The filesystem</span></span>
+<span id="cb38-77"><a href="#cb38-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-78"><a href="#cb38-78" aria-hidden="true" tabindex="-1"></a>The filesystem is the organization of data/files on a storage device, such as the local disk on your machine.</span>
+<span id="cb38-79"><a href="#cb38-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-80"><a href="#cb38-80" aria-hidden="true" tabindex="-1"></a>The filesystem on a Linux or MacOS machine can be thought of as an upside-down tree, with <span class="in">`/`</span> as the root (top) of the tree.</span>
+<span id="cb38-81"><a href="#cb38-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-82"><a href="#cb38-82" aria-hidden="true" tabindex="-1"></a>For example, a basic tree on a Linux machine might look like this:</span>
+<span id="cb38-83"><a href="#cb38-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-84"><a href="#cb38-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-85"><a href="#cb38-85" aria-hidden="true" tabindex="-1"></a><span class="in">.</span></span>
+<span id="cb38-86"><a href="#cb38-86" aria-hidden="true" tabindex="-1"></a><span class="in">├── accounts</span></span>
+<span id="cb38-87"><a href="#cb38-87" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── biost</span></span>
+<span id="cb38-88"><a href="#cb38-88" aria-hidden="true" tabindex="-1"></a><span class="in">│   │   ├── wang</span></span>
+<span id="cb38-89"><a href="#cb38-89" aria-hidden="true" tabindex="-1"></a><span class="in">│   │   ├── jones</span></span>
+<span id="cb38-90"><a href="#cb38-90" aria-hidden="true" tabindex="-1"></a><span class="in">│   │   └── mcfadden</span></span>
+<span id="cb38-91"><a href="#cb38-91" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── grad</span></span>
+<span id="cb38-92"><a href="#cb38-92" aria-hidden="true" tabindex="-1"></a><span class="in">│       ├── smith</span></span>
+<span id="cb38-93"><a href="#cb38-93" aria-hidden="true" tabindex="-1"></a><span class="in">│       ├── sanchez</span></span>
+<span id="cb38-94"><a href="#cb38-94" aria-hidden="true" tabindex="-1"></a><span class="in">│       ├── zhang</span></span>
+<span id="cb38-95"><a href="#cb38-95" aria-hidden="true" tabindex="-1"></a><span class="in">├── bin</span></span>
+<span id="cb38-96"><a href="#cb38-96" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── echo</span></span>
+<span id="cb38-97"><a href="#cb38-97" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── grep</span></span>
+<span id="cb38-98"><a href="#cb38-98" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── tmux</span></span>
+<span id="cb38-99"><a href="#cb38-99" aria-hidden="true" tabindex="-1"></a><span class="in">├── lib</span></span>
+<span id="cb38-100"><a href="#cb38-100" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── gcc</span></span>
+<span id="cb38-101"><a href="#cb38-101" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── grep</span></span>
+<span id="cb38-102"><a href="#cb38-102" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── tmux</span></span>
+<span id="cb38-103"><a href="#cb38-103" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-104"><a href="#cb38-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-105"><a href="#cb38-105" aria-hidden="true" tabindex="-1"></a><span class="in">`/accounts`</span>, <span class="in">`/bin`</span>, and <span class="in">`/lib`</span> are the directories at the root in the example above.</span>
+<span id="cb38-106"><a href="#cb38-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-107"><a href="#cb38-107" aria-hidden="true" tabindex="-1"></a>We'll see more examples when we start using the shell.</span>
+<span id="cb38-108"><a href="#cb38-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-109"><a href="#cb38-109" aria-hidden="true" tabindex="-1"></a>Things are similar on Windows, though there the root is a lettered drive, such as <span class="in">`C:`</span>.</span>
+<span id="cb38-110"><a href="#cb38-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-111"><a href="#cb38-111" aria-hidden="true" tabindex="-1"></a>For scientific computing, you'll often be connecting remotely to other machines/clusters and navigating the filesystem on those other systems. </span>
+<span id="cb38-112"><a href="#cb38-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-113"><a href="#cb38-113" aria-hidden="true" tabindex="-1"></a><span class="fu"># The shell and UNIX commands</span></span>
+<span id="cb38-114"><a href="#cb38-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-115"><a href="#cb38-115" aria-hidden="true" tabindex="-1"></a>Operating on the UNIX command line is also known as *using the terminal* and *using the shell*.</span>
+<span id="cb38-116"><a href="#cb38-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-117"><a href="#cb38-117" aria-hidden="true" tabindex="-1"></a>The shell is the UNIX program that you interact with when in a terminal window interacting with a UNIX-style operating system (e.g., Linux or MacOS). The shell sits between you and the operating system and provides useful commands and functionality. Basically, the shell is a program that serves to run other commands for you and show you the results. There are actually different shells that you can use, of which bash is very common and is the default on many systems. In recent versions of MacOS, zsh is the default shell. zsh is an extension of bash.</span>
+<span id="cb38-118"><a href="#cb38-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-119"><a href="#cb38-119" aria-hidden="true" tabindex="-1"></a>We'll start a shell on our DataHub (Jupyter) server, which is (basically) a Linux virtual machine running in the cloud.</span>
+<span id="cb38-120"><a href="#cb38-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-121"><a href="#cb38-121" aria-hidden="true" tabindex="-1"></a>On DataHub, the prompt in the shell looks like this:</span>
+<span id="cb38-122"><a href="#cb38-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-123"><a href="#cb38-123" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-124"><a href="#cb38-124" aria-hidden="true" tabindex="-1"></a><span class="in">jovyan@jupyter-paciorek:~$</span></span>
+<span id="cb38-125"><a href="#cb38-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-126"><a href="#cb38-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-127"><a href="#cb38-127" aria-hidden="true" tabindex="-1"></a>but below we'll indicate that simply as:</span>
+<span id="cb38-128"><a href="#cb38-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-129"><a href="#cb38-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-130"><a href="#cb38-130" aria-hidden="true" tabindex="-1"></a><span class="in">$</span></span>
+<span id="cb38-131"><a href="#cb38-131" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-132"><a href="#cb38-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-133"><a href="#cb38-133" aria-hidden="true" tabindex="-1"></a><span class="fu">## Files and directories</span></span>
+<span id="cb38-134"><a href="#cb38-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-135"><a href="#cb38-135" aria-hidden="true" tabindex="-1"></a><span class="fu">### Moving around and listing information</span></span>
+<span id="cb38-136"><a href="#cb38-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-137"><a href="#cb38-137" aria-hidden="true" tabindex="-1"></a>We'll start by thinking about the filesystem, which organizes our information/data into files on the computer's disk.</span>
+<span id="cb38-138"><a href="#cb38-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-139"><a href="#cb38-139" aria-hidden="true" tabindex="-1"></a>Anytime you are at the UNIX command line, you have a **working directory**, which is your current location in the file system. </span>
+<span id="cb38-140"><a href="#cb38-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-141"><a href="#cb38-141" aria-hidden="true" tabindex="-1"></a>Here's how you can see where you are using the <span class="in">`pwd`</span> ("print working directory") command:</span>
+<span id="cb38-142"><a href="#cb38-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-143"><a href="#cb38-143" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-144"><a href="#cb38-144" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd</span>
+<span id="cb38-145"><a href="#cb38-145" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/jovyan/compute-skills-2024</span></span>
+<span id="cb38-146"><a href="#cb38-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-147"><a href="#cb38-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-148"><a href="#cb38-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-149"><a href="#cb38-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-150"><a href="#cb38-150" aria-hidden="true" tabindex="-1"></a>and here's how you use <span class="in">`ls`</span> to list the files (and subdirectories) in the working directory...</span>
+<span id="cb38-151"><a href="#cb38-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-152"><a href="#cb38-152" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-153"><a href="#cb38-153" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span>
+<span id="cb38-154"><a href="#cb38-154" aria-hidden="true" tabindex="-1"></a><span class="ex">assets</span>       license.qmd  README.md     units           _variables.yml</span>
+<span id="cb38-155"><a href="#cb38-155" aria-hidden="true" tabindex="-1"></a><span class="ex">buttons.yml</span>  prep.qmd     schedule.yml  Untitled.ipynb</span>
+<span id="cb38-156"><a href="#cb38-156" aria-hidden="true" tabindex="-1"></a><span class="ex">index.qmd</span>    _quarto.yml  syllabus.qmd  untitled.py</span>
+<span id="cb38-157"><a href="#cb38-157" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-158"><a href="#cb38-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-159"><a href="#cb38-159" aria-hidden="true" tabindex="-1"></a>Now suppose I want to be in a different directory so I can see what is there or do things to the files in that directory.</span>
+<span id="cb38-160"><a href="#cb38-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-161"><a href="#cb38-161" aria-hidden="true" tabindex="-1"></a>The command you need is <span class="in">`cd`</span> ("change directory") and an important concept you need to become familiar with is the notion of 'relative' versus 'absolute' *path*. A path is the set of nested directories that specify a location of interest on the filesystem.</span>
+<span id="cb38-162"><a href="#cb38-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-163"><a href="#cb38-163" aria-hidden="true" tabindex="-1"></a>Now let's go into a subdirectory. We can use <span class="in">`cd`</span> with the name of the subdirectory. The subdirectory is found 'relative' to our working directory, i.e., found from where we currently are.</span>
+<span id="cb38-164"><a href="#cb38-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-165"><a href="#cb38-165" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-166"><a href="#cb38-166" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd units</span>
+<span id="cb38-167"><a href="#cb38-167" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd</span>
+<span id="cb38-168"><a href="#cb38-168" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/jovyan/compute-skills-2024/units</span></span>
+<span id="cb38-169"><a href="#cb38-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-170"><a href="#cb38-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-171"><a href="#cb38-171" aria-hidden="true" tabindex="-1"></a>We could also navigate through nested subdirectories. For example, after going back to our home directory (using <span class="in">`cd`</span> alone will do this), let's go to the <span class="in">`units`</span> subdirectory of the <span class="in">`compute-skills-2024`</span> subdirectory. The <span class="in">`/`</span> is a separate character that distinguishes the nested subdirectories.</span>
+<span id="cb38-172"><a href="#cb38-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-173"><a href="#cb38-173" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-174"><a href="#cb38-174" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd</span>
+<span id="cb38-175"><a href="#cb38-175" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd compute-skills-2024/units</span>
+<span id="cb38-176"><a href="#cb38-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-177"><a href="#cb38-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-178"><a href="#cb38-178" aria-hidden="true" tabindex="-1"></a>You can access the parent directory of any directory using <span class="in">`..`</span>:</span>
+<span id="cb38-179"><a href="#cb38-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-180"><a href="#cb38-180" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-181"><a href="#cb38-181" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd ..</span>
+<span id="cb38-182"><a href="#cb38-182" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd</span>
+<span id="cb38-183"><a href="#cb38-183" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/jovyan/compute-skills-2024</span></span>
+<span id="cb38-184"><a href="#cb38-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-185"><a href="#cb38-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-186"><a href="#cb38-186" aria-hidden="true" tabindex="-1"></a>We can get more complicated in our use of <span class="in">`..`</span> with relative paths. Here we'll go up a directory and then down to a different subdirectory.</span>
+<span id="cb38-187"><a href="#cb38-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-188"><a href="#cb38-188" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-189"><a href="#cb38-189" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd units</span>
+<span id="cb38-190"><a href="#cb38-190" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd ../assets</span>
+<span id="cb38-191"><a href="#cb38-191" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd</span>
+<span id="cb38-192"><a href="#cb38-192" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/jovyan/compute-skills-2024/assets</span></span>
+<span id="cb38-193"><a href="#cb38-193" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-194"><a href="#cb38-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-195"><a href="#cb38-195" aria-hidden="true" tabindex="-1"></a>And here we'll go up two directories and then down to another subdirectory (but note that <span class="in">`/home/jovyan/tmp`</span> may not exist for your server).</span>
+<span id="cb38-196"><a href="#cb38-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-197"><a href="#cb38-197" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-198"><a href="#cb38-198" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd ../../tmp  <span class="co"># Go up two directories and down.</span></span>
+<span id="cb38-199"><a href="#cb38-199" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd</span>
+<span id="cb38-200"><a href="#cb38-200" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/jovyan/tmp</span></span>
+<span id="cb38-201"><a href="#cb38-201" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-202"><a href="#cb38-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-203"><a href="#cb38-203" aria-hidden="true" tabindex="-1"></a><span class="fu">### Absolute versus relative paths</span></span>
+<span id="cb38-204"><a href="#cb38-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-205"><a href="#cb38-205" aria-hidden="true" tabindex="-1"></a>All of the above examples used **relative** paths to navigate based on your working directory at the moment you ran the command.</span>
+<span id="cb38-206"><a href="#cb38-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-207"><a href="#cb38-207" aria-hidden="true" tabindex="-1"></a>We can instead use **absolute** paths so that it doesn't matter where we are when we run the command. Specifying an absolute path is done by having your path start with <span class="in">`/`</span>, such as <span class="in">`/home/jovyan`</span>. If the path doesn't start with <span class="in">`/`</span> then it is interpreted as being a relative path, relative to your working directory. Here we'll go to the <span class="in">`units`</span> subdirectory again, but this time using an absolute path. </span>
+<span id="cb38-208"><a href="#cb38-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-209"><a href="#cb38-209" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-210"><a href="#cb38-210" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd /home/jovyan/compute-skills-2024/units </span>
+<span id="cb38-211"><a href="#cb38-211" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd</span>
+<span id="cb38-212"><a href="#cb38-212" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/jovyan/compute-skills-2024/units</span></span>
+<span id="cb38-213"><a href="#cb38-213" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-214"><a href="#cb38-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-215"><a href="#cb38-215" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb38-216"><a href="#cb38-216" aria-hidden="true" tabindex="-1"></a><span class="fu">## Absolute paths can be dangerous</span></span>
+<span id="cb38-217"><a href="#cb38-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-218"><a href="#cb38-218" aria-hidden="true" tabindex="-1"></a>It's best to generally use relative paths, relative to the main directory of a project.</span>
+<span id="cb38-219"><a href="#cb38-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-220"><a href="#cb38-220" aria-hidden="true" tabindex="-1"></a>Using absolute paths is generally a bad idea for reproducibility and automation because the file system will be different on different machines, so your code wouldn't work correctly anywhere other than your current machine. </span>
+<span id="cb38-221"><a href="#cb38-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-222"><a href="#cb38-222" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb38-223"><a href="#cb38-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-224"><a href="#cb38-224" aria-hidden="true" tabindex="-1"></a><span class="fu">### The filesystem</span></span>
+<span id="cb38-225"><a href="#cb38-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-226"><a href="#cb38-226" aria-hidden="true" tabindex="-1"></a>The filesystem is basically a upside-down tree.</span>
+<span id="cb38-227"><a href="#cb38-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-228"><a href="#cb38-228" aria-hidden="true" tabindex="-1"></a>For example, if we just consider the <span class="in">`compute-skills-2024`</span> directory, we can see the tree structure using <span class="in">`tree`</span> (not available on DataHub):</span>
+<span id="cb38-229"><a href="#cb38-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-230"><a href="#cb38-230" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-231"><a href="#cb38-231" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd /home/jovyan/compute-skills-2024</span>
+<span id="cb38-232"><a href="#cb38-232" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tree</span>
+<span id="cb38-233"><a href="#cb38-233" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-234"><a href="#cb38-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-235"><a href="#cb38-235" aria-hidden="true" tabindex="-1"></a>Often (as is the case here), that would print out a lot of files and directories, so I'll just print out the first few lines of the result here. One doesn't usually use <span class="in">`tree`</span>  that much -- our purpose here is to emphasize the hierarchical, nested structure of the filesystem.</span>
+<span id="cb38-236"><a href="#cb38-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-237"><a href="#cb38-237" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-238"><a href="#cb38-238" aria-hidden="true" tabindex="-1"></a><span class="in">.</span></span>
+<span id="cb38-239"><a href="#cb38-239" aria-hidden="true" tabindex="-1"></a><span class="in">├── assets</span></span>
+<span id="cb38-240"><a href="#cb38-240" aria-hidden="true" tabindex="-1"></a><span class="in">│&nbsp;&nbsp; ├── buttons-alt.ejs</span></span>
+<span id="cb38-241"><a href="#cb38-241" aria-hidden="true" tabindex="-1"></a><span class="in">│&nbsp;&nbsp; ├── buttons.ejs</span></span>
+<span id="cb38-242"><a href="#cb38-242" aria-hidden="true" tabindex="-1"></a><span class="in">│&nbsp;&nbsp; ├── schedule-alt.ejs</span></span>
+<span id="cb38-243"><a href="#cb38-243" aria-hidden="true" tabindex="-1"></a><span class="in">│&nbsp;&nbsp; ├── schedule.ejs</span></span>
+<span id="cb38-244"><a href="#cb38-244" aria-hidden="true" tabindex="-1"></a><span class="in">│&nbsp;&nbsp; ├── stat_bear.png</span></span>
+<span id="cb38-245"><a href="#cb38-245" aria-hidden="true" tabindex="-1"></a><span class="in">│&nbsp;&nbsp; ├── styles-alt.scss</span></span>
+<span id="cb38-246"><a href="#cb38-246" aria-hidden="true" tabindex="-1"></a><span class="in">│&nbsp;&nbsp; └── styles.css</span></span>
+<span id="cb38-247"><a href="#cb38-247" aria-hidden="true" tabindex="-1"></a><span class="in">├── buttons.yml</span></span>
+<span id="cb38-248"><a href="#cb38-248" aria-hidden="true" tabindex="-1"></a><span class="in">├── _freeze</span></span>
+<span id="cb38-249"><a href="#cb38-249" aria-hidden="true" tabindex="-1"></a><span class="in">│&nbsp;&nbsp; ├── site_libs</span></span>
+<span id="cb38-250"><a href="#cb38-250" aria-hidden="true" tabindex="-1"></a><span class="in">│&nbsp;&nbsp; │&nbsp;&nbsp; ├── clipboard</span></span>
+<span id="cb38-251"><a href="#cb38-251" aria-hidden="true" tabindex="-1"></a><span class="in">│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; └── clipboard.min.js</span></span>
+<span id="cb38-252"><a href="#cb38-252" aria-hidden="true" tabindex="-1"></a><span class="in">│&nbsp;&nbsp; │&nbsp;&nbsp; └── quarto-listing</span></span>
+<span id="cb38-253"><a href="#cb38-253" aria-hidden="true" tabindex="-1"></a><span class="in">│&nbsp;&nbsp; │&nbsp;&nbsp;     ├── list.min.js</span></span>
+<span id="cb38-254"><a href="#cb38-254" aria-hidden="true" tabindex="-1"></a><span class="in">│&nbsp;&nbsp; │&nbsp;&nbsp;     └── quarto-listing.js</span></span>
+<span id="cb38-255"><a href="#cb38-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-256"><a href="#cb38-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-257"><a href="#cb38-257" aria-hidden="true" tabindex="-1"></a>The dot (<span class="in">`.`</span>) means "this directory", so the top of the tree here is the <span class="in">`compute-skills-2024`</span> directory itself, within which there are various subdirectories. Then within each of these are files and further subdirectories.</span>
+<span id="cb38-258"><a href="#cb38-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-259"><a href="#cb38-259" aria-hidden="true" tabindex="-1"></a>If we consider the entire filesystem, the top, or root of the tree, is the <span class="in">`/`</span> directory. Within <span class="in">`/`</span> there are subdirectories, such as <span class="in">`/home`</span> (which contains users' home directories where all of the files owned by a user are stored) and <span class="in">`/bin`</span> (containing UNIX programs, aka 'binaries'). We'll use <span class="in">`ls`</span> again, this time telling it the directory to operate on:</span>
+<span id="cb38-260"><a href="#cb38-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-261"><a href="#cb38-261" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-262"><a href="#cb38-262" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls /</span>
+<span id="cb38-263"><a href="#cb38-263" aria-hidden="true" tabindex="-1"></a><span class="ex">bin</span>   dev  home  lib32  libx32  mnt  proc  run   srv  tmp  var</span>
+<span id="cb38-264"><a href="#cb38-264" aria-hidden="true" tabindex="-1"></a><span class="ex">boot</span>  etc  lib   lib64  media   opt  root  sbin  sys  usr</span>
+<span id="cb38-265"><a href="#cb38-265" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-266"><a href="#cb38-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-267"><a href="#cb38-267" aria-hidden="true" tabindex="-1"></a>If there is a user named *jovyan*, everything specific to that user would be stored in <span class="in">`/home/jovyan`</span>. The shortcut <span class="in">`~jovyan`</span> refers to <span class="in">`/home/jovyan`</span>. If you are the <span class="in">`jovyan`</span> user, you can also refer to <span class="in">`/home/jovyan`</span> by the shortcut <span class="in">`~`</span>.</span>
+<span id="cb38-268"><a href="#cb38-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-269"><a href="#cb38-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-270"><a href="#cb38-270" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-271"><a href="#cb38-271" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls /home</span>
+<span id="cb38-272"><a href="#cb38-272" aria-hidden="true" tabindex="-1"></a><span class="ex">jovyan</span> shiny</span>
+<span id="cb38-273"><a href="#cb38-273" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-274"><a href="#cb38-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-275"><a href="#cb38-275" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-276"><a href="#cb38-276" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd /home/jovyan</span>
+<span id="cb38-277"><a href="#cb38-277" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-278"><a href="#cb38-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-279"><a href="#cb38-279" aria-hidden="true" tabindex="-1"></a>Go to the home directory of the current user (which happens to be the <span class="in">`jovyan`</span> user):</span>
+<span id="cb38-280"><a href="#cb38-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-281"><a href="#cb38-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-282"><a href="#cb38-282" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-283"><a href="#cb38-283" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd ~</span>
+<span id="cb38-284"><a href="#cb38-284" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd</span>
+<span id="cb38-285"><a href="#cb38-285" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/jovyan</span></span>
+<span id="cb38-286"><a href="#cb38-286" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-287"><a href="#cb38-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-288"><a href="#cb38-288" aria-hidden="true" tabindex="-1"></a>Go to the home directory of the jovyan user explicitly:</span>
+<span id="cb38-289"><a href="#cb38-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-290"><a href="#cb38-290" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-291"><a href="#cb38-291" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd ~jovyan</span>
+<span id="cb38-292"><a href="#cb38-292" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd</span>
+<span id="cb38-293"><a href="#cb38-293" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/jovyan</span></span>
+<span id="cb38-294"><a href="#cb38-294" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-295"><a href="#cb38-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-296"><a href="#cb38-296" aria-hidden="true" tabindex="-1"></a>Another useful directory is <span class="in">`/tmp`</span>, which is a good place to put temporary files that you only need briefly and don't need to save. These will disappear when a machine is rebooted. </span>
+<span id="cb38-297"><a href="#cb38-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-298"><a href="#cb38-298" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-299"><a href="#cb38-299" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd /tmp</span>
+<span id="cb38-300"><a href="#cb38-300" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span>
+<span id="cb38-301"><a href="#cb38-301" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter-runtime</span></span>
+<span id="cb38-302"><a href="#cb38-302" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-303"><a href="#cb38-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-304"><a href="#cb38-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-305"><a href="#cb38-305" aria-hidden="true" tabindex="-1"></a>We can return to the most recent directory we were in like this:</span>
+<span id="cb38-306"><a href="#cb38-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-307"><a href="#cb38-307" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-308"><a href="#cb38-308" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd <span class="at">-</span></span>
+<span id="cb38-309"><a href="#cb38-309" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd</span>
+<span id="cb38-310"><a href="#cb38-310" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/jovyan</span></span>
+<span id="cb38-311"><a href="#cb38-311" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-312"><a href="#cb38-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-313"><a href="#cb38-313" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using commands</span></span>
+<span id="cb38-314"><a href="#cb38-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-315"><a href="#cb38-315" aria-hidden="true" tabindex="-1"></a><span class="fu">### Overview</span></span>
+<span id="cb38-316"><a href="#cb38-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-317"><a href="#cb38-317" aria-hidden="true" tabindex="-1"></a>Let's look more at various ways to use commands. We just saw the <span class="in">`ls`</span> command. Here's one way we can modify the behavior of the command by passing a command option. Here the <span class="in">`-F`</span> option (also called a *flag*) shows directories by appending `/` to anything that is a directory (rather than a file) and a `*` to anything that is an executable (i.e., a program).</span>
+<span id="cb38-318"><a href="#cb38-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-319"><a href="#cb38-319" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-320"><a href="#cb38-320" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd compute-skills-2024</span>
+<span id="cb38-321"><a href="#cb38-321" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-F</span></span>
+<span id="cb38-322"><a href="#cb38-322" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-F</span> /usr/bin</span>
+<span id="cb38-323"><a href="#cb38-323" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-324"><a href="#cb38-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-325"><a href="#cb38-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-326"><a href="#cb38-326" aria-hidden="true" tabindex="-1"></a>Next we'll use multiple options to the <span class="in">`ls`</span> command. <span class="in">`-l`</span> shows extended information about files/directories. <span class="in">`-t`</span> shows files/directories in order of the time at which they were last modified and <span class="in">`-r`</span> shows in reverse order. Before I run <span class="in">`ls`</span>, I'll create an empty file using the <span class="in">`touch`</span> command. </span>
+<span id="cb38-327"><a href="#cb38-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-328"><a href="#cb38-328" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-329"><a href="#cb38-329" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd</span>
+<span id="cb38-330"><a href="#cb38-330" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> touch example.txt</span>
+<span id="cb38-331"><a href="#cb38-331" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-lrt</span></span>
+<span id="cb38-332"><a href="#cb38-332" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 14496</span>
+<span id="cb38-333"><a href="#cb38-333" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 jovyan jovyan    36365 Aug 29  2022 <span class="st">'Screen Shot 2021-10-26 at 10.54.07 AM.png'</span></span>
+<span id="cb38-334"><a href="#cb38-334" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 jovyan jovyan 14757718 Oct 25  2022  data_c80_regsample_3.dta</span>
+<span id="cb38-335"><a href="#cb38-335" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 jovyan jovyan     2436 Oct 25  2022  Untitled1.ipynb</span>
+<span id="cb38-336"><a href="#cb38-336" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 jovyan jovyan      470 Oct 25  2022  Untitled2.ipynb</span>
+<span id="cb38-337"><a href="#cb38-337" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-------</span> 1 jovyan jovyan      438 Jan  3  2023  WHERE-ARE-MY-FILES.txt</span>
+<span id="cb38-338"><a href="#cb38-338" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 5 jovyan jovyan     4096 May 30 16:12  python-workshop-2023</span>
+<span id="cb38-339"><a href="#cb38-339" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-------</span> 1 jovyan jovyan       75 May 31 16:18  tmphn20xgkx</span>
+<span id="cb38-340"><a href="#cb38-340" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-------</span> 1 jovyan jovyan       91 Jun  3 14:56  tmp4d_d65l_</span>
+<span id="cb38-341"><a href="#cb38-341" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 3 jovyan jovyan     4096 Jun  4 15:58  test-private</span>
+<span id="cb38-342"><a href="#cb38-342" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 4 jovyan jovyan     4096 Jul 19 14:55  test-jh</span>
+<span id="cb38-343"><a href="#cb38-343" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 jovyan jovyan      918 Jul 19 14:59  Untitled.ipynb</span>
+<span id="cb38-344"><a href="#cb38-344" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 jovyan jovyan     4096 Jul 19 15:52  tmp</span>
+<span id="cb38-345"><a href="#cb38-345" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 jovyan jovyan        0 Jul 31 14:10  untitled.py</span>
+<span id="cb38-346"><a href="#cb38-346" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 jovyan jovyan      617 Jul 31 14:12  Untitled3.ipynb</span>
+<span id="cb38-347"><a href="#cb38-347" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 7 jovyan jovyan     4096 Aug  1 15:45  compute-skills-2024</span>
+<span id="cb38-348"><a href="#cb38-348" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 jovyan jovyan        0 Aug  1 16:03  example.txt</span>
+<span id="cb38-349"><a href="#cb38-349" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-350"><a href="#cb38-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-351"><a href="#cb38-351" aria-hidden="true" tabindex="-1"></a>While each command has its own syntax, there are some rules usually</span>
+<span id="cb38-352"><a href="#cb38-352" aria-hidden="true" tabindex="-1"></a>followed. Generally, executing a command consists of four things:</span>
+<span id="cb38-353"><a href="#cb38-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-354"><a href="#cb38-354" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>the command</span>
+<span id="cb38-355"><a href="#cb38-355" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>command option(s)</span>
+<span id="cb38-356"><a href="#cb38-356" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>argument(s) </span>
+<span id="cb38-357"><a href="#cb38-357" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>line acceptance (i.e., hitting &lt;Return&gt;)</span>
+<span id="cb38-358"><a href="#cb38-358" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb38-359"><a href="#cb38-359" aria-hidden="true" tabindex="-1"></a>Here's an example:</span>
+<span id="cb38-360"><a href="#cb38-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-361"><a href="#cb38-361" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-362"><a href="#cb38-362" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="st">"hello there"</span> <span class="op">&gt;&gt;</span> example.txt</span>
+<span id="cb38-363"><a href="#cb38-363" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="st">"and goodbye"</span> <span class="op">&gt;&gt;</span> example.txt</span>
+<span id="cb38-364"><a href="#cb38-364" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="st">"really now"</span> <span class="op">&gt;&gt;</span> example.txt</span>
+<span id="cb38-365"><a href="#cb38-365" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> example.txt</span>
+<span id="cb38-366"><a href="#cb38-366" aria-hidden="true" tabindex="-1"></a><span class="ex">3</span> example.txt</span>
+<span id="cb38-367"><a href="#cb38-367" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-368"><a href="#cb38-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-369"><a href="#cb38-369" aria-hidden="true" tabindex="-1"></a>In the above example, <span class="in">`wc`</span> is the command, <span class="in">`-l`</span> is a command option</span>
+<span id="cb38-370"><a href="#cb38-370" aria-hidden="true" tabindex="-1"></a>specifying to count the number of lines, <span class="in">`example.txt`</span> is the argument, and the</span>
+<span id="cb38-371"><a href="#cb38-371" aria-hidden="true" tabindex="-1"></a>line acceptance is indicated by hitting the <span class="in">`&lt;Return&gt;`</span> key at the end of</span>
+<span id="cb38-372"><a href="#cb38-372" aria-hidden="true" tabindex="-1"></a>the line.</span>
+<span id="cb38-373"><a href="#cb38-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-374"><a href="#cb38-374" aria-hidden="true" tabindex="-1"></a>So that invocation counts the number of lines in the file named <span class="in">`example.txt`</span>.</span>
+<span id="cb38-375"><a href="#cb38-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-376"><a href="#cb38-376" aria-hidden="true" tabindex="-1"></a>The spaces are required and distinguish the different parts of the invocation. For this reason,</span>
+<span id="cb38-377"><a href="#cb38-377" aria-hidden="true" tabindex="-1"></a>it's generally a bad idea to have spaces within file names. But if you do, you can</span>
+<span id="cb38-378"><a href="#cb38-378" aria-hidden="true" tabindex="-1"></a>use quotation marks to distinguish the file name, e.g.,</span>
+<span id="cb38-379"><a href="#cb38-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-380"><a href="#cb38-380" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-381"><a href="#cb38-381" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-l</span> <span class="st">"name of my file with spaces.txt"</span></span>
+<span id="cb38-382"><a href="#cb38-382" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-383"><a href="#cb38-383" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-384"><a href="#cb38-384" aria-hidden="true" tabindex="-1"></a>Also, capitalization matters. For example <span class="in">`-l`</span> and <span class="in">`-L`</span> are different options.</span>
+<span id="cb38-385"><a href="#cb38-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-386"><a href="#cb38-386" aria-hidden="true" tabindex="-1"></a>Note that options, arguments, or both might not be included in some cases. Recall that we've used <span class="in">`ls`</span></span>
+<span id="cb38-387"><a href="#cb38-387" aria-hidden="true" tabindex="-1"></a>without either options or arguments.</span>
+<span id="cb38-388"><a href="#cb38-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-389"><a href="#cb38-389" aria-hidden="true" tabindex="-1"></a>Arguments are usually one or more files or directories.</span>
+<span id="cb38-390"><a href="#cb38-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-391"><a href="#cb38-391" aria-hidden="true" tabindex="-1"></a><span class="fu">### Options</span></span>
+<span id="cb38-392"><a href="#cb38-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-393"><a href="#cb38-393" aria-hidden="true" tabindex="-1"></a>Often we can specify an option either in short form (as with <span class="in">`-l`</span> here)</span>
+<span id="cb38-394"><a href="#cb38-394" aria-hidden="true" tabindex="-1"></a>or long form (<span class="in">`--lines`</span> here), as seen in the following equivalent invocations:</span>
+<span id="cb38-395"><a href="#cb38-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-396"><a href="#cb38-396" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-397"><a href="#cb38-397" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> example.txt</span>
+<span id="cb38-398"><a href="#cb38-398" aria-hidden="true" tabindex="-1"></a><span class="ex">3</span> example.txt</span>
+<span id="cb38-399"><a href="#cb38-399" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">--lines</span> example.txt</span>
+<span id="cb38-400"><a href="#cb38-400" aria-hidden="true" tabindex="-1"></a><span class="ex">3</span> example.txt</span>
+<span id="cb38-401"><a href="#cb38-401" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-402"><a href="#cb38-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-403"><a href="#cb38-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-404"><a href="#cb38-404" aria-hidden="true" tabindex="-1"></a>We can also ask for the number of characters with the <span class="in">`-m`</span> option, which can</span>
+<span id="cb38-405"><a href="#cb38-405" aria-hidden="true" tabindex="-1"></a>be combined with the <span class="in">`-l`</span> option equivalently in two ways:</span>
+<span id="cb38-406"><a href="#cb38-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-407"><a href="#cb38-407" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-408"><a href="#cb38-408" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-lm</span> example.txt</span>
+<span id="cb38-409"><a href="#cb38-409" aria-hidden="true" tabindex="-1"></a>  <span class="ex">3</span> 35 example.txt</span>
+<span id="cb38-410"><a href="#cb38-410" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="at">-m</span> example.txt</span>
+<span id="cb38-411"><a href="#cb38-411" aria-hidden="true" tabindex="-1"></a>  <span class="ex">3</span> 35 example.txt</span>
+<span id="cb38-412"><a href="#cb38-412" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-413"><a href="#cb38-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-414"><a href="#cb38-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-415"><a href="#cb38-415" aria-hidden="true" tabindex="-1"></a>Options will often take values, e.g., if we want to get the first two lines of the file,</span>
+<span id="cb38-416"><a href="#cb38-416" aria-hidden="true" tabindex="-1"></a>the following invocations are equivalent:</span>
+<span id="cb38-417"><a href="#cb38-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-418"><a href="#cb38-418" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-419"><a href="#cb38-419" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> head <span class="at">-n</span> 2 example.txt</span>
+<span id="cb38-420"><a href="#cb38-420" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> head <span class="at">--lines</span><span class="op">=</span>2 example.txt</span>
+<span id="cb38-421"><a href="#cb38-421" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> head <span class="at">--lines</span> 2 example.txt</span>
+<span id="cb38-422"><a href="#cb38-422" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-423"><a href="#cb38-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-424"><a href="#cb38-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-425"><a href="#cb38-425" aria-hidden="true" tabindex="-1"></a><span class="fu">### Comments</span></span>
+<span id="cb38-426"><a href="#cb38-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-427"><a href="#cb38-427" aria-hidden="true" tabindex="-1"></a>Anything that follows <span class="in">`#`</span> is a comment and is ignored.</span>
+<span id="cb38-428"><a href="#cb38-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-429"><a href="#cb38-429" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-430"><a href="#cb38-430" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> <span class="co"># This is ignored</span></span>
+<span id="cb38-431"><a href="#cb38-431" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls  <span class="co"># Everything after the # is ignored</span></span>
+<span id="cb38-432"><a href="#cb38-432" aria-hidden="true" tabindex="-1"></a> <span class="ex">compute-skills-2024</span>                          test-jh           Untitled2.ipynb</span>
+<span id="cb38-433"><a href="#cb38-433" aria-hidden="true" tabindex="-1"></a> <span class="ex">data_c80_regsample_3.dta</span>                     test-private      Untitled3.ipynb</span>
+<span id="cb38-434"><a href="#cb38-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-435"><a href="#cb38-435" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-436"><a href="#cb38-436" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-437"><a href="#cb38-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-438"><a href="#cb38-438" aria-hidden="true" tabindex="-1"></a><span class="fu">### Getting help with UNIX commands</span></span>
+<span id="cb38-439"><a href="#cb38-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-440"><a href="#cb38-440" aria-hidden="true" tabindex="-1"></a>Essentially all UNIX commands have  help information (called a man page), accessed using <span class="in">`man`</span>.</span>
+<span id="cb38-441"><a href="#cb38-441" aria-hidden="true" tabindex="-1"></a>Unfortunately the man pages are not available on the DataHub terminal (I can demo it on my laptop terminal instead...).</span>
+<span id="cb38-442"><a href="#cb38-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-443"><a href="#cb38-443" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-444"><a href="#cb38-444" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> man ls</span>
+<span id="cb38-445"><a href="#cb38-445" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-446"><a href="#cb38-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-447"><a href="#cb38-447" aria-hidden="true" tabindex="-1"></a>Once you are in the *man* page, you can navigate by hitting <span class="in">`&lt;space&gt;`</span> (to scroll down) and the <span class="in">`&lt;up&gt;`</span> and <span class="in">`&lt;down&gt;`</span> arrows. You can search by typing <span class="in">`/`</span>, typing the string you want to search for and hitting <span class="in">`&lt;Return&gt;`</span>. You can use <span class="in">`n`</span> and <span class="in">`p`</span> for the next and previous search hits and <span class="in">`q`</span> to quit out of the search.</span>
+<span id="cb38-448"><a href="#cb38-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-449"><a href="#cb38-449" aria-hidden="true" tabindex="-1"></a>Unfortunately *man* pages are often quite long, hard to understand, and without examples. But the information you need is usually there if you take the time to look for it.</span>
+<span id="cb38-450"><a href="#cb38-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-451"><a href="#cb38-451" aria-hidden="true" tabindex="-1"></a>Also, UNIX commands as well as other programs run from the command line often provide help information via the <span class="in">`--help`</span> option, e.g., for help on <span class="in">`ls`</span>:</span>
+<span id="cb38-452"><a href="#cb38-452" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-453"><a href="#cb38-453" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-454"><a href="#cb38-454" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">--help</span></span>
+<span id="cb38-455"><a href="#cb38-455" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-456"><a href="#cb38-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-457"><a href="#cb38-457" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tab completion</span></span>
+<span id="cb38-458"><a href="#cb38-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-459"><a href="#cb38-459" aria-hidden="true" tabindex="-1"></a>If you hit <span class="in">`Tab`</span> the shell tries to figure out what command or filename you want based on the initial letters you typed.</span>
+<span id="cb38-460"><a href="#cb38-460" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-461"><a href="#cb38-461" aria-hidden="true" tabindex="-1"></a>Try it with:</span>
+<span id="cb38-462"><a href="#cb38-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-463"><a href="#cb38-463" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-464"><a href="#cb38-464" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> com</span>
+<span id="cb38-465"><a href="#cb38-465" aria-hidden="true" tabindex="-1"></a><span class="ex">ech</span></span>
+<span id="cb38-466"><a href="#cb38-466" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-467"><a href="#cb38-467" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-468"><a href="#cb38-468" aria-hidden="true" tabindex="-1"></a>The first should allow you to get <span class="in">`compute-skills-2024`</span> and the second <span class="in">`echo`</span>.</span>
+<span id="cb38-469"><a href="#cb38-469" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-470"><a href="#cb38-470" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb38-471"><a href="#cb38-471" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tab completion everywhere</span></span>
+<span id="cb38-472"><a href="#cb38-472" aria-hidden="true" tabindex="-1"></a>Lots of interactive programs have adopted the idea of tab completion, including Python/IPython and R.</span>
+<span id="cb38-473"><a href="#cb38-473" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb38-474"><a href="#cb38-474" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-475"><a href="#cb38-475" aria-hidden="true" tabindex="-1"></a><span class="fu">### Command history</span></span>
+<span id="cb38-476"><a href="#cb38-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-477"><a href="#cb38-477" aria-hidden="true" tabindex="-1"></a>Hit the <span class="in">`up`</span> key. You should see the previous command you typed.</span>
+<span id="cb38-478"><a href="#cb38-478" aria-hidden="true" tabindex="-1"></a>Hit it again. You should see the 2nd most recent command.</span>
+<span id="cb38-479"><a href="#cb38-479" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-480"><a href="#cb38-480" aria-hidden="true" tabindex="-1"></a><span class="in">`Ctrl-a`</span> and <span class="in">`Ctrl-e`</span> navigate to the beginning and end of a line. You can edit your previous command and then hit <span class="in">`Enter`</span> to run the modified code.</span>
+<span id="cb38-481"><a href="#cb38-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-482"><a href="#cb38-482" aria-hidden="true" tabindex="-1"></a><span class="fu">### Seeing if a command or program is available</span></span>
+<span id="cb38-483"><a href="#cb38-483" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-484"><a href="#cb38-484" aria-hidden="true" tabindex="-1"></a>You can see if a command or program is installed (and where it is installed) using <span class="in">`type`</span>.</span>
+<span id="cb38-485"><a href="#cb38-485" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-486"><a href="#cb38-486" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-487"><a href="#cb38-487" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> type grep</span>
+<span id="cb38-488"><a href="#cb38-488" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> is /usr/bin/grep</span>
+<span id="cb38-489"><a href="#cb38-489" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> type R</span>
+<span id="cb38-490"><a href="#cb38-490" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span> is /usr/bin/R</span>
+<span id="cb38-491"><a href="#cb38-491" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> type python</span>
+<span id="cb38-492"><a href="#cb38-492" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> is /srv/conda/bin/python</span>
+<span id="cb38-493"><a href="#cb38-493" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-494"><a href="#cb38-494" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-495"><a href="#cb38-495" aria-hidden="true" tabindex="-1"></a><span class="fu">## Working with files</span></span>
+<span id="cb38-496"><a href="#cb38-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-497"><a href="#cb38-497" aria-hidden="true" tabindex="-1"></a><span class="fu">### Copying and removing files</span></span>
+<span id="cb38-498"><a href="#cb38-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-499"><a href="#cb38-499" aria-hidden="true" tabindex="-1"></a>You'll often want to make a copy (<span class="in">`cp`</span>) of a file, move it (<span class="in">`mv`</span>) between directories, or remove it (<span class="in">`rm`</span>). </span>
+<span id="cb38-500"><a href="#cb38-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-501"><a href="#cb38-501" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-502"><a href="#cb38-502" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd ~/compute-skills-2024/units</span>
+<span id="cb38-503"><a href="#cb38-503" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cp calc.py calc-new.py</span>
+<span id="cb38-504"><a href="#cb38-504" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mv calc-new.py /tmp/.</span>
+<span id="cb38-505"><a href="#cb38-505" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd /tmp</span>
+<span id="cb38-506"><a href="#cb38-506" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-lrt</span></span>
+<span id="cb38-507"><a href="#cb38-507" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 8</span>
+<span id="cb38-508"><a href="#cb38-508" aria-hidden="true" tabindex="-1"></a><span class="ex">drwx-----T</span> 2 jovyan jovyan 4096 Aug  1 16:15 jupyter-runtime</span>
+<span id="cb38-509"><a href="#cb38-509" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 jovyan jovyan  413 Aug  1 16:16 calc-new.py</span>
+<span id="cb38-510"><a href="#cb38-510" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-511"><a href="#cb38-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-512"><a href="#cb38-512" aria-hidden="true" tabindex="-1"></a>When we moved the file, the use of <span class="in">`.`</span> in <span class="in">`/tmp/.`</span> indicates we want to use the same name as the original file.</span>
+<span id="cb38-513"><a href="#cb38-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-514"><a href="#cb38-514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-515"><a href="#cb38-515" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-516"><a href="#cb38-516" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm calc-new.py</span>
+<span id="cb38-517"><a href="#cb38-517" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-lrt</span></span>
+<span id="cb38-518"><a href="#cb38-518" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 4</span>
+<span id="cb38-519"><a href="#cb38-519" aria-hidden="true" tabindex="-1"></a><span class="ex">drwx-----T</span> 2 jovyan jovyan 4096 Aug  1 16:15 jupyter-runtime</span>
+<span id="cb38-520"><a href="#cb38-520" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-521"><a href="#cb38-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-522"><a href="#cb38-522" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb38-523"><a href="#cb38-523" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-524"><a href="#cb38-524" aria-hidden="true" tabindex="-1"></a><span class="fu">## `rm` cannot be undone</span></span>
+<span id="cb38-525"><a href="#cb38-525" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-526"><a href="#cb38-526" aria-hidden="true" tabindex="-1"></a>I used <span class="in">`rm`</span> above to remove the file. Be very careful about removing files - there is no Trash folder in UNIX - once a file is removed, it's gone for good.</span>
+<span id="cb38-527"><a href="#cb38-527" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-528"><a href="#cb38-528" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb38-529"><a href="#cb38-529" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-530"><a href="#cb38-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-531"><a href="#cb38-531" aria-hidden="true" tabindex="-1"></a>The <span class="in">`mv`</span> command is also used if you want to rename a file. </span>
+<span id="cb38-532"><a href="#cb38-532" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-533"><a href="#cb38-533" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd ~/compute-skills-2020/units</span>
+<span id="cb38-534"><a href="#cb38-534" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mv session3.qmd _sesson3.qmd</span>
+<span id="cb38-535"><a href="#cb38-535" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span>
+<span id="cb38-536"><a href="#cb38-536" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-537"><a href="#cb38-537" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-538"><a href="#cb38-538" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-539"><a href="#cb38-539" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises: shell commands</span></span>
+<span id="cb38-540"><a href="#cb38-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-541"><a href="#cb38-541" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb38-542"><a href="#cb38-542" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
+<span id="cb38-543"><a href="#cb38-543" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-544"><a href="#cb38-544" aria-hidden="true" tabindex="-1"></a>Where is <span class="in">`gzip`</span> installed on the system? What are some other commands/executables that are installed in the same directory?</span>
+<span id="cb38-545"><a href="#cb38-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-546"><a href="#cb38-546" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb38-547"><a href="#cb38-547" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-548"><a href="#cb38-548" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb38-549"><a href="#cb38-549" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
+<span id="cb38-550"><a href="#cb38-550" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-551"><a href="#cb38-551" aria-hidden="true" tabindex="-1"></a>Try to run the following command <span class="in">`mkdir ~/projects/drought`</span>. It will fail. Look in the help information on <span class="in">`mkdir`</span> to figure out how to make it work without first creating the <span class="in">`projects`</span> directory.</span>
+<span id="cb38-552"><a href="#cb38-552" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb38-553"><a href="#cb38-553" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-554"><a href="#cb38-554" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb38-555"><a href="#cb38-555" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 3</span></span>
+<span id="cb38-556"><a href="#cb38-556" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-557"><a href="#cb38-557" aria-hidden="true" tabindex="-1"></a>Figure out how to list out the files in a directory in order of decreasing file size, as a way to see easily what the big files are that are taking up the most space. Modify this command to get the result in the ascending order.</span>
+<span id="cb38-558"><a href="#cb38-558" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb38-559"><a href="#cb38-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-560"><a href="#cb38-560" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb38-561"><a href="#cb38-561" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 4</span></span>
+<span id="cb38-562"><a href="#cb38-562" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-563"><a href="#cb38-563" aria-hidden="true" tabindex="-1"></a>Figure out how to copy an entire directory and have the timestamps of the files retained rather than having the timestamps be the time that you copied the files.</span>
+<span id="cb38-564"><a href="#cb38-564" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-565"><a href="#cb38-565" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb38-566"><a href="#cb38-566" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-567"><a href="#cb38-567" aria-hidden="true" tabindex="-1"></a><span class="fu">## Running processes</span></span>
+<span id="cb38-568"><a href="#cb38-568" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-569"><a href="#cb38-569" aria-hidden="true" tabindex="-1"></a>We'll run a simple linear algebra operation in Python to illustrate how we can monitor what is happening on a machine.</span>
+<span id="cb38-570"><a href="#cb38-570" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-571"><a href="#cb38-571" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb38-572"><a href="#cb38-572" aria-hidden="true" tabindex="-1"></a><span class="fu">## DataHub memory limits</span></span>
+<span id="cb38-573"><a href="#cb38-573" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-574"><a href="#cb38-574" aria-hidden="true" tabindex="-1"></a>Be careful about increasing <span class="in">`n`</span> in the example below when on DataHub. Basic DataHub virtual machines by default only have 1 GB memory, so don't increase <span class="in">`n`</span> below or you may run out of memory if running on DataHub and this can cause problems in your DataHub session. If you're doing this as part of the workshop, we've increased those limits somewhat, so somewhat larger values of <span class="in">`n`</span> should be fine.</span>
+<span id="cb38-575"><a href="#cb38-575" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-576"><a href="#cb38-576" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb38-577"><a href="#cb38-577" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-580"><a href="#cb38-580" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb38-581"><a href="#cb38-581" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb38-582"><a href="#cb38-582" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb38-583"><a href="#cb38-583" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb38-584"><a href="#cb38-584" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-585"><a href="#cb38-585" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_linalg(n):</span>
+<span id="cb38-586"><a href="#cb38-586" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> np.random.normal(<span class="dv">0</span>, <span class="dv">1</span>, size<span class="op">=</span>(n, n))</span>
+<span id="cb38-587"><a href="#cb38-587" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(time.time())</span>
+<span id="cb38-588"><a href="#cb38-588" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> z.T.dot(z)   <span class="co"># x = z'z</span></span>
+<span id="cb38-589"><a href="#cb38-589" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(time.time())</span>
+<span id="cb38-590"><a href="#cb38-590" aria-hidden="true" tabindex="-1"></a>    U <span class="op">=</span> np.linalg.cholesky(x)  <span class="co"># factorize as x = U'U</span></span>
+<span id="cb38-591"><a href="#cb38-591" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(time.time())</span>
+<span id="cb38-592"><a href="#cb38-592" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-593"><a href="#cb38-593" aria-hidden="true" tabindex="-1"></a><span class="co">## This allows us to run the code from the command line</span></span>
+<span id="cb38-594"><a href="#cb38-594" aria-hidden="true" tabindex="-1"></a><span class="co">## without running it when we import the file as a module.</span></span>
+<span id="cb38-595"><a href="#cb38-595" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb38-596"><a href="#cb38-596" aria-hidden="true" tabindex="-1"></a>    run_linalg(<span class="dv">4000</span>)</span>
+<span id="cb38-597"><a href="#cb38-597" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-598"><a href="#cb38-598" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-599"><a href="#cb38-599" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb38-600"><a href="#cb38-600" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> calc.py</span>
+<span id="cb38-601"><a href="#cb38-601" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-602"><a href="#cb38-602" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-603"><a href="#cb38-603" aria-hidden="true" tabindex="-1"></a>We might need to run it in a loop to be able to monitor the running process (since it finishes so quickly): `for ((i=0;i&lt;10;i++)); do python calc.py; done```</span>
+<span id="cb38-604"><a href="#cb38-604" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-605"><a href="#cb38-605" aria-hidden="true" tabindex="-1"></a><span class="fu">### Monitoring CPU and memory use</span></span>
+<span id="cb38-606"><a href="#cb38-606" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-607"><a href="#cb38-607" aria-hidden="true" tabindex="-1"></a>We can see CPU and memory usage via <span class="in">`top`</span>.</span>
+<span id="cb38-608"><a href="#cb38-608" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-609"><a href="#cb38-609" aria-hidden="true" tabindex="-1"></a>If we see more than 100% CPU usage, that indicates that the process is running a computation in parallel using multiple threads.</span>
+<span id="cb38-610"><a href="#cb38-610" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-611"><a href="#cb38-611" aria-hidden="true" tabindex="-1"></a>What about if we see less than 100% CPU usage?</span>
+<span id="cb38-612"><a href="#cb38-612" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-613"><a href="#cb38-613" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>Our process might be busy doing I/O (reading/writing to/from disk).</span>
+<span id="cb38-614"><a href="#cb38-614" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>Our process might be waiting for data from the internet or from another machine on the network.</span>
+<span id="cb38-615"><a href="#cb38-615" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>The machine might be running low on physical memory, which in some cases will involve using disk as additional memory (slow!).</span>
+<span id="cb38-616"><a href="#cb38-616" aria-hidden="true" tabindex="-1"></a> </span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
