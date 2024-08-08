@@ -260,7 +260,7 @@ Look at your partner's code in terms of how it handles the stopping criterion or
 
 Make a pull request that tries to improve how that is handled.
 
-Then review the pull request your partner makes in your repository.
+Then review the pull request your partner makes in your repository. Iterate with your partner until you are happy to merge the pull request into your repository. Remember to then run `git pull` to get the changes in the local copy of the repository.
 
 
 # 9. Packaging and Conda environments
@@ -268,7 +268,7 @@ Then review the pull request your partner makes in your repository.
 ## Basic Python packages
 
 What's a package? In general it is software that is provided as a bundle that can be downloaded and made available on your computer.
-Some packages (e.g., R, Python themselves) are stand-alone packages. Others (such as R packages and Python packages) are add-on functionality that works with stand-alone software.
+Some packages (e.g., R, Python themselves) are stand-alone packages. Others (such as R packages and Python packages) are add-on functionality that works with and extends the functionality of the stand-alone software.
 
 What do we need to have a Python package?
 
@@ -338,7 +338,7 @@ mytoy.toy(7)
 
 It would take more work to make the package available in a repository such as PyPI or via Conda.
 
-## Exercise
+## Exercise: Make your own package
 
 Make a package out of your Newton method code, following the structure of `mytoy`. Include your tests as part of the package.
 

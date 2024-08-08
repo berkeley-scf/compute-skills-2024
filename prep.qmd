@@ -1,5 +1,5 @@
 ---
-title: "Accessing DataHub"
+title: "Using DataHub as a commmon computational environment"
 format:
   html:
     theme: cosmo
@@ -10,8 +10,6 @@ format:
 execute:
   freeze: auto
 ---
-
-# Using DataHub as a commmon computational environment
 
 While in principle, it's fine to use your laptop, it will be hard for us to diagnose all the different problems that might arise with so many participants. So we recommend using a common computational environment during the workshop. We'll use the Berkeley DataHub for this. You can think of DataHub as providing user-specific virtual machines with identical software for all of us to use.
 

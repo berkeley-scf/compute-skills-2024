@@ -598,7 +598,13 @@ if __name__ == '__main__':
 python calc.py
 ```
 
-We might need to run it in a loop to be able to monitor the running process (since it finishes so quickly): `for ((i=0;i<10;i++)); do python calc.py; done```
+We might need to run it in a loop to be able to monitor the running process (since it finishes so quickly):
+
+```
+for ((i=0;i<10;i++)); do
+  python calc.py
+done
+```
 
 ### Monitoring CPU and memory use
 

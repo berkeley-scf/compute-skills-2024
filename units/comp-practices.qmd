@@ -220,6 +220,10 @@ Some tips:
 If you find your commit message is covering multiple topics, it probably means you should
 have made multiple ("atomic") commits.
 
+## Exercise: Put your code in your repository
+
+Add your new code to your repository. Then commit and push to GitHub.
+
 ## Exercise: code review
 
 #### Step 1: Make suggestions
@@ -570,6 +574,11 @@ You'll want cases where you know the correct answer. Start simple.
 For now don't modify your code even if you start to suspect how it might fail. Writing the tests and then modifying code so they pass is an example of *test-driven development*.
 :::
 
+## Exceptions in Python
+
+To understand how Python handles error, we'll briefly work through the [Errors and Exceptions section](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html){target="_blank"} of the Software Carpentry workshop. The primary ideas covered are understanding error messages and tracebacks and writing your own code that handles errors.
+
+
 ## Exercise: Error trapping, robust code, and defensive programming
 
 Now we'll try to go beyond simply returning a failed result and see if we can trap problems early on and write more robust code. 
@@ -581,7 +590,7 @@ Work on the following improvements:
 - Modify your function so that when it fails, the result is informative to the user.
   - Include a success/failure code (flag) in your output.
 
-We don't have time to go fully into how Python handles errors (called exceptions). Here are a few basic things you can do to *raise* an *exception* (i.e., to report an error):
+Your code should handle errors using exceptions, as discussed earlier for Python itself. We don't have time to go fully into how Python handles the wide variety of exceptions. But here are a few basic things you can do to *raise* an *exception* (i.e., to report an error):
 
 ```
 if not callable(f):
