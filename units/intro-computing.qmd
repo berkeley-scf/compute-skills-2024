@@ -1,5 +1,5 @@
 ---
-title: "(Optional) Introduction to Computing and the Command Line"
+title: "Introduction to Computing and the Command Line (optional)"
 format:
   html:
     theme: cosmo
