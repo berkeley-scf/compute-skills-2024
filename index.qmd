@@ -30,9 +30,9 @@ In advance, there will also be an optional introduction to computing concepts an
 
 See the [syllabus/overview](syllabus.html) for more details on workshop content.
 
-## Logistics:
+## Logistics (times and locations)
 
-### Optional Sessions
+### Optional Sessions (Tuesday/Wednesday)
 
 Location: [334 Evans Hall](https://www.berkeley.edu/map/evans-hall/)
 
@@ -46,7 +46,7 @@ Times:
  - Wednesday August 21, 8:30 a.m - 3:00 p.m. with a one-hour lunch break.
 
 
-### Core Sessions
+### Core Sessions (Thursday/Friday)
 
 Location: [101 Barker Hall](https://www.berkeley.edu/map/barker-hall/)
 
