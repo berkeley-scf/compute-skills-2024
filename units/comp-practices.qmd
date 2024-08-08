@@ -18,24 +18,6 @@ execute:
 This module is drafted but still under construction.
 :::
 
-::: {.callout-note collapse="true"}
-## CJP development notes
-links:
-
-- https://software-carpentry.org/lessons/
-- https://ucb-stat-159-s23.github.io/site (/var/tmp/site/lectures/intro-git)
-- https://docs.google.com/document/d/1osbFw5hTnt7wH7xnm_lIf2l0Ffn5c-xHyPEssbBvGXo/edit
-
-export GIT_CONFIG_NOSYSTEM=1
-
-NOTES:
-might need to set merging policy:
-
-
-install ruff in DataHub and on SCF
-
-:::
-
 ::: {.callout-note}
 ## Overview
 
@@ -128,51 +110,11 @@ It's also possible to [create the repository from the terminal on your machine](
 
 :::
 
-## Accessing  GitHub repositories from JupyterHub
+## Accessing  GitHub repositories from DataHub
 
 Authenticating with GitHub can be a bit tricky, particularly when using DataHub (i.e., JupyterHub).
 
-::: {.callout-note}
-## Accessing GitHub from your laptop rather than DataHub
-If you're on your laptop and already set up to use GitHub, you don't need to do the steps in this section,
-but if you're using your laptop and not set up to use GitHub, these instructions should work there too.
-(it may also depend on the version of `git` you are using; e.g., version 2.34.1 is too old but 2.39 should be fine).
-:::
-
-We'll use a tool (an 'app') that helps us with this, provided in the `gh_scoped_creds` Python package.
-
-First configure git in the terminal:
-
-```bash
-git config --global user.name "Jane Doe"
-git config --global user.email "jane_doe@berkeley.edu"
-
-git config --global color.ui "auto"
-
-git config --global pull.rebase false
-```
-
-That will modify your `~/.gitconfig` file. 
-
-Then run this in the terminal:
-
-```bash
-gh-scoped-creds
-```
-
-Or you could instead run this in IPython or Jupyter Notebook:
-
-```{python}
-#| eval: false
-import gh_scoped_creds
-%ghscopedcreds
-```
-
-When you do that you'll see a [link](https://github.com/login/device) and a code. Go to the link in a browser (on your laptop, outside of DataHub), click `Continue`, input the code, and click `Authorize Berkeley-Datahub-Git-Access`. This will grant access to GitHub from JupyterHub for 8 hours (or until you stop your JupyterHub server).
-
-Then (only the first time you are doing all this) go to the URL that is printed out (which should be <https://github.com/apps/stat-computing-jupyterhub)> and click on `Install` (and then if you have access to multiple GitHub organizations, choose your personal org, namely your GitHub username). Choose `Only select repositories` and select the repository you are using for the workshop, namely `newton-practice`. Then click `Install`.
-
-[TODO: check the last set of instructions to make sure they are correct and easy to follow.]
+Please see [these instructions](../prep.qmd#accessing-github-repositories-from-datahub).
 
 ## Basic use of a repository
 

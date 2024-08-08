@@ -14,7 +14,9 @@ execute:
 
 # Using DataHub as a commmon computational environment
 
-While it's fine to use your laptop, it will be hard for us to diagnose all the different problems that might arise with so many participants. So we recommend using a common computational environment during the workshop. We'll use the Berkeley DataHub for this. You can think of DataHub as providing user-specific virtual machines with identical software for all of us to use.
+While in principle, it's fine to use your laptop, it will be hard for us to diagnose all the different problems that might arise with so many participants. So we recommend using a common computational environment during the workshop. We'll use the Berkeley DataHub for this. You can think of DataHub as providing user-specific virtual machines with identical software for all of us to use.
+
+The exception is that if you already have experience using your laptop with the shell/terminal, Git (and pushing to GitHub) and Python.
 
 Click [here](https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fberkeley-scf%2Fcompute-skills-2024&urlpath=lab%2Ftree%2Fcompute-skills-2024%2F&branch=main){target="_blank"} to access your own machine/server with Python, git, and terminal access on the campus DataHub (also used for various data science, CS, and statistics courses).
 
@@ -47,3 +49,54 @@ To create a script file containing just code, do `File` -> `New` -> `Python file
 You can stop your server via `File`-> `Hub Control Panel` -> `Stop My Server`.
 
 If you only log out, any ongoing computations will still run in the background.
+
+# Accessing  GitHub repositories from DataHub
+
+(These instructions are needed only for the main sessions of the workshop, Thursday and Friday.)
+
+Authenticating with GitHub can be a bit tricky, particularly when using DataHub (i.e., JupyterHub).
+
+::: {.callout-note}
+## Accessing GitHub from your laptop rather than DataHub
+If you're on your laptop and already set up to use GitHub, you don't need to do the steps in this section,
+but if you're using your laptop and not set up to use GitHub, these instructions should work there too.
+(it may also depend on the version of `git` you are using; e.g., version 2.34.1 is too old but 2.39 should be fine). You'll need to install `gh-scoped-creds` via `pip install`.
+
+That said, if you haven't already used Git on your laptop and pushed changes up to GitHub, it's best if you work
+in DataHub so that we don't have to troubleshoot laptop issues for multiple participants.
+
+:::
+
+We'll use a tool (an 'app') that helps us with this, provided in the `gh_scoped_creds` Python package.
+
+First configure git in the terminal:
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your_name@berkeley.edu"
+
+git config --global color.ui "auto"
+
+git config --global pull.rebase false
+```
+
+That will modify your `~/.gitconfig` file. 
+
+Then run this in the terminal:
+
+```bash
+gh-scoped-creds
+```
+
+Or you could instead run this in IPython or Jupyter Notebook:
+
+```{python}
+#| eval: false
+import gh_scoped_creds
+%ghscopedcreds
+```
+
+When you do that you'll see a [link](https://github.com/login/device){target="_blank"} and a code. Go to the link in a browser (on your laptop, outside of DataHub), login to GitHub (or click `Continue` if already logged in), input the code, and click `Authorize Berkeley-DataHub-Git-Access`. This will grant access to GitHub from JupyterHub for 8 hours (or until you stop your JupyterHub server).
+
+Then (only the first time you are doing all this) go to the URL that is printed out in your terminal (which should be [https://github.com/apps/berkeley-datahub-git-access](https://github.com/apps/berkeley-datahub-git-access){target="_blank"} and click on `Install` (and then if you have access to multiple GitHub organizations, choose your personal org, namely your GitHub username). Choose `Only select repositories` and select the repository you are using for the workshop, namely `newton-practice`. Then click `Install`.
+

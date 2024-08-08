@@ -340,7 +340,9 @@ It would take more work to make the package available in a repository such as Py
 
 ## Exercise
 
-Make a package out of your Newton method code.
+Make a package out of your Newton method code, following the structure of `mytoy`. Include your tests as part of the package.
+
+See if you can install your package, run the tests, and use the package, following the `README.md` of `mytoy`.
 
 ## Installing packages
 
