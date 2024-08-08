@@ -275,7 +275,7 @@ window.Quarto = {
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#a-minimal-real-package" id="toc-a-minimal-real-package" class="nav-link" data-scroll-target="#a-minimal-real-package">A minimal “real” package</a></li>
   </ul></li>
-  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
+  <li><a href="#exercise-make-your-own-package" id="toc-exercise-make-your-own-package" class="nav-link" data-scroll-target="#exercise-make-your-own-package">Exercise: Make your own package</a></li>
   <li><a href="#installing-packages" id="toc-installing-packages" class="nav-link" data-scroll-target="#installing-packages">Installing packages</a>
   <ul class="collapse">
   <li><a href="#reproducibility-and-package-management" id="toc-reproducibility-and-package-management" class="nav-link" data-scroll-target="#reproducibility-and-package-management">Reproducibility and package management</a></li>
@@ -349,7 +349,7 @@ Overview
 <h3 class="anchored" data-anchor-id="random-number-seed">Random number seed</h3>
 <p>The <em>seed</em> determines where in the cycle of the periodic sequence you are.</p>
 <p>It’s critical for ensuring reproducibility when running code that uses random numbers</p>
-<div id="f49c21d3" class="cell" data-execution_count="1">
+<div id="c941e131" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -360,7 +360,7 @@ Overview
 <pre><code>array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763])</code></pre>
 </div>
 </div>
-<div id="d37e360c" class="cell" data-execution_count="2">
+<div id="04ef9503" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>np.random.normal(size <span class="op">=</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -369,7 +369,7 @@ Overview
 <pre><code>array([-2.3015387 ,  1.74481176, -0.7612069 ,  0.3190391 , -0.24937038])</code></pre>
 </div>
 </div>
-<div id="d908145d" class="cell" data-execution_count="3">
+<div id="5181a925" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">1</span>)</span>
@@ -385,7 +385,7 @@ Overview
 <h3 class="anchored" data-anchor-id="random-number-generators">Random number generators</h3>
 <p>If you don’t do anything, numpy will use a generator called the Mersenne Twister (that’s the default in R too).</p>
 <p>However the “default” RNG in numpy is a newer, better algorithm called PCG64.</p>
-<div id="735d44d1" class="cell" data-execution_count="4">
+<div id="a64f75fe" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Mersenne twister</span></span>
@@ -396,7 +396,7 @@ Overview
 <pre><code>array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763])</code></pre>
 </div>
 </div>
-<div id="788171bb" class="cell" data-execution_count="5">
+<div id="865ce0df" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Mersenne twister, selected specifically</span></span>
@@ -408,7 +408,7 @@ Overview
 <pre><code>array([ 2.04676909, -1.03653009,  0.72997546,  0.41584996, -0.1922969 ])</code></pre>
 </div>
 </div>
-<div id="6dcdf73e" class="cell" data-execution_count="6">
+<div id="96556c25" class="cell" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 'Default' PCG64</span></span>
@@ -419,7 +419,7 @@ Overview
 <pre><code>array([ 0.34558419,  0.82161814,  0.33043708, -1.30315723,  0.90535587])</code></pre>
 </div>
 </div>
-<div id="424f47f5" class="cell" data-execution_count="7">
+<div id="846dda25" class="cell" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(seed <span class="op">=</span> <span class="dv">1</span>)</span>
@@ -439,7 +439,7 @@ Overview
 </section>
 <section id="floating-point-precision" class="level2">
 <h2 class="anchored" data-anchor-id="floating-point-precision">Floating point precision</h2>
-<div id="07ccf46b" class="cell" data-execution_count="8">
+<div id="560e30c9" class="cell" data-execution_count="8">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.3</span> <span class="op">-</span> <span class="fl">0.2</span> <span class="op">==</span> <span class="fl">0.1</span></span>
@@ -459,7 +459,7 @@ Overview
 <li>4 bytes = 32 bits = single precision</li>
 </ul>
 <p>(GPU libraries often use 4 bytes or even fewer.)</p>
-<div id="2135fbc4" class="cell" data-execution_count="9">
+<div id="f92d7cb8" class="cell" data-execution_count="9">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dg(x, form <span class="op">=</span> <span class="st">'.20f'</span>):</span>
@@ -481,7 +481,7 @@ Overview
 </div>
 <p>How many digits of accuracy do we have?</p>
 <p>Same thing regardless of the size of the number:</p>
-<div id="275287f9" class="cell" data-execution_count="10">
+<div id="6cf5353c" class="cell" data-execution_count="10">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fl">12345678.1234567812345678</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -490,7 +490,7 @@ Overview
 <pre><code>12345678.123456782</code></pre>
 </div>
 </div>
-<div id="daa05cfa" class="cell" data-execution_count="11">
+<div id="81e171db" class="cell" data-execution_count="11">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fl">12345678123456781234.5678</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -499,7 +499,7 @@ Overview
 <pre><code>1.234567812345678e+19</code></pre>
 </div>
 </div>
-<div id="8ff7ec90" class="cell" data-execution_count="12">
+<div id="1ea48a4f" class="cell" data-execution_count="12">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>dg(<span class="fl">12345678123456781234.5678</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -513,7 +513,7 @@ Overview
 <section id="comparisons" class="level3">
 <h3 class="anchored" data-anchor-id="comparisons">Comparisons</h3>
 <p>Let’s see what kinds of numbers we can safely compare for exact equality with <code>==</code>.</p>
-<div id="f7c6579b" class="cell" data-execution_count="13">
+<div id="61548713" class="cell" data-execution_count="13">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">.5</span> <span class="op">-</span> <span class="fl">.2</span></span>
@@ -535,7 +535,7 @@ Overview
 <section id="calculation-errors" class="level3">
 <h3 class="anchored" data-anchor-id="calculation-errors">Calculation errors</h3>
 <p>Let’s consider accuracy of subtraction.</p>
-<div id="a3224821" class="cell" data-execution_count="14">
+<div id="2f2b414c" class="cell" data-execution_count="14">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.1234</span> <span class="op">-</span> <span class="fl">1.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -544,7 +544,7 @@ Overview
 <pre><code>0.12339999999999995</code></pre>
 </div>
 </div>
-<div id="0fa27afe" class="cell" data-execution_count="15">
+<div id="53d944dd" class="cell" data-execution_count="15">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fl">123456781234.1234</span> <span class="op">-</span> <span class="fl">123456781234.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -555,7 +555,7 @@ Overview
 </div>
 <p>This is called catastrophic cancellation.</p>
 <p>Do you think calling it “catastrophic” is too extreme? If so, consider this.</p>
-<div id="4eadd4d0" class="cell" data-execution_count="16">
+<div id="b21190f8" class="cell" data-execution_count="16">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fl">81.0</span> <span class="op">-</span> <span class="fl">80.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -564,7 +564,7 @@ Overview
 <pre><code>1.0</code></pre>
 </div>
 </div>
-<div id="628a7526" class="cell" data-execution_count="17">
+<div id="ec700163" class="cell" data-execution_count="17">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fl">12345678123456781.0</span> <span class="op">-</span><span class="fl">12345678123456780.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -574,7 +574,7 @@ Overview
 </div>
 </div>
 <p>What’s the derivative of <span class="math inline">\(sin(x)\)</span>? Let’s see what kind of accuracy we can get.</p>
-<div id="3f5c9230" class="cell" data-execution_count="18">
+<div id="7ed391eb" class="cell" data-execution_count="18">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> deriv(f, x, eps<span class="op">=</span><span class="fl">1e-8</span>):</span>
@@ -596,7 +596,7 @@ Overview
 <h3 class="anchored" data-anchor-id="linear-algebra-errors">Linear algebra errors</h3>
 <p>The errors seen in doing calculations, such as catastrophic cancellation, cascaded through derivative estimation. That also happens when doing linear algebra operations.</p>
 <p>Here’s an example where mathematically all the eigenvalues are real-valued and positive, but not on the computer.</p>
-<div id="0d559eec" class="cell" data-execution_count="19">
+<div id="380c801b" class="cell" data-execution_count="19">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
@@ -625,7 +625,7 @@ Overview
 <section id="overflow-and-underflow" class="level3">
 <h3 class="anchored" data-anchor-id="overflow-and-underflow">Overflow and underflow</h3>
 <p>Having a finite number of bits to represent each number means there are minimum and maximum numbers that can be expressed.</p>
-<div id="f6769cab" class="cell" data-execution_count="20">
+<div id="64cba858" class="cell" data-execution_count="20">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.38e5000</span></span>
@@ -655,7 +655,7 @@ How much do we need to worry about overflow and underflow?
 </ul>
 </div>
 </div>
-<div id="f160e1ac" class="cell" data-execution_count="21">
+<div id="b7fd1c5a" class="cell" data-execution_count="21">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -683,14 +683,14 @@ How much do we need to worry about overflow and underflow?
 <h2 class="anchored" data-anchor-id="exercise-numerical-issues-with-newtons-method">Exercise: numerical issues with Newton’s method</h2>
 <p>Look at your partner’s code in terms of how it handles the stopping criterion or (for the 1-d case) the finite difference estimate of the gradient and Hessian.</p>
 <p>Make a pull request that tries to improve how that is handled.</p>
-<p>Then review the pull request your partner makes in your repository.</p>
+<p>Then review the pull request your partner makes in your repository. Iterate with your partner until you are happy to merge the pull request into your repository. Remember to then run <code>git pull</code> to get the changes in the local copy of the repository.</p>
 </section>
 </section>
 <section id="packaging-and-conda-environments" class="level1">
 <h1>9. Packaging and Conda environments</h1>
 <section id="basic-python-packages" class="level2">
 <h2 class="anchored" data-anchor-id="basic-python-packages">Basic Python packages</h2>
-<p>What’s a package? In general it is software that is provided as a bundle that can be downloaded and made available on your computer. Some packages (e.g., R, Python themselves) are stand-alone packages. Others (such as R packages and Python packages) are add-on functionality that works with stand-alone software.</p>
+<p>What’s a package? In general it is software that is provided as a bundle that can be downloaded and made available on your computer. Some packages (e.g., R, Python themselves) are stand-alone packages. Others (such as R packages and Python packages) are add-on functionality that works with and extends the functionality of the stand-alone software.</p>
 <p>What do we need to have a Python package?</p>
 <section id="packages" class="level3">
 <h3 class="anchored" data-anchor-id="packages">Packages</h3>
@@ -713,7 +713,7 @@ How much do we need to worry about overflow and underflow?
 <span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a><span class="op">EOF</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that if there were other modules, we could have imported from those as well.</p>
 <p>Now we can use the objects from the module without having to know that it was in a particular module (because of how <code>__init__.py</code> was set up).</p>
-<div id="bdb525e1" class="cell" data-execution_count="22">
+<div id="abef786d" class="cell" data-execution_count="22">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mypkg</span>
@@ -732,7 +732,7 @@ How much do we need to worry about overflow and underflow?
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--user</span> .</span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span>
 <span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> .local/lib/python3.11/site-packages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="d9d5ff18" class="cell" data-execution_count="23">
+<div id="d114adb3" class="cell" data-execution_count="23">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mytoy</span>
@@ -743,8 +743,8 @@ How much do we need to worry about overflow and underflow?
 <p>It would take more work to make the package available in a repository such as PyPI or via Conda.</p>
 </section>
 </section>
-<section id="exercise" class="level2">
-<h2 class="anchored" data-anchor-id="exercise">Exercise</h2>
+<section id="exercise-make-your-own-package" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-make-your-own-package">Exercise: Make your own package</h2>
 <p>Make a package out of your Newton method code, following the structure of <code>mytoy</code>. Include your tests as part of the package.</p>
 <p>See if you can install your package, run the tests, and use the package, following the <code>README.md</code> of <code>mytoy</code>.</p>
 </section>
@@ -1587,7 +1587,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb48-302"><a href="#cb48-302" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-303"><a href="#cb48-303" aria-hidden="true" tabindex="-1"></a>Make a pull request that tries to improve how that is handled.</span>
 <span id="cb48-304"><a href="#cb48-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-305"><a href="#cb48-305" aria-hidden="true" tabindex="-1"></a>Then review the pull request your partner makes in your repository.</span>
+<span id="cb48-305"><a href="#cb48-305" aria-hidden="true" tabindex="-1"></a>Then review the pull request your partner makes in your repository. Iterate with your partner until you are happy to merge the pull request into your repository. Remember to then run <span class="in">`git pull`</span> to get the changes in the local copy of the repository.</span>
 <span id="cb48-306"><a href="#cb48-306" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-307"><a href="#cb48-307" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-308"><a href="#cb48-308" aria-hidden="true" tabindex="-1"></a><span class="fu"># 9. Packaging and Conda environments</span></span>
@@ -1595,7 +1595,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb48-310"><a href="#cb48-310" aria-hidden="true" tabindex="-1"></a><span class="fu">## Basic Python packages</span></span>
 <span id="cb48-311"><a href="#cb48-311" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-312"><a href="#cb48-312" aria-hidden="true" tabindex="-1"></a>What's a package? In general it is software that is provided as a bundle that can be downloaded and made available on your computer.</span>
-<span id="cb48-313"><a href="#cb48-313" aria-hidden="true" tabindex="-1"></a>Some packages (e.g., R, Python themselves) are stand-alone packages. Others (such as R packages and Python packages) are add-on functionality that works with stand-alone software.</span>
+<span id="cb48-313"><a href="#cb48-313" aria-hidden="true" tabindex="-1"></a>Some packages (e.g., R, Python themselves) are stand-alone packages. Others (such as R packages and Python packages) are add-on functionality that works with and extends the functionality of the stand-alone software.</span>
 <span id="cb48-314"><a href="#cb48-314" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-315"><a href="#cb48-315" aria-hidden="true" tabindex="-1"></a>What do we need to have a Python package?</span>
 <span id="cb48-316"><a href="#cb48-316" aria-hidden="true" tabindex="-1"></a></span>
@@ -1665,7 +1665,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb48-384"><a href="#cb48-384" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-385"><a href="#cb48-385" aria-hidden="true" tabindex="-1"></a>It would take more work to make the package available in a repository such as PyPI or via Conda.</span>
 <span id="cb48-386"><a href="#cb48-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-387"><a href="#cb48-387" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise</span></span>
+<span id="cb48-387"><a href="#cb48-387" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Make your own package</span></span>
 <span id="cb48-388"><a href="#cb48-388" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-389"><a href="#cb48-389" aria-hidden="true" tabindex="-1"></a>Make a package out of your Newton method code, following the structure of <span class="in">`mytoy`</span>. Include your tests as part of the package.</span>
 <span id="cb48-390"><a href="#cb48-390" aria-hidden="true" tabindex="-1"></a></span>

@@ -12,9 +12,9 @@
   {
     "objectID": "prep.html",
     "href": "prep.html",
-    "title": "Accessing DataHub",
+    "title": "Using DataHub as a commmon computational environment",
     "section": "",
-    "text": "While in principle, it’s fine to use your laptop, it will be hard for us to diagnose all the different problems that might arise with so many participants. So we recommend using a common computational environment during the workshop. We’ll use the Berkeley DataHub for this. You can think of DataHub as providing user-specific virtual machines with identical software for all of us to use.\nThe exception is that if you already have experience using your laptop with the shell/terminal, Git (and pushing to GitHub) and Python.\nClick here to access your own machine/server with Python, git, and terminal access on the campus DataHub (also used for various data science, CS, and statistics courses).\nThat will get you onto your server with the materials for the course, from the berkeley-scf/compute-skills-2024 repository available on the server.\n\n\nTo check things look good:\n\nClick on Terminal (in the 3rd row of the Launcher tab, under Other). (If you have trouble finding the Terminal, go to File -&gt; New -&gt; Terminal.)\nCheck that your working directory is ~/compute-skills-2024 (by looking at the terminal prompt or running pwd)\nRun ls to see the files in the repository.\n\n\n\n\nYou can combine text and code in a notebook, which you can start with:\n\nNew Launcher -&gt; Notebook -&gt; Python 3 (ipykernel), or\nFile -&gt; New -&gt; Notebook\n\nTo run the code in a cell, a shortcut is Ctrl + Enter/Return.\nTo create a script file containing just code, do File -&gt; New -&gt; Python file.\n\n\n\nYou can stop your server via File-&gt; Hub Control Panel -&gt; Stop My Server.\nIf you only log out, any ongoing computations will still run in the background.",
+    "text": "While in principle, it’s fine to use your laptop, it will be hard for us to diagnose all the different problems that might arise with so many participants. So we recommend using a common computational environment during the workshop. We’ll use the Berkeley DataHub for this. You can think of DataHub as providing user-specific virtual machines with identical software for all of us to use.\nThe exception is that if you already have experience using your laptop with the shell/terminal, Git (and pushing to GitHub) and Python.\nClick here to access your own machine/server with Python, git, and terminal access on the campus DataHub (also used for various data science, CS, and statistics courses).\nThat will get you onto your server with the materials for the course, from the berkeley-scf/compute-skills-2024 repository available on the server.",
     "crumbs": [
       "Computational Environment"
     ]
@@ -22,9 +22,9 @@
   {
     "objectID": "prep.html#check-your-environment",
     "href": "prep.html#check-your-environment",
-    "title": "Accessing DataHub",
-    "section": "",
-    "text": "To check things look good:\n\nClick on Terminal (in the 3rd row of the Launcher tab, under Other). (If you have trouble finding the Terminal, go to File -&gt; New -&gt; Terminal.)\nCheck that your working directory is ~/compute-skills-2024 (by looking at the terminal prompt or running pwd)\nRun ls to see the files in the repository.",
+    "title": "Using DataHub as a commmon computational environment",
+    "section": "Check your environment",
+    "text": "Check your environment\nTo check things look good:\n\nClick on Terminal (in the 3rd row of the Launcher tab, under Other). (If you have trouble finding the Terminal, go to File -&gt; New -&gt; Terminal.)\nCheck that your working directory is ~/compute-skills-2024 (by looking at the terminal prompt or running pwd)\nRun ls to see the files in the repository.",
     "crumbs": [
       "Computational Environment"
     ]
@@ -32,9 +32,9 @@
   {
     "objectID": "prep.html#editing-files",
     "href": "prep.html#editing-files",
-    "title": "Accessing DataHub",
-    "section": "",
-    "text": "You can combine text and code in a notebook, which you can start with:\n\nNew Launcher -&gt; Notebook -&gt; Python 3 (ipykernel), or\nFile -&gt; New -&gt; Notebook\n\nTo run the code in a cell, a shortcut is Ctrl + Enter/Return.\nTo create a script file containing just code, do File -&gt; New -&gt; Python file.",
+    "title": "Using DataHub as a commmon computational environment",
+    "section": "Editing files",
+    "text": "Editing files\nYou can combine text and code in a notebook, which you can start with:\n\nNew Launcher -&gt; Notebook -&gt; Python 3 (ipykernel), or\nFile -&gt; New -&gt; Notebook\n\nTo run the code in a cell, a shortcut is Ctrl + Enter/Return.\nTo create a script file containing just code, do File -&gt; New -&gt; Python file.",
     "crumbs": [
       "Computational Environment"
     ]
@@ -42,9 +42,9 @@
   {
     "objectID": "prep.html#stopping-your-server",
     "href": "prep.html#stopping-your-server",
-    "title": "Accessing DataHub",
-    "section": "",
-    "text": "You can stop your server via File-&gt; Hub Control Panel -&gt; Stop My Server.\nIf you only log out, any ongoing computations will still run in the background.",
+    "title": "Using DataHub as a commmon computational environment",
+    "section": "Stopping your server",
+    "text": "Stopping your server\nYou can stop your server via File-&gt; Hub Control Panel -&gt; Stop My Server.\nIf you only log out, any ongoing computations will still run in the background.",
     "crumbs": [
       "Computational Environment"
     ]
@@ -266,7 +266,7 @@
     "href": "units/additional-topics.html#exercise-numerical-issues-with-newtons-method",
     "title": "Numerics, reproducibility, and automation",
     "section": "Exercise: numerical issues with Newton’s method",
-    "text": "Exercise: numerical issues with Newton’s method\nLook at your partner’s code in terms of how it handles the stopping criterion or (for the 1-d case) the finite difference estimate of the gradient and Hessian.\nMake a pull request that tries to improve how that is handled.\nThen review the pull request your partner makes in your repository.",
+    "text": "Exercise: numerical issues with Newton’s method\nLook at your partner’s code in terms of how it handles the stopping criterion or (for the 1-d case) the finite difference estimate of the gradient and Hessian.\nMake a pull request that tries to improve how that is handled.\nThen review the pull request your partner makes in your repository. Iterate with your partner until you are happy to merge the pull request into your repository. Remember to then run git pull to get the changes in the local copy of the repository.",
     "crumbs": [
       "Modules",
       "Numerics and Reproducibility"
@@ -277,18 +277,18 @@
     "href": "units/additional-topics.html#basic-python-packages",
     "title": "Numerics, reproducibility, and automation",
     "section": "Basic Python packages",
-    "text": "Basic Python packages\nWhat’s a package? In general it is software that is provided as a bundle that can be downloaded and made available on your computer. Some packages (e.g., R, Python themselves) are stand-alone packages. Others (such as R packages and Python packages) are add-on functionality that works with stand-alone software.\nWhat do we need to have a Python package?\n\nPackages\nA Python package is a directory containing one or more modules and with a file named __init__.py that is called when a package is imported and serves to initialize the package.\nLet’s create a basic package.\nmkdir mypkg\n\ncat &lt;&lt; EOF &gt; mypkg/__init__.py\n## Make objects from mymod.py available as mypkg.foo\nfrom mypkg.mymod import *\n\nprint(\"Welcome to my package.\")\nEOF\n\ncat &lt;&lt; EOF &gt; mypkg/mymod.py\nx = 7\n\ndef myfun(val):\n    print(\"The arg is: \", str(val), \".\", sep = '')\nEOF\nNote that if there were other modules, we could have imported from those as well.\nNow we can use the objects from the module without having to know that it was in a particular module (because of how __init__.py was set up).\n\n\nCode\nimport mypkg\nmypkg.x\nmypkg.myfun(7)\n\n\nNote that one can set __all__ in an __init__.py to define what is imported, which makes clear what is publicly available and hides what is considered internal.\n\n\nA minimal “real” package\nFernando has a this toy example package.\nLet’s clone the repository and see if we can install it.\ngit clone https://github.com/fperez/mytoy\ncd mytoy\npip install --user .\ncd\nls .local/lib/python3.11/site-packages\n\n\nCode\nimport mytoy\n\nmytoy.toy(7)\n\n\nIt would take more work to make the package available in a repository such as PyPI or via Conda.",
+    "text": "Basic Python packages\nWhat’s a package? In general it is software that is provided as a bundle that can be downloaded and made available on your computer. Some packages (e.g., R, Python themselves) are stand-alone packages. Others (such as R packages and Python packages) are add-on functionality that works with and extends the functionality of the stand-alone software.\nWhat do we need to have a Python package?\n\nPackages\nA Python package is a directory containing one or more modules and with a file named __init__.py that is called when a package is imported and serves to initialize the package.\nLet’s create a basic package.\nmkdir mypkg\n\ncat &lt;&lt; EOF &gt; mypkg/__init__.py\n## Make objects from mymod.py available as mypkg.foo\nfrom mypkg.mymod import *\n\nprint(\"Welcome to my package.\")\nEOF\n\ncat &lt;&lt; EOF &gt; mypkg/mymod.py\nx = 7\n\ndef myfun(val):\n    print(\"The arg is: \", str(val), \".\", sep = '')\nEOF\nNote that if there were other modules, we could have imported from those as well.\nNow we can use the objects from the module without having to know that it was in a particular module (because of how __init__.py was set up).\n\n\nCode\nimport mypkg\nmypkg.x\nmypkg.myfun(7)\n\n\nNote that one can set __all__ in an __init__.py to define what is imported, which makes clear what is publicly available and hides what is considered internal.\n\n\nA minimal “real” package\nFernando has a this toy example package.\nLet’s clone the repository and see if we can install it.\ngit clone https://github.com/fperez/mytoy\ncd mytoy\npip install --user .\ncd\nls .local/lib/python3.11/site-packages\n\n\nCode\nimport mytoy\n\nmytoy.toy(7)\n\n\nIt would take more work to make the package available in a repository such as PyPI or via Conda.",
     "crumbs": [
       "Modules",
       "Numerics and Reproducibility"
     ]
   },
   {
-    "objectID": "units/additional-topics.html#exercise",
-    "href": "units/additional-topics.html#exercise",
+    "objectID": "units/additional-topics.html#exercise-make-your-own-package",
+    "href": "units/additional-topics.html#exercise-make-your-own-package",
     "title": "Numerics, reproducibility, and automation",
-    "section": "Exercise",
-    "text": "Exercise\nMake a package out of your Newton method code, following the structure of mytoy. Include your tests as part of the package.\nSee if you can install your package, run the tests, and use the package, following the README.md of mytoy.",
+    "section": "Exercise: Make your own package",
+    "text": "Exercise: Make your own package\nMake a package out of your Newton method code, following the structure of mytoy. Include your tests as part of the package.\nSee if you can install your package, run the tests, and use the package, following the README.md of mytoy.",
     "crumbs": [
       "Modules",
       "Numerics and Reproducibility"
@@ -398,7 +398,7 @@
     "href": "units/intro-computing.html#running-processes",
     "title": "Introduction to Computing and the Command Line (optional)",
     "section": "Running processes",
-    "text": "Running processes\nWe’ll run a simple linear algebra operation in Python to illustrate how we can monitor what is happening on a machine.\n\n\n\n\n\n\nDataHub memory limits\n\n\n\nBe careful about increasing n in the example below when on DataHub. Basic DataHub virtual machines by default only have 1 GB memory, so don’t increase n below or you may run out of memory if running on DataHub and this can cause problems in your DataHub session. If you’re doing this as part of the workshop, we’ve increased those limits somewhat, so somewhat larger values of n should be fine.\n\n\n\n\nCode\nimport numpy as np\nimport time\n\ndef run_linalg(n):\n    z = np.random.normal(0, 1, size=(n, n))\n    print(time.time())\n    x = z.T.dot(z)   # x = z'z\n    print(time.time())\n    U = np.linalg.cholesky(x)  # factorize as x = U'U\n    print(time.time())\n\n## This allows us to run the code from the command line\n## without running it when we import the file as a module.\nif __name__ == '__main__':\n    run_linalg(4000)\n\n\npython calc.py\nWe might need to run it in a loop to be able to monitor the running process (since it finishes so quickly): `for ((i=0;i&lt;10;i++)); do python calc.py; done```\n\nMonitoring CPU and memory use\nWe can see CPU and memory usage via top.\nIf we see more than 100% CPU usage, that indicates that the process is running a computation in parallel using multiple threads.\nWhat about if we see less than 100% CPU usage?\n\nOur process might be busy doing I/O (reading/writing to/from disk).\nOur process might be waiting for data from the internet or from another machine on the network.\nThe machine might be running low on physical memory, which in some cases will involve using disk as additional memory (slow!).",
+    "text": "Running processes\nWe’ll run a simple linear algebra operation in Python to illustrate how we can monitor what is happening on a machine.\n\n\n\n\n\n\nDataHub memory limits\n\n\n\nBe careful about increasing n in the example below when on DataHub. Basic DataHub virtual machines by default only have 1 GB memory, so don’t increase n below or you may run out of memory if running on DataHub and this can cause problems in your DataHub session. If you’re doing this as part of the workshop, we’ve increased those limits somewhat, so somewhat larger values of n should be fine.\n\n\n\n\nCode\nimport numpy as np\nimport time\n\ndef run_linalg(n):\n    z = np.random.normal(0, 1, size=(n, n))\n    print(time.time())\n    x = z.T.dot(z)   # x = z'z\n    print(time.time())\n    U = np.linalg.cholesky(x)  # factorize as x = U'U\n    print(time.time())\n\n## This allows us to run the code from the command line\n## without running it when we import the file as a module.\nif __name__ == '__main__':\n    run_linalg(4000)\n\n\npython calc.py\nWe might need to run it in a loop to be able to monitor the running process (since it finishes so quickly):\nfor ((i=0;i&lt;10;i++)); do\n  python calc.py\ndone\n\nMonitoring CPU and memory use\nWe can see CPU and memory usage via top.\nIf we see more than 100% CPU usage, that indicates that the process is running a computation in parallel using multiple threads.\nWhat about if we see less than 100% CPU usage?\n\nOur process might be busy doing I/O (reading/writing to/from disk).\nOur process might be waiting for data from the internet or from another machine on the network.\nThe machine might be running low on physical memory, which in some cases will involve using disk as additional memory (slow!).",
     "crumbs": [
       "Modules",
       "Intro to Computing and Command Line (optional)"
@@ -476,6 +476,17 @@
     "title": "Version control, programming, and testing",
     "section": "Basic use of a repository",
     "text": "Basic use of a repository\nIn the terminal, let’s make a small change to the README, register the change with Git (this is called a commit), and push the changes upstream to GitHub (which has the remote copy of the repository).\n\nStep 1. Clone the repository\nFirst make a local copy of the repository from the remote on GitHub. It’s best do this outside of the compute-skills-2024 directory; otherwise you’ll have a repository nested within a repository.\ncd  # Avoid cloning into the `compute-skills-2024` repository.\ngit clone https://github.com/&lt;your_username&gt;/newton-practice\nIf we run this:\ncd newton-practice\nls -l .git\ncat .git/config\nwe should see a bunch of output (truncated here) indicating that newton-practice is a Git repository, and that in this case the local repository is linked to a remote repository (the repository we created on GitHub):\ntotal 40\n-rw-r--r-- 1 jovyan jovyan  264 Aug  2 15:04 config\n-rw-r--r-- 1 jovyan jovyan   73 Aug  2 15:04 description\n-rw-r--r-- 1 jovyan jovyan   21 Aug  2 15:04 HEAD\n-rw-r--r--   1 paciorek scfstaff   16 Jul 24 14:48 COMMIT_EDITMSG\n-rw-r--r--   1 paciorek scfstaff  656 Jul 23 18:20 config\n&lt;snip&gt;\n\n&lt;snip&gt;\n[remote \"origin\"]\n        url = https://github.com/paciorek/newton-practice\n        fetch = +refs/heads/*:refs/remotes/origin/*\n&lt;snip&gt;\nStep 2. Add files\nNext move (or copy) your Python module into the repository directory. I’ll use the test module that we’ll work with later, but you’ll do it with your Newton method module.\ncd newton-practice\ncp ../compute-skills-2024/units/binary_search.py .\n## Tell git to track the file\ngit add binary_search.py\nStep 3. Edit file(s)\nEdit the README file to indicate that the repository has a basic implementation of Newton’s method. (In DataHub, you can double-click on the README in the file manager pane.)\ngit status\n## Tell git to keep track of the changes to the file.\ngit add README.md\ngit status\n## Register the changes with Git.\ngit commit -m\"Add basic implementation of Newton's method.\"\ngit status\n## Synchronize the changes with the remote.\ngit push\n\n\n\n\n\n\nNote\n\n\n\nWe could have cloned the (public) repository without the gh_scoped_creds credentials stuff earlier, but if we tried to push to it, we would have been faced with GitHub asking for our password, which would have required us to create a GitHub authentication token that we would paste in.\n\n\n\n\n\n\n\n\nNote\n\n\n\nInstead of having to add files that already part of the repository (such as README.md) we could do:\ngit commit -a -m\"Update README.\"\nWe do need to explicitly add any new files (e.g., newton.py) that are not yet registered with git via git add.\n\n\n\n\n\n\n\n\nNote\n\n\n\nYou can also edit and add files directly to your GitHub repository in a browser window. This is a good backup if you run into problems making commits from DataHub or your laptop.\n\n\n\n\nWriting good commit messages\nSome tips:\n\nConcisely describe what changed (and for more complicated situations, why), not how.\nTwo options (depending on whether the commit makes one or more changes):\n\nKeep it short (one line, &lt;72 characters)\nHave a subject line separated from the body by a blank line.\n\nKeep subject to 50 characters and each body line to 72 characters.\nBest to edit message in an editor – omit the -m flag to git commit.\n\n\nIf you’re working on a project with GitHub issues, reference the issue at the bottom.\nStart each item in the message with a verb (present tense) and provide a complete sentence.\n\nIf you find your commit message is covering multiple topics, it probably means you should have made multiple (“atomic”) commits.",
+    "crumbs": [
+      "Modules",
+      "Computational Tools and Practices"
+    ]
+  },
+  {
+    "objectID": "units/comp-practices.html#exercise-put-your-code-in-your-repository",
+    "href": "units/comp-practices.html#exercise-put-your-code-in-your-repository",
+    "title": "Version control, programming, and testing",
+    "section": "Exercise: Put your code in your repository",
+    "text": "Exercise: Put your code in your repository\nAdd your new code to your repository. Then commit and push to GitHub.",
     "crumbs": [
       "Modules",
       "Computational Tools and Practices"
@@ -592,11 +603,22 @@
     ]
   },
   {
+    "objectID": "units/comp-practices.html#exceptions-in-python",
+    "href": "units/comp-practices.html#exceptions-in-python",
+    "title": "Version control, programming, and testing",
+    "section": "Exceptions in Python",
+    "text": "Exceptions in Python\nTo understand how Python handles error, we’ll briefly work through the Errors and Exceptions section of the Software Carpentry workshop. The primary ideas covered are understanding error messages and tracebacks and writing your own code that handles errors.",
+    "crumbs": [
+      "Modules",
+      "Computational Tools and Practices"
+    ]
+  },
+  {
     "objectID": "units/comp-practices.html#exercise-error-trapping-robust-code-and-defensive-programming",
     "href": "units/comp-practices.html#exercise-error-trapping-robust-code-and-defensive-programming",
     "title": "Version control, programming, and testing",
     "section": "Exercise: Error trapping, robust code, and defensive programming",
-    "text": "Exercise: Error trapping, robust code, and defensive programming\nNow we’ll try to go beyond simply returning a failed result and see if we can trap problems early on and write more robust code.\nWork on the following improvements:\n\nCheck user inputs are valid.\nAdd warnings to the user if it seems that Newton’s method is taking a bad step.\nModify your function so that when it fails, the result is informative to the user.\n\nInclude a success/failure code (flag) in your output.\n\n\nWe don’t have time to go fully into how Python handles errors (called exceptions). Here are a few basic things you can do to raise an exception (i.e., to report an error):\nif not callable(f):\n   raise TypeError(f\"Argument is not a function, it is of type {type(f)}\")\nif x &gt; 1e7:\n   raise RuntimeError(f\"At iteration {iter}, optimization appears to be diverging\")\nimport warnings\nif x &gt; 3:\n   warnings.warn(f\"{x} is greater than 3.\")\nNext, if you have time, consider robustifying your code if you have time:\n\nWhat might you do if the next step is worse than the current position?\n\nWhat might you do if the next step is outside the range of potential values (assuming a unimodal function)?",
+    "text": "Exercise: Error trapping, robust code, and defensive programming\nNow we’ll try to go beyond simply returning a failed result and see if we can trap problems early on and write more robust code.\nWork on the following improvements:\n\nCheck user inputs are valid.\nAdd warnings to the user if it seems that Newton’s method is taking a bad step.\nModify your function so that when it fails, the result is informative to the user.\n\nInclude a success/failure code (flag) in your output.\n\n\nYour code should handle errors using exceptions, as discussed earlier for Python itself. We don’t have time to go fully into how Python handles the wide variety of exceptions. But here are a few basic things you can do to raise an exception (i.e., to report an error):\nif not callable(f):\n   raise TypeError(f\"Argument is not a function, it is of type {type(f)}\")\nif x &gt; 1e7:\n   raise RuntimeError(f\"At iteration {iter}, optimization appears to be diverging\")\nimport warnings\nif x &gt; 3:\n   warnings.warn(f\"{x} is greater than 3.\")\nNext, if you have time, consider robustifying your code if you have time:\n\nWhat might you do if the next step is worse than the current position?\n\nWhat might you do if the next step is outside the range of potential values (assuming a unimodal function)?",
     "crumbs": [
       "Modules",
       "Computational Tools and Practices"
@@ -691,7 +713,7 @@
     "href": "units/intro-python.html#python-fundamentals",
     "title": "Introduction to Python (optional)",
     "section": "1. Python Fundamentals",
-    "text": "1. Python Fundamentals\nWe’ll work through the Python Fundamentals section of the Software Carpentry workshop. The primary ideas covered are variables, data types, and basic function usage.\n\n\n\n\n\n\nExercise 1\n\n\n\n\nUsing the section on “Built-in Types” from the official “The Python Standard Library” reference, figure out how to compute:\n\n3 modulo 4,\n\\((\\lceil \\frac{3}{4} \\rceil \\times 4)^3\\), and\n\\(\\sqrt{-1}\\).\n\n\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\n\nIs 1.0 of the integer type? What about 1? Is the result of 5/3 - 2/3 of the integer type? Is the mathematical value seen in Python an integer?\nHere’s a numerical puzzle. Why does the last computation not work, when the others do? And, for those of you coming from R, which of these computations don’t work in R?\n\n\nCode\n100000**10\n100000.0**10\n100000**100\n100000.0**100",
+    "text": "1. Python Fundamentals\nWe’ll work through the Python Fundamentals section of the Software Carpentry workshop. The primary ideas covered are variables, data types, and basic function usage.\n\n\n\n\n\n\nExercise 1\n\n\n\n\nUsing the section on “Built-in Types” from the official “The Python Standard Library” reference, figure out how to compute:\n\n\\((\\lceil \\frac{3}{4} \\rceil \\times 4)^3\\), and\n\\(\\sqrt{-1}\\).\n\n\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\n\nIs 1.0 of the integer type? What about 1? Is the result of 5/3 - 2/3 of the integer type? Is the mathematical value seen in Python an integer?\nHere’s a numerical puzzle. Why does the last computation not work, when the others do? And, for those of you coming from R, which of these computations don’t work in R?\n\n\nCode\n100000**10\n100000.0**10\n100000**100\n100000.0**100",
     "crumbs": [
       "Modules",
       "Intro to Python (optional)"
@@ -865,6 +887,16 @@
     "title": "Berkeley Statistics Computational Skills Workshop",
     "section": "",
     "text": "Ed Discussion\n\n  DataHub\n\n  GitHub\n\n\nNo matching items\nSkills related to computation, coding, and reproducibility are crucial for modern statistical work (applied and methodological), as well as for serving as graduate student instructor for Statistics and Data Science courses. Incoming Statistics graduate students arrive with a wide variety of backgrounds in these areas.\nThe department will be holding a (new this year) computational skills workshop the week before classes start, focusing on best practices for computation, code development and statistics/data science workflows.\nAll incoming PhD and MA students are expected to attend the workshop, which will be held August 22-23. Those who already have extensive work or other experience with the topics can request to opt out of the workshop via this form (which will be considered by department faculty), as can PhD students who plan to focus exclusively on theory and feel the computing skills/tools covered in the workshop aren’t relevant for them.\nIn advance, there will also be an optional introduction to computing concepts and to Python for those students (particularly those taking Statistics 243) to be held August 20-21. If you are interested, please sign up for the optional introduction.\nSee the syllabus/overview for more details on workshop content.",
+    "crumbs": [
+      "Home / Schedule"
+    ]
+  },
+  {
+    "objectID": "index.html#logistics",
+    "href": "index.html#logistics",
+    "title": "Berkeley Statistics Computational Skills Workshop",
+    "section": "Logistics:",
+    "text": "Logistics:\n\nOptional Sessions\nLocation: 334 Evans Hall\nLunch: On your own.\nSnacks: Light refreshments during morning and afternoon breaks\nTimes:\n\nTuesday August 20, 8:30 a.m - 4:30 p.m. with a one-hour lunch break.\nWednesday August 21, 8:30 a.m - 3:00 p.m. with a one-hour lunch break.\n\n\n\nCore Sessions\nLocation: 101 Barker Hall\n\nThursday August 22, 8:30 a.m - 4:30 p.m. with a one-hour lunch break.\nFriday August 23, 8:30 a.m - 3:00 p.m. with a one-hour lunch break.\n\nLunch: On your own.\nSnacks: Light refreshments during morning and afternoon breaks",
     "crumbs": [
       "Home / Schedule"
     ]

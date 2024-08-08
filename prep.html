@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Accessing DataHub</title>
+<title>Using DataHub as a commmon computational environment</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -221,12 +221,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#using-datahub-as-a-commmon-computational-environment" id="toc-using-datahub-as-a-commmon-computational-environment" class="nav-link active" data-scroll-target="#using-datahub-as-a-commmon-computational-environment">Using DataHub as a commmon computational environment</a>
-  <ul class="collapse">
-  <li><a href="#check-your-environment" id="toc-check-your-environment" class="nav-link" data-scroll-target="#check-your-environment">Check your environment</a></li>
+  <li><a href="#check-your-environment" id="toc-check-your-environment" class="nav-link active" data-scroll-target="#check-your-environment">Check your environment</a></li>
   <li><a href="#editing-files" id="toc-editing-files" class="nav-link" data-scroll-target="#editing-files">Editing files</a></li>
   <li><a href="#stopping-your-server" id="toc-stopping-your-server" class="nav-link" data-scroll-target="#stopping-your-server">Stopping your server</a></li>
-  </ul></li>
   <li><a href="#accessing-github-repositories-from-datahub" id="toc-accessing-github-repositories-from-datahub" class="nav-link" data-scroll-target="#accessing-github-repositories-from-datahub">Accessing GitHub repositories from DataHub</a></li>
   </ul>
 </nav>
@@ -236,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Accessing DataHub</h1>
+<h1 class="title">Using DataHub as a commmon computational environment</h1>
 </div>
 
 
@@ -253,8 +250,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="using-datahub-as-a-commmon-computational-environment" class="level1">
-<h1>Using DataHub as a commmon computational environment</h1>
 <p>While in principle, it’s fine to use your laptop, it will be hard for us to diagnose all the different problems that might arise with so many participants. So we recommend using a common computational environment during the workshop. We’ll use the Berkeley DataHub for this. You can think of DataHub as providing user-specific virtual machines with identical software for all of us to use.</p>
 <p>The exception is that if you already have experience using your laptop with the shell/terminal, Git (and pushing to GitHub) and Python.</p>
 <p>Click <a href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fberkeley-scf%2Fcompute-skills-2024&amp;urlpath=lab%2Ftree%2Fcompute-skills-2024%2F&amp;branch=main" target="_blank">here</a> to access your own machine/server with Python, git, and terminal access on the campus DataHub (also used for various data science, CS, and statistics courses).</p>
@@ -282,7 +277,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="stopping-your-server">Stopping your server</h2>
 <p>You can stop your server via <code>File</code>-&gt; <code>Hub Control Panel</code> -&gt; <code>Stop My Server</code>.</p>
 <p>If you only log out, any ongoing computations will still run in the background.</p>
-</section>
 </section>
 <section id="accessing-github-repositories-from-datahub" class="level1">
 <h1>Accessing GitHub repositories from DataHub</h1>
@@ -314,7 +308,7 @@ Accessing GitHub from your laptop rather than DataHub
 <p>Then run this in the terminal:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh-scoped-creds</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Or you could instead run this in IPython or Jupyter Notebook:</p>
-<div id="33544258" class="cell" data-execution_count="1">
+<div id="f1ff8633" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> gh_scoped_creds</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>ghscopedcreds</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

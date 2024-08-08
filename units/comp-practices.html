@@ -263,6 +263,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#writing-good-commit-messages" id="toc-writing-good-commit-messages" class="nav-link" data-scroll-target="#writing-good-commit-messages">Writing good commit messages</a></li>
   </ul></li>
+  <li><a href="#exercise-put-your-code-in-your-repository" id="toc-exercise-put-your-code-in-your-repository" class="nav-link" data-scroll-target="#exercise-put-your-code-in-your-repository">Exercise: Put your code in your repository</a></li>
   <li><a href="#exercise-code-review" id="toc-exercise-code-review" class="nav-link" data-scroll-target="#exercise-code-review">Exercise: code review</a></li>
   </ul></li>
   <li><a href="#understanding-git" id="toc-understanding-git" class="nav-link" data-scroll-target="#understanding-git">3. Understanding Git</a>
@@ -294,6 +295,7 @@ window.Quarto = {
   <li><a href="#demo-unit-tests-and-pytest" id="toc-demo-unit-tests-and-pytest" class="nav-link" data-scroll-target="#demo-unit-tests-and-pytest">Demo: Unit tests and <code>pytest</code></a></li>
   <li><a href="#exercise-test-cases" id="toc-exercise-test-cases" class="nav-link" data-scroll-target="#exercise-test-cases">Exercise: Test cases</a></li>
   <li><a href="#exercise-unit-tests" id="toc-exercise-unit-tests" class="nav-link" data-scroll-target="#exercise-unit-tests">Exercise: Unit tests</a></li>
+  <li><a href="#exceptions-in-python" id="toc-exceptions-in-python" class="nav-link" data-scroll-target="#exceptions-in-python">Exceptions in Python</a></li>
   <li><a href="#exercise-error-trapping-robust-code-and-defensive-programming" id="toc-exercise-error-trapping-robust-code-and-defensive-programming" class="nav-link" data-scroll-target="#exercise-error-trapping-robust-code-and-defensive-programming">Exercise: Error trapping, robust code, and defensive programming</a></li>
   </ul></li>
   <li><a href="#multi-user-git" id="toc-multi-user-git" class="nav-link" data-scroll-target="#multi-user-git">7. Multi-user Git</a>
@@ -436,7 +438,7 @@ Tip
 </div>
 </div>
 <p>Once you’ve written your Python functions, put your code into a simple text file, called <code>newton.py</code>. In doing so you’ve created a Python <em>module</em>. Once you have your module, you can use it like this:</p>
-<div id="77e3eb5a" class="cell" data-execution_count="1">
+<div id="d93cd954" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> newton</span>
@@ -583,6 +585,10 @@ Note
 </ul>
 <p>If you find your commit message is covering multiple topics, it probably means you should have made multiple (“atomic”) commits.</p>
 </section>
+</section>
+<section id="exercise-put-your-code-in-your-repository" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-put-your-code-in-your-repository">Exercise: Put your code in your repository</h2>
+<p>Add your new code to your repository. Then commit and push to GitHub.</p>
 </section>
 <section id="exercise-code-review" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-code-review">Exercise: code review</h2>
@@ -773,7 +779,7 @@ Q: Who is the person most likely to use your code again?
 <li>Comments should generally be complete sentences.</li>
 </ul></li>
 <li><p>You can use parentheses to group operations such that they can be split up into lines and easily commented, e.g.,</p>
-<div id="72f91fbf" class="cell" data-execution_count="2">
+<div id="dff43a7f" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>newdf <span class="op">=</span> (</span>
@@ -836,7 +842,7 @@ Q: Who is the person most likely to use your code again?
 <section id="using-the-jupyterlab-visual-debugger" class="level3">
 <h3 class="anchored" data-anchor-id="using-the-jupyterlab-visual-debugger">Using the JupyterLab visual debugger</h3>
 <p>The function <code>binary_search()</code> in the <code>binary_search.py</code> module attempts to do a binary search for an item in a sorted list. It looks in the middle of the list and if the value in the list is larger than the item, it recurses to look in the first half of the list, otherwise in the second half. It continues in this fashion until it is down to a single item and then checks if that item is what is being searched for.</p>
-<div id="650ea529" class="cell" data-execution_count="3">
+<div id="73b834f2" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> binary_search <span class="im">as</span> bs</span>
@@ -846,7 +852,7 @@ Q: Who is the person most likely to use your code again?
 <pre><code>0</code></pre>
 </div>
 </div>
-<div id="ac4cf92f" class="cell" data-execution_count="4">
+<div id="07b20fdd" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>bs.search([<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">13</span>,<span class="dv">17</span>,<span class="dv">203</span>,<span class="dv">205</span>],<span class="dv">13</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -855,7 +861,7 @@ Q: Who is the person most likely to use your code again?
 <pre><code>-1</code></pre>
 </div>
 </div>
-<div id="ec65dfdc" class="cell" data-execution_count="5">
+<div id="1d064a31" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>bs.search([<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">13</span>,<span class="dv">17</span>,<span class="dv">203</span>,<span class="dv">205</span>],<span class="dv">17</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -941,6 +947,10 @@ Only write tests now
 </div>
 </div>
 </section>
+<section id="exceptions-in-python" class="level2">
+<h2 class="anchored" data-anchor-id="exceptions-in-python">Exceptions in Python</h2>
+<p>To understand how Python handles error, we’ll briefly work through the <a href="https://swcarpentry.github.io/python-novice-inflammation/09-errors.html" target="_blank">Errors and Exceptions section</a> of the Software Carpentry workshop. The primary ideas covered are understanding error messages and tracebacks and writing your own code that handles errors.</p>
+</section>
 <section id="exercise-error-trapping-robust-code-and-defensive-programming" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-error-trapping-robust-code-and-defensive-programming">Exercise: Error trapping, robust code, and defensive programming</h2>
 <p>Now we’ll try to go beyond simply returning a failed result and see if we can trap problems early on and write more robust code.</p>
@@ -953,7 +963,7 @@ Only write tests now
 <li>Include a success/failure code (flag) in your output.</li>
 </ul></li>
 </ul>
-<p>We don’t have time to go fully into how Python handles errors (called exceptions). Here are a few basic things you can do to <em>raise</em> an <em>exception</em> (i.e., to report an error):</p>
+<p>Your code should handle errors using exceptions, as discussed earlier for Python itself. We don’t have time to go fully into how Python handles the wide variety of exceptions. But here are a few basic things you can do to <em>raise</em> an <em>exception</em> (i.e., to report an error):</p>
 <pre><code>if not callable(f):
    raise TypeError(f"Argument is not a function, it is of type {type(f)}")</code></pre>
 <pre><code>if x &gt; 1e7:
@@ -1830,536 +1840,545 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb32-222"><a href="#cb32-222" aria-hidden="true" tabindex="-1"></a>If you find your commit message is covering multiple topics, it probably means you should</span>
 <span id="cb32-223"><a href="#cb32-223" aria-hidden="true" tabindex="-1"></a>have made multiple ("atomic") commits.</span>
 <span id="cb32-224"><a href="#cb32-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-225"><a href="#cb32-225" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: code review</span></span>
+<span id="cb32-225"><a href="#cb32-225" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Put your code in your repository</span></span>
 <span id="cb32-226"><a href="#cb32-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-227"><a href="#cb32-227" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Step 1: Make suggestions</span></span>
+<span id="cb32-227"><a href="#cb32-227" aria-hidden="true" tabindex="-1"></a>Add your new code to your repository. Then commit and push to GitHub.</span>
 <span id="cb32-228"><a href="#cb32-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-229"><a href="#cb32-229" aria-hidden="true" tabindex="-1"></a>Go to your partner's repository at <span class="in">`https://github.com/&lt;user_name&gt;/newton-practice`</span>.</span>
+<span id="cb32-229"><a href="#cb32-229" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: code review</span></span>
 <span id="cb32-230"><a href="#cb32-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-231"><a href="#cb32-231" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Look over their code.</span>
-<span id="cb32-232"><a href="#cb32-232" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Make some comments/suggestions in a new GitHub issue (go to the <span class="in">`Issues`</span> button and click on <span class="in">`New issue`</span>).</span>
-<span id="cb32-233"><a href="#cb32-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-234"><a href="#cb32-234" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Step 2: Respond to suggestions</span></span>
-<span id="cb32-235"><a href="#cb32-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-236"><a href="#cb32-236" aria-hidden="true" tabindex="-1"></a>In response to your partner's comments, make some small change(s) to your <span class="in">`newton.py`</span> code.</span>
+<span id="cb32-231"><a href="#cb32-231" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Step 1: Make suggestions</span></span>
+<span id="cb32-232"><a href="#cb32-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-233"><a href="#cb32-233" aria-hidden="true" tabindex="-1"></a>Go to your partner's repository at <span class="in">`https://github.com/&lt;user_name&gt;/newton-practice`</span>.</span>
+<span id="cb32-234"><a href="#cb32-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-235"><a href="#cb32-235" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Look over their code.</span>
+<span id="cb32-236"><a href="#cb32-236" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Make some comments/suggestions in a new GitHub issue (go to the <span class="in">`Issues`</span> button and click on <span class="in">`New issue`</span>).</span>
 <span id="cb32-237"><a href="#cb32-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-238"><a href="#cb32-238" aria-hidden="true" tabindex="-1"></a>You can do this in DataHub (or locally on your laptop if that's what you're doing) and make a commit as we did in the previous exercise.</span>
+<span id="cb32-238"><a href="#cb32-238" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Step 2: Respond to suggestions</span></span>
 <span id="cb32-239"><a href="#cb32-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-240"><a href="#cb32-240" aria-hidden="true" tabindex="-1"></a>Or you can do the editing in your GitHub browser window by clicking on the file and choosing the pencil icon (far right) to edit it. When you save it, a commit will be made. Make sure to provide a commit message. You can also create new files via the <span class="in">`+`</span> button in the top of the left sidebar. If you make changes directly on GitHub, you'll also want to run <span class="in">`git pull`</span> to pull down the changes to your local repository on DataHub or your laptop.</span>
+<span id="cb32-240"><a href="#cb32-240" aria-hidden="true" tabindex="-1"></a>In response to your partner's comments, make some small change(s) to your <span class="in">`newton.py`</span> code.</span>
 <span id="cb32-241"><a href="#cb32-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-242"><a href="#cb32-242" aria-hidden="true" tabindex="-1"></a><span class="fu"># 3. Understanding Git</span></span>
+<span id="cb32-242"><a href="#cb32-242" aria-hidden="true" tabindex="-1"></a>You can do this in DataHub (or locally on your laptop if that's what you're doing) and make a commit as we did in the previous exercise.</span>
 <span id="cb32-243"><a href="#cb32-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-244"><a href="#cb32-244" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb32-245"><a href="#cb32-245" aria-hidden="true" tabindex="-1"></a><span class="fu">## More than the syntax</span></span>
-<span id="cb32-246"><a href="#cb32-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-247"><a href="#cb32-247" aria-hidden="true" tabindex="-1"></a>So far we've just introduced Git by its mechanics/syntax. This is ok (but not ideal) for basic one-person operation, but to really use Git effectively you need to understand conceptually how it works.</span>
-<span id="cb32-248"><a href="#cb32-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-249"><a href="#cb32-249" aria-hidden="true" tabindex="-1"></a>More generally if you understand things conceptually, then looking up the syntax of a command or the mechanics of how to do something will be straightforward.</span>
+<span id="cb32-244"><a href="#cb32-244" aria-hidden="true" tabindex="-1"></a>Or you can do the editing in your GitHub browser window by clicking on the file and choosing the pencil icon (far right) to edit it. When you save it, a commit will be made. Make sure to provide a commit message. You can also create new files via the <span class="in">`+`</span> button in the top of the left sidebar. If you make changes directly on GitHub, you'll also want to run <span class="in">`git pull`</span> to pull down the changes to your local repository on DataHub or your laptop.</span>
+<span id="cb32-245"><a href="#cb32-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-246"><a href="#cb32-246" aria-hidden="true" tabindex="-1"></a><span class="fu"># 3. Understanding Git</span></span>
+<span id="cb32-247"><a href="#cb32-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-248"><a href="#cb32-248" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb32-249"><a href="#cb32-249" aria-hidden="true" tabindex="-1"></a><span class="fu">## More than the syntax</span></span>
 <span id="cb32-250"><a href="#cb32-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-251"><a href="#cb32-251" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-251"><a href="#cb32-251" aria-hidden="true" tabindex="-1"></a>So far we've just introduced Git by its mechanics/syntax. This is ok (but not ideal) for basic one-person operation, but to really use Git effectively you need to understand conceptually how it works.</span>
 <span id="cb32-252"><a href="#cb32-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-253"><a href="#cb32-253" aria-hidden="true" tabindex="-1"></a>We'll start with some visuals and then go back to some Git terminology and to the structure of a repository.</span>
+<span id="cb32-253"><a href="#cb32-253" aria-hidden="true" tabindex="-1"></a>More generally if you understand things conceptually, then looking up the syntax of a command or the mechanics of how to do something will be straightforward.</span>
 <span id="cb32-254"><a href="#cb32-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-255"><a href="#cb32-255" aria-hidden="true" tabindex="-1"></a><span class="fu">## Git visuals: Understanding Git concepts</span></span>
+<span id="cb32-255"><a href="#cb32-255" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb32-256"><a href="#cb32-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-257"><a href="#cb32-257" aria-hidden="true" tabindex="-1"></a>Fernando Perez has nice visualization (<span class="co">[</span><span class="ot">online version</span><span class="co">](https://docs.google.com/presentation/d/1YlM3boYLE8DwbxGNO3ZVVt3e9gEoBgD1uc9RtItUYCU)</span>, <span class="co">[</span><span class="ot">PDF version</span><span class="co">](git_visuals.pdf)</span>) of a basic Git workflow that we'll walk through.</span>
+<span id="cb32-257"><a href="#cb32-257" aria-hidden="true" tabindex="-1"></a>We'll start with some visuals and then go back to some Git terminology and to the structure of a repository.</span>
 <span id="cb32-258"><a href="#cb32-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-259"><a href="#cb32-259" aria-hidden="true" tabindex="-1"></a>Note that we haven't actually seen in prtacie some of what is shown in the visual: tags, branches, and merging, but we'll be using those ideas later.</span>
+<span id="cb32-259"><a href="#cb32-259" aria-hidden="true" tabindex="-1"></a><span class="fu">## Git visuals: Understanding Git concepts</span></span>
 <span id="cb32-260"><a href="#cb32-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-261"><a href="#cb32-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-262"><a href="#cb32-262" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key components and terminology</span></span>
-<span id="cb32-263"><a href="#cb32-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-264"><a href="#cb32-264" aria-hidden="true" tabindex="-1"></a><span class="fu">### Commits</span></span>
+<span id="cb32-261"><a href="#cb32-261" aria-hidden="true" tabindex="-1"></a>Fernando Perez has nice visualization (<span class="co">[</span><span class="ot">online version</span><span class="co">](https://docs.google.com/presentation/d/1YlM3boYLE8DwbxGNO3ZVVt3e9gEoBgD1uc9RtItUYCU)</span>, <span class="co">[</span><span class="ot">PDF version</span><span class="co">](git_visuals.pdf)</span>) of a basic Git workflow that we'll walk through.</span>
+<span id="cb32-262"><a href="#cb32-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-263"><a href="#cb32-263" aria-hidden="true" tabindex="-1"></a>Note that we haven't actually seen in prtacie some of what is shown in the visual: tags, branches, and merging, but we'll be using those ideas later.</span>
+<span id="cb32-264"><a href="#cb32-264" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-265"><a href="#cb32-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-266"><a href="#cb32-266" aria-hidden="true" tabindex="-1"></a>A *commit* is a snapshot of our work at a point in time. So far in our own repository, we've been working with a linear sequence of snapshots, but the visualization showed that we can actually have a directed acyclic graph (DAG) of snapshots once we have *branches*.</span>
+<span id="cb32-266"><a href="#cb32-266" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key components and terminology</span></span>
 <span id="cb32-267"><a href="#cb32-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-268"><a href="#cb32-268" aria-hidden="true" tabindex="-1"></a>Each commit has:</span>
+<span id="cb32-268"><a href="#cb32-268" aria-hidden="true" tabindex="-1"></a><span class="fu">### Commits</span></span>
 <span id="cb32-269"><a href="#cb32-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-270"><a href="#cb32-270" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>a hash identifier - a unique identifier produced by hashing the changes introduced in the commit and also the parent commit,</span>
-<span id="cb32-271"><a href="#cb32-271" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>hashes of the files in the repository in their current state, and</span>
-<span id="cb32-272"><a href="#cb32-272" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>the changes (based on the <span class="in">`diff`</span> tool) relative to the parent commit.</span>
+<span id="cb32-270"><a href="#cb32-270" aria-hidden="true" tabindex="-1"></a>A *commit* is a snapshot of our work at a point in time. So far in our own repository, we've been working with a linear sequence of snapshots, but the visualization showed that we can actually have a directed acyclic graph (DAG) of snapshots once we have *branches*.</span>
+<span id="cb32-271"><a href="#cb32-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-272"><a href="#cb32-272" aria-hidden="true" tabindex="-1"></a>Each commit has:</span>
 <span id="cb32-273"><a href="#cb32-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-274"><a href="#cb32-274" aria-hidden="true" tabindex="-1"></a><span class="al">![A Git commit (Credit: ProGit book, CC License)](commit.png)</span></span>
-<span id="cb32-275"><a href="#cb32-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-276"><a href="#cb32-276" aria-hidden="true" tabindex="-1"></a><span class="fu">### A repository</span></span>
+<span id="cb32-274"><a href="#cb32-274" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>a hash identifier - a unique identifier produced by hashing the changes introduced in the commit and also the parent commit,</span>
+<span id="cb32-275"><a href="#cb32-275" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>hashes of the files in the repository in their current state, and</span>
+<span id="cb32-276"><a href="#cb32-276" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>the changes (based on the <span class="in">`diff`</span> tool) relative to the parent commit.</span>
 <span id="cb32-277"><a href="#cb32-277" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-278"><a href="#cb32-278" aria-hidden="true" tabindex="-1"></a>A *repository* is the set of files for a project with their history. It's a collection of commits in the form of an directed acyclic graph.</span>
+<span id="cb32-278"><a href="#cb32-278" aria-hidden="true" tabindex="-1"></a><span class="al">![A Git commit (Credit: ProGit book, CC License)](commit.png)</span></span>
 <span id="cb32-279"><a href="#cb32-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-280"><a href="#cb32-280" aria-hidden="true" tabindex="-1"></a><span class="al">![A (simple) Git repository (Credit: ProGit book, CC License)](tree.png)</span></span>
+<span id="cb32-280"><a href="#cb32-280" aria-hidden="true" tabindex="-1"></a><span class="fu">### A repository</span></span>
 <span id="cb32-281"><a href="#cb32-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-282"><a href="#cb32-282" aria-hidden="true" tabindex="-1"></a>Some other terms:</span>
+<span id="cb32-282"><a href="#cb32-282" aria-hidden="true" tabindex="-1"></a>A *repository* is the set of files for a project with their history. It's a collection of commits in the form of an directed acyclic graph.</span>
 <span id="cb32-283"><a href="#cb32-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-284"><a href="#cb32-284" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>HEAD: a pointer to the current commit</span>
-<span id="cb32-285"><a href="#cb32-285" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>tag: a label for a commit</span>
-<span id="cb32-286"><a href="#cb32-286" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>branch: a commit - often indicating a commit that has "branched" off of some main workflow or some linear sequence of commits</span>
+<span id="cb32-284"><a href="#cb32-284" aria-hidden="true" tabindex="-1"></a><span class="al">![A (simple) Git repository (Credit: ProGit book, CC License)](tree.png)</span></span>
+<span id="cb32-285"><a href="#cb32-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-286"><a href="#cb32-286" aria-hidden="true" tabindex="-1"></a>Some other terms:</span>
 <span id="cb32-287"><a href="#cb32-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-288"><a href="#cb32-288" aria-hidden="true" tabindex="-1"></a><span class="fu">### Staging area / index</span></span>
-<span id="cb32-289"><a href="#cb32-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-290"><a href="#cb32-290" aria-hidden="true" tabindex="-1"></a>The index (staging area) keeps track of changes (made to tracked files) that are added, but that are not yet committed.</span>
+<span id="cb32-288"><a href="#cb32-288" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>HEAD: a pointer to the current commit</span>
+<span id="cb32-289"><a href="#cb32-289" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>tag: a label for a commit</span>
+<span id="cb32-290"><a href="#cb32-290" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>branch: a commit - often indicating a commit that has "branched" off of some main workflow or some linear sequence of commits</span>
 <span id="cb32-291"><a href="#cb32-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-292"><a href="#cb32-292" aria-hidden="true" tabindex="-1"></a><span class="al">![local operations in a repository (Credit: ProGit book, CC License)](staging.png "Visualization of local operations in Git")</span></span>
+<span id="cb32-292"><a href="#cb32-292" aria-hidden="true" tabindex="-1"></a><span class="fu">### Staging area / index</span></span>
 <span id="cb32-293"><a href="#cb32-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-294"><a href="#cb32-294" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb32-295"><a href="#cb32-295" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rolling back changes (optional)</span></span>
-<span id="cb32-296"><a href="#cb32-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-297"><a href="#cb32-297" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
-<span id="cb32-298"><a href="#cb32-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-299"><a href="#cb32-299" aria-hidden="true" tabindex="-1"></a><span class="fu">## Uncommitted changes</span></span>
+<span id="cb32-294"><a href="#cb32-294" aria-hidden="true" tabindex="-1"></a>The index (staging area) keeps track of changes (made to tracked files) that are added, but that are not yet committed.</span>
+<span id="cb32-295"><a href="#cb32-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-296"><a href="#cb32-296" aria-hidden="true" tabindex="-1"></a><span class="al">![local operations in a repository (Credit: ProGit book, CC License)](staging.png "Visualization of local operations in Git")</span></span>
+<span id="cb32-297"><a href="#cb32-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-298"><a href="#cb32-298" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb32-299"><a href="#cb32-299" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rolling back changes (optional)</span></span>
 <span id="cb32-300"><a href="#cb32-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-301"><a href="#cb32-301" aria-hidden="true" tabindex="-1"></a>If I make some changes to a file that I decide are a mistaken, before <span class="in">`git add`</span> (i.e., before registering/staging the changes with <span class="in">`git`</span>), I can always still edit the file to undo the mistakes.</span>
+<span id="cb32-301"><a href="#cb32-301" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
 <span id="cb32-302"><a href="#cb32-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-303"><a href="#cb32-303" aria-hidden="true" tabindex="-1"></a>But I can also go back to the version stored by Git.</span>
+<span id="cb32-303"><a href="#cb32-303" aria-hidden="true" tabindex="-1"></a><span class="fu">## Uncommitted changes</span></span>
 <span id="cb32-304"><a href="#cb32-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-305"><a href="#cb32-305" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb32-306"><a href="#cb32-306" aria-hidden="true" tabindex="-1"></a><span class="co"># git checkout -- file.txt  # This is older syntax.</span></span>
-<span id="cb32-307"><a href="#cb32-307" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore file.txt</span>
-<span id="cb32-308"><a href="#cb32-308" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-309"><a href="#cb32-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-310"><a href="#cb32-310" aria-hidden="true" tabindex="-1"></a><span class="fu">## Staged, uncommitted changes</span></span>
-<span id="cb32-311"><a href="#cb32-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-312"><a href="#cb32-312" aria-hidden="true" tabindex="-1"></a>If we've added (staged) files via <span class="in">`git add`</span> but have not yet committed them,</span>
-<span id="cb32-313"><a href="#cb32-313" aria-hidden="true" tabindex="-1"></a>the files are in the index (staging area). We can get those changes out</span>
-<span id="cb32-314"><a href="#cb32-314" aria-hidden="true" tabindex="-1"></a>of the staging area like this:</span>
+<span id="cb32-305"><a href="#cb32-305" aria-hidden="true" tabindex="-1"></a>If I make some changes to a file that I decide are a mistaken, before <span class="in">`git add`</span> (i.e., before registering/staging the changes with <span class="in">`git`</span>), I can always still edit the file to undo the mistakes.</span>
+<span id="cb32-306"><a href="#cb32-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-307"><a href="#cb32-307" aria-hidden="true" tabindex="-1"></a>But I can also go back to the version stored by Git.</span>
+<span id="cb32-308"><a href="#cb32-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-309"><a href="#cb32-309" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb32-310"><a href="#cb32-310" aria-hidden="true" tabindex="-1"></a><span class="co"># git checkout -- file.txt  # This is older syntax.</span></span>
+<span id="cb32-311"><a href="#cb32-311" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore file.txt</span>
+<span id="cb32-312"><a href="#cb32-312" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-313"><a href="#cb32-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-314"><a href="#cb32-314" aria-hidden="true" tabindex="-1"></a><span class="fu">## Staged, uncommitted changes</span></span>
 <span id="cb32-315"><a href="#cb32-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-316"><a href="#cb32-316" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb32-317"><a href="#cb32-317" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb32-318"><a href="#cb32-318" aria-hidden="true" tabindex="-1"></a><span class="co"># git reset HEAD file.txt  # This is older syntax.</span></span>
-<span id="cb32-319"><a href="#cb32-319" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore <span class="at">--staged</span> file.txt</span>
-<span id="cb32-320"><a href="#cb32-320" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb32-321"><a href="#cb32-321" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-322"><a href="#cb32-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-323"><a href="#cb32-323" aria-hidden="true" tabindex="-1"></a>Note that the changes still exist in <span class="in">`file.txt`</span> but they're no longer registered/staged with Git.</span>
-<span id="cb32-324"><a href="#cb32-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-325"><a href="#cb32-325" aria-hidden="true" tabindex="-1"></a><span class="fu">## Committed changes</span></span>
+<span id="cb32-316"><a href="#cb32-316" aria-hidden="true" tabindex="-1"></a>If we've added (staged) files via <span class="in">`git add`</span> but have not yet committed them,</span>
+<span id="cb32-317"><a href="#cb32-317" aria-hidden="true" tabindex="-1"></a>the files are in the index (staging area). We can get those changes out</span>
+<span id="cb32-318"><a href="#cb32-318" aria-hidden="true" tabindex="-1"></a>of the staging area like this:</span>
+<span id="cb32-319"><a href="#cb32-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-320"><a href="#cb32-320" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb32-321"><a href="#cb32-321" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb32-322"><a href="#cb32-322" aria-hidden="true" tabindex="-1"></a><span class="co"># git reset HEAD file.txt  # This is older syntax.</span></span>
+<span id="cb32-323"><a href="#cb32-323" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore <span class="at">--staged</span> file.txt</span>
+<span id="cb32-324"><a href="#cb32-324" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb32-325"><a href="#cb32-325" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb32-326"><a href="#cb32-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-327"><a href="#cb32-327" aria-hidden="true" tabindex="-1"></a>Suppose you need to add or modify to your commit. This illustrates a few things you might do to update your commit.</span>
+<span id="cb32-327"><a href="#cb32-327" aria-hidden="true" tabindex="-1"></a>Note that the changes still exist in <span class="in">`file.txt`</span> but they're no longer registered/staged with Git.</span>
 <span id="cb32-328"><a href="#cb32-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-329"><a href="#cb32-329" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb32-330"><a href="#cb32-330" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">'Initial commit'</span></span>
-<span id="cb32-331"><a href="#cb32-331" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add forgotten_file.txt</span>
-<span id="cb32-332"><a href="#cb32-332" aria-hidden="true" tabindex="-1"></a><span class="co"># Edit file.txt.</span></span>
-<span id="cb32-333"><a href="#cb32-333" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add file.txt</span>
-<span id="cb32-334"><a href="#cb32-334" aria-hidden="true" tabindex="-1"></a><span class="co"># Get version of file from previous commit.</span></span>
-<span id="cb32-335"><a href="#cb32-335" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="op">&lt;</span>commit_hash<span class="op">&gt;</span> file.txt</span>
-<span id="cb32-336"><a href="#cb32-336" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--amend</span></span>
-<span id="cb32-337"><a href="#cb32-337" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-338"><a href="#cb32-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-339"><a href="#cb32-339" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pushed changes</span></span>
-<span id="cb32-340"><a href="#cb32-340" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-341"><a href="#cb32-341" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb32-342"><a href="#cb32-342" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> revert <span class="op">&lt;</span>commit_hash<span class="op">&gt;</span></span>
-<span id="cb32-343"><a href="#cb32-343" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span>
-<span id="cb32-344"><a href="#cb32-344" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-345"><a href="#cb32-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-346"><a href="#cb32-346" aria-hidden="true" tabindex="-1"></a>Note that this creates a new commit that undoes the changes you don't want. So the undoing shows up in the history.</span>
-<span id="cb32-347"><a href="#cb32-347" aria-hidden="true" tabindex="-1"></a>This is the safest option.</span>
-<span id="cb32-348"><a href="#cb32-348" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-349"><a href="#cb32-349" aria-hidden="true" tabindex="-1"></a>If you're *sure* no one else has pulled your changes from the remote:</span>
-<span id="cb32-350"><a href="#cb32-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-351"><a href="#cb32-351" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb32-352"><a href="#cb32-352" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="op">&lt;</span>commit_hash<span class="op">&gt;</span></span>
-<span id="cb32-353"><a href="#cb32-353" aria-hidden="true" tabindex="-1"></a><span class="co"># Make changes</span></span>
-<span id="cb32-354"><a href="#cb32-354" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-a</span> <span class="at">-m</span><span class="st">'reworked the mistake'</span></span>
-<span id="cb32-355"><a href="#cb32-355" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-f</span> origin <span class="op">&lt;</span>branch_name<span class="op">&gt;</span></span>
-<span id="cb32-356"><a href="#cb32-356" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-357"><a href="#cb32-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-358"><a href="#cb32-358" aria-hidden="true" tabindex="-1"></a>This will remove the previous commit at the remote (GitHub in our case). </span>
-<span id="cb32-359"><a href="#cb32-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-360"><a href="#cb32-360" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb32-361"><a href="#cb32-361" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb32-362"><a href="#cb32-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-329"><a href="#cb32-329" aria-hidden="true" tabindex="-1"></a><span class="fu">## Committed changes</span></span>
+<span id="cb32-330"><a href="#cb32-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-331"><a href="#cb32-331" aria-hidden="true" tabindex="-1"></a>Suppose you need to add or modify to your commit. This illustrates a few things you might do to update your commit.</span>
+<span id="cb32-332"><a href="#cb32-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-333"><a href="#cb32-333" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb32-334"><a href="#cb32-334" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">'Initial commit'</span></span>
+<span id="cb32-335"><a href="#cb32-335" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add forgotten_file.txt</span>
+<span id="cb32-336"><a href="#cb32-336" aria-hidden="true" tabindex="-1"></a><span class="co"># Edit file.txt.</span></span>
+<span id="cb32-337"><a href="#cb32-337" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add file.txt</span>
+<span id="cb32-338"><a href="#cb32-338" aria-hidden="true" tabindex="-1"></a><span class="co"># Get version of file from previous commit.</span></span>
+<span id="cb32-339"><a href="#cb32-339" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="op">&lt;</span>commit_hash<span class="op">&gt;</span> file.txt</span>
+<span id="cb32-340"><a href="#cb32-340" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--amend</span></span>
+<span id="cb32-341"><a href="#cb32-341" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-342"><a href="#cb32-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-343"><a href="#cb32-343" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pushed changes</span></span>
+<span id="cb32-344"><a href="#cb32-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-345"><a href="#cb32-345" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb32-346"><a href="#cb32-346" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> revert <span class="op">&lt;</span>commit_hash<span class="op">&gt;</span></span>
+<span id="cb32-347"><a href="#cb32-347" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span>
+<span id="cb32-348"><a href="#cb32-348" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-349"><a href="#cb32-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-350"><a href="#cb32-350" aria-hidden="true" tabindex="-1"></a>Note that this creates a new commit that undoes the changes you don't want. So the undoing shows up in the history.</span>
+<span id="cb32-351"><a href="#cb32-351" aria-hidden="true" tabindex="-1"></a>This is the safest option.</span>
+<span id="cb32-352"><a href="#cb32-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-353"><a href="#cb32-353" aria-hidden="true" tabindex="-1"></a>If you're *sure* no one else has pulled your changes from the remote:</span>
+<span id="cb32-354"><a href="#cb32-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-355"><a href="#cb32-355" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb32-356"><a href="#cb32-356" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="op">&lt;</span>commit_hash<span class="op">&gt;</span></span>
+<span id="cb32-357"><a href="#cb32-357" aria-hidden="true" tabindex="-1"></a><span class="co"># Make changes</span></span>
+<span id="cb32-358"><a href="#cb32-358" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-a</span> <span class="at">-m</span><span class="st">'reworked the mistake'</span></span>
+<span id="cb32-359"><a href="#cb32-359" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-f</span> origin <span class="op">&lt;</span>branch_name<span class="op">&gt;</span></span>
+<span id="cb32-360"><a href="#cb32-360" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-361"><a href="#cb32-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-362"><a href="#cb32-362" aria-hidden="true" tabindex="-1"></a>This will remove the previous commit at the remote (GitHub in our case). </span>
 <span id="cb32-363"><a href="#cb32-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-364"><a href="#cb32-364" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-365"><a href="#cb32-365" aria-hidden="true" tabindex="-1"></a><span class="fu"># 4. Code style and documentation</span></span>
+<span id="cb32-364"><a href="#cb32-364" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-365"><a href="#cb32-365" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb32-366"><a href="#cb32-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-367"><a href="#cb32-367" aria-hidden="true" tabindex="-1"></a>Having a (reasonably) consistent and clean style, plus documentation, is important for being able to</span>
-<span id="cb32-368"><a href="#cb32-368" aria-hidden="true" tabindex="-1"></a>read and maintain your code.</span>
-<span id="cb32-369"><a href="#cb32-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-370"><a href="#cb32-370" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}</span>
-<span id="cb32-371"><a href="#cb32-371" aria-hidden="true" tabindex="-1"></a><span class="fu">## Q: Who is the person most likely to use your code again?</span></span>
-<span id="cb32-372"><a href="#cb32-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-373"><a href="#cb32-373" aria-hidden="true" tabindex="-1"></a>A: You, but at some point in the future by which you will have forgotten what the code does and why.</span>
-<span id="cb32-374"><a href="#cb32-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-375"><a href="#cb32-375" aria-hidden="true" tabindex="-1"></a>I can't tell you how many times I've looked back at my</span>
-<span id="cb32-376"><a href="#cb32-376" aria-hidden="true" tabindex="-1"></a>own code and been amazed at how little I remember and frustrated with the former self who wrote it.</span>
-<span id="cb32-377"><a href="#cb32-377" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-367"><a href="#cb32-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-368"><a href="#cb32-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-369"><a href="#cb32-369" aria-hidden="true" tabindex="-1"></a><span class="fu"># 4. Code style and documentation</span></span>
+<span id="cb32-370"><a href="#cb32-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-371"><a href="#cb32-371" aria-hidden="true" tabindex="-1"></a>Having a (reasonably) consistent and clean style, plus documentation, is important for being able to</span>
+<span id="cb32-372"><a href="#cb32-372" aria-hidden="true" tabindex="-1"></a>read and maintain your code.</span>
+<span id="cb32-373"><a href="#cb32-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-374"><a href="#cb32-374" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}</span>
+<span id="cb32-375"><a href="#cb32-375" aria-hidden="true" tabindex="-1"></a><span class="fu">## Q: Who is the person most likely to use your code again?</span></span>
+<span id="cb32-376"><a href="#cb32-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-377"><a href="#cb32-377" aria-hidden="true" tabindex="-1"></a>A: You, but at some point in the future by which you will have forgotten what the code does and why.</span>
 <span id="cb32-378"><a href="#cb32-378" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-379"><a href="#cb32-379" aria-hidden="true" tabindex="-1"></a>A go-to reference on Python code style is the <span class="co">[</span><span class="ot">PEP8 style guide</span><span class="co">](https://peps.python.org/pep-0008)</span>. That said, it's extensive, quite detailed, and hard to absorb quickly.</span>
-<span id="cb32-380"><a href="#cb32-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-381"><a href="#cb32-381" aria-hidden="true" tabindex="-1"></a>Here are a few key suggestions:</span>
+<span id="cb32-379"><a href="#cb32-379" aria-hidden="true" tabindex="-1"></a>I can't tell you how many times I've looked back at my</span>
+<span id="cb32-380"><a href="#cb32-380" aria-hidden="true" tabindex="-1"></a>own code and been amazed at how little I remember and frustrated with the former self who wrote it.</span>
+<span id="cb32-381"><a href="#cb32-381" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb32-382"><a href="#cb32-382" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-383"><a href="#cb32-383" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Indentation:</span>
-<span id="cb32-384"><a href="#cb32-384" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Python is strict about indentation of course.</span>
-<span id="cb32-385"><a href="#cb32-385" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Use 4 spaces per indentation level (avoid tabs if possible).</span>
-<span id="cb32-386"><a href="#cb32-386" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Whitespace: use it in a variety of places. Some places where it is good to have it</span>
-<span id="cb32-387"><a href="#cb32-387" aria-hidden="true" tabindex="-1"></a>    are</span>
-<span id="cb32-388"><a href="#cb32-388" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>around operators (assignment and arithmetic), e.g., <span class="in">`x = x * 3`</span>;</span>
-<span id="cb32-389"><a href="#cb32-389" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>between function arguments, e.g., <span class="in">`myfun(x, 3, data)`</span>;</span>
-<span id="cb32-390"><a href="#cb32-390" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>between list/tuple elements, e.g., <span class="in">`x = [3, 5, 7]`</span>; and</span>
-<span id="cb32-391"><a href="#cb32-391" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>between matrix/array indices, e.g., <span class="in">`x[3, :4]`</span>.</span>
-<span id="cb32-392"><a href="#cb32-392" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use blank lines to separate blocks of code with comments to say what</span>
-<span id="cb32-393"><a href="#cb32-393" aria-hidden="true" tabindex="-1"></a>    the block does.</span>
-<span id="cb32-394"><a href="#cb32-394" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use whitespaces or parentheses for clarity even if not needed for order of</span>
-<span id="cb32-395"><a href="#cb32-395" aria-hidden="true" tabindex="-1"></a>    operations. For example, <span class="in">`a/y*x`</span> will work but is not easy to read</span>
-<span id="cb32-396"><a href="#cb32-396" aria-hidden="true" tabindex="-1"></a>    and you can easily induce a bug if you forget the order of ops. Instead,</span>
-<span id="cb32-397"><a href="#cb32-397" aria-hidden="true" tabindex="-1"></a>    use <span class="in">`a/y * x`</span> or <span class="in">`(a/y) * x`</span>.</span>
-<span id="cb32-398"><a href="#cb32-398" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Avoid code lines longer than 79 characters and comment/docstring lines</span>
-<span id="cb32-399"><a href="#cb32-399" aria-hidden="true" tabindex="-1"></a>    longer than 72 characters.</span>
-<span id="cb32-400"><a href="#cb32-400" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comments:</span>
-<span id="cb32-401"><a href="#cb32-401" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Add comments to explain why, not how.</span>
-<span id="cb32-402"><a href="#cb32-402" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Don't belabor the obvious; avoid things like <span class="in">`x = x + 1  # Increment x.`</span>.</span>
-<span id="cb32-403"><a href="#cb32-403" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Some key things to document:</span>
-<span id="cb32-404"><a href="#cb32-404" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>summarizing a block of code,</span>
-<span id="cb32-405"><a href="#cb32-405" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>explaining a complicated piece of code or particular construction, and</span>
-<span id="cb32-406"><a href="#cb32-406" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>explaining non-obvious values or steps, such as <span class="in">`x = x + 1 # Compensate for image border.`</span></span>
-<span id="cb32-407"><a href="#cb32-407" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Comments should generally be complete sentences.</span>
-<span id="cb32-408"><a href="#cb32-408" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>You can use parentheses to group operations such that they can be split up into lines</span>
-<span id="cb32-409"><a href="#cb32-409" aria-hidden="true" tabindex="-1"></a>  and easily commented, e.g.,</span>
-<span id="cb32-410"><a href="#cb32-410" aria-hidden="true" tabindex="-1"></a>  <span class="in">```{python}</span></span>
-<span id="cb32-411"><a href="#cb32-411" aria-hidden="true" tabindex="-1"></a><span class="in">  #| eval: false</span></span>
-<span id="cb32-412"><a href="#cb32-412" aria-hidden="true" tabindex="-1"></a><span class="in">  newdf = (</span></span>
-<span id="cb32-413"><a href="#cb32-413" aria-hidden="true" tabindex="-1"></a><span class="in">          pd.read_csv('file.csv')                   # 1988 census data.</span></span>
-<span id="cb32-414"><a href="#cb32-414" aria-hidden="true" tabindex="-1"></a><span class="in">          .rename(columns = {'STATE': 'us_state'})  # Adjust column names.</span></span>
-<span id="cb32-415"><a href="#cb32-415" aria-hidden="true" tabindex="-1"></a><span class="in">          .dropna()                                 # Remove rows with missing values.</span></span>
-<span id="cb32-416"><a href="#cb32-416" aria-hidden="true" tabindex="-1"></a><span class="in">          )</span></span>
-<span id="cb32-417"><a href="#cb32-417" aria-hidden="true" tabindex="-1"></a><span class="in">  ```</span></span>
-<span id="cb32-418"><a href="#cb32-418" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Being consistent about the naming style for objects and functions is hard, but try to be consistent. PEP8 suggests:</span>
-<span id="cb32-419"><a href="#cb32-419" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Class names should be UpperCamelCase.</span>
-<span id="cb32-420"><a href="#cb32-420" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Function, method, and variable names should be snake_case, e.g., <span class="in">`number_of_its`</span> or <span class="in">`n_its`</span>.</span>
-<span id="cb32-421"><a href="#cb32-421" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Non-public methods and variables should have a leading underscore.</span>
-<span id="cb32-422"><a href="#cb32-422" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Try to have the names be informative without being overly long.</span>
-<span id="cb32-423"><a href="#cb32-423" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Don't overwrite names of objects/functions that already exist in the language. E.g., don't use <span class="in">`len`</span> in Python. That said, the namespace system helps with the unavoidable cases where there are name conflicts.</span>
-<span id="cb32-424"><a href="#cb32-424" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use active names for functions (e.g., <span class="in">`calc_loglik`</span>, <span class="in">`calc_log_lik`</span></span>
-<span id="cb32-425"><a href="#cb32-425" aria-hidden="true" tabindex="-1"></a>    rather than <span class="in">`loglik`</span> or <span class="in">`loglik_calc`</span>). Functions are akin to verbs.</span>
-<span id="cb32-426"><a href="#cb32-426" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Learn from others' code</span>
-<span id="cb32-427"><a href="#cb32-427" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-428"><a href="#cb32-428" aria-hidden="true" tabindex="-1"></a><span class="fu">## Linting</span></span>
-<span id="cb32-429"><a href="#cb32-429" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-430"><a href="#cb32-430" aria-hidden="true" tabindex="-1"></a>Linting is the process of applying a tool to your code to enforce style.</span>
+<span id="cb32-383"><a href="#cb32-383" aria-hidden="true" tabindex="-1"></a>A go-to reference on Python code style is the <span class="co">[</span><span class="ot">PEP8 style guide</span><span class="co">](https://peps.python.org/pep-0008)</span>. That said, it's extensive, quite detailed, and hard to absorb quickly.</span>
+<span id="cb32-384"><a href="#cb32-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-385"><a href="#cb32-385" aria-hidden="true" tabindex="-1"></a>Here are a few key suggestions:</span>
+<span id="cb32-386"><a href="#cb32-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-387"><a href="#cb32-387" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Indentation:</span>
+<span id="cb32-388"><a href="#cb32-388" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Python is strict about indentation of course.</span>
+<span id="cb32-389"><a href="#cb32-389" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Use 4 spaces per indentation level (avoid tabs if possible).</span>
+<span id="cb32-390"><a href="#cb32-390" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Whitespace: use it in a variety of places. Some places where it is good to have it</span>
+<span id="cb32-391"><a href="#cb32-391" aria-hidden="true" tabindex="-1"></a>    are</span>
+<span id="cb32-392"><a href="#cb32-392" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>around operators (assignment and arithmetic), e.g., <span class="in">`x = x * 3`</span>;</span>
+<span id="cb32-393"><a href="#cb32-393" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>between function arguments, e.g., <span class="in">`myfun(x, 3, data)`</span>;</span>
+<span id="cb32-394"><a href="#cb32-394" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>between list/tuple elements, e.g., <span class="in">`x = [3, 5, 7]`</span>; and</span>
+<span id="cb32-395"><a href="#cb32-395" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>between matrix/array indices, e.g., <span class="in">`x[3, :4]`</span>.</span>
+<span id="cb32-396"><a href="#cb32-396" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use blank lines to separate blocks of code with comments to say what</span>
+<span id="cb32-397"><a href="#cb32-397" aria-hidden="true" tabindex="-1"></a>    the block does.</span>
+<span id="cb32-398"><a href="#cb32-398" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use whitespaces or parentheses for clarity even if not needed for order of</span>
+<span id="cb32-399"><a href="#cb32-399" aria-hidden="true" tabindex="-1"></a>    operations. For example, <span class="in">`a/y*x`</span> will work but is not easy to read</span>
+<span id="cb32-400"><a href="#cb32-400" aria-hidden="true" tabindex="-1"></a>    and you can easily induce a bug if you forget the order of ops. Instead,</span>
+<span id="cb32-401"><a href="#cb32-401" aria-hidden="true" tabindex="-1"></a>    use <span class="in">`a/y * x`</span> or <span class="in">`(a/y) * x`</span>.</span>
+<span id="cb32-402"><a href="#cb32-402" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Avoid code lines longer than 79 characters and comment/docstring lines</span>
+<span id="cb32-403"><a href="#cb32-403" aria-hidden="true" tabindex="-1"></a>    longer than 72 characters.</span>
+<span id="cb32-404"><a href="#cb32-404" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comments:</span>
+<span id="cb32-405"><a href="#cb32-405" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Add comments to explain why, not how.</span>
+<span id="cb32-406"><a href="#cb32-406" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Don't belabor the obvious; avoid things like <span class="in">`x = x + 1  # Increment x.`</span>.</span>
+<span id="cb32-407"><a href="#cb32-407" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Some key things to document:</span>
+<span id="cb32-408"><a href="#cb32-408" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>summarizing a block of code,</span>
+<span id="cb32-409"><a href="#cb32-409" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>explaining a complicated piece of code or particular construction, and</span>
+<span id="cb32-410"><a href="#cb32-410" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>explaining non-obvious values or steps, such as <span class="in">`x = x + 1 # Compensate for image border.`</span></span>
+<span id="cb32-411"><a href="#cb32-411" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Comments should generally be complete sentences.</span>
+<span id="cb32-412"><a href="#cb32-412" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>You can use parentheses to group operations such that they can be split up into lines</span>
+<span id="cb32-413"><a href="#cb32-413" aria-hidden="true" tabindex="-1"></a>  and easily commented, e.g.,</span>
+<span id="cb32-414"><a href="#cb32-414" aria-hidden="true" tabindex="-1"></a>  <span class="in">```{python}</span></span>
+<span id="cb32-415"><a href="#cb32-415" aria-hidden="true" tabindex="-1"></a><span class="in">  #| eval: false</span></span>
+<span id="cb32-416"><a href="#cb32-416" aria-hidden="true" tabindex="-1"></a><span class="in">  newdf = (</span></span>
+<span id="cb32-417"><a href="#cb32-417" aria-hidden="true" tabindex="-1"></a><span class="in">          pd.read_csv('file.csv')                   # 1988 census data.</span></span>
+<span id="cb32-418"><a href="#cb32-418" aria-hidden="true" tabindex="-1"></a><span class="in">          .rename(columns = {'STATE': 'us_state'})  # Adjust column names.</span></span>
+<span id="cb32-419"><a href="#cb32-419" aria-hidden="true" tabindex="-1"></a><span class="in">          .dropna()                                 # Remove rows with missing values.</span></span>
+<span id="cb32-420"><a href="#cb32-420" aria-hidden="true" tabindex="-1"></a><span class="in">          )</span></span>
+<span id="cb32-421"><a href="#cb32-421" aria-hidden="true" tabindex="-1"></a><span class="in">  ```</span></span>
+<span id="cb32-422"><a href="#cb32-422" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Being consistent about the naming style for objects and functions is hard, but try to be consistent. PEP8 suggests:</span>
+<span id="cb32-423"><a href="#cb32-423" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Class names should be UpperCamelCase.</span>
+<span id="cb32-424"><a href="#cb32-424" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Function, method, and variable names should be snake_case, e.g., <span class="in">`number_of_its`</span> or <span class="in">`n_its`</span>.</span>
+<span id="cb32-425"><a href="#cb32-425" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Non-public methods and variables should have a leading underscore.</span>
+<span id="cb32-426"><a href="#cb32-426" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Try to have the names be informative without being overly long.</span>
+<span id="cb32-427"><a href="#cb32-427" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Don't overwrite names of objects/functions that already exist in the language. E.g., don't use <span class="in">`len`</span> in Python. That said, the namespace system helps with the unavoidable cases where there are name conflicts.</span>
+<span id="cb32-428"><a href="#cb32-428" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use active names for functions (e.g., <span class="in">`calc_loglik`</span>, <span class="in">`calc_log_lik`</span></span>
+<span id="cb32-429"><a href="#cb32-429" aria-hidden="true" tabindex="-1"></a>    rather than <span class="in">`loglik`</span> or <span class="in">`loglik_calc`</span>). Functions are akin to verbs.</span>
+<span id="cb32-430"><a href="#cb32-430" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Learn from others' code</span>
 <span id="cb32-431"><a href="#cb32-431" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-432"><a href="#cb32-432" aria-hidden="true" tabindex="-1"></a>We'll demo using <span class="in">`ruff`</span> to some example code. You might also consider <span class="in">`black`</span>.</span>
+<span id="cb32-432"><a href="#cb32-432" aria-hidden="true" tabindex="-1"></a><span class="fu">## Linting</span></span>
 <span id="cb32-433"><a href="#cb32-433" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-434"><a href="#cb32-434" aria-hidden="true" tabindex="-1"></a>We'll practice with <span class="in">`ruff`</span> with a small module we'll use next also for debugging.</span>
+<span id="cb32-434"><a href="#cb32-434" aria-hidden="true" tabindex="-1"></a>Linting is the process of applying a tool to your code to enforce style.</span>
 <span id="cb32-435"><a href="#cb32-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-436"><a href="#cb32-436" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>First, we check for and fix syntax errors.</span>
-<span id="cb32-437"><a href="#cb32-437" aria-hidden="true" tabindex="-1"></a>  <span class="in">```bash</span></span>
-<span id="cb32-438"><a href="#cb32-438" aria-hidden="true" tabindex="-1"></a>  <span class="ex">ruff</span> check binary_search.py</span>
-<span id="cb32-439"><a href="#cb32-439" aria-hidden="true" tabindex="-1"></a>  <span class="in">```</span></span>
-<span id="cb32-440"><a href="#cb32-440" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Then we ask <span class="in">`ruff`</span> to reformat to conform to standard style.</span>
+<span id="cb32-436"><a href="#cb32-436" aria-hidden="true" tabindex="-1"></a>We'll demo using <span class="in">`ruff`</span> to some example code. You might also consider <span class="in">`black`</span>.</span>
+<span id="cb32-437"><a href="#cb32-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-438"><a href="#cb32-438" aria-hidden="true" tabindex="-1"></a>We'll practice with <span class="in">`ruff`</span> with a small module we'll use next also for debugging.</span>
+<span id="cb32-439"><a href="#cb32-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-440"><a href="#cb32-440" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>First, we check for and fix syntax errors.</span>
 <span id="cb32-441"><a href="#cb32-441" aria-hidden="true" tabindex="-1"></a>  <span class="in">```bash</span></span>
-<span id="cb32-442"><a href="#cb32-442" aria-hidden="true" tabindex="-1"></a>  <span class="ex">ruff</span> format binary_search.py</span>
+<span id="cb32-442"><a href="#cb32-442" aria-hidden="true" tabindex="-1"></a>  <span class="ex">ruff</span> check binary_search.py</span>
 <span id="cb32-443"><a href="#cb32-443" aria-hidden="true" tabindex="-1"></a>  <span class="in">```</span></span>
-<span id="cb32-444"><a href="#cb32-444" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-445"><a href="#cb32-445" aria-hidden="true" tabindex="-1"></a>Let's see what changed:</span>
-<span id="cb32-446"><a href="#cb32-446" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-447"><a href="#cb32-447" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb32-448"><a href="#cb32-448" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span> binary_search_orig.py binary_search.py</span>
-<span id="cb32-449"><a href="#cb32-449" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-444"><a href="#cb32-444" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Then we ask <span class="in">`ruff`</span> to reformat to conform to standard style.</span>
+<span id="cb32-445"><a href="#cb32-445" aria-hidden="true" tabindex="-1"></a>  <span class="in">```bash</span></span>
+<span id="cb32-446"><a href="#cb32-446" aria-hidden="true" tabindex="-1"></a>  <span class="ex">ruff</span> format binary_search.py</span>
+<span id="cb32-447"><a href="#cb32-447" aria-hidden="true" tabindex="-1"></a>  <span class="in">```</span></span>
+<span id="cb32-448"><a href="#cb32-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-449"><a href="#cb32-449" aria-hidden="true" tabindex="-1"></a>Let's see what changed:</span>
 <span id="cb32-450"><a href="#cb32-450" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-451"><a href="#cb32-451" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: add documentation and comments to your Newton module</span></span>
-<span id="cb32-452"><a href="#cb32-452" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-453"><a href="#cb32-453" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Add a <span class="co">[</span><span class="ot">doc string</span><span class="co">](https://peps.python.org/pep-0257)</span> to each of your functions. Focus on your main function. Take a look at an example, such as <span class="in">`help(numpy.linalg.cholesky)`</span> to see the different parts and the format.</span>
-<span id="cb32-454"><a href="#cb32-454" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Consider whether to add comments to your code.</span>
-<span id="cb32-455"><a href="#cb32-455" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Apply <span class="in">`ruff`</span> to your code.</span>
-<span id="cb32-456"><a href="#cb32-456" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Compare the results with the style suggestions above and do additional reformatting as needed.</span>
-<span id="cb32-457"><a href="#cb32-457" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Commit and push to GitHub. Remember to have a good commit message!</span>
-<span id="cb32-458"><a href="#cb32-458" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-459"><a href="#cb32-459" aria-hidden="true" tabindex="-1"></a><span class="fu"># 5. Debugging</span></span>
-<span id="cb32-460"><a href="#cb32-460" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-461"><a href="#cb32-461" aria-hidden="true" tabindex="-1"></a>Once you start writing more complicated code, even in an interpreted language such as Python that you can run line-by-line, you'll want to use a debugger, particularly when you have nested function calls.</span>
+<span id="cb32-451"><a href="#cb32-451" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb32-452"><a href="#cb32-452" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span> binary_search_orig.py binary_search.py</span>
+<span id="cb32-453"><a href="#cb32-453" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-454"><a href="#cb32-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-455"><a href="#cb32-455" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: add documentation and comments to your Newton module</span></span>
+<span id="cb32-456"><a href="#cb32-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-457"><a href="#cb32-457" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Add a <span class="co">[</span><span class="ot">doc string</span><span class="co">](https://peps.python.org/pep-0257)</span> to each of your functions. Focus on your main function. Take a look at an example, such as <span class="in">`help(numpy.linalg.cholesky)`</span> to see the different parts and the format.</span>
+<span id="cb32-458"><a href="#cb32-458" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Consider whether to add comments to your code.</span>
+<span id="cb32-459"><a href="#cb32-459" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Apply <span class="in">`ruff`</span> to your code.</span>
+<span id="cb32-460"><a href="#cb32-460" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Compare the results with the style suggestions above and do additional reformatting as needed.</span>
+<span id="cb32-461"><a href="#cb32-461" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Commit and push to GitHub. Remember to have a good commit message!</span>
 <span id="cb32-462"><a href="#cb32-462" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-463"><a href="#cb32-463" aria-hidden="true" tabindex="-1"></a>Debugging can be a slow process, so you typically start a debugging session by deciding which line in your code you would like to start tracing the behavior from, and you place a *breakpoint*. Then you can have the debugger run the program up to that point and stop at it, allowing you to:</span>
+<span id="cb32-463"><a href="#cb32-463" aria-hidden="true" tabindex="-1"></a><span class="fu"># 5. Debugging</span></span>
 <span id="cb32-464"><a href="#cb32-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-465"><a href="#cb32-465" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>inspect the current state of variables,</span>
-<span id="cb32-466"><a href="#cb32-466" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>step through the code line by line,</span>
-<span id="cb32-467"><a href="#cb32-467" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>step over or into functions as they are called, and</span>
-<span id="cb32-468"><a href="#cb32-468" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>resume program execution.</span>
-<span id="cb32-469"><a href="#cb32-469" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-470"><a href="#cb32-470" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-471"><a href="#cb32-471" aria-hidden="true" tabindex="-1"></a>The *stack* is the series of nested function calls. When an error occurs, Python will print the *stack trace* showing the sequence of calls leading to the error. This can be helpful and distracting/confusing.</span>
-<span id="cb32-472"><a href="#cb32-472" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-473"><a href="#cb32-473" aria-hidden="true" tabindex="-1"></a>We'll use the debugger in JupyterLab; similar functionality is in VS Code. And you can use <span class="in">`pdb`</span> directly from the command line; the ideas are all the same.</span>
+<span id="cb32-465"><a href="#cb32-465" aria-hidden="true" tabindex="-1"></a>Once you start writing more complicated code, even in an interpreted language such as Python that you can run line-by-line, you'll want to use a debugger, particularly when you have nested function calls.</span>
+<span id="cb32-466"><a href="#cb32-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-467"><a href="#cb32-467" aria-hidden="true" tabindex="-1"></a>Debugging can be a slow process, so you typically start a debugging session by deciding which line in your code you would like to start tracing the behavior from, and you place a *breakpoint*. Then you can have the debugger run the program up to that point and stop at it, allowing you to:</span>
+<span id="cb32-468"><a href="#cb32-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-469"><a href="#cb32-469" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>inspect the current state of variables,</span>
+<span id="cb32-470"><a href="#cb32-470" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>step through the code line by line,</span>
+<span id="cb32-471"><a href="#cb32-471" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>step over or into functions as they are called, and</span>
+<span id="cb32-472"><a href="#cb32-472" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>resume program execution.</span>
+<span id="cb32-473"><a href="#cb32-473" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-474"><a href="#cb32-474" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-475"><a href="#cb32-475" aria-hidden="true" tabindex="-1"></a><span class="fu">## Demo: debugging the `binary_search` example</span></span>
+<span id="cb32-475"><a href="#cb32-475" aria-hidden="true" tabindex="-1"></a>The *stack* is the series of nested function calls. When an error occurs, Python will print the *stack trace* showing the sequence of calls leading to the error. This can be helpful and distracting/confusing.</span>
 <span id="cb32-476"><a href="#cb32-476" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-477"><a href="#cb32-477" aria-hidden="true" tabindex="-1"></a><span class="fu">### Using the JupyterLab visual debugger</span></span>
+<span id="cb32-477"><a href="#cb32-477" aria-hidden="true" tabindex="-1"></a>We'll use the debugger in JupyterLab; similar functionality is in VS Code. And you can use <span class="in">`pdb`</span> directly from the command line; the ideas are all the same.</span>
 <span id="cb32-478"><a href="#cb32-478" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-479"><a href="#cb32-479" aria-hidden="true" tabindex="-1"></a>The function <span class="in">`binary_search()`</span> in the <span class="in">`binary_search.py`</span> module attempts to do a binary search for an item in a sorted list. It looks in the middle of the list and if the value in the list is larger than the item, it recurses to look in the first half of the list, otherwise in the second half. It continues in this fashion until it is down to a single item and then checks if that item is what is being searched for.</span>
+<span id="cb32-479"><a href="#cb32-479" aria-hidden="true" tabindex="-1"></a><span class="fu">## Demo: debugging the `binary_search` example</span></span>
 <span id="cb32-480"><a href="#cb32-480" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-483"><a href="#cb32-483" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb32-484"><a href="#cb32-484" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> binary_search <span class="im">as</span> bs</span>
-<span id="cb32-485"><a href="#cb32-485" aria-hidden="true" tabindex="-1"></a>bs.search([<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">13</span>,<span class="dv">17</span>,<span class="dv">203</span>,<span class="dv">205</span>],<span class="dv">3</span>)</span>
-<span id="cb32-486"><a href="#cb32-486" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-489"><a href="#cb32-489" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb32-490"><a href="#cb32-490" aria-hidden="true" tabindex="-1"></a>bs.search([<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">13</span>,<span class="dv">17</span>,<span class="dv">203</span>,<span class="dv">205</span>],<span class="dv">13</span>)</span>
-<span id="cb32-491"><a href="#cb32-491" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-494"><a href="#cb32-494" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb32-495"><a href="#cb32-495" aria-hidden="true" tabindex="-1"></a>bs.search([<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">13</span>,<span class="dv">17</span>,<span class="dv">203</span>,<span class="dv">205</span>],<span class="dv">17</span>)</span>
-<span id="cb32-496"><a href="#cb32-496" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-497"><a href="#cb32-497" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-498"><a href="#cb32-498" aria-hidden="true" tabindex="-1"></a>Clearly that doesn't always work. Let's debug the failing case.</span>
-<span id="cb32-499"><a href="#cb32-499" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-500"><a href="#cb32-500" aria-hidden="true" tabindex="-1"></a>We'll work in our Jupyter notebook.</span>
+<span id="cb32-481"><a href="#cb32-481" aria-hidden="true" tabindex="-1"></a><span class="fu">### Using the JupyterLab visual debugger</span></span>
+<span id="cb32-482"><a href="#cb32-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-483"><a href="#cb32-483" aria-hidden="true" tabindex="-1"></a>The function <span class="in">`binary_search()`</span> in the <span class="in">`binary_search.py`</span> module attempts to do a binary search for an item in a sorted list. It looks in the middle of the list and if the value in the list is larger than the item, it recurses to look in the first half of the list, otherwise in the second half. It continues in this fashion until it is down to a single item and then checks if that item is what is being searched for.</span>
+<span id="cb32-484"><a href="#cb32-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-487"><a href="#cb32-487" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb32-488"><a href="#cb32-488" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> binary_search <span class="im">as</span> bs</span>
+<span id="cb32-489"><a href="#cb32-489" aria-hidden="true" tabindex="-1"></a>bs.search([<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">13</span>,<span class="dv">17</span>,<span class="dv">203</span>,<span class="dv">205</span>],<span class="dv">3</span>)</span>
+<span id="cb32-490"><a href="#cb32-490" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-493"><a href="#cb32-493" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb32-494"><a href="#cb32-494" aria-hidden="true" tabindex="-1"></a>bs.search([<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">13</span>,<span class="dv">17</span>,<span class="dv">203</span>,<span class="dv">205</span>],<span class="dv">13</span>)</span>
+<span id="cb32-495"><a href="#cb32-495" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-498"><a href="#cb32-498" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb32-499"><a href="#cb32-499" aria-hidden="true" tabindex="-1"></a>bs.search([<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">13</span>,<span class="dv">17</span>,<span class="dv">203</span>,<span class="dv">205</span>],<span class="dv">17</span>)</span>
+<span id="cb32-500"><a href="#cb32-500" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb32-501"><a href="#cb32-501" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-502"><a href="#cb32-502" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>First turn on debugging capability by clicking on the small "bug" icon of the top navigation bar under the file tabs and to the left of the  info about the kernel.</span>
-<span id="cb32-503"><a href="#cb32-503" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Next we click on a line of code to set a breakpoint (or add <span class="in">`breakpoint()`</span> in a line of a source file).</span>
-<span id="cb32-504"><a href="#cb32-504" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Now we run the function by executing the cell containing the function call. We can:</span>
-<span id="cb32-505"><a href="#cb32-505" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>continue (to the end or the next breakpoint),</span>
-<span id="cb32-506"><a href="#cb32-506" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>run the next line,</span>
-<span id="cb32-507"><a href="#cb32-507" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>step (in/down) into a nested function, or</span>
-<span id="cb32-508"><a href="#cb32-508" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>step (out/up) out of a function.</span>
-<span id="cb32-509"><a href="#cb32-509" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-510"><a href="#cb32-510" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-511"><a href="#cb32-511" aria-hidden="true" tabindex="-1"></a><span class="fu">### Using the IPython debugger (`ipdb`)</span></span>
-<span id="cb32-512"><a href="#cb32-512" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-513"><a href="#cb32-513" aria-hidden="true" tabindex="-1"></a>We can use the IPython <span class="in">`%debug`</span> "magic" to activate a debugger as well.</span>
+<span id="cb32-502"><a href="#cb32-502" aria-hidden="true" tabindex="-1"></a>Clearly that doesn't always work. Let's debug the failing case.</span>
+<span id="cb32-503"><a href="#cb32-503" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-504"><a href="#cb32-504" aria-hidden="true" tabindex="-1"></a>We'll work in our Jupyter notebook.</span>
+<span id="cb32-505"><a href="#cb32-505" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-506"><a href="#cb32-506" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>First turn on debugging capability by clicking on the small "bug" icon of the top navigation bar under the file tabs and to the left of the  info about the kernel.</span>
+<span id="cb32-507"><a href="#cb32-507" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Next we click on a line of code to set a breakpoint (or add <span class="in">`breakpoint()`</span> in a line of a source file).</span>
+<span id="cb32-508"><a href="#cb32-508" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Now we run the function by executing the cell containing the function call. We can:</span>
+<span id="cb32-509"><a href="#cb32-509" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>continue (to the end or the next breakpoint),</span>
+<span id="cb32-510"><a href="#cb32-510" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>run the next line,</span>
+<span id="cb32-511"><a href="#cb32-511" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>step (in/down) into a nested function, or</span>
+<span id="cb32-512"><a href="#cb32-512" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>step (out/up) out of a function.</span>
+<span id="cb32-513"><a href="#cb32-513" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-514"><a href="#cb32-514" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-515"><a href="#cb32-515" aria-hidden="true" tabindex="-1"></a>One way this is particularly useful is "post-mortem" debugging, i.e., debugging when exceptions (errors) have occurred. We just invoke <span class="in">`%debug`</span> and then (re)run the code that is failing.</span>
+<span id="cb32-515"><a href="#cb32-515" aria-hidden="true" tabindex="-1"></a><span class="fu">### Using the IPython debugger (`ipdb`)</span></span>
 <span id="cb32-516"><a href="#cb32-516" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-517"><a href="#cb32-517" aria-hidden="true" tabindex="-1"></a>Once in the ipdb debugger, we can use these commands (most of which correspond to icons we used to control the JupyterLab debugger behavior</span>
+<span id="cb32-517"><a href="#cb32-517" aria-hidden="true" tabindex="-1"></a>We can use the IPython <span class="in">`%debug`</span> "magic" to activate a debugger as well.</span>
 <span id="cb32-518"><a href="#cb32-518" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-519"><a href="#cb32-519" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`p expr`</span> to print the result of the <span class="in">`expr`</span> code</span>
-<span id="cb32-520"><a href="#cb32-520" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`c`</span> to continue execution (until the end or the next breakpoint)</span>
-<span id="cb32-521"><a href="#cb32-521" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`n`</span> to run the next line of code</span>
-<span id="cb32-522"><a href="#cb32-522" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`u`</span> and <span class="in">`d`</span> to step up and down through the stack of function calls</span>
-<span id="cb32-523"><a href="#cb32-523" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`q`</span> to quit the debugger</span>
-<span id="cb32-524"><a href="#cb32-524" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-525"><a href="#cb32-525" aria-hidden="true" tabindex="-1"></a>We'll put a silly error into the <span class="in">`binary_search`</span> code, restart the kernel, and use the post-mortem debugging approach as an illustration.</span>
-<span id="cb32-526"><a href="#cb32-526" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-527"><a href="#cb32-527" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: debugging your Newton code</span></span>
+<span id="cb32-519"><a href="#cb32-519" aria-hidden="true" tabindex="-1"></a>One way this is particularly useful is "post-mortem" debugging, i.e., debugging when exceptions (errors) have occurred. We just invoke <span class="in">`%debug`</span> and then (re)run the code that is failing.</span>
+<span id="cb32-520"><a href="#cb32-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-521"><a href="#cb32-521" aria-hidden="true" tabindex="-1"></a>Once in the ipdb debugger, we can use these commands (most of which correspond to icons we used to control the JupyterLab debugger behavior</span>
+<span id="cb32-522"><a href="#cb32-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-523"><a href="#cb32-523" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`p expr`</span> to print the result of the <span class="in">`expr`</span> code</span>
+<span id="cb32-524"><a href="#cb32-524" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`c`</span> to continue execution (until the end or the next breakpoint)</span>
+<span id="cb32-525"><a href="#cb32-525" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`n`</span> to run the next line of code</span>
+<span id="cb32-526"><a href="#cb32-526" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`u`</span> and <span class="in">`d`</span> to step up and down through the stack of function calls</span>
+<span id="cb32-527"><a href="#cb32-527" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`q`</span> to quit the debugger</span>
 <span id="cb32-528"><a href="#cb32-528" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-529"><a href="#cb32-529" aria-hidden="true" tabindex="-1"></a>Run your Newton method on the following function, $x^4/4 - x^3 -x$.</span>
-<span id="cb32-530"><a href="#cb32-530" aria-hidden="true" tabindex="-1"></a>Sometimes it should fail.</span>
-<span id="cb32-531"><a href="#cb32-531" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-532"><a href="#cb32-532" aria-hidden="true" tabindex="-1"></a>Use the debugger to try to see what goes wrong. (For our purposes here, do this using the debugger; don't figure it out from first principles mathematically or graphically.)</span>
-<span id="cb32-533"><a href="#cb32-533" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-534"><a href="#cb32-534" aria-hidden="true" tabindex="-1"></a>Conditional breakpoints are a useful tool that causes the debugger to stop at a breakpoint only if some condition is true (e.g., if some extreme value is reached in the Newton iterations). I don't see that it's possible to do this with the JupyterLab debugger, but with the <span class="in">`ipdb`</span> debugger you can do things like this to debug a particular line of a particular file if a condition (here <span class="in">`x==5`</span>) is met:</span>
+<span id="cb32-529"><a href="#cb32-529" aria-hidden="true" tabindex="-1"></a>We'll put a silly error into the <span class="in">`binary_search`</span> code, restart the kernel, and use the post-mortem debugging approach as an illustration.</span>
+<span id="cb32-530"><a href="#cb32-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-531"><a href="#cb32-531" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: debugging your Newton code</span></span>
+<span id="cb32-532"><a href="#cb32-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-533"><a href="#cb32-533" aria-hidden="true" tabindex="-1"></a>Run your Newton method on the following function, $x^4/4 - x^3 -x$.</span>
+<span id="cb32-534"><a href="#cb32-534" aria-hidden="true" tabindex="-1"></a>Sometimes it should fail.</span>
 <span id="cb32-535"><a href="#cb32-535" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-536"><a href="#cb32-536" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-537"><a href="#cb32-537" aria-hidden="true" tabindex="-1"></a><span class="in">b path/to/script.py:999, x==5</span></span>
-<span id="cb32-538"><a href="#cb32-538" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-536"><a href="#cb32-536" aria-hidden="true" tabindex="-1"></a>Use the debugger to try to see what goes wrong. (For our purposes here, do this using the debugger; don't figure it out from first principles mathematically or graphically.)</span>
+<span id="cb32-537"><a href="#cb32-537" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-538"><a href="#cb32-538" aria-hidden="true" tabindex="-1"></a>Conditional breakpoints are a useful tool that causes the debugger to stop at a breakpoint only if some condition is true (e.g., if some extreme value is reached in the Newton iterations). I don't see that it's possible to do this with the JupyterLab debugger, but with the <span class="in">`ipdb`</span> debugger you can do things like this to debug a particular line of a particular file if a condition (here <span class="in">`x==5`</span>) is met:</span>
 <span id="cb32-539"><a href="#cb32-539" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-540"><a href="#cb32-540" aria-hidden="true" tabindex="-1"></a><span class="fu"># 6. Defensive programming, error checking and testing</span></span>
-<span id="cb32-541"><a href="#cb32-541" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-542"><a href="#cb32-542" aria-hidden="true" tabindex="-1"></a><span class="fu">## Demo: Unit tests and `pytest`</span></span>
+<span id="cb32-540"><a href="#cb32-540" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-541"><a href="#cb32-541" aria-hidden="true" tabindex="-1"></a><span class="in">b path/to/script.py:999, x==5</span></span>
+<span id="cb32-542"><a href="#cb32-542" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb32-543"><a href="#cb32-543" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-544"><a href="#cb32-544" aria-hidden="true" tabindex="-1"></a><span class="in">`pytest`</span> is a very popular package/framework for testing. </span>
+<span id="cb32-544"><a href="#cb32-544" aria-hidden="true" tabindex="-1"></a><span class="fu"># 6. Defensive programming, error checking and testing</span></span>
 <span id="cb32-545"><a href="#cb32-545" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-546"><a href="#cb32-546" aria-hidden="true" tabindex="-1"></a>We create test functions that check for the expected result.</span>
+<span id="cb32-546"><a href="#cb32-546" aria-hidden="true" tabindex="-1"></a><span class="fu">## Demo: Unit tests and `pytest`</span></span>
 <span id="cb32-547"><a href="#cb32-547" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-548"><a href="#cb32-548" aria-hidden="true" tabindex="-1"></a>We use <span class="in">`assert`</span> statements. These are ways of generally setting up sanity checks in your code. They are usually used in development, or perhaps data analysis workflows, rather than production code. They are a core part of setting up tests such as here with <span class="in">`pytest`</span>.</span>
+<span id="cb32-548"><a href="#cb32-548" aria-hidden="true" tabindex="-1"></a><span class="in">`pytest`</span> is a very popular package/framework for testing. </span>
 <span id="cb32-549"><a href="#cb32-549" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-550"><a href="#cb32-550" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb32-551"><a href="#cb32-551" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span> test_bs.py</span>
-<span id="cb32-552"><a href="#cb32-552" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-550"><a href="#cb32-550" aria-hidden="true" tabindex="-1"></a>We create test functions that check for the expected result.</span>
+<span id="cb32-551"><a href="#cb32-551" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-552"><a href="#cb32-552" aria-hidden="true" tabindex="-1"></a>We use <span class="in">`assert`</span> statements. These are ways of generally setting up sanity checks in your code. They are usually used in development, or perhaps data analysis workflows, rather than production code. They are a core part of setting up tests such as here with <span class="in">`pytest`</span>.</span>
 <span id="cb32-553"><a href="#cb32-553" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-554"><a href="#cb32-554" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Test cases</span></span>
-<span id="cb32-555"><a href="#cb32-555" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-556"><a href="#cb32-556" aria-hidden="true" tabindex="-1"></a>With a partner, brainstorm some test cases for your implementation of Newton's method in terms of the user's function and input values a user might provide.</span>
+<span id="cb32-554"><a href="#cb32-554" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb32-555"><a href="#cb32-555" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span> test_bs.py</span>
+<span id="cb32-556"><a href="#cb32-556" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb32-557"><a href="#cb32-557" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-558"><a href="#cb32-558" aria-hidden="true" tabindex="-1"></a>In addition to cases where it should succeed, you'll want to consider cases where Newton's method fails and test whether the user gets an informative result. Of course as a starting point, the case we used for the debugging exercise is a good one for a failing case. </span>
+<span id="cb32-558"><a href="#cb32-558" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Test cases</span></span>
 <span id="cb32-559"><a href="#cb32-559" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-560"><a href="#cb32-560" aria-hidden="true" tabindex="-1"></a>We'll collect some possible tests once each group has had a chance to brainstorm.</span>
+<span id="cb32-560"><a href="#cb32-560" aria-hidden="true" tabindex="-1"></a>With a partner, brainstorm some test cases for your implementation of Newton's method in terms of the user's function and input values a user might provide.</span>
 <span id="cb32-561"><a href="#cb32-561" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-562"><a href="#cb32-562" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Unit tests</span></span>
+<span id="cb32-562"><a href="#cb32-562" aria-hidden="true" tabindex="-1"></a>In addition to cases where it should succeed, you'll want to consider cases where Newton's method fails and test whether the user gets an informative result. Of course as a starting point, the case we used for the debugging exercise is a good one for a failing case. </span>
 <span id="cb32-563"><a href="#cb32-563" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-564"><a href="#cb32-564" aria-hidden="true" tabindex="-1"></a>We'll implement our test cases as unit tests using the <span class="in">`pytest`</span> package.</span>
+<span id="cb32-564"><a href="#cb32-564" aria-hidden="true" tabindex="-1"></a>We'll collect some possible tests once each group has had a chance to brainstorm.</span>
 <span id="cb32-565"><a href="#cb32-565" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-566"><a href="#cb32-566" aria-hidden="true" tabindex="-1"></a>Include tests for:</span>
+<span id="cb32-566"><a href="#cb32-566" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Unit tests</span></span>
 <span id="cb32-567"><a href="#cb32-567" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-568"><a href="#cb32-568" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>successful optimization</span>
-<span id="cb32-569"><a href="#cb32-569" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>unsuccessful optimization</span>
-<span id="cb32-570"><a href="#cb32-570" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>invalid user inputs</span>
+<span id="cb32-568"><a href="#cb32-568" aria-hidden="true" tabindex="-1"></a>We'll implement our test cases as unit tests using the <span class="in">`pytest`</span> package.</span>
+<span id="cb32-569"><a href="#cb32-569" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-570"><a href="#cb32-570" aria-hidden="true" tabindex="-1"></a>Include tests for:</span>
 <span id="cb32-571"><a href="#cb32-571" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-572"><a href="#cb32-572" aria-hidden="true" tabindex="-1"></a>with the expected output being what you *want* to happen, not necessarily what your function does.</span>
-<span id="cb32-573"><a href="#cb32-573" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-574"><a href="#cb32-574" aria-hidden="true" tabindex="-1"></a>You'll want cases where you know the correct answer. Start simple.</span>
+<span id="cb32-572"><a href="#cb32-572" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>successful optimization</span>
+<span id="cb32-573"><a href="#cb32-573" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>unsuccessful optimization</span>
+<span id="cb32-574"><a href="#cb32-574" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>invalid user inputs</span>
 <span id="cb32-575"><a href="#cb32-575" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-576"><a href="#cb32-576" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution}</span>
-<span id="cb32-577"><a href="#cb32-577" aria-hidden="true" tabindex="-1"></a><span class="fu">## Only write tests now</span></span>
-<span id="cb32-578"><a href="#cb32-578" aria-hidden="true" tabindex="-1"></a>For now don't modify your code even if you start to suspect how it might fail. Writing the tests and then modifying code so they pass is an example of *test-driven development*.</span>
-<span id="cb32-579"><a href="#cb32-579" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb32-580"><a href="#cb32-580" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-581"><a href="#cb32-581" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Error trapping, robust code, and defensive programming</span></span>
-<span id="cb32-582"><a href="#cb32-582" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-583"><a href="#cb32-583" aria-hidden="true" tabindex="-1"></a>Now we'll try to go beyond simply returning a failed result and see if we can trap problems early on and write more robust code. </span>
+<span id="cb32-576"><a href="#cb32-576" aria-hidden="true" tabindex="-1"></a>with the expected output being what you *want* to happen, not necessarily what your function does.</span>
+<span id="cb32-577"><a href="#cb32-577" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-578"><a href="#cb32-578" aria-hidden="true" tabindex="-1"></a>You'll want cases where you know the correct answer. Start simple.</span>
+<span id="cb32-579"><a href="#cb32-579" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-580"><a href="#cb32-580" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution}</span>
+<span id="cb32-581"><a href="#cb32-581" aria-hidden="true" tabindex="-1"></a><span class="fu">## Only write tests now</span></span>
+<span id="cb32-582"><a href="#cb32-582" aria-hidden="true" tabindex="-1"></a>For now don't modify your code even if you start to suspect how it might fail. Writing the tests and then modifying code so they pass is an example of *test-driven development*.</span>
+<span id="cb32-583"><a href="#cb32-583" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb32-584"><a href="#cb32-584" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-585"><a href="#cb32-585" aria-hidden="true" tabindex="-1"></a>Work on the following improvements:</span>
+<span id="cb32-585"><a href="#cb32-585" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exceptions in Python</span></span>
 <span id="cb32-586"><a href="#cb32-586" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-587"><a href="#cb32-587" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Check user inputs are valid.</span>
-<span id="cb32-588"><a href="#cb32-588" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Add warnings to the user if it seems that Newton's method is taking a bad step.</span>
-<span id="cb32-589"><a href="#cb32-589" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Modify your function so that when it fails, the result is informative to the user.</span>
-<span id="cb32-590"><a href="#cb32-590" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Include a success/failure code (flag) in your output.</span>
+<span id="cb32-587"><a href="#cb32-587" aria-hidden="true" tabindex="-1"></a>To understand how Python handles error, we'll briefly work through the <span class="co">[</span><span class="ot">Errors and Exceptions section</span><span class="co">](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html)</span>{target="_blank"} of the Software Carpentry workshop. The primary ideas covered are understanding error messages and tracebacks and writing your own code that handles errors.</span>
+<span id="cb32-588"><a href="#cb32-588" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-589"><a href="#cb32-589" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-590"><a href="#cb32-590" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Error trapping, robust code, and defensive programming</span></span>
 <span id="cb32-591"><a href="#cb32-591" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-592"><a href="#cb32-592" aria-hidden="true" tabindex="-1"></a>We don't have time to go fully into how Python handles errors (called exceptions). Here are a few basic things you can do to *raise* an *exception* (i.e., to report an error):</span>
+<span id="cb32-592"><a href="#cb32-592" aria-hidden="true" tabindex="-1"></a>Now we'll try to go beyond simply returning a failed result and see if we can trap problems early on and write more robust code. </span>
 <span id="cb32-593"><a href="#cb32-593" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-594"><a href="#cb32-594" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-595"><a href="#cb32-595" aria-hidden="true" tabindex="-1"></a><span class="in">if not callable(f):</span></span>
-<span id="cb32-596"><a href="#cb32-596" aria-hidden="true" tabindex="-1"></a><span class="in">   raise TypeError(f"Argument is not a function, it is of type {type(f)}")</span></span>
-<span id="cb32-597"><a href="#cb32-597" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-598"><a href="#cb32-598" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-599"><a href="#cb32-599" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-600"><a href="#cb32-600" aria-hidden="true" tabindex="-1"></a><span class="in">if x &gt; 1e7:</span></span>
-<span id="cb32-601"><a href="#cb32-601" aria-hidden="true" tabindex="-1"></a><span class="in">   raise RuntimeError(f"At iteration {iter}, optimization appears to be diverging")</span></span>
-<span id="cb32-602"><a href="#cb32-602" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-603"><a href="#cb32-603" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-604"><a href="#cb32-604" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-605"><a href="#cb32-605" aria-hidden="true" tabindex="-1"></a><span class="in">import warnings</span></span>
-<span id="cb32-606"><a href="#cb32-606" aria-hidden="true" tabindex="-1"></a><span class="in">if x &gt; 3:</span></span>
-<span id="cb32-607"><a href="#cb32-607" aria-hidden="true" tabindex="-1"></a><span class="in">   warnings.warn(f"{x} is greater than 3.")</span></span>
-<span id="cb32-608"><a href="#cb32-608" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
-<span id="cb32-609"><a href="#cb32-609" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-610"><a href="#cb32-610" aria-hidden="true" tabindex="-1"></a>Next, if you have time, consider robustifying your code if you have time:</span>
-<span id="cb32-611"><a href="#cb32-611" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-612"><a href="#cb32-612" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What might you do if the next step is worse than the current position?  </span>
-<span id="cb32-613"><a href="#cb32-613" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What might you do if the next step is outside the range of potential values (assuming a unimodal function)? </span>
-<span id="cb32-614"><a href="#cb32-614" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-615"><a href="#cb32-615" aria-hidden="true" tabindex="-1"></a><span class="fu"># 7. Multi-user Git</span></span>
-<span id="cb32-616"><a href="#cb32-616" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-617"><a href="#cb32-617" aria-hidden="true" tabindex="-1"></a>Once you are working on more complicated projects and particularly when working with multiple people, you'll want to be able to use branches and pull requests (PRs) to manage the work.</span>
+<span id="cb32-594"><a href="#cb32-594" aria-hidden="true" tabindex="-1"></a>Work on the following improvements:</span>
+<span id="cb32-595"><a href="#cb32-595" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-596"><a href="#cb32-596" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Check user inputs are valid.</span>
+<span id="cb32-597"><a href="#cb32-597" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Add warnings to the user if it seems that Newton's method is taking a bad step.</span>
+<span id="cb32-598"><a href="#cb32-598" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Modify your function so that when it fails, the result is informative to the user.</span>
+<span id="cb32-599"><a href="#cb32-599" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Include a success/failure code (flag) in your output.</span>
+<span id="cb32-600"><a href="#cb32-600" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-601"><a href="#cb32-601" aria-hidden="true" tabindex="-1"></a>Your code should handle errors using exceptions, as discussed earlier for Python itself. We don't have time to go fully into how Python handles the wide variety of exceptions. But here are a few basic things you can do to *raise* an *exception* (i.e., to report an error):</span>
+<span id="cb32-602"><a href="#cb32-602" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-603"><a href="#cb32-603" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-604"><a href="#cb32-604" aria-hidden="true" tabindex="-1"></a><span class="in">if not callable(f):</span></span>
+<span id="cb32-605"><a href="#cb32-605" aria-hidden="true" tabindex="-1"></a><span class="in">   raise TypeError(f"Argument is not a function, it is of type {type(f)}")</span></span>
+<span id="cb32-606"><a href="#cb32-606" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-607"><a href="#cb32-607" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-608"><a href="#cb32-608" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-609"><a href="#cb32-609" aria-hidden="true" tabindex="-1"></a><span class="in">if x &gt; 1e7:</span></span>
+<span id="cb32-610"><a href="#cb32-610" aria-hidden="true" tabindex="-1"></a><span class="in">   raise RuntimeError(f"At iteration {iter}, optimization appears to be diverging")</span></span>
+<span id="cb32-611"><a href="#cb32-611" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-612"><a href="#cb32-612" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-613"><a href="#cb32-613" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-614"><a href="#cb32-614" aria-hidden="true" tabindex="-1"></a><span class="in">import warnings</span></span>
+<span id="cb32-615"><a href="#cb32-615" aria-hidden="true" tabindex="-1"></a><span class="in">if x &gt; 3:</span></span>
+<span id="cb32-616"><a href="#cb32-616" aria-hidden="true" tabindex="-1"></a><span class="in">   warnings.warn(f"{x} is greater than 3.")</span></span>
+<span id="cb32-617"><a href="#cb32-617" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
 <span id="cb32-618"><a href="#cb32-618" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-619"><a href="#cb32-619" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}</span>
-<span id="cb32-620"><a href="#cb32-620" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why use branches and pull requests?</span></span>
-<span id="cb32-621"><a href="#cb32-621" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-622"><a href="#cb32-622" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Experiment without worrying about breaking the current code.</span>
-<span id="cb32-623"><a href="#cb32-623" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Test your code before finalizing changes (particularly with testing via continuous integration / GitHub Actions).</span>
-<span id="cb32-624"><a href="#cb32-624" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Organize aspects of the project for clarity and collaboration.</span>
-<span id="cb32-625"><a href="#cb32-625" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Manage collaboration:</span>
-<span id="cb32-626"><a href="#cb32-626" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Manage code contributions from others.</span>
-<span id="cb32-627"><a href="#cb32-627" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Discuss changes.</span>
-<span id="cb32-628"><a href="#cb32-628" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Keep track of changes.</span>
-<span id="cb32-629"><a href="#cb32-629" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Accept external contributions.</span>
-<span id="cb32-630"><a href="#cb32-630" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Resolve conflicts between different changes.</span>
-<span id="cb32-631"><a href="#cb32-631" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb32-632"><a href="#cb32-632" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-633"><a href="#cb32-633" aria-hidden="true" tabindex="-1"></a>Before going further, let's review our visualization of working with Git (<span class="co">[</span><span class="ot">online version</span><span class="co">](https://docs.google.com/presentation/d/1YlM3boYLE8DwbxGNO3ZVVt3e9gEoBgD1uc9RtItUYCU)</span>, <span class="co">[</span><span class="ot">PDF version</span><span class="co">](git_visuals.pdf)</span>)</span>
-<span id="cb32-634"><a href="#cb32-634" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-635"><a href="#cb32-635" aria-hidden="true" tabindex="-1"></a><span class="fu">## Demo: Branching and pull requests, merge conflicts</span></span>
-<span id="cb32-636"><a href="#cb32-636" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-637"><a href="#cb32-637" aria-hidden="true" tabindex="-1"></a>We'll demo the use of branching and PRs by fixing our <span class="in">`binary_search`</span> function.</span>
-<span id="cb32-638"><a href="#cb32-638" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-639"><a href="#cb32-639" aria-hidden="true" tabindex="-1"></a><span class="fu">### Branching</span></span>
-<span id="cb32-640"><a href="#cb32-640" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-641"><a href="#cb32-641" aria-hidden="true" tabindex="-1"></a>First, let's fix the error in our <span class="in">`binary_search`</span> function in a new branch.</span>
-<span id="cb32-642"><a href="#cb32-642" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-643"><a href="#cb32-643" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb32-644"><a href="#cb32-644" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">-c</span> fix_midpoint_bug</span>
-<span id="cb32-645"><a href="#cb32-645" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-646"><a href="#cb32-646" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-647"><a href="#cb32-647" aria-hidden="true" tabindex="-1"></a>We'll now make the fixes and do the linting (not shown).</span>
-<span id="cb32-648"><a href="#cb32-648" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-649"><a href="#cb32-649" aria-hidden="true" tabindex="-1"></a>Push the branch with the fix to GitHub.</span>
-<span id="cb32-650"><a href="#cb32-650" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-651"><a href="#cb32-651" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb32-652"><a href="#cb32-652" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add binary_search.py</span>
-<span id="cb32-653"><a href="#cb32-653" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span><span class="st">"Fix bug in handling midpoint.</span></span>
-<span id="cb32-654"><a href="#cb32-654" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-655"><a href="#cb32-655" aria-hidden="true" tabindex="-1"></a><span class="st">Lint code."</span></span>
-<span id="cb32-656"><a href="#cb32-656" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin fix_midpoint_bug</span>
-<span id="cb32-657"><a href="#cb32-657" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-658"><a href="#cb32-658" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-659"><a href="#cb32-659" aria-hidden="true" tabindex="-1"></a><span class="fu">### Pull requests</span></span>
-<span id="cb32-660"><a href="#cb32-660" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-661"><a href="#cb32-661" aria-hidden="true" tabindex="-1"></a>Now we'll go to GitHub and start a pull request (PR).</span>
-<span id="cb32-662"><a href="#cb32-662" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-663"><a href="#cb32-663" aria-hidden="true" tabindex="-1"></a>Since we're the ones who control the repo, we'll also review and merge in the PR.</span>
-<span id="cb32-664"><a href="#cb32-664" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-665"><a href="#cb32-665" aria-hidden="true" tabindex="-1"></a><span class="fu">### Merge conflicts</span></span>
-<span id="cb32-666"><a href="#cb32-666" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-667"><a href="#cb32-667" aria-hidden="true" tabindex="-1"></a>Next let's see a basic example of a *merge conflict*, which occurs when two commits modify (which could include deletion) the same line in a file. In this case Git requires the user to figure out what should be done.</span>
-<span id="cb32-668"><a href="#cb32-668" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-669"><a href="#cb32-669" aria-hidden="true" tabindex="-1"></a>To get an example, we need to create a conflict. I will add different documentation in the <span class="in">`main`</span> and <span class="in">`fix_midpoint_bug`</span> branches. After pushing the <span class="in">`main`</span> change, I'll try to do a PR with the <span class="in">`fix_midpoint_bug`</span>.</span>
-<span id="cb32-670"><a href="#cb32-670" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-671"><a href="#cb32-671" aria-hidden="true" tabindex="-1"></a>The GitHub UI does a nice job of helping you resolve merge conflicts, as we'll see.</span>
-<span id="cb32-672"><a href="#cb32-672" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-673"><a href="#cb32-673" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb32-674"><a href="#cb32-674" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resolving conflicts at the command line</span></span>
+<span id="cb32-619"><a href="#cb32-619" aria-hidden="true" tabindex="-1"></a>Next, if you have time, consider robustifying your code if you have time:</span>
+<span id="cb32-620"><a href="#cb32-620" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-621"><a href="#cb32-621" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What might you do if the next step is worse than the current position?  </span>
+<span id="cb32-622"><a href="#cb32-622" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What might you do if the next step is outside the range of potential values (assuming a unimodal function)? </span>
+<span id="cb32-623"><a href="#cb32-623" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-624"><a href="#cb32-624" aria-hidden="true" tabindex="-1"></a><span class="fu"># 7. Multi-user Git</span></span>
+<span id="cb32-625"><a href="#cb32-625" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-626"><a href="#cb32-626" aria-hidden="true" tabindex="-1"></a>Once you are working on more complicated projects and particularly when working with multiple people, you'll want to be able to use branches and pull requests (PRs) to manage the work.</span>
+<span id="cb32-627"><a href="#cb32-627" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-628"><a href="#cb32-628" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}</span>
+<span id="cb32-629"><a href="#cb32-629" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why use branches and pull requests?</span></span>
+<span id="cb32-630"><a href="#cb32-630" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-631"><a href="#cb32-631" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Experiment without worrying about breaking the current code.</span>
+<span id="cb32-632"><a href="#cb32-632" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Test your code before finalizing changes (particularly with testing via continuous integration / GitHub Actions).</span>
+<span id="cb32-633"><a href="#cb32-633" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Organize aspects of the project for clarity and collaboration.</span>
+<span id="cb32-634"><a href="#cb32-634" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Manage collaboration:</span>
+<span id="cb32-635"><a href="#cb32-635" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Manage code contributions from others.</span>
+<span id="cb32-636"><a href="#cb32-636" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Discuss changes.</span>
+<span id="cb32-637"><a href="#cb32-637" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Keep track of changes.</span>
+<span id="cb32-638"><a href="#cb32-638" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Accept external contributions.</span>
+<span id="cb32-639"><a href="#cb32-639" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Resolve conflicts between different changes.</span>
+<span id="cb32-640"><a href="#cb32-640" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-641"><a href="#cb32-641" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-642"><a href="#cb32-642" aria-hidden="true" tabindex="-1"></a>Before going further, let's review our visualization of working with Git (<span class="co">[</span><span class="ot">online version</span><span class="co">](https://docs.google.com/presentation/d/1YlM3boYLE8DwbxGNO3ZVVt3e9gEoBgD1uc9RtItUYCU)</span>, <span class="co">[</span><span class="ot">PDF version</span><span class="co">](git_visuals.pdf)</span>)</span>
+<span id="cb32-643"><a href="#cb32-643" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-644"><a href="#cb32-644" aria-hidden="true" tabindex="-1"></a><span class="fu">## Demo: Branching and pull requests, merge conflicts</span></span>
+<span id="cb32-645"><a href="#cb32-645" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-646"><a href="#cb32-646" aria-hidden="true" tabindex="-1"></a>We'll demo the use of branching and PRs by fixing our <span class="in">`binary_search`</span> function.</span>
+<span id="cb32-647"><a href="#cb32-647" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-648"><a href="#cb32-648" aria-hidden="true" tabindex="-1"></a><span class="fu">### Branching</span></span>
+<span id="cb32-649"><a href="#cb32-649" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-650"><a href="#cb32-650" aria-hidden="true" tabindex="-1"></a>First, let's fix the error in our <span class="in">`binary_search`</span> function in a new branch.</span>
+<span id="cb32-651"><a href="#cb32-651" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-652"><a href="#cb32-652" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb32-653"><a href="#cb32-653" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">-c</span> fix_midpoint_bug</span>
+<span id="cb32-654"><a href="#cb32-654" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-655"><a href="#cb32-655" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-656"><a href="#cb32-656" aria-hidden="true" tabindex="-1"></a>We'll now make the fixes and do the linting (not shown).</span>
+<span id="cb32-657"><a href="#cb32-657" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-658"><a href="#cb32-658" aria-hidden="true" tabindex="-1"></a>Push the branch with the fix to GitHub.</span>
+<span id="cb32-659"><a href="#cb32-659" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-660"><a href="#cb32-660" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb32-661"><a href="#cb32-661" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add binary_search.py</span>
+<span id="cb32-662"><a href="#cb32-662" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span><span class="st">"Fix bug in handling midpoint.</span></span>
+<span id="cb32-663"><a href="#cb32-663" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-664"><a href="#cb32-664" aria-hidden="true" tabindex="-1"></a><span class="st">Lint code."</span></span>
+<span id="cb32-665"><a href="#cb32-665" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin fix_midpoint_bug</span>
+<span id="cb32-666"><a href="#cb32-666" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-667"><a href="#cb32-667" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-668"><a href="#cb32-668" aria-hidden="true" tabindex="-1"></a><span class="fu">### Pull requests</span></span>
+<span id="cb32-669"><a href="#cb32-669" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-670"><a href="#cb32-670" aria-hidden="true" tabindex="-1"></a>Now we'll go to GitHub and start a pull request (PR).</span>
+<span id="cb32-671"><a href="#cb32-671" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-672"><a href="#cb32-672" aria-hidden="true" tabindex="-1"></a>Since we're the ones who control the repo, we'll also review and merge in the PR.</span>
+<span id="cb32-673"><a href="#cb32-673" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-674"><a href="#cb32-674" aria-hidden="true" tabindex="-1"></a><span class="fu">### Merge conflicts</span></span>
 <span id="cb32-675"><a href="#cb32-675" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-676"><a href="#cb32-676" aria-hidden="true" tabindex="-1"></a>You can also get (and resolve) merge conflicts on the command line. Git will add some syntax to the conflicted file pointing out the conflicts that need to be resolved. Once you edit the conflicted file to fix the conflict, you can do <span class="in">`git add &lt;name_of_file&gt;`</span> and then <span class="in">`git commit`</span>.</span>
-<span id="cb32-677"><a href="#cb32-677" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb32-678"><a href="#cb32-678" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-679"><a href="#cb32-679" aria-hidden="true" tabindex="-1"></a><span class="fu">## Multivariate Newton's method</span></span>
-<span id="cb32-680"><a href="#cb32-680" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-681"><a href="#cb32-681" aria-hidden="true" tabindex="-1"></a>Recall that Newton's method optimizes some objective function, $f(x)$ as a function of univariate or multivariate $x$, where $f(x)$ is univariate.</span>
-<span id="cb32-682"><a href="#cb32-682" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-683"><a href="#cb32-683" aria-hidden="true" tabindex="-1"></a>The multivariate method extends the univariate, using the gradient (first derivative) vector and Hessian (second derivative) matrix.</span>
+<span id="cb32-676"><a href="#cb32-676" aria-hidden="true" tabindex="-1"></a>Next let's see a basic example of a *merge conflict*, which occurs when two commits modify (which could include deletion) the same line in a file. In this case Git requires the user to figure out what should be done.</span>
+<span id="cb32-677"><a href="#cb32-677" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-678"><a href="#cb32-678" aria-hidden="true" tabindex="-1"></a>To get an example, we need to create a conflict. I will add different documentation in the <span class="in">`main`</span> and <span class="in">`fix_midpoint_bug`</span> branches. After pushing the <span class="in">`main`</span> change, I'll try to do a PR with the <span class="in">`fix_midpoint_bug`</span>.</span>
+<span id="cb32-679"><a href="#cb32-679" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-680"><a href="#cb32-680" aria-hidden="true" tabindex="-1"></a>The GitHub UI does a nice job of helping you resolve merge conflicts, as we'll see.</span>
+<span id="cb32-681"><a href="#cb32-681" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-682"><a href="#cb32-682" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb32-683"><a href="#cb32-683" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resolving conflicts at the command line</span></span>
 <span id="cb32-684"><a href="#cb32-684" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-685"><a href="#cb32-685" aria-hidden="true" tabindex="-1"></a>If we are at step $t-1$, the next value is:</span>
-<span id="cb32-686"><a href="#cb32-686" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-687"><a href="#cb32-687" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb32-688"><a href="#cb32-688" aria-hidden="true" tabindex="-1"></a>x_{t+1}=x_{t}-H_{f}(x_{t})^{-1}\nabla f(x_{t})</span>
-<span id="cb32-689"><a href="#cb32-689" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb32-690"><a href="#cb32-690" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-691"><a href="#cb32-691" aria-hidden="true" tabindex="-1"></a>where $\nabla f(x_{t}$ is the gradient (first derivative with respect to each element of $x$) and $H_{f}(x_{t})$ is the Hessian matrix (second derivatives with respect to all pairs of the elements of $x$).</span>
-<span id="cb32-692"><a href="#cb32-692" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-685"><a href="#cb32-685" aria-hidden="true" tabindex="-1"></a>You can also get (and resolve) merge conflicts on the command line. Git will add some syntax to the conflicted file pointing out the conflicts that need to be resolved. Once you edit the conflicted file to fix the conflict, you can do <span class="in">`git add &lt;name_of_file&gt;`</span> and then <span class="in">`git commit`</span>.</span>
+<span id="cb32-686"><a href="#cb32-686" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-687"><a href="#cb32-687" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-688"><a href="#cb32-688" aria-hidden="true" tabindex="-1"></a><span class="fu">## Multivariate Newton's method</span></span>
+<span id="cb32-689"><a href="#cb32-689" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-690"><a href="#cb32-690" aria-hidden="true" tabindex="-1"></a>Recall that Newton's method optimizes some objective function, $f(x)$ as a function of univariate or multivariate $x$, where $f(x)$ is univariate.</span>
+<span id="cb32-691"><a href="#cb32-691" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-692"><a href="#cb32-692" aria-hidden="true" tabindex="-1"></a>The multivariate method extends the univariate, using the gradient (first derivative) vector and Hessian (second derivative) matrix.</span>
 <span id="cb32-693"><a href="#cb32-693" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-694"><a href="#cb32-694" aria-hidden="true" tabindex="-1"></a>Here are the steps:</span>
+<span id="cb32-694"><a href="#cb32-694" aria-hidden="true" tabindex="-1"></a>If we are at step $t-1$, the next value is:</span>
 <span id="cb32-695"><a href="#cb32-695" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-696"><a href="#cb32-696" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>determine a starting value, $x_0$.</span>
-<span id="cb32-697"><a href="#cb32-697" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>iterate:</span>
-<span id="cb32-698"><a href="#cb32-698" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>at step $t$, the next value (the update) is given by the equation above</span>
-<span id="cb32-699"><a href="#cb32-699" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>stop when $\left\Vert x_{t} - x_{t-1} \right\Vert$ is "small"</span>
-<span id="cb32-700"><a href="#cb32-700" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-701"><a href="#cb32-701" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Branching</span></span>
+<span id="cb32-696"><a href="#cb32-696" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb32-697"><a href="#cb32-697" aria-hidden="true" tabindex="-1"></a>x_{t+1}=x_{t}-H_{f}(x_{t})^{-1}\nabla f(x_{t})</span>
+<span id="cb32-698"><a href="#cb32-698" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb32-699"><a href="#cb32-699" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-700"><a href="#cb32-700" aria-hidden="true" tabindex="-1"></a>where $\nabla f(x_{t}$ is the gradient (first derivative with respect to each element of $x$) and $H_{f}(x_{t})$ is the Hessian matrix (second derivatives with respect to all pairs of the elements of $x$).</span>
+<span id="cb32-701"><a href="#cb32-701" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-702"><a href="#cb32-702" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-703"><a href="#cb32-703" aria-hidden="true" tabindex="-1"></a>Working with a partner:</span>
+<span id="cb32-703"><a href="#cb32-703" aria-hidden="true" tabindex="-1"></a>Here are the steps:</span>
 <span id="cb32-704"><a href="#cb32-704" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-705"><a href="#cb32-705" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Choose either your repository or your partner's repository to continue working in.</span>
-<span id="cb32-706"><a href="#cb32-706" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Make a branch (called <span class="in">`multivariate`</span>) in which you'll implement the multivariate version of Newton's method (see details above)</span>
-<span id="cb32-707"><a href="#cb32-707" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Implement the algorithm.</span>
-<span id="cb32-708"><a href="#cb32-708" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-709"><a href="#cb32-709" aria-hidden="true" tabindex="-1"></a>At this point, if we think about calculating the Hessian it starts to feel more tedious to deal with the finite difference calculations, though it is a straightforward extension of what you already implemented. Feel free to look online to find a Python package that implements finite difference estimation of derivatives and use that in your code.</span>
-<span id="cb32-710"><a href="#cb32-710" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-711"><a href="#cb32-711" aria-hidden="true" tabindex="-1"></a>As you are writing the code, you can continue to think about what might go wrong and include defensive programming tactics. </span>
-<span id="cb32-712"><a href="#cb32-712" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-713"><a href="#cb32-713" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Pull requests (PRs)</span></span>
-<span id="cb32-714"><a href="#cb32-714" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-715"><a href="#cb32-715" aria-hidden="true" tabindex="-1"></a>When you have your branch ready, make a pull request:</span>
-<span id="cb32-716"><a href="#cb32-716" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-717"><a href="#cb32-717" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Make a pull request into the remote for the repository by pushing the branch to GitHub</span>
-<span id="cb32-718"><a href="#cb32-718" aria-hidden="true" tabindex="-1"></a>   <span class="in">```bash</span></span>
-<span id="cb32-719"><a href="#cb32-719" aria-hidden="true" tabindex="-1"></a>   <span class="fu">git</span> push <span class="at">-u</span> origin multivariate</span>
-<span id="cb32-720"><a href="#cb32-720" aria-hidden="true" tabindex="-1"></a>   <span class="in">```</span></span>
-<span id="cb32-721"><a href="#cb32-721" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb32-722"><a href="#cb32-722" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Go to GitHub to the <span class="in">`Pull requests`</span> tab and make the PR, making a note of what the PR is about.</span>
+<span id="cb32-705"><a href="#cb32-705" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>determine a starting value, $x_0$.</span>
+<span id="cb32-706"><a href="#cb32-706" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>iterate:</span>
+<span id="cb32-707"><a href="#cb32-707" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>at step $t$, the next value (the update) is given by the equation above</span>
+<span id="cb32-708"><a href="#cb32-708" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>stop when $\left\Vert x_{t} - x_{t-1} \right\Vert$ is "small"</span>
+<span id="cb32-709"><a href="#cb32-709" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-710"><a href="#cb32-710" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Branching</span></span>
+<span id="cb32-711"><a href="#cb32-711" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-712"><a href="#cb32-712" aria-hidden="true" tabindex="-1"></a>Working with a partner:</span>
+<span id="cb32-713"><a href="#cb32-713" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-714"><a href="#cb32-714" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Choose either your repository or your partner's repository to continue working in.</span>
+<span id="cb32-715"><a href="#cb32-715" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Make a branch (called <span class="in">`multivariate`</span>) in which you'll implement the multivariate version of Newton's method (see details above)</span>
+<span id="cb32-716"><a href="#cb32-716" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Implement the algorithm.</span>
+<span id="cb32-717"><a href="#cb32-717" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-718"><a href="#cb32-718" aria-hidden="true" tabindex="-1"></a>At this point, if we think about calculating the Hessian it starts to feel more tedious to deal with the finite difference calculations, though it is a straightforward extension of what you already implemented. Feel free to look online to find a Python package that implements finite difference estimation of derivatives and use that in your code.</span>
+<span id="cb32-719"><a href="#cb32-719" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-720"><a href="#cb32-720" aria-hidden="true" tabindex="-1"></a>As you are writing the code, you can continue to think about what might go wrong and include defensive programming tactics. </span>
+<span id="cb32-721"><a href="#cb32-721" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-722"><a href="#cb32-722" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Pull requests (PRs)</span></span>
 <span id="cb32-723"><a href="#cb32-723" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-724"><a href="#cb32-724" aria-hidden="true" tabindex="-1"></a>Don't (yet) merge in the PR. We want someone else to review it to have additional eyes on the code.</span>
+<span id="cb32-724"><a href="#cb32-724" aria-hidden="true" tabindex="-1"></a>When you have your branch ready, make a pull request:</span>
 <span id="cb32-725"><a href="#cb32-725" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-726"><a href="#cb32-726" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Code review</span></span>
-<span id="cb32-727"><a href="#cb32-727" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-728"><a href="#cb32-728" aria-hidden="true" tabindex="-1"></a>Now you and your partner should find a separate group with which to work on code reviews as a "supergroup".</span>
-<span id="cb32-729"><a href="#cb32-729" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-730"><a href="#cb32-730" aria-hidden="true" tabindex="-1"></a>Give the other group the URL for your repository on GitHub and ask them to look at the PR.</span>
-<span id="cb32-731"><a href="#cb32-731" aria-hidden="true" tabindex="-1"></a>In turn get the URL for their repository.</span>
+<span id="cb32-726"><a href="#cb32-726" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Make a pull request into the remote for the repository by pushing the branch to GitHub</span>
+<span id="cb32-727"><a href="#cb32-727" aria-hidden="true" tabindex="-1"></a>   <span class="in">```bash</span></span>
+<span id="cb32-728"><a href="#cb32-728" aria-hidden="true" tabindex="-1"></a>   <span class="fu">git</span> push <span class="at">-u</span> origin multivariate</span>
+<span id="cb32-729"><a href="#cb32-729" aria-hidden="true" tabindex="-1"></a>   <span class="in">```</span></span>
+<span id="cb32-730"><a href="#cb32-730" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb32-731"><a href="#cb32-731" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Go to GitHub to the <span class="in">`Pull requests`</span> tab and make the PR, making a note of what the PR is about.</span>
 <span id="cb32-732"><a href="#cb32-732" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-733"><a href="#cb32-733" aria-hidden="true" tabindex="-1"></a>In reviewing the PR, make comments in the PR comment/conversation area on GitHub. You and your partner can work together to make comments or you can each make separate comments.</span>
+<span id="cb32-733"><a href="#cb32-733" aria-hidden="true" tabindex="-1"></a>Don't (yet) merge in the PR. We want someone else to review it to have additional eyes on the code.</span>
 <span id="cb32-734"><a href="#cb32-734" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-735"><a href="#cb32-735" aria-hidden="true" tabindex="-1"></a>If you have time, explore these two additional options for making comments:</span>
+<span id="cb32-735"><a href="#cb32-735" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Code review</span></span>
 <span id="cb32-736"><a href="#cb32-736" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-737"><a href="#cb32-737" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Review changes:</span>
-<span id="cb32-738"><a href="#cb32-738" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Click on the <span class="in">`Files changed`</span> tab (or go to <span class="in">`https://github.com/&lt;USERNAME&gt;/newton-practice/pull/&lt;PULL_ID&gt;/files`</span> for the specific "PULL_ID").</span>
-<span id="cb32-739"><a href="#cb32-739" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Click on the <span class="in">`Review changes`</span> button.</span>
-<span id="cb32-740"><a href="#cb32-740" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Make comments on specific lines</span>
-<span id="cb32-741"><a href="#cb32-741" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Click on the <span class="in">`Files changed`</span> tab (or go to <span class="in">`https://github.com/&lt;USERNAME&gt;/newton-practice/pull/&lt;PULL_ID&gt;/files`</span> for the specific "PULL_ID").</span>
-<span id="cb32-742"><a href="#cb32-742" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Hover over a specific line in a specific file with your mouse. A blue "plus" box should appear. Click on the plus to add a comment.</span>
-<span id="cb32-743"><a href="#cb32-743" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Click on <span class="in">`Add single comment`</span> or optionally experiment with <span class="in">`Start a review`</span>.</span>
-<span id="cb32-744"><a href="#cb32-744" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-745"><a href="#cb32-745" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Merge the PR</span></span>
-<span id="cb32-746"><a href="#cb32-746" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-747"><a href="#cb32-747" aria-hidden="true" tabindex="-1"></a>Once you've seen the review by the other group, with your partner:</span>
-<span id="cb32-748"><a href="#cb32-748" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-749"><a href="#cb32-749" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On DataHub, make changes to the branch that was used in the pull request.</span>
-<span id="cb32-750"><a href="#cb32-750" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Alternatively, you could make the changes directly on GitHub using its editing capabilities.</span>
-<span id="cb32-751"><a href="#cb32-751" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On DataHub, commit and push to GitHub.</span>
-<span id="cb32-752"><a href="#cb32-752" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On GitHub, merge in the pull request and close the request.</span>
-<span id="cb32-753"><a href="#cb32-753" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>You may want to delete the branch. This helps avoid having a profusion of unneeded branches.</span>
-<span id="cb32-754"><a href="#cb32-754" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On DataHub, run <span class="in">`git pull`</span> to get the changes updated in the <span class="in">`main`</span> branch of your local repository.</span>
+<span id="cb32-737"><a href="#cb32-737" aria-hidden="true" tabindex="-1"></a>Now you and your partner should find a separate group with which to work on code reviews as a "supergroup".</span>
+<span id="cb32-738"><a href="#cb32-738" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-739"><a href="#cb32-739" aria-hidden="true" tabindex="-1"></a>Give the other group the URL for your repository on GitHub and ask them to look at the PR.</span>
+<span id="cb32-740"><a href="#cb32-740" aria-hidden="true" tabindex="-1"></a>In turn get the URL for their repository.</span>
+<span id="cb32-741"><a href="#cb32-741" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-742"><a href="#cb32-742" aria-hidden="true" tabindex="-1"></a>In reviewing the PR, make comments in the PR comment/conversation area on GitHub. You and your partner can work together to make comments or you can each make separate comments.</span>
+<span id="cb32-743"><a href="#cb32-743" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-744"><a href="#cb32-744" aria-hidden="true" tabindex="-1"></a>If you have time, explore these two additional options for making comments:</span>
+<span id="cb32-745"><a href="#cb32-745" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-746"><a href="#cb32-746" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Review changes:</span>
+<span id="cb32-747"><a href="#cb32-747" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Click on the <span class="in">`Files changed`</span> tab (or go to <span class="in">`https://github.com/&lt;USERNAME&gt;/newton-practice/pull/&lt;PULL_ID&gt;/files`</span> for the specific "PULL_ID").</span>
+<span id="cb32-748"><a href="#cb32-748" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Click on the <span class="in">`Review changes`</span> button.</span>
+<span id="cb32-749"><a href="#cb32-749" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Make comments on specific lines</span>
+<span id="cb32-750"><a href="#cb32-750" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Click on the <span class="in">`Files changed`</span> tab (or go to <span class="in">`https://github.com/&lt;USERNAME&gt;/newton-practice/pull/&lt;PULL_ID&gt;/files`</span> for the specific "PULL_ID").</span>
+<span id="cb32-751"><a href="#cb32-751" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Hover over a specific line in a specific file with your mouse. A blue "plus" box should appear. Click on the plus to add a comment.</span>
+<span id="cb32-752"><a href="#cb32-752" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Click on <span class="in">`Add single comment`</span> or optionally experiment with <span class="in">`Start a review`</span>.</span>
+<span id="cb32-753"><a href="#cb32-753" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-754"><a href="#cb32-754" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Merge the PR</span></span>
 <span id="cb32-755"><a href="#cb32-755" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-756"><a href="#cb32-756" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
-<span id="cb32-757"><a href="#cb32-757" aria-hidden="true" tabindex="-1"></a><span class="fu">## The full cycle of "git virtue"</span></span>
-<span id="cb32-758"><a href="#cb32-758" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-759"><a href="#cb32-759" aria-hidden="true" tabindex="-1"></a>Congratulations. In the course of the day, you've worked through the steps of complete, albeit small, project using an extensive set of concepts, skills, and tools used in real world projects.</span>
-<span id="cb32-760"><a href="#cb32-760" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb32-756"><a href="#cb32-756" aria-hidden="true" tabindex="-1"></a>Once you've seen the review by the other group, with your partner:</span>
+<span id="cb32-757"><a href="#cb32-757" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-758"><a href="#cb32-758" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On DataHub, make changes to the branch that was used in the pull request.</span>
+<span id="cb32-759"><a href="#cb32-759" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Alternatively, you could make the changes directly on GitHub using its editing capabilities.</span>
+<span id="cb32-760"><a href="#cb32-760" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On DataHub, commit and push to GitHub.</span>
+<span id="cb32-761"><a href="#cb32-761" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On GitHub, merge in the pull request and close the request.</span>
+<span id="cb32-762"><a href="#cb32-762" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>You may want to delete the branch. This helps avoid having a profusion of unneeded branches.</span>
+<span id="cb32-763"><a href="#cb32-763" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On DataHub, run <span class="in">`git pull`</span> to get the changes updated in the <span class="in">`main`</span> branch of your local repository.</span>
+<span id="cb32-764"><a href="#cb32-764" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-765"><a href="#cb32-765" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb32-766"><a href="#cb32-766" aria-hidden="true" tabindex="-1"></a><span class="fu">## The full cycle of "git virtue"</span></span>
+<span id="cb32-767"><a href="#cb32-767" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-768"><a href="#cb32-768" aria-hidden="true" tabindex="-1"></a>Congratulations. In the course of the day, you've worked through the steps of complete, albeit small, project using an extensive set of concepts, skills, and tools used in real world projects.</span>
+<span id="cb32-769"><a href="#cb32-769" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
