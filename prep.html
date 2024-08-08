@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Computational skills workshop</title>
+<title>Accessing DataHub</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -193,6 +227,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#editing-files" id="toc-editing-files" class="nav-link" data-scroll-target="#editing-files">Editing files</a></li>
   <li><a href="#stopping-your-server" id="toc-stopping-your-server" class="nav-link" data-scroll-target="#stopping-your-server">Stopping your server</a></li>
   </ul></li>
+  <li><a href="#accessing-github-repositories-from-datahub" id="toc-accessing-github-repositories-from-datahub" class="nav-link" data-scroll-target="#accessing-github-repositories-from-datahub">Accessing GitHub repositories from DataHub</a></li>
   </ul>
 </nav>
     </div>
@@ -201,8 +236,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Computational skills workshop</h1>
-<p class="subtitle lead">Accessing DataHub</p>
+<h1 class="title">Accessing DataHub</h1>
 </div>
 
 
@@ -221,7 +255,8 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="using-datahub-as-a-commmon-computational-environment" class="level1">
 <h1>Using DataHub as a commmon computational environment</h1>
-<p>While it’s fine to use your laptop, it will be hard for us to diagnose all the different problems that might arise with so many participants. So we recommend using a common computational environment during the workshop. We’ll use the Berkeley DataHub for this. You can think of DataHub as providing user-specific virtual machines with identical software for all of us to use.</p>
+<p>While in principle, it’s fine to use your laptop, it will be hard for us to diagnose all the different problems that might arise with so many participants. So we recommend using a common computational environment during the workshop. We’ll use the Berkeley DataHub for this. You can think of DataHub as providing user-specific virtual machines with identical software for all of us to use.</p>
+<p>The exception is that if you already have experience using your laptop with the shell/terminal, Git (and pushing to GitHub) and Python.</p>
 <p>Click <a href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fberkeley-scf%2Fcompute-skills-2024&amp;urlpath=lab%2Ftree%2Fcompute-skills-2024%2F&amp;branch=main" target="_blank">here</a> to access your own machine/server with Python, git, and terminal access on the campus DataHub (also used for various data science, CS, and statistics courses).</p>
 <p>That will get you onto your server with the materials for the course, from the <code>berkeley-scf/compute-skills-2024</code> repository available on the server.</p>
 <section id="check-your-environment" class="level2">
@@ -247,9 +282,46 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="stopping-your-server">Stopping your server</h2>
 <p>You can stop your server via <code>File</code>-&gt; <code>Hub Control Panel</code> -&gt; <code>Stop My Server</code>.</p>
 <p>If you only log out, any ongoing computations will still run in the background.</p>
-
-
 </section>
+</section>
+<section id="accessing-github-repositories-from-datahub" class="level1">
+<h1>Accessing GitHub repositories from DataHub</h1>
+<p>(These instructions are needed only for the main sessions of the workshop, Thursday and Friday.)</p>
+<p>Authenticating with GitHub can be a bit tricky, particularly when using DataHub (i.e., JupyterHub).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Accessing GitHub from your laptop rather than DataHub
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you’re on your laptop and already set up to use GitHub, you don’t need to do the steps in this section, but if you’re using your laptop and not set up to use GitHub, these instructions should work there too. (it may also depend on the version of <code>git</code> you are using; e.g., version 2.34.1 is too old but 2.39 should be fine). You’ll need to install <code>gh-scoped-creds</code> via <code>pip install</code>.</p>
+<p>That said, if you haven’t already used Git on your laptop and pushed changes up to GitHub, it’s best if you work in DataHub so that we don’t have to troubleshoot laptop issues for multiple participants.</p>
+</div>
+</div>
+<p>We’ll use a tool (an ‘app’) that helps us with this, provided in the <code>gh_scoped_creds</code> Python package.</p>
+<p>First configure git in the terminal:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"your_name@berkeley.edu"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> color.ui <span class="st">"auto"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> pull.rebase false</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>That will modify your <code>~/.gitconfig</code> file.</p>
+<p>Then run this in the terminal:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh-scoped-creds</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Or you could instead run this in IPython or Jupyter Notebook:</p>
+<div id="33544258" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> gh_scoped_creds</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>ghscopedcreds</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>When you do that you’ll see a <a href="https://github.com/login/device" target="_blank">link</a> and a code. Go to the link in a browser (on your laptop, outside of DataHub), login to GitHub (or click <code>Continue</code> if already logged in), input the code, and click <code>Authorize Berkeley-DataHub-Git-Access</code>. This will grant access to GitHub from JupyterHub for 8 hours (or until you stop your JupyterHub server).</p>
+<p>Then (only the first time you are doing all this) go to the URL that is printed out in your terminal (which should be <a href="https://github.com/apps/berkeley-datahub-git-access" target="_blank">https://github.com/apps/berkeley-datahub-git-access</a> and click on <code>Install</code> (and then if you have access to multiple GitHub organizations, choose your personal org, namely your GitHub username). Choose <code>Only select repositories</code> and select the repository you are using for the workshop, namely <code>newton-practice</code>. Then click <code>Install</code>.</p>
+
+
 </section>
 
 </main> <!-- /main -->

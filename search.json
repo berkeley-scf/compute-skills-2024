@@ -12,9 +12,9 @@
   {
     "objectID": "prep.html",
     "href": "prep.html",
-    "title": "Computational skills workshop",
+    "title": "Accessing DataHub",
     "section": "",
-    "text": "While it’s fine to use your laptop, it will be hard for us to diagnose all the different problems that might arise with so many participants. So we recommend using a common computational environment during the workshop. We’ll use the Berkeley DataHub for this. You can think of DataHub as providing user-specific virtual machines with identical software for all of us to use.\nClick here to access your own machine/server with Python, git, and terminal access on the campus DataHub (also used for various data science, CS, and statistics courses).\nThat will get you onto your server with the materials for the course, from the berkeley-scf/compute-skills-2024 repository available on the server.\n\n\nTo check things look good:\n\nClick on Terminal (in the 3rd row of the Launcher tab, under Other). (If you have trouble finding the Terminal, go to File -&gt; New -&gt; Terminal.)\nCheck that your working directory is ~/compute-skills-2024 (by looking at the terminal prompt or running pwd)\nRun ls to see the files in the repository.\n\n\n\n\nYou can combine text and code in a notebook, which you can start with:\n\nNew Launcher -&gt; Notebook -&gt; Python 3 (ipykernel), or\nFile -&gt; New -&gt; Notebook\n\nTo run the code in a cell, a shortcut is Ctrl + Enter/Return.\nTo create a script file containing just code, do File -&gt; New -&gt; Python file.\n\n\n\nYou can stop your server via File-&gt; Hub Control Panel -&gt; Stop My Server.\nIf you only log out, any ongoing computations will still run in the background.",
+    "text": "While in principle, it’s fine to use your laptop, it will be hard for us to diagnose all the different problems that might arise with so many participants. So we recommend using a common computational environment during the workshop. We’ll use the Berkeley DataHub for this. You can think of DataHub as providing user-specific virtual machines with identical software for all of us to use.\nThe exception is that if you already have experience using your laptop with the shell/terminal, Git (and pushing to GitHub) and Python.\nClick here to access your own machine/server with Python, git, and terminal access on the campus DataHub (also used for various data science, CS, and statistics courses).\nThat will get you onto your server with the materials for the course, from the berkeley-scf/compute-skills-2024 repository available on the server.\n\n\nTo check things look good:\n\nClick on Terminal (in the 3rd row of the Launcher tab, under Other). (If you have trouble finding the Terminal, go to File -&gt; New -&gt; Terminal.)\nCheck that your working directory is ~/compute-skills-2024 (by looking at the terminal prompt or running pwd)\nRun ls to see the files in the repository.\n\n\n\n\nYou can combine text and code in a notebook, which you can start with:\n\nNew Launcher -&gt; Notebook -&gt; Python 3 (ipykernel), or\nFile -&gt; New -&gt; Notebook\n\nTo run the code in a cell, a shortcut is Ctrl + Enter/Return.\nTo create a script file containing just code, do File -&gt; New -&gt; Python file.\n\n\n\nYou can stop your server via File-&gt; Hub Control Panel -&gt; Stop My Server.\nIf you only log out, any ongoing computations will still run in the background.",
     "crumbs": [
       "Computational Environment"
     ]
@@ -22,7 +22,7 @@
   {
     "objectID": "prep.html#check-your-environment",
     "href": "prep.html#check-your-environment",
-    "title": "Computational skills workshop",
+    "title": "Accessing DataHub",
     "section": "",
     "text": "To check things look good:\n\nClick on Terminal (in the 3rd row of the Launcher tab, under Other). (If you have trouble finding the Terminal, go to File -&gt; New -&gt; Terminal.)\nCheck that your working directory is ~/compute-skills-2024 (by looking at the terminal prompt or running pwd)\nRun ls to see the files in the repository.",
     "crumbs": [
@@ -32,7 +32,7 @@
   {
     "objectID": "prep.html#editing-files",
     "href": "prep.html#editing-files",
-    "title": "Computational skills workshop",
+    "title": "Accessing DataHub",
     "section": "",
     "text": "You can combine text and code in a notebook, which you can start with:\n\nNew Launcher -&gt; Notebook -&gt; Python 3 (ipykernel), or\nFile -&gt; New -&gt; Notebook\n\nTo run the code in a cell, a shortcut is Ctrl + Enter/Return.\nTo create a script file containing just code, do File -&gt; New -&gt; Python file.",
     "crumbs": [
@@ -42,7 +42,7 @@
   {
     "objectID": "prep.html#stopping-your-server",
     "href": "prep.html#stopping-your-server",
-    "title": "Computational skills workshop",
+    "title": "Accessing DataHub",
     "section": "",
     "text": "You can stop your server via File-&gt; Hub Control Panel -&gt; Stop My Server.\nIf you only log out, any ongoing computations will still run in the background.",
     "crumbs": [
@@ -288,7 +288,7 @@
     "href": "units/additional-topics.html#exercise",
     "title": "Numerics, reproducibility, and automation",
     "section": "Exercise",
-    "text": "Exercise\nMake a package out of your Newton method code.",
+    "text": "Exercise\nMake a package out of your Newton method code, following the structure of mytoy. Include your tests as part of the package.\nSee if you can install your package, run the tests, and use the package, following the README.md of mytoy.",
     "crumbs": [
       "Modules",
       "Numerics and Reproducibility"
@@ -460,11 +460,11 @@
     ]
   },
   {
-    "objectID": "units/comp-practices.html#accessing-github-repositories-from-jupyterhub",
-    "href": "units/comp-practices.html#accessing-github-repositories-from-jupyterhub",
+    "objectID": "units/comp-practices.html#accessing-github-repositories-from-datahub",
+    "href": "units/comp-practices.html#accessing-github-repositories-from-datahub",
     "title": "Version control, programming, and testing",
-    "section": "Accessing GitHub repositories from JupyterHub",
-    "text": "Accessing GitHub repositories from JupyterHub\nAuthenticating with GitHub can be a bit tricky, particularly when using DataHub (i.e., JupyterHub).\n\n\n\n\n\n\nAccessing GitHub from your laptop rather than DataHub\n\n\n\nIf you’re on your laptop and already set up to use GitHub, you don’t need to do the steps in this section, but if you’re using your laptop and not set up to use GitHub, these instructions should work there too. (it may also depend on the version of git you are using; e.g., version 2.34.1 is too old but 2.39 should be fine).\n\n\nWe’ll use a tool (an ‘app’) that helps us with this, provided in the gh_scoped_creds Python package.\nFirst configure git in the terminal:\ngit config --global user.name \"Jane Doe\"\ngit config --global user.email \"jane_doe@berkeley.edu\"\n\ngit config --global color.ui \"auto\"\n\ngit config --global pull.rebase false\nThat will modify your ~/.gitconfig file.\nThen run this in the terminal:\ngh-scoped-creds\nOr you could instead run this in IPython or Jupyter Notebook:\n\n\nCode\nimport gh_scoped_creds\n%ghscopedcreds\n\n\nWhen you do that you’ll see a link and a code. Go to the link in a browser (on your laptop, outside of DataHub), click Continue, input the code, and click Authorize Berkeley-Datahub-Git-Access. This will grant access to GitHub from JupyterHub for 8 hours (or until you stop your JupyterHub server).\nThen (only the first time you are doing all this) go to the URL that is printed out (which should be https://github.com/apps/stat-computing-jupyterhub) and click on Install (and then if you have access to multiple GitHub organizations, choose your personal org, namely your GitHub username). Choose Only select repositories and select the repository you are using for the workshop, namely newton-practice. Then click Install.\n[TODO: check the last set of instructions to make sure they are correct and easy to follow.]",
+    "section": "Accessing GitHub repositories from DataHub",
+    "text": "Accessing GitHub repositories from DataHub\nAuthenticating with GitHub can be a bit tricky, particularly when using DataHub (i.e., JupyterHub).\nPlease see these instructions.",
     "crumbs": [
       "Modules",
       "Computational Tools and Practices"
@@ -673,7 +673,7 @@
     "href": "units/point-to-prep.html",
     "title": "Preparation",
     "section": "",
-    "text": "Preparation\nOur primary computing context will be the UC Berkeley DataHub. This provides us with a common platform on which we are assured to get the same behavior as each other, allowing us to use the command line/shell/terminal and Python, including Jupyter notebooks. In particular getting a common command line environment would be hard otherwise.\n\n\n\n\n\n\nUsing your own laptop (optional)\n\n\n\n\n\nIf you want, you can also install Python on your own computer. If you do that, we recommend using Miniforge. Another option is the Anaconda distribution of Python](https://www.anaconda.com/distribution)\nFor the shell/terminal parts of this material, you can use the Terminal on your Mac, but not on Windows.\nIf you do use your own computer, you’ll need to clone this GitHub repository. If you don’t know how to do that, just download this zip file and unzip it into your home directory on your computer."
+    "text": "Preparation\nOur primary computing context will be the UC Berkeley DataHub. This provides us with a common platform on which we are assured to get the same behavior as each other, allowing us to use the command line/shell/terminal and Python, including Jupyter notebooks. In particular getting a common command line environment would be hard otherwise.\n\n\n\n\n\n\nUsing your own laptop (optional)\n\n\n\n\n\nIf you haven’t already used the shell/terminal and Python on your laptop, we recommend you use the DataHub so that we don’t have to troubleshoot problems on multiple laptops.\nIf you do use your laptop, you’ll need Python installed, for which we recommend using Miniforge. Another option is the Anaconda distribution of Python](https://www.anaconda.com/distribution)\nFor the shell/terminal parts of this material, you can use the Terminal on your Mac, but not on Windows.\nIf you do use your own laptop, you’ll need to clone this GitHub repository. If you don’t know how to do that, just download this zip file and unzip it into your home directory on your computer."
   },
   {
     "objectID": "units/intro-python.html",
