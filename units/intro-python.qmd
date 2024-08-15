@@ -75,6 +75,8 @@ One can also run Python or (IPython for some enhanced capabilities, including ea
 Finally running Python within *VS Code* or an IDE such as *PyCharm* is also common.
 :::
 
+For various reasons, for most of the demos, I will run code in an IPython session in the terminal.
+
 # Basic use of Python
 
 We'll use [this Software Carpentry lesson](https://swcarpentry.github.io/python-novice-inflammation){target="_blank"} for most of this material.

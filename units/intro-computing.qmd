@@ -438,7 +438,6 @@ $ ls  # Everything after the # is ignored
 ### Getting help with UNIX commands
 
 Essentially all UNIX commands have  help information (called a man page), accessed using `man`.
-Unfortunately the man pages are not available on the DataHub terminal (I can demo it on my laptop terminal instead...).
 
 ```bash
 $ man ls
@@ -561,6 +560,10 @@ Figure out how to list out the files in a directory in order of decreasing file 
 ## Exercise 4
 
 Figure out how to copy an entire directory and have the timestamps of the files retained rather than having the timestamps be the time that you copied the files.
+
+See if you can combine the short form of an option with the long form of a different option.
+
+What happens if you use a single dash with the long form of an option. Are you able to interpret the error message?
 
 :::
 
