@@ -902,6 +902,16 @@
     ]
   },
   {
+    "objectID": "index.html#preparation-for-the-workshop",
+    "href": "index.html#preparation-for-the-workshop",
+    "title": "Berkeley Statistics Computational Skills Workshop",
+    "section": "Preparation for the Workshop",
+    "text": "Preparation for the Workshop\n\nIf you don’t already have a GitHub account, please sign up for an account.\nBring your laptop as the workshop will focus on hands-on work.\nWe’ll be using the campus DataHub as our primary computational environment, so you don’t need to install anything on your laptop, though you can install Git and Python if you wish.",
+    "crumbs": [
+      "Home / Schedule"
+    ]
+  },
+  {
     "objectID": "index.html#schedule",
     "href": "index.html#schedule",
     "title": "Berkeley Statistics Computational Skills Workshop",
