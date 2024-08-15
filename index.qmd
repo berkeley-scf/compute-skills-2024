@@ -57,6 +57,13 @@ Lunch: On your own.
 
 Snacks: Light refreshments during morning and afternoon breaks
 
+## Preparation for the Workshop
+
+- If you don't already have a GitHub account, please [sign up for an account](http://github.com/signup).
+- Bring your laptop as the workshop will focus on hands-on work.
+- We'll be using the campus DataHub as our [primary computational environment](prep.html), so you don't need to install anything on your laptop, though you can install Git and Python if you wish.
+
+
 ## Schedule
 
 ::: {#schedule}
