@@ -484,6 +484,7 @@ Let's debug my buggy implementation of Newton's method.
 
 ```{python}
 import newton
+import numpy as np
 newton.optimize(2.95, np.cos)
 ```
 ```
