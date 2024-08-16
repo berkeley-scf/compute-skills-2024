@@ -82,6 +82,7 @@ Once you've written your Python functions, put your code into a simple text file
 ```{python}
 #| eval: false
 import newton
+import numpy as np
 newton.optimize(start, fun)   ## Assuming your function is called `optimize`.
 newton.optimize(2.5, np.cos)  ## Minimizing cos(x) from close-ish to one minimum.
 ```
@@ -157,13 +158,13 @@ total 40
 
 Step 2. Add files
 
-Next move (or copy) your Python module into the repository directory. I'll use the test module that we'll work with later, but you'll do it with your Newton method module.
+Next move (or copy) your Python module into the repository directory. 
 
 ```bash
 cd newton-practice
-cp ../compute-skills-2024/units/binary_search.py .
+cp ../compute-skills-2024/units/newton-buggy.py newton.py
 ## Tell git to track the file
-git add binary_search.py
+git add newton.py
 ```
 
 Step 3. Edit file(s)
@@ -353,7 +354,7 @@ If you're *sure* no one else has pulled your changes from the remote:
 ```bash
 git reset <commit_hash>
 # Make changes
-git commit -a -m'reworked the mistake'
+git commit -a -m'Reworked the mistake.'
 git push -f origin <branch_name>
 ```
 
@@ -437,17 +438,18 @@ We'll practice with `ruff` with a small module we'll use next also for debugging
 
 - First, we check for and fix syntax errors.
   ```bash
-  ruff check binary_search.py
+  ruff check newton.py
   ```
 - Then we ask `ruff` to reformat to conform to standard style.
   ```bash
-  ruff format binary_search.py
+  cp newton.py newton-save.py   # So we can see what `ruff did.
+  ruff format newton.py
   ```
 
 Let's see what changed:
 
 ```bash
-diff binary_search_orig.py binary_search.py
+diff newton-save.py newton.py
 ```
 
 ## Exercise: add documentation and comments to your Newton module
@@ -478,51 +480,49 @@ We'll use the debugger in JupyterLab; similar functionality is in VS Code. And y
 
 ### Using the JupyterLab visual debugger
 
-The function `binary_search()` in the `binary_search.py` module attempts to do a binary search for an item in a sorted list. It looks in the middle of the list and if the value in the list is larger than the item, it recurses to look in the first half of the list, otherwise in the second half. It continues in this fashion until it is down to a single item and then checks if that item is what is being searched for.
+Let's debug my buggy implementation of Newton's method.
 
 ```{python}
-import binary_search as bs
-bs.search([3,7,9,13,17,203,205],3)
+import newton
+newton.optimize(2.95, np.cos)
 ```
-```{python}
-bs.search([3,7,9,13,17,203,205],13)
-```
-```{python}
-bs.search([3,7,9,13,17,203,205],17)
 ```
 
-Clearly that doesn't always work. Let's debug the failing case.
+Clearly that doesn't work. Let's debug it.
 
 We'll work in our Jupyter notebook.
 
 - First turn on debugging capability by clicking on the small "bug" icon of the top navigation bar under the file tabs and to the left of the  info about the kernel.
-- Next we click on a line of code to set a breakpoint (or add `breakpoint()` in a line of a source file).
+- Next we click on a line of code to set a breakpoint.
 - Now we run the function by executing the cell containing the function call. We can:
   - continue (to the end or the next breakpoint),
+  - finish,
   - run the next line,
-  - step (in/down) into a nested function, or
-  - step (out/up) out of a function.
+  - step (in/down) into a nested function
+  - step (out/up) out of a function, or
+  - evaluate an expression (one needs to click on the "log" icon at the bottom to see the output).
 
+If we want to debug into functions defined in files, we can add `breakpoint()` in the location in the file where we want the breakpoint and one should see the code in the `SOURCE` box in the debugger panel. So far, I've found this to be a bit hard to use, but that may well just be my inexperience with the JupyterLab debugger.
 
 ### Using the IPython debugger (`ipdb`)
 
 We can use the IPython `%debug` "magic" to activate a debugger as well.
 
-One way this is particularly useful is "post-mortem" debugging, i.e., debugging when exceptions (errors) have occurred. We just invoke `%debug` and then (re)run the code that is failing.
+One way this is particularly useful is "post-mortem" debugging, i.e., debugging when exceptions (errors) have occurred. We just invoke `%debug` and then (re)run the code that is failing. The `ipdb` debugger will be invoked.
 
 Once in the ipdb debugger, we can use these commands (most of which correspond to icons we used to control the JupyterLab debugger behavior
 
-- `p expr` to print the result of the `expr` code
 - `c` to continue execution (until the end or the next breakpoint)
 - `n` to run the next line of code
 - `u` and `d` to step up and down through the stack of function calls
+- `p expr` to print the result of the `expr` code
 - `q` to quit the debugger
 
-We'll put a silly error into the `binary_search` code, restart the kernel, and use the post-mortem debugging approach as an illustration.
+We'll put a silly error into the code, restart the kernel, and use the post-mortem debugging approach as an illustration.
 
 ## Exercise: debugging your Newton code
 
-Run your Newton method on the following function, $x^4/4 - x^3 -x$.
+Run your Newton method on the following function, $x^4/4 - x^3 -x$ for various starting values.
 Sometimes it should fail.
 
 Use the debugger to try to see what goes wrong. (For our purposes here, do this using the debugger; don't figure it out from first principles mathematically or graphically.)
@@ -544,7 +544,7 @@ We create test functions that check for the expected result.
 We use `assert` statements. These are ways of generally setting up sanity checks in your code. They are usually used in development, or perhaps data analysis workflows, rather than production code. They are a core part of setting up tests such as here with `pytest`.
 
 ```bash
-pytest test_bs.py
+pytest test_newton.py
 ```
 
 ## Exercise: Test cases
@@ -557,7 +557,7 @@ We'll collect some possible tests once each group has had a chance to brainstorm
 
 ## Exercise: Unit tests
 
-We'll implement our test cases as unit tests using the `pytest` package.
+Implement your test cases as unit tests using the `pytest` package.
 
 Include tests for:
 
@@ -590,7 +590,7 @@ Work on the following improvements:
 - Modify your function so that when it fails, the result is informative to the user.
   - Include a success/failure code (flag) in your output.
 
-Your code should handle errors using exceptions, as discussed earlier for Python itself. We don't have time to go fully into how Python handles the wide variety of exceptions. But here are a few basic things you can do to *raise* an *exception* (i.e., to report an error):
+Your code should handle errors using exceptions, as discussed earlier for Python itself. We don't have time to go fully into how Python handles the wide variety of exceptions. But here are a few basic things you can do to *raise* an *exception* (i.e., to report an error and stop execution):
 
 ```
 if not callable(f):
