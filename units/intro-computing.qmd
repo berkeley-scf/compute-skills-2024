@@ -563,7 +563,7 @@ Figure out how to copy an entire directory and have the timestamps of the files 
 
 See if you can combine the short form of an option with the long form of a different option.
 
-What happens if you use a single dash with the long form of an option. Are you able to interpret the error message?
+What happens if you use a single dash with the long form of an option. Are you able to interpret the error message? (Note that confusingly there are some situations one can use the long form with a single dash.)
 
 :::
 
