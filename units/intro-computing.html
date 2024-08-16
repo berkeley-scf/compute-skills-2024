@@ -596,7 +596,7 @@ Absolute paths can be dangerous
 </section>
 <section id="getting-help-with-unix-commands" class="level3">
 <h3 class="anchored" data-anchor-id="getting-help-with-unix-commands">Getting help with UNIX commands</h3>
-<p>Essentially all UNIX commands have help information (called a man page), accessed using <code>man</code>. Unfortunately the man pages are not available on the DataHub terminal (I can demo it on my laptop terminal instead…).</p>
+<p>Essentially all UNIX commands have help information (called a man page), accessed using <code>man</code>.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> man ls</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Once you are in the <em>man</em> page, you can navigate by hitting <code>&lt;space&gt;</code> (to scroll down) and the <code>&lt;up&gt;</code> and <code>&lt;down&gt;</code> arrows. You can search by typing <code>/</code>, typing the string you want to search for and hitting <code>&lt;Return&gt;</code>. You can use <code>n</code> and <code>p</code> for the next and previous search hits and <code>q</code> to quit out of the search.</p>
 <p>Unfortunately <em>man</em> pages are often quite long, hard to understand, and without examples. But the information you need is usually there if you take the time to look for it.</p>
@@ -729,6 +729,8 @@ Exercise 4
 </div>
 <div class="callout-body-container callout-body">
 <p>Figure out how to copy an entire directory and have the timestamps of the files retained rather than having the timestamps be the time that you copied the files.</p>
+<p>See if you can combine the short form of an option with the long form of a different option.</p>
+<p>What happens if you use a single dash with the long form of an option. Are you able to interpret the error message? (Note that confusingly there are some situations one can use the long form with a single dash.)</p>
 </div>
 </div>
 </section>
@@ -748,7 +750,7 @@ DataHub memory limits
 <p>Be careful about increasing <code>n</code> in the example below when on DataHub. Basic DataHub virtual machines by default only have 1 GB memory, so don’t increase <code>n</code> below or you may run out of memory if running on DataHub and this can cause problems in your DataHub session. If you’re doing this as part of the workshop, we’ve increased those limits somewhat, so somewhat larger values of <code>n</code> should be fine.</p>
 </div>
 </div>
-<div id="41453102" class="cell" data-execution_count="1">
+<div id="59efbd3c" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1703,186 +1705,189 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb39-438"><a href="#cb39-438" aria-hidden="true" tabindex="-1"></a><span class="fu">### Getting help with UNIX commands</span></span>
 <span id="cb39-439"><a href="#cb39-439" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-440"><a href="#cb39-440" aria-hidden="true" tabindex="-1"></a>Essentially all UNIX commands have  help information (called a man page), accessed using <span class="in">`man`</span>.</span>
-<span id="cb39-441"><a href="#cb39-441" aria-hidden="true" tabindex="-1"></a>Unfortunately the man pages are not available on the DataHub terminal (I can demo it on my laptop terminal instead...).</span>
-<span id="cb39-442"><a href="#cb39-442" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-443"><a href="#cb39-443" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb39-444"><a href="#cb39-444" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> man ls</span>
-<span id="cb39-445"><a href="#cb39-445" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-446"><a href="#cb39-446" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-447"><a href="#cb39-447" aria-hidden="true" tabindex="-1"></a>Once you are in the *man* page, you can navigate by hitting <span class="in">`&lt;space&gt;`</span> (to scroll down) and the <span class="in">`&lt;up&gt;`</span> and <span class="in">`&lt;down&gt;`</span> arrows. You can search by typing <span class="in">`/`</span>, typing the string you want to search for and hitting <span class="in">`&lt;Return&gt;`</span>. You can use <span class="in">`n`</span> and <span class="in">`p`</span> for the next and previous search hits and <span class="in">`q`</span> to quit out of the search.</span>
-<span id="cb39-448"><a href="#cb39-448" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-449"><a href="#cb39-449" aria-hidden="true" tabindex="-1"></a>Unfortunately *man* pages are often quite long, hard to understand, and without examples. But the information you need is usually there if you take the time to look for it.</span>
-<span id="cb39-450"><a href="#cb39-450" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-451"><a href="#cb39-451" aria-hidden="true" tabindex="-1"></a>Also, UNIX commands as well as other programs run from the command line often provide help information via the <span class="in">`--help`</span> option, e.g., for help on <span class="in">`ls`</span>:</span>
-<span id="cb39-452"><a href="#cb39-452" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-453"><a href="#cb39-453" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb39-454"><a href="#cb39-454" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">--help</span></span>
-<span id="cb39-455"><a href="#cb39-455" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-456"><a href="#cb39-456" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-457"><a href="#cb39-457" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tab completion</span></span>
-<span id="cb39-458"><a href="#cb39-458" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-459"><a href="#cb39-459" aria-hidden="true" tabindex="-1"></a>If you hit <span class="in">`Tab`</span> the shell tries to figure out what command or filename you want based on the initial letters you typed.</span>
-<span id="cb39-460"><a href="#cb39-460" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-461"><a href="#cb39-461" aria-hidden="true" tabindex="-1"></a>Try it with:</span>
-<span id="cb39-462"><a href="#cb39-462" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-463"><a href="#cb39-463" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb39-464"><a href="#cb39-464" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> com</span>
-<span id="cb39-465"><a href="#cb39-465" aria-hidden="true" tabindex="-1"></a><span class="ex">ech</span></span>
-<span id="cb39-466"><a href="#cb39-466" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-467"><a href="#cb39-467" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-468"><a href="#cb39-468" aria-hidden="true" tabindex="-1"></a>The first should allow you to get <span class="in">`compute-skills-2024`</span> and the second <span class="in">`echo`</span>.</span>
-<span id="cb39-469"><a href="#cb39-469" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-470"><a href="#cb39-470" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb39-471"><a href="#cb39-471" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tab completion everywhere</span></span>
-<span id="cb39-472"><a href="#cb39-472" aria-hidden="true" tabindex="-1"></a>Lots of interactive programs have adopted the idea of tab completion, including Python/IPython and R.</span>
-<span id="cb39-473"><a href="#cb39-473" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb39-474"><a href="#cb39-474" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-475"><a href="#cb39-475" aria-hidden="true" tabindex="-1"></a><span class="fu">### Command history</span></span>
-<span id="cb39-476"><a href="#cb39-476" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-477"><a href="#cb39-477" aria-hidden="true" tabindex="-1"></a>Hit the <span class="in">`up`</span> key. You should see the previous command you typed.</span>
-<span id="cb39-478"><a href="#cb39-478" aria-hidden="true" tabindex="-1"></a>Hit it again. You should see the 2nd most recent command.</span>
-<span id="cb39-479"><a href="#cb39-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-480"><a href="#cb39-480" aria-hidden="true" tabindex="-1"></a><span class="in">`Ctrl-a`</span> and <span class="in">`Ctrl-e`</span> navigate to the beginning and end of a line. You can edit your previous command and then hit <span class="in">`Enter`</span> to run the modified code.</span>
-<span id="cb39-481"><a href="#cb39-481" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-482"><a href="#cb39-482" aria-hidden="true" tabindex="-1"></a><span class="fu">### Seeing if a command or program is available</span></span>
-<span id="cb39-483"><a href="#cb39-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-484"><a href="#cb39-484" aria-hidden="true" tabindex="-1"></a>You can see if a command or program is installed (and where it is installed) using <span class="in">`type`</span>.</span>
-<span id="cb39-485"><a href="#cb39-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-486"><a href="#cb39-486" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb39-487"><a href="#cb39-487" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> type grep</span>
-<span id="cb39-488"><a href="#cb39-488" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> is /usr/bin/grep</span>
-<span id="cb39-489"><a href="#cb39-489" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> type R</span>
-<span id="cb39-490"><a href="#cb39-490" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span> is /usr/bin/R</span>
-<span id="cb39-491"><a href="#cb39-491" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> type python</span>
-<span id="cb39-492"><a href="#cb39-492" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> is /srv/conda/bin/python</span>
-<span id="cb39-493"><a href="#cb39-493" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-494"><a href="#cb39-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-495"><a href="#cb39-495" aria-hidden="true" tabindex="-1"></a><span class="fu">## Working with files</span></span>
-<span id="cb39-496"><a href="#cb39-496" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-497"><a href="#cb39-497" aria-hidden="true" tabindex="-1"></a><span class="fu">### Copying and removing files</span></span>
-<span id="cb39-498"><a href="#cb39-498" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-499"><a href="#cb39-499" aria-hidden="true" tabindex="-1"></a>You'll often want to make a copy (<span class="in">`cp`</span>) of a file, move it (<span class="in">`mv`</span>) between directories, or remove it (<span class="in">`rm`</span>). </span>
-<span id="cb39-500"><a href="#cb39-500" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-501"><a href="#cb39-501" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb39-502"><a href="#cb39-502" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd ~/compute-skills-2024/units</span>
-<span id="cb39-503"><a href="#cb39-503" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cp calc.py calc-new.py</span>
-<span id="cb39-504"><a href="#cb39-504" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mv calc-new.py /tmp/.</span>
-<span id="cb39-505"><a href="#cb39-505" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd /tmp</span>
-<span id="cb39-506"><a href="#cb39-506" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-lrt</span></span>
-<span id="cb39-507"><a href="#cb39-507" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 8</span>
-<span id="cb39-508"><a href="#cb39-508" aria-hidden="true" tabindex="-1"></a><span class="ex">drwx-----T</span> 2 jovyan jovyan 4096 Aug  1 16:15 jupyter-runtime</span>
-<span id="cb39-509"><a href="#cb39-509" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 jovyan jovyan  413 Aug  1 16:16 calc-new.py</span>
-<span id="cb39-510"><a href="#cb39-510" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-511"><a href="#cb39-511" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-512"><a href="#cb39-512" aria-hidden="true" tabindex="-1"></a>When we moved the file, the use of <span class="in">`.`</span> in <span class="in">`/tmp/.`</span> indicates we want to use the same name as the original file.</span>
+<span id="cb39-441"><a href="#cb39-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-442"><a href="#cb39-442" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb39-443"><a href="#cb39-443" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> man ls</span>
+<span id="cb39-444"><a href="#cb39-444" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-445"><a href="#cb39-445" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-446"><a href="#cb39-446" aria-hidden="true" tabindex="-1"></a>Once you are in the *man* page, you can navigate by hitting <span class="in">`&lt;space&gt;`</span> (to scroll down) and the <span class="in">`&lt;up&gt;`</span> and <span class="in">`&lt;down&gt;`</span> arrows. You can search by typing <span class="in">`/`</span>, typing the string you want to search for and hitting <span class="in">`&lt;Return&gt;`</span>. You can use <span class="in">`n`</span> and <span class="in">`p`</span> for the next and previous search hits and <span class="in">`q`</span> to quit out of the search.</span>
+<span id="cb39-447"><a href="#cb39-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-448"><a href="#cb39-448" aria-hidden="true" tabindex="-1"></a>Unfortunately *man* pages are often quite long, hard to understand, and without examples. But the information you need is usually there if you take the time to look for it.</span>
+<span id="cb39-449"><a href="#cb39-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-450"><a href="#cb39-450" aria-hidden="true" tabindex="-1"></a>Also, UNIX commands as well as other programs run from the command line often provide help information via the <span class="in">`--help`</span> option, e.g., for help on <span class="in">`ls`</span>:</span>
+<span id="cb39-451"><a href="#cb39-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-452"><a href="#cb39-452" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb39-453"><a href="#cb39-453" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">--help</span></span>
+<span id="cb39-454"><a href="#cb39-454" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-455"><a href="#cb39-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-456"><a href="#cb39-456" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tab completion</span></span>
+<span id="cb39-457"><a href="#cb39-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-458"><a href="#cb39-458" aria-hidden="true" tabindex="-1"></a>If you hit <span class="in">`Tab`</span> the shell tries to figure out what command or filename you want based on the initial letters you typed.</span>
+<span id="cb39-459"><a href="#cb39-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-460"><a href="#cb39-460" aria-hidden="true" tabindex="-1"></a>Try it with:</span>
+<span id="cb39-461"><a href="#cb39-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-462"><a href="#cb39-462" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb39-463"><a href="#cb39-463" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> com</span>
+<span id="cb39-464"><a href="#cb39-464" aria-hidden="true" tabindex="-1"></a><span class="ex">ech</span></span>
+<span id="cb39-465"><a href="#cb39-465" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-466"><a href="#cb39-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-467"><a href="#cb39-467" aria-hidden="true" tabindex="-1"></a>The first should allow you to get <span class="in">`compute-skills-2024`</span> and the second <span class="in">`echo`</span>.</span>
+<span id="cb39-468"><a href="#cb39-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-469"><a href="#cb39-469" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb39-470"><a href="#cb39-470" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tab completion everywhere</span></span>
+<span id="cb39-471"><a href="#cb39-471" aria-hidden="true" tabindex="-1"></a>Lots of interactive programs have adopted the idea of tab completion, including Python/IPython and R.</span>
+<span id="cb39-472"><a href="#cb39-472" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb39-473"><a href="#cb39-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-474"><a href="#cb39-474" aria-hidden="true" tabindex="-1"></a><span class="fu">### Command history</span></span>
+<span id="cb39-475"><a href="#cb39-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-476"><a href="#cb39-476" aria-hidden="true" tabindex="-1"></a>Hit the <span class="in">`up`</span> key. You should see the previous command you typed.</span>
+<span id="cb39-477"><a href="#cb39-477" aria-hidden="true" tabindex="-1"></a>Hit it again. You should see the 2nd most recent command.</span>
+<span id="cb39-478"><a href="#cb39-478" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-479"><a href="#cb39-479" aria-hidden="true" tabindex="-1"></a><span class="in">`Ctrl-a`</span> and <span class="in">`Ctrl-e`</span> navigate to the beginning and end of a line. You can edit your previous command and then hit <span class="in">`Enter`</span> to run the modified code.</span>
+<span id="cb39-480"><a href="#cb39-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-481"><a href="#cb39-481" aria-hidden="true" tabindex="-1"></a><span class="fu">### Seeing if a command or program is available</span></span>
+<span id="cb39-482"><a href="#cb39-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-483"><a href="#cb39-483" aria-hidden="true" tabindex="-1"></a>You can see if a command or program is installed (and where it is installed) using <span class="in">`type`</span>.</span>
+<span id="cb39-484"><a href="#cb39-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-485"><a href="#cb39-485" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb39-486"><a href="#cb39-486" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> type grep</span>
+<span id="cb39-487"><a href="#cb39-487" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> is /usr/bin/grep</span>
+<span id="cb39-488"><a href="#cb39-488" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> type R</span>
+<span id="cb39-489"><a href="#cb39-489" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span> is /usr/bin/R</span>
+<span id="cb39-490"><a href="#cb39-490" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> type python</span>
+<span id="cb39-491"><a href="#cb39-491" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> is /srv/conda/bin/python</span>
+<span id="cb39-492"><a href="#cb39-492" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-493"><a href="#cb39-493" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-494"><a href="#cb39-494" aria-hidden="true" tabindex="-1"></a><span class="fu">## Working with files</span></span>
+<span id="cb39-495"><a href="#cb39-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-496"><a href="#cb39-496" aria-hidden="true" tabindex="-1"></a><span class="fu">### Copying and removing files</span></span>
+<span id="cb39-497"><a href="#cb39-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-498"><a href="#cb39-498" aria-hidden="true" tabindex="-1"></a>You'll often want to make a copy (<span class="in">`cp`</span>) of a file, move it (<span class="in">`mv`</span>) between directories, or remove it (<span class="in">`rm`</span>). </span>
+<span id="cb39-499"><a href="#cb39-499" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-500"><a href="#cb39-500" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb39-501"><a href="#cb39-501" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd ~/compute-skills-2024/units</span>
+<span id="cb39-502"><a href="#cb39-502" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cp calc.py calc-new.py</span>
+<span id="cb39-503"><a href="#cb39-503" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mv calc-new.py /tmp/.</span>
+<span id="cb39-504"><a href="#cb39-504" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd /tmp</span>
+<span id="cb39-505"><a href="#cb39-505" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-lrt</span></span>
+<span id="cb39-506"><a href="#cb39-506" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 8</span>
+<span id="cb39-507"><a href="#cb39-507" aria-hidden="true" tabindex="-1"></a><span class="ex">drwx-----T</span> 2 jovyan jovyan 4096 Aug  1 16:15 jupyter-runtime</span>
+<span id="cb39-508"><a href="#cb39-508" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 jovyan jovyan  413 Aug  1 16:16 calc-new.py</span>
+<span id="cb39-509"><a href="#cb39-509" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-510"><a href="#cb39-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-511"><a href="#cb39-511" aria-hidden="true" tabindex="-1"></a>When we moved the file, the use of <span class="in">`.`</span> in <span class="in">`/tmp/.`</span> indicates we want to use the same name as the original file.</span>
+<span id="cb39-512"><a href="#cb39-512" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-513"><a href="#cb39-513" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-514"><a href="#cb39-514" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-515"><a href="#cb39-515" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb39-516"><a href="#cb39-516" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm calc-new.py</span>
-<span id="cb39-517"><a href="#cb39-517" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-lrt</span></span>
-<span id="cb39-518"><a href="#cb39-518" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 4</span>
-<span id="cb39-519"><a href="#cb39-519" aria-hidden="true" tabindex="-1"></a><span class="ex">drwx-----T</span> 2 jovyan jovyan 4096 Aug  1 16:15 jupyter-runtime</span>
-<span id="cb39-520"><a href="#cb39-520" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-521"><a href="#cb39-521" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-522"><a href="#cb39-522" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
-<span id="cb39-523"><a href="#cb39-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-524"><a href="#cb39-524" aria-hidden="true" tabindex="-1"></a><span class="fu">## `rm` cannot be undone</span></span>
-<span id="cb39-525"><a href="#cb39-525" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-526"><a href="#cb39-526" aria-hidden="true" tabindex="-1"></a>I used <span class="in">`rm`</span> above to remove the file. Be very careful about removing files - there is no Trash folder in UNIX - once a file is removed, it's gone for good.</span>
-<span id="cb39-527"><a href="#cb39-527" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-528"><a href="#cb39-528" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb39-514"><a href="#cb39-514" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb39-515"><a href="#cb39-515" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm calc-new.py</span>
+<span id="cb39-516"><a href="#cb39-516" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-lrt</span></span>
+<span id="cb39-517"><a href="#cb39-517" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 4</span>
+<span id="cb39-518"><a href="#cb39-518" aria-hidden="true" tabindex="-1"></a><span class="ex">drwx-----T</span> 2 jovyan jovyan 4096 Aug  1 16:15 jupyter-runtime</span>
+<span id="cb39-519"><a href="#cb39-519" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-520"><a href="#cb39-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-521"><a href="#cb39-521" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb39-522"><a href="#cb39-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-523"><a href="#cb39-523" aria-hidden="true" tabindex="-1"></a><span class="fu">## `rm` cannot be undone</span></span>
+<span id="cb39-524"><a href="#cb39-524" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-525"><a href="#cb39-525" aria-hidden="true" tabindex="-1"></a>I used <span class="in">`rm`</span> above to remove the file. Be very careful about removing files - there is no Trash folder in UNIX - once a file is removed, it's gone for good.</span>
+<span id="cb39-526"><a href="#cb39-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-527"><a href="#cb39-527" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb39-528"><a href="#cb39-528" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-529"><a href="#cb39-529" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-530"><a href="#cb39-530" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-531"><a href="#cb39-531" aria-hidden="true" tabindex="-1"></a>The <span class="in">`mv`</span> command is also used if you want to rename a file. </span>
-<span id="cb39-532"><a href="#cb39-532" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb39-533"><a href="#cb39-533" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd ~/compute-skills-2020/units</span>
-<span id="cb39-534"><a href="#cb39-534" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mv session3.qmd _sesson3.qmd</span>
-<span id="cb39-535"><a href="#cb39-535" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span>
-<span id="cb39-536"><a href="#cb39-536" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-530"><a href="#cb39-530" aria-hidden="true" tabindex="-1"></a>The <span class="in">`mv`</span> command is also used if you want to rename a file. </span>
+<span id="cb39-531"><a href="#cb39-531" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb39-532"><a href="#cb39-532" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd ~/compute-skills-2020/units</span>
+<span id="cb39-533"><a href="#cb39-533" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mv session3.qmd _sesson3.qmd</span>
+<span id="cb39-534"><a href="#cb39-534" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span>
+<span id="cb39-535"><a href="#cb39-535" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-536"><a href="#cb39-536" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-537"><a href="#cb39-537" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-538"><a href="#cb39-538" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-539"><a href="#cb39-539" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises: shell commands</span></span>
-<span id="cb39-540"><a href="#cb39-540" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-541"><a href="#cb39-541" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb39-542"><a href="#cb39-542" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
-<span id="cb39-543"><a href="#cb39-543" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-544"><a href="#cb39-544" aria-hidden="true" tabindex="-1"></a>Where is <span class="in">`gzip`</span> installed on the system? What are some other commands/executables that are installed in the same directory?</span>
-<span id="cb39-545"><a href="#cb39-545" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-546"><a href="#cb39-546" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb39-547"><a href="#cb39-547" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-548"><a href="#cb39-548" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb39-549"><a href="#cb39-549" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
-<span id="cb39-550"><a href="#cb39-550" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-551"><a href="#cb39-551" aria-hidden="true" tabindex="-1"></a>Try to run the following command <span class="in">`mkdir ~/projects/drought`</span>. It will fail. Look in the help information on <span class="in">`mkdir`</span> to figure out how to make it work without first creating the <span class="in">`projects`</span> directory.</span>
-<span id="cb39-552"><a href="#cb39-552" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb39-553"><a href="#cb39-553" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-554"><a href="#cb39-554" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb39-555"><a href="#cb39-555" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 3</span></span>
-<span id="cb39-556"><a href="#cb39-556" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-557"><a href="#cb39-557" aria-hidden="true" tabindex="-1"></a>Figure out how to list out the files in a directory in order of decreasing file size, as a way to see easily what the big files are that are taking up the most space. Modify this command to get the result in the ascending order.</span>
-<span id="cb39-558"><a href="#cb39-558" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb39-559"><a href="#cb39-559" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-560"><a href="#cb39-560" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb39-561"><a href="#cb39-561" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 4</span></span>
-<span id="cb39-562"><a href="#cb39-562" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-563"><a href="#cb39-563" aria-hidden="true" tabindex="-1"></a>Figure out how to copy an entire directory and have the timestamps of the files retained rather than having the timestamps be the time that you copied the files.</span>
-<span id="cb39-564"><a href="#cb39-564" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-565"><a href="#cb39-565" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb39-566"><a href="#cb39-566" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-567"><a href="#cb39-567" aria-hidden="true" tabindex="-1"></a><span class="fu">## Running processes</span></span>
-<span id="cb39-568"><a href="#cb39-568" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-569"><a href="#cb39-569" aria-hidden="true" tabindex="-1"></a>We'll run a simple linear algebra operation in Python to illustrate how we can monitor what is happening on a machine.</span>
-<span id="cb39-570"><a href="#cb39-570" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-571"><a href="#cb39-571" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
-<span id="cb39-572"><a href="#cb39-572" aria-hidden="true" tabindex="-1"></a><span class="fu">## DataHub memory limits</span></span>
+<span id="cb39-538"><a href="#cb39-538" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises: shell commands</span></span>
+<span id="cb39-539"><a href="#cb39-539" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-540"><a href="#cb39-540" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb39-541"><a href="#cb39-541" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
+<span id="cb39-542"><a href="#cb39-542" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-543"><a href="#cb39-543" aria-hidden="true" tabindex="-1"></a>Where is <span class="in">`gzip`</span> installed on the system? What are some other commands/executables that are installed in the same directory?</span>
+<span id="cb39-544"><a href="#cb39-544" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-545"><a href="#cb39-545" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb39-546"><a href="#cb39-546" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-547"><a href="#cb39-547" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb39-548"><a href="#cb39-548" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
+<span id="cb39-549"><a href="#cb39-549" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-550"><a href="#cb39-550" aria-hidden="true" tabindex="-1"></a>Try to run the following command <span class="in">`mkdir ~/projects/drought`</span>. It will fail. Look in the help information on <span class="in">`mkdir`</span> to figure out how to make it work without first creating the <span class="in">`projects`</span> directory.</span>
+<span id="cb39-551"><a href="#cb39-551" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb39-552"><a href="#cb39-552" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-553"><a href="#cb39-553" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb39-554"><a href="#cb39-554" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 3</span></span>
+<span id="cb39-555"><a href="#cb39-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-556"><a href="#cb39-556" aria-hidden="true" tabindex="-1"></a>Figure out how to list out the files in a directory in order of decreasing file size, as a way to see easily what the big files are that are taking up the most space. Modify this command to get the result in the ascending order.</span>
+<span id="cb39-557"><a href="#cb39-557" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb39-558"><a href="#cb39-558" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-559"><a href="#cb39-559" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb39-560"><a href="#cb39-560" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 4</span></span>
+<span id="cb39-561"><a href="#cb39-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-562"><a href="#cb39-562" aria-hidden="true" tabindex="-1"></a>Figure out how to copy an entire directory and have the timestamps of the files retained rather than having the timestamps be the time that you copied the files.</span>
+<span id="cb39-563"><a href="#cb39-563" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-564"><a href="#cb39-564" aria-hidden="true" tabindex="-1"></a>See if you can combine the short form of an option with the long form of a different option.</span>
+<span id="cb39-565"><a href="#cb39-565" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-566"><a href="#cb39-566" aria-hidden="true" tabindex="-1"></a>What happens if you use a single dash with the long form of an option. Are you able to interpret the error message? (Note that confusingly there are some situations one can use the long form with a single dash.)</span>
+<span id="cb39-567"><a href="#cb39-567" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-568"><a href="#cb39-568" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb39-569"><a href="#cb39-569" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-570"><a href="#cb39-570" aria-hidden="true" tabindex="-1"></a><span class="fu">## Running processes</span></span>
+<span id="cb39-571"><a href="#cb39-571" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-572"><a href="#cb39-572" aria-hidden="true" tabindex="-1"></a>We'll run a simple linear algebra operation in Python to illustrate how we can monitor what is happening on a machine.</span>
 <span id="cb39-573"><a href="#cb39-573" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-574"><a href="#cb39-574" aria-hidden="true" tabindex="-1"></a>Be careful about increasing <span class="in">`n`</span> in the example below when on DataHub. Basic DataHub virtual machines by default only have 1 GB memory, so don't increase <span class="in">`n`</span> below or you may run out of memory if running on DataHub and this can cause problems in your DataHub session. If you're doing this as part of the workshop, we've increased those limits somewhat, so somewhat larger values of <span class="in">`n`</span> should be fine.</span>
-<span id="cb39-575"><a href="#cb39-575" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-576"><a href="#cb39-576" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb39-577"><a href="#cb39-577" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-580"><a href="#cb39-580" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb39-581"><a href="#cb39-581" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb39-582"><a href="#cb39-582" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb39-583"><a href="#cb39-583" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb39-584"><a href="#cb39-584" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-585"><a href="#cb39-585" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_linalg(n):</span>
-<span id="cb39-586"><a href="#cb39-586" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> np.random.normal(<span class="dv">0</span>, <span class="dv">1</span>, size<span class="op">=</span>(n, n))</span>
-<span id="cb39-587"><a href="#cb39-587" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(time.time())</span>
-<span id="cb39-588"><a href="#cb39-588" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> z.T.dot(z)   <span class="co"># x = z'z</span></span>
-<span id="cb39-589"><a href="#cb39-589" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(time.time())</span>
-<span id="cb39-590"><a href="#cb39-590" aria-hidden="true" tabindex="-1"></a>    U <span class="op">=</span> np.linalg.cholesky(x)  <span class="co"># factorize as x = U'U</span></span>
-<span id="cb39-591"><a href="#cb39-591" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(time.time())</span>
-<span id="cb39-592"><a href="#cb39-592" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-593"><a href="#cb39-593" aria-hidden="true" tabindex="-1"></a><span class="co">## This allows us to run the code from the command line</span></span>
-<span id="cb39-594"><a href="#cb39-594" aria-hidden="true" tabindex="-1"></a><span class="co">## without running it when we import the file as a module.</span></span>
-<span id="cb39-595"><a href="#cb39-595" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
-<span id="cb39-596"><a href="#cb39-596" aria-hidden="true" tabindex="-1"></a>    run_linalg(<span class="dv">4000</span>)</span>
-<span id="cb39-597"><a href="#cb39-597" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-598"><a href="#cb39-598" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-599"><a href="#cb39-599" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb39-600"><a href="#cb39-600" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> calc.py</span>
-<span id="cb39-601"><a href="#cb39-601" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-602"><a href="#cb39-602" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-603"><a href="#cb39-603" aria-hidden="true" tabindex="-1"></a>We might need to run it in a loop to be able to monitor the running process (since it finishes so quickly):</span>
-<span id="cb39-604"><a href="#cb39-604" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-605"><a href="#cb39-605" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-606"><a href="#cb39-606" aria-hidden="true" tabindex="-1"></a><span class="in">for ((i=0;i&lt;10;i++)); do</span></span>
-<span id="cb39-607"><a href="#cb39-607" aria-hidden="true" tabindex="-1"></a><span class="in">  python calc.py</span></span>
-<span id="cb39-608"><a href="#cb39-608" aria-hidden="true" tabindex="-1"></a><span class="in">done</span></span>
-<span id="cb39-609"><a href="#cb39-609" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb39-610"><a href="#cb39-610" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-611"><a href="#cb39-611" aria-hidden="true" tabindex="-1"></a><span class="fu">### Monitoring CPU and memory use</span></span>
-<span id="cb39-612"><a href="#cb39-612" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-613"><a href="#cb39-613" aria-hidden="true" tabindex="-1"></a>We can see CPU and memory usage via <span class="in">`top`</span>.</span>
-<span id="cb39-614"><a href="#cb39-614" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-615"><a href="#cb39-615" aria-hidden="true" tabindex="-1"></a>If we see more than 100% CPU usage, that indicates that the process is running a computation in parallel using multiple threads.</span>
-<span id="cb39-616"><a href="#cb39-616" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-617"><a href="#cb39-617" aria-hidden="true" tabindex="-1"></a>What about if we see less than 100% CPU usage?</span>
-<span id="cb39-618"><a href="#cb39-618" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-619"><a href="#cb39-619" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>Our process might be busy doing I/O (reading/writing to/from disk).</span>
-<span id="cb39-620"><a href="#cb39-620" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>Our process might be waiting for data from the internet or from another machine on the network.</span>
-<span id="cb39-621"><a href="#cb39-621" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>The machine might be running low on physical memory, which in some cases will involve using disk as additional memory (slow!).</span>
-<span id="cb39-622"><a href="#cb39-622" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb39-574"><a href="#cb39-574" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb39-575"><a href="#cb39-575" aria-hidden="true" tabindex="-1"></a><span class="fu">## DataHub memory limits</span></span>
+<span id="cb39-576"><a href="#cb39-576" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-577"><a href="#cb39-577" aria-hidden="true" tabindex="-1"></a>Be careful about increasing <span class="in">`n`</span> in the example below when on DataHub. Basic DataHub virtual machines by default only have 1 GB memory, so don't increase <span class="in">`n`</span> below or you may run out of memory if running on DataHub and this can cause problems in your DataHub session. If you're doing this as part of the workshop, we've increased those limits somewhat, so somewhat larger values of <span class="in">`n`</span> should be fine.</span>
+<span id="cb39-578"><a href="#cb39-578" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-579"><a href="#cb39-579" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb39-580"><a href="#cb39-580" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-583"><a href="#cb39-583" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb39-584"><a href="#cb39-584" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb39-585"><a href="#cb39-585" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb39-586"><a href="#cb39-586" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb39-587"><a href="#cb39-587" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-588"><a href="#cb39-588" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_linalg(n):</span>
+<span id="cb39-589"><a href="#cb39-589" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> np.random.normal(<span class="dv">0</span>, <span class="dv">1</span>, size<span class="op">=</span>(n, n))</span>
+<span id="cb39-590"><a href="#cb39-590" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(time.time())</span>
+<span id="cb39-591"><a href="#cb39-591" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> z.T.dot(z)   <span class="co"># x = z'z</span></span>
+<span id="cb39-592"><a href="#cb39-592" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(time.time())</span>
+<span id="cb39-593"><a href="#cb39-593" aria-hidden="true" tabindex="-1"></a>    U <span class="op">=</span> np.linalg.cholesky(x)  <span class="co"># factorize as x = U'U</span></span>
+<span id="cb39-594"><a href="#cb39-594" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(time.time())</span>
+<span id="cb39-595"><a href="#cb39-595" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-596"><a href="#cb39-596" aria-hidden="true" tabindex="-1"></a><span class="co">## This allows us to run the code from the command line</span></span>
+<span id="cb39-597"><a href="#cb39-597" aria-hidden="true" tabindex="-1"></a><span class="co">## without running it when we import the file as a module.</span></span>
+<span id="cb39-598"><a href="#cb39-598" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb39-599"><a href="#cb39-599" aria-hidden="true" tabindex="-1"></a>    run_linalg(<span class="dv">4000</span>)</span>
+<span id="cb39-600"><a href="#cb39-600" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-601"><a href="#cb39-601" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-602"><a href="#cb39-602" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb39-603"><a href="#cb39-603" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> calc.py</span>
+<span id="cb39-604"><a href="#cb39-604" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-605"><a href="#cb39-605" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-606"><a href="#cb39-606" aria-hidden="true" tabindex="-1"></a>We might need to run it in a loop to be able to monitor the running process (since it finishes so quickly):</span>
+<span id="cb39-607"><a href="#cb39-607" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-608"><a href="#cb39-608" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-609"><a href="#cb39-609" aria-hidden="true" tabindex="-1"></a><span class="in">for ((i=0;i&lt;10;i++)); do</span></span>
+<span id="cb39-610"><a href="#cb39-610" aria-hidden="true" tabindex="-1"></a><span class="in">  python calc.py</span></span>
+<span id="cb39-611"><a href="#cb39-611" aria-hidden="true" tabindex="-1"></a><span class="in">done</span></span>
+<span id="cb39-612"><a href="#cb39-612" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-613"><a href="#cb39-613" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-614"><a href="#cb39-614" aria-hidden="true" tabindex="-1"></a><span class="fu">### Monitoring CPU and memory use</span></span>
+<span id="cb39-615"><a href="#cb39-615" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-616"><a href="#cb39-616" aria-hidden="true" tabindex="-1"></a>We can see CPU and memory usage via <span class="in">`top`</span>.</span>
+<span id="cb39-617"><a href="#cb39-617" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-618"><a href="#cb39-618" aria-hidden="true" tabindex="-1"></a>If we see more than 100% CPU usage, that indicates that the process is running a computation in parallel using multiple threads.</span>
+<span id="cb39-619"><a href="#cb39-619" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-620"><a href="#cb39-620" aria-hidden="true" tabindex="-1"></a>What about if we see less than 100% CPU usage?</span>
+<span id="cb39-621"><a href="#cb39-621" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-622"><a href="#cb39-622" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>Our process might be busy doing I/O (reading/writing to/from disk).</span>
+<span id="cb39-623"><a href="#cb39-623" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>Our process might be waiting for data from the internet or from another machine on the network.</span>
+<span id="cb39-624"><a href="#cb39-624" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>The machine might be running low on physical memory, which in some cases will involve using disk as additional memory (slow!).</span>
+<span id="cb39-625"><a href="#cb39-625" aria-hidden="true" tabindex="-1"></a> </span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
