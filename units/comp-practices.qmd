@@ -476,7 +476,7 @@ The *stack* is the series of nested function calls. When an error occurs, Python
 
 We'll use the debugger in JupyterLab; similar functionality is in VS Code. And you can use `pdb` directly from the command line; the ideas are all the same.
 
-## Demo: debugging the `binary_search` example
+## Demo: debugging my Newton implementation
 
 ### Using the JupyterLab visual debugger
 
@@ -636,14 +636,14 @@ Before going further, let's review our visualization of working with Git ([onlin
 
 ## Demo: Branching and pull requests, merge conflicts
 
-We'll demo the use of branching and PRs by fixing our `binary_search` function.
+We'll demo the use of branching and PRs by fixing our `optimize` function.
 
 ### Branching
 
-First, let's fix the error in our `binary_search` function in a new branch.
+First, let's fix the error in our function in a new branch.
 
 ```bash
-git switch -c fix_midpoint_bug
+git switch -c fix_initial_bugs
 ```
 
 We'll now make the fixes and do the linting (not shown).
@@ -651,11 +651,9 @@ We'll now make the fixes and do the linting (not shown).
 Push the branch with the fix to GitHub.
 
 ```bash
-git add binary_search.py
-git commit -m"Fix bug in handling midpoint.
-
-Lint code."
-git push -u origin fix_midpoint_bug
+git add newton.py
+git commit
+git push -u origin fix_initial_bugs
 ```
 
 ### Pull requests
