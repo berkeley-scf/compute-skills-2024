@@ -91,6 +91,27 @@ ul.task-list li input[type="checkbox"] {
 <p>def deriv2(f, x, eps=1e-6): return (deriv(f, x+eps, eps) - deriv(f, x, eps)) / eps</p>
 <p>def optimize(x0, f, tol=1e-4): x = x0 x_new = x - deriv(f, x) / deriv2(f, x) while abs(x_new - x) &gt; tol: x = x_new x_new = x - deriv(f, x) / deriv2(f, x) return {“x”: x_new, “value”: f(x_new)}</p>
 <p>def test_fun(x): return x<strong>4/4 - x</strong>3 -x</p>
+<p>import warnings</p>
+<p>def optimize(x0, f, tol=1e-4): if not callable(f): raise TypeError(f”Argument <code>f</code> is not a function, it is of type {type(f)}“) if not np.isreal(x0): raise TypeError(f”Argument <code>x0</code> is not numeric”)</p>
+<pre><code>x = x0
+x_new = x - deriv(f, x) / deriv2(f, x)
+while abs(x_new - x) &gt; tol:
+    x = x_new
+    x_new = x - deriv(f, x) / deriv2(f, x)
+converged = True
+if deriv2(f, x) &lt;= 0:
+   warnings.warn("Positive second derivative; local maximum found")
+   converged = False
+
+return {"x": x_new, "value": f(x_new), "convergence": converged}</code></pre>
+<p>from scipy.linalg import solve from scipy.misc import derivative as deriv</p>
+<p>def optimize_mv(x0, f, tol=1e-4): x = x0 x_new = x0 - solve(deriv(f, x0, n=2), deriv(f, x0, n = 1)) while pow(np.sum((x_new - x)**2), 0.5) &gt; tol: x = x_new x_new = x - solve(deriv(f, x, n=2), deriv(f, x, n = 1)) return {“x”: x_new, “value”: f(x_new)}</p>
+<p>import numpy as np beta0 = 1 beta1 = 0.5 n = 50 x = np.random.normal(size = n) y = beta0 + beta1 * x + np.random.normal(size = n)</p>
+<p>def test_fun(theta): return np.sum((y - theta[0] - theta[1]*x)**2)</p>
+<p>optimize_mv(np.array([0.5,0]), test_fun)</p>
+<p>import numdifftools as nd</p>
+<p>def optimize_mv(x0, f, tol=1e-4): grad = nd.Gradient(f) hessian = nd.Hessian(f) x = x0 x_new = x0 - solve(hessian(x0), grad(x0)) while pow(np.sum((x_new - x)**2), 0.5) &gt; tol: x = x_new x_new = x - solve(hessian(x), grad(x)) return {“x”: x_new, “value”: f(x_new)}</p>
+<p>optimize_mv(np.array([2,0]), test_fun)</p>
 
 
 

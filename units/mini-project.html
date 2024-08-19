@@ -266,14 +266,14 @@ DRAFT CONTENT (2024-08-19)
 <p>The goal of the project is to analyze the tweeting behavior of the 100 US Senators in the US Senate. Each senator has a Twitter account and puts out tweets reflecting their thought and communicating with the people in the state they represent.</p>
 <p>(Note that these tweets were downloaded early in 2017, so they reflect tweeting just before President Obama stepped down and President Trump began his term.)</p>
 <p>The goal of the project questions is to guide you through the steps of getting the data, processing and cleaning it, putting it in a format that makes it easier to analyze and then doing some basic analysis. The last few questions ask you to see if whether a senator mentions a president or presidential candidate depends on the party that the senator is part of. For example, do Democratic senators mention Barack Obama in their tweets more or less than Republican senators?</p>
-<p>For background information only: The file <code>https://github.com/berkeley-scf/python-workshop-2023/blob/gh-pages/project/fetch_senator_tweets.py</code> downloads tweets using the Python twitter package to interact with Twitter’s API. You will only be able to run that code if you set up your own Twitter account and follow the instructions at the start of the file regarding filling in the authentication information (CONSUMER_KEY, CONSUMER_SECRET, etc.).</p>
+<p>For background information only: <a href="../project/fetch_senator_tweets.py">This Python code</a> downloads tweets using the Python twitter package to interact with Twitter’s API. You will only be able to run that code if you set up your own Twitter account and follow the instructions at the start of the file regarding filling in the authentication information (CONSUMER_KEY, CONSUMER_SECRET, etc.).</p>
 <p>I’ve already run the code mentioned above and downloaded the data for you. The downloaded information on the senators’ twitter accounts is in <code>project/senators-list.json</code> in the GitHub repository, while the downloaded tweets are in <code>timelines.json</code>. <code>timelines.json</code> is too big to put in the Github repository. You can find it at <a href="http://www.stat.berkeley.edu/~paciorek/transfer/timelines.json" class="uri">http://www.stat.berkeley.edu/~paciorek/transfer/timelines.json</a>. Note that there are only 200 tweets for each senator because of limits on how many tweets can be accessed in a given request.</p>
 </section>
 <section id="questions" class="level1">
 <h1>Questions</h1>
 <ol type="1">
 <li><p>Load the <code>senators-list.json</code> and <code>timelines.json</code> files into Python as objects called <code>senators</code> and <code>timelines</code>, using this syntax:</p>
-<div id="11d60130" class="cell" data-execution_count="1">
+<div id="32debed0" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"tmp.json"</span>) <span class="im">as</span> infile:</span>
@@ -286,7 +286,7 @@ DRAFT CONTENT (2024-08-19)
 <li><p>Make a list of lists where the outer list represents senators and the inner list contains the text of each senator’s tweets, and call it <code>tweets</code>.</p></li>
 <li><p>Write a function, called <code>remove_punct</code>, that takes a word and returns the word with all punctuation characters removed, except for those that occur within a word.</p></li>
 <li><p>Write a function that takes tweet and returns a cleaned up version of the tweet. Here is an example function to get you started:</p>
-<div id="c5c4801f" class="cell" data-execution_count="2">
+<div id="e551a602" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean(tweet):</span>
@@ -306,7 +306,7 @@ DRAFT CONTENT (2024-08-19)
 <li><p>Create a list, <code>tokens</code>, where all 200 of each senator’s tweets are made into a single string. Hint: this syntax might be useful: <code>" ".join(my_list_of_strings)</code>.</p></li>
 <li><p>Create a Pandas dataFrame with the following columns: senator name or handle, party of the senator, and number of times a prominent politician is mentioned in each senator’s tweets. You might count the number of ‘Obama’, ‘Trump’, or ‘Clinton’ references.</p>
 <p>You can use this to create the party column (1=Republican, 0=Democratic):</p>
-<div id="a6aa6ffc" class="cell" data-execution_count="3">
+<div id="281de517" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>party <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,</span>
@@ -317,7 +317,7 @@ DRAFT CONTENT (2024-08-19)
 <p>That should correspond to the ordering in <code>timelines</code> but of course it would be more robust to create a dataFrame that has user names and party as columns and merge that with the count information.</p></li>
 <li><p>Use a Poisson GLM to assess the relationship between party and number of Obama/Trump/Clinton mentions. Does one party tend to mention Obama/Trump/Clinton more in their tweets? Can you deduce a pattern by considering the party of the senator and the party of Obama/Trump/Clinton?</p>
 <p>Here’s some syntax to help you get started:</p>
-<div id="d8b93063" class="cell" data-execution_count="4">
+<div id="db24d4b7" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
@@ -837,7 +837,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>The goal of the project questions is to guide you through the steps of getting the data, processing and cleaning it, putting it in a format that makes it easier to analyze and then doing some basic analysis. The last few questions ask you to see if whether a senator mentions a president or presidential candidate depends on the party that the senator is part of. For example, do Democratic senators mention Barack Obama in their tweets more or less than Republican senators? </span>
 <span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>For background information only: The file <span class="in">`https://github.com/berkeley-scf/python-workshop-2023/blob/gh-pages/project/fetch_senator_tweets.py`</span> downloads tweets using the Python twitter package to interact with Twitter's API. You will only be able to run that code if you set up your own Twitter account and follow the instructions at the start of the file regarding filling in the authentication information (CONSUMER_KEY, CONSUMER_SECRET, etc.).</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>For background information only: <span class="co">[</span><span class="ot">This Python code</span><span class="co">](../project/fetch_senator_tweets.py)</span> downloads tweets using the Python twitter package to interact with Twitter's API. You will only be able to run that code if you set up your own Twitter account and follow the instructions at the start of the file regarding filling in the authentication information (CONSUMER_KEY, CONSUMER_SECRET, etc.).</span>
 <span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>I've already run the code mentioned above and downloaded the data for you.  The downloaded information on the senators' twitter accounts is in <span class="in">`project/senators-list.json`</span> in the GitHub repository, while the downloaded tweets are in <span class="in">`timelines.json`</span>.  <span class="in">`timelines.json`</span> is too big to put in the Github repository. You can find it at <span class="ot">&lt;http://www.stat.berkeley.edu/~paciorek/transfer/timelines.json&gt;</span>. Note that there are only 200 tweets for each senator because of limits on how many tweets can be accessed in a given request.</span>
 <span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
