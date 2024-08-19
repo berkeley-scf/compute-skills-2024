@@ -265,14 +265,14 @@ Then review the pull request your partner makes in your repository. Iterate with
 
 # 9. Packaging and Conda environments
 
-## Basic Python packages
+## Packages
 
 What's a package? In general it is software that is provided as a bundle that can be downloaded and made available on your computer.
 Some packages (e.g., R, Python themselves) are stand-alone packages. Others (such as R packages and Python packages) are add-on functionality that works with and extends the functionality of the stand-alone software.
 
 What do we need to have a Python package?
 
-### Packages
+### A basic Python package
 
 A Python package is a directory containing one or more modules and with a file
 named `__init__.py` that is called when a package is imported and
@@ -358,10 +358,17 @@ One advantage of Conda is that it can also install non-Python packages on which 
 package depends, whereas with pip you sometimes need to install a system package to
 satisfy a dependency.
 
+::: {.callout-tip}
+## Faster installation with Mamba
+
 It's not uncommon to run into a case where conda has trouble installing a package
 because of version inconsistencies amongst the dependencies. `mamba` is a drop-in
 replacement for `conda` and often does a better job of this "dependency resolution".
 [We use `mamba` by default on the SCF](https://statistics.berkeley.edu/computing/software/install).
+
+With newer versions of Conda, you can use the `libmamba` dependency "resolver" by running `conda config --set solver libmamba`, which adds `solver: libmamba` to your `.condarc` file.
+
+:::
 
 ### Reproducibility and package management
 
@@ -413,6 +420,7 @@ where on the filesystem the package is being loaded from.
 ### Source vs. binary packages
 
 The difference between a *source* package and a *binary* package is that
+
 - a *source* package has the raw Python (and C/C++ and Fortran, in some cases) code
 as text files
 - a *binary* package has all the non-Python code in a binary/non-text format, with the  C/C++ and Fortran code already having been compiled.
@@ -430,7 +438,7 @@ Python *wheels* are a binary package format for Python packages. Wheels for some
 
 # 10. GitHub Actions and Continuous Integration
 
-[VERY MUCH UNDER CONSTRUCTION]
+[UNDER CONSTRUCTION]
 
 Having reproducible environments (e.g., Conda environments or Docker containers) provides the ability to run (and automate) various actions to run on remote/cloud computational resources and know that they (should) work.
 
@@ -441,16 +449,18 @@ Docker containers share some similarities with Conda environments except that yo
 
 You need to provide the recipe for the environment or container. The automation system can then set up the environment as a virtual environment/container on the remote machine and run the action/code you request. This could simply be giving you a terminal or starting a Jupyter notebook in the environment and giving you access via your browser.
 
-Below are a couple examples.
+In this section, we'll show some examples of automation with reproducible environments.
 
-There are a lot more out there. In fact, DataHub is based on Docker containers (and a container management service called Kubernetes). Let's see what OS is being run in the container that your DataHub server is using.
+There are a lot more out there. In fact, DataHub is based on Docker containers (and a container management service called Kubernetes). Let's see what operating system is being run in the container that your DataHub server is using.
 
 ```
 $ cat /etc/issue
 Ubuntu 22.04.4 LTS \n \l
 ```
 
-## Binder
+This is all quite powerful, and the use of reproducible environments generally helps with debugging because you can also set up the environment on your own machine. That said, running code remotely or in the cloud can also be hard to debug at times.
+
+## Example 1: Binder
 
 One example is using Binder to open a Jupyter notebook in an executable environment.
 
@@ -458,18 +468,16 @@ Based on a configuration (various options are possible for how to specify the co
 
 The most common configuration format is to provide a Conda environment file. Binder will then create a Conda environment inside the Docker (Linux) container. The Conda environment will contain the packages specified in the environment file. 
 
-
 Let's set up a Binder environment "Geospatial analytics in Python with Geopandas" that can access the [notebooks and materials provided in the repository](https://github.com/jorisvandenbossche/geopandas-tutorial) in a [computational environment](https://github.com/jorisvandenbossche/geopandas-tutorial/blob/main/environment.yml) designed to use the notebooks reliably and reproducibly. 
 
+In some cases an *image* for the container will already be available, and all that needs to happen is to start a virtual machine using that image as the computational environment. In other cases (e.g., with a configuration you've just created), the Docker container and Conda environment need to be set up.
 
-In some cases an *image* for the container will already be available, and all that needs to happen is to start a virtual machine using that image as the computational environment.
+If we're familiar with what happens when Docker containers and Conda environments are set up, we can see in the Binder logs that a Docker container is set up (using Ubuntu Linux) and one of the steps of doing that is to create a Conda environment within the container.
 
-In other cases (e.g., with a configuration you've just created), the Docker container and Conda environment need to be set up.
-
-If we're familiar with what happens when Docker containers and Conda environments are set up, we can see in the Binder logs that a Docker container is set up (using Ubuntu Linux) and one of the steps of doing that is to create a Conda environment within the container. We'll see that if we use the `mytoy` repository to start a Binder environment at `ovh.mybinder.org`, specifying `fperez/mytoy` as the repository. (Note that in a number of cases, the startup has failed, probably because `mybinder` has very limited resources for providing cloud compute resources. I am using `ovh.mybinder.org` rather than `mybinder.org` in hopes that is more likely to succeed.
+Let's see the steps that are run if we use the `mytoy` repository to start a Binder environment at `ovh.mybinder.org`, specifying `fperez/mytoy` as the repository. (Note that in a number of cases, the startup has failed, probably because `mybinder` has very limited resources for providing cloud compute resources. We are using `ovh.mybinder.org` rather than `mybinder.org` in hopes that is more likely to succeed.
 
 
-## GitHub Actions
+## Example 2: GitHub Actions for automated testing
 
 A second example is using GitHub Actions (GHA) to automate activities such as testing. To set up a GitHub Actions workflow, one
 
@@ -481,12 +489,66 @@ A good example is running tests whenever you make a commit to a repository conta
 
 With GHA, you specify the operating system and then run the steps you specify in `.github/workflows/some_action.yml`. Some steps will  customize the environment as the initial steps and then additional step(s) will run shell or other code to run your workflow. You use pre-specified operations (called *actions*) to do common things (such as checking out a GitHub repository and installing commonly used software). 
 
-GH will then run the steps in a virtual machine, which is called the *runner*.
+When triggered, GitHub will run the steps in a virtual machine, which is called the *runner*.
 
-[TODO: Find an interesting repo with automated testing set up]
+### Joint demo/exercise
 
-[TODO: show how environment is created]
+We'll walk through the steps of setting up automated testing for the `mytoy` example package. Why do this? It's common to have testing pass locally on your own machine, but fail for various reasons when done elsewhere. 
 
-[TODO: show how env is customized]
+The workflow is specified using a YAML file placed in the `.github/workflows` directory of the repository.
 
-This is all quite powerful, and the use of reproducible environments generally helps with debugging because you can also set up the environment on your own machine. That said, running code remotely or in the cloud can also be hard to debug at times.
+Here's an example YAML file for testing the `mytoy` package:
+
+```
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    # Install dependencies
+    - name: Set up Python 
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.12
+
+    - name: Install mytoy
+      run: |
+        cd mytoy
+        pip install --user .
+
+    - name: Run tests
+      run: |
+        cd mytoy
+        pytest
+```
+
+[TODO: check on installation of `pytest` and check this works.]
+
+We'll first run this with the current tests for `mytoy`, which should pass when run via GitHub Actions.
+We can take a look at [the output](https://github.com/fperez/mytoy/actions).
+
+Next, let's introduce a failing test to see what the output looks like and get a sense for how to debug it.
+
+
+
+## Example 3: GitHub Actions for publishing webpages
+
+We can use GitHub Actions with GitHub pages to easily publish websites, where we make changes to the repository and the workflow causes the website to be updated.
+
+Here's the [GitHub Actions workflow (a YAML file)](https://github.com/UCB-stat-159-s23/site/blob/main/.github/workflows/book.yml) that publishes the website for the spring 2023 version of Statistics 159/259. Any commits made in the `main` branch cause the website to be updated.
+
+### Configuring GitHub Pages
+
+To set up GitHub Pages for a repository, go to `https://github.com/github_org/repository/settings/pages` and select `Source -> Deploy from a branch` and then choose `gh-pages` as the branch (first creating the `gh-pages` branch if necessary). The website should appear at `github_org.github.io/repository`.
+
+### Quarto-based websites
+
+In fact the website for this workshop was done using Quarto, which uses GitHub Pages and GitHub Actions behind the scenes.
+
+Chris runs `quarto publish gh-pages` to update the site. Quarto will (on the local machine) render the html (convert the Markdown to html) and behind the scenes Quarto uses [GitHub Actions](https://github.com/berkeley-scf/compute-skills-2024/actions) and [GitHub Pages (via the `gh-pages branch)](https://github.com/berkeley-scf/compute-skills-2024/tree/gh-pages) to publish the website.

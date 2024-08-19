@@ -247,7 +247,7 @@ Or you can do the editing in your GitHub browser window by clicking on the file 
 ::: {.callout-note}
 ## More than the syntax
 
-So far we've just introduced Git by its mechanics/syntax. This is ok (but not ideal) for basic one-person operation, but to really use Git effectively you need to understand conceptually how it works.
+So far we've just introduced Git by its mechanics/syntax. This is ok (albeit not ideal) for basic one-person operation, but to really use Git effectively you need to understand conceptually how it works.
 
 More generally if you understand things conceptually, then looking up the syntax of a command or the mechanics of how to do something will be straightforward.
 
@@ -257,9 +257,11 @@ We'll start with some visuals and then go back to some Git terminology and to th
 
 ## Git visuals: Understanding Git concepts
 
-Fernando Perez has nice visualization ([online version](https://docs.google.com/presentation/d/1YlM3boYLE8DwbxGNO3ZVVt3e9gEoBgD1uc9RtItUYCU), [PDF version](git_visuals.pdf)) of a basic Git workflow that we'll walk through.
+Fernando's Statistics 159/259 materials have a nice visualization ([online version](https://docs.google.com/presentation/d/1YlM3boYLE8DwbxGNO3ZVVt3e9gEoBgD1uc9RtItUYCU), [PDF version](git_visuals.pdf)) of a basic Git workflow that we'll walk through.
 
-Note that we haven't actually seen in prtacie some of what is shown in the visual: tags, branches, and merging, but we'll be using those ideas later.
+Note that we haven't actually seen in practice some of what is shown in the visual: tags, branches, and merging, but we'll be using those ideas later.
+
+[Fernando's lecture materials from Statistics 159/259](https://ucb-stat-159-s23.github.io/site/lectures/intro-git/git-visuals.html) illustrate that the steps shown in the visualization correspond exactly to what ppens when running the Git commands from the command line.
 
 
 ## Key components and terminology
@@ -276,6 +278,33 @@ Each commit has:
 
 ![A Git commit (Credit: ProGit book, CC License)](commit.png)
 
+We identify each node (commit) with a hash, a fingerprint of the content of each commit and its parent. It is important the fact that the hash include information of the parent node, since this allow us to keep the check the structural consistency of the DAG.
+
+We can illustrate what Git is doing easily in Python.
+
+Let’s create a first hash:
+
+```{python}
+from hashlib import sha1
+
+# Our first commit
+data1 = b'This is the start of my paper.'
+meta1 = b'date: 1/1/17'
+hash1 = sha1(data1 + meta1).hexdigest( )
+print('Hash:', hash1)
+```
+￼
+Every small change we make on the previous text with result in a full change of the associated hash code. Notice also how in the next hash we have included the information of the parent node.
+
+```{python}
+data2 = b'Some more text in my paper...'
+meta2 = b'date: 1/2/1'
+# Note we add the parent hash here!
+hash2 = sha1(data2 + meta2 + hash1.encode()).hexdigest()
+print('Hash:', hash2)
+```
+
+
 ### A repository
 
 A *repository* is the set of files for a project with their history. It's a collection of commits in the form of an directed acyclic graph.
@@ -287,6 +316,8 @@ Some other terms:
 - HEAD: a pointer to the current commit
 - tag: a label for a commit
 - branch: a commit - often indicating a commit that has "branched" off of some main workflow or some linear sequence of commits
+
+
 
 ### Staging area / index
 
@@ -509,9 +540,9 @@ If we want to debug into functions defined in files, we can add `breakpoint()` i
 
 We can use the IPython `%debug` "magic" to activate a debugger as well.
 
-One way this is particularly useful is "post-mortem" debugging, i.e., debugging when exceptions (errors) have occurred. We just invoke `%debug` and then (re)run the code that is failing. The `ipdb` debugger will be invoked.
+One way this is particularly useful is "post-mortem" debugging, i.e., debugging when exceptions (errors) have occurred. We just invoke `%debug` and then (re)run the code that is failing. The `ipdb` debugger will be invoked when the error occurs.
 
-Once in the ipdb debugger, we can use these commands (most of which correspond to icons we used to control the JupyterLab debugger behavior
+Once in the ipdb debugger, we can use these commands (most of which correspond to icons we used to control the JupyterLab debugger behavior):
 
 - `c` to continue execution (until the end or the next breakpoint)
 - `n` to run the next line of code
@@ -652,7 +683,11 @@ Push the branch with the fix to GitHub.
 
 ```bash
 git add newton.py
-git commit
+git commit -m'Fix initial bugs:
+- duplicated code
+- comparison error
+
+Lint code.
 git push -u origin fix_initial_bugs
 ```
 
