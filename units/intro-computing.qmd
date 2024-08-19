@@ -66,6 +66,8 @@ Here are some key terms related to computation:
 - **workers**: the individual processes that are carrying out the (parallelized) computation. We’ll use worker and process interchangeably.
 - **tasks**: individual units of computation; one or more tasks will be executed by a given process on a given core.
 
+## Basic parallelization example
+
 As an example, suppose we were carrying out 20-fold cross-validation and we were using a laptop with 4 cores.
 
 We would generally use 4 workers (4 processes) to carry out the 20 tasks (each task being to fit the model on the non-held out data and make predictions on the held-out data in the fold). So 4 of the tasks could be executing at the same time. When a process finishes a task assigned to it, it can start on the next task that is still left to be done.
@@ -600,7 +602,8 @@ python calc.py
 
 We might need to run it in a loop to be able to monitor the running process (since it finishes so quickly):
 
-```
+```{python}
+#| eval: false
 for ((i=0;i<10;i++)); do
   python calc.py
 done
