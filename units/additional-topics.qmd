@@ -14,8 +14,8 @@ execute:
 ---
 
 ::: {.callout-warning}
-## DRAFT CONTENT (2024-08-01)
-This module is drafted but still under construction.
+## DRAFT CONTENT (2024-08-19)
+This module is nearly complete but Section 10 is still being revised.
 :::
 
 ::: {.callout-note}

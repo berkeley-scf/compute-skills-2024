@@ -14,8 +14,8 @@ execute:
 ---
 
 ::: {.callout-warning}
-## DRAFT CONTENT (2024-08-01)
-This module is drafted but still under construction.
+## DRAFT CONTENT (2024-08-19)
+This module is nearly complete.
 :::
 
 ::: {.callout-note}
@@ -555,7 +555,7 @@ We'll put a silly error into the code, restart the kernel, and use the post-mort
 
 ## Exercise: debugging your Newton code
 
-Run your Newton method on the following function, $x^4/4 - x^3 -x$ for various starting values.
+Run your Newton method on the following function, $x^4/4 - x^3 -x$, for various starting values.
 Sometimes it should fail.
 
 Use the debugger to try to see what goes wrong. (For our purposes here, do this using the debugger; don't figure it out from first principles mathematically or graphically.)
@@ -792,5 +792,5 @@ Once you've seen the review by the other group, with your partner:
 ::: {.callout-important}
 ## The full cycle of "git virtue"
 
-Congratulations. In the course of the day, you've worked through the steps of complete, albeit small, project using an extensive set of concepts, skills, and tools used in real world projects.
+Congratulations. In the course of the day, you've worked through the steps of a complete, albeit small, project using an extensive set of concepts, skills, and tools used in real world projects.
 :::
