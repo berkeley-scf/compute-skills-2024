@@ -250,7 +250,7 @@ loglik
 np.exp(loglik)
 ```
 
-::: {callout-important}
+::: {.callout-important}
 ## Work with probabilities and densities on the log scale. Almost always.
 :::
 

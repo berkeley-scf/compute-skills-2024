@@ -685,10 +685,9 @@ Push the branch with the fix to GitHub.
 ```bash
 git add newton.py
 git commit -m'Fix initial bugs:
-- duplicated code
-- comparison error
-
-Lint code.
+- derivative interval too small
+- stopping criterion logic incorrect
+- copy-paste duplication'
 git push -u origin fix_initial_bugs
 ```
 
@@ -702,7 +701,7 @@ Since we're the ones who control the repo, we'll also review and merge in the PR
 
 Next let's see a basic example of a *merge conflict*, which occurs when two commits modify (which could include deletion) the same line in a file. In this case Git requires the user to figure out what should be done.
 
-To get an example, we need to create a conflict. I will add different documentation in the `main` and `fix_midpoint_bug` branches. After pushing the `main` change, I'll try to do a PR with the `fix_midpoint_bug`.
+To get an example, we need to create a conflict. I will add different documentation in the `main` and `fix_initial_bugs` branches. After pushing the `main` change, I'll try to do a PR with the `fix_initial_bugs`.
 
 The GitHub UI does a nice job of helping you resolve merge conflicts, as we'll see.
 
