@@ -551,4 +551,4 @@ To set up GitHub Pages for a repository, go to `https://github.com/github_org/re
 
 In fact the website for this workshop was done using Quarto, which uses GitHub Pages and GitHub Actions behind the scenes.
 
-Chris runs `quarto publish gh-pages` to update the site. Quarto will (on the local machine) render the html (convert the Markdown to html) and behind the scenes Quarto uses [GitHub Actions](https://github.com/berkeley-scf/compute-skills-2024/actions) and [GitHub Pages (via the `gh-pages branch)](https://github.com/berkeley-scf/compute-skills-2024/tree/gh-pages) to publish the website.
+Chris runs `quarto publish gh-pages` to update the site. Quarto will (on the local machine) render the html (convert the Markdown to html) and then behind the scenes Quarto uses [GitHub Actions](https://github.com/berkeley-scf/compute-skills-2024/actions) and [GitHub Pages (via the `gh-pages branch)](https://github.com/berkeley-scf/compute-skills-2024/tree/gh-pages) to publish the website.
