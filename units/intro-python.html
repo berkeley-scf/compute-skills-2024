@@ -339,7 +339,7 @@ Using your own laptop (optional)
 <p>There are various options for how to save our code and in what context to run it.</p>
 <p>For our purposes here, we’ll focus on having the code either in a Jupyter notebook or in a script (a code file in a simple text format).</p>
 <p>Suppose we want to run this code (already seen in the previous session):</p>
-<div id="616ead54" class="cell" data-execution_count="1">
+<div id="b523deb5" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -357,16 +357,16 @@ Using your own laptop (optional)
 <p>The file <code>calc.py</code> contains a variation on the code shown above and it can be run in the shell as</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> calc.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Or we can run the code in a notebook using <code>calc.py</code> as a module that provides the function of interest:</p>
-<div id="80790b8f" class="cell" data-execution_count="2">
+<div id="8bb0ea44" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> calc</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>calc.run_linalg(<span class="dv">4000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>1724110128.0414338
-1724110128.4933505
-1724110128.80517</code></pre>
+<pre><code>1724110224.3411038
+1724110224.7824688
+1724110225.114114</code></pre>
 </div>
 </div>
 <p>Having code in a script file will be convenient when creating packages, using Git/version control (but see <code>nbdime</code> if using notebooks), and running code in a batch mode (i.e., in the background rather than interactively).</p>
@@ -404,7 +404,7 @@ Exercise 1
 <div class="callout-body-container callout-body">
 <p>Using the section on “Built-in Types” from the <a href="https://docs.python.org/3/library/index.html">official “The Python Standard Library” reference</a>, figure out how to compute:</p>
 <ul>
-<li><span class="math inline">\(\sqrt(-1)\)</span><br>
+<li><span class="math inline">\(\sqrt{-1}\)</span><br>
 </li>
 <li><span class="math inline">\(\exp(1.5)\)</span></li>
 <li><span class="math inline">\((\lceil \frac{3}{4} \rceil \times 4)^3\)</span>.</li>
@@ -424,7 +424,7 @@ Exercise 2
 <ul>
 <li><p>Is <code>1.0</code> of the integer type? What about <code>1</code>? Is the result of <code>5/3 - 2/3</code> of the integer type? Is the mathematical value seen in Python an integer?</p></li>
 <li><p>Here’s a numerical puzzle. Why does the last computation not work, when the others do? And, for those of you coming from R, which of these computations don’t work in R?</p>
-<div id="87f8703b" class="cell" data-execution_count="3">
+<div id="d2042dc4" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">100000</span><span class="op">**</span><span class="dv">10</span></span>
@@ -467,7 +467,7 @@ Exercise 2
 <ul>
 <li><p>What happens if you type <code>np.ndim??</code> (i.e., use two question marks)? What additional do you see compared to <code>np.ndim?</code>?</p></li>
 <li><p>What does <code>np.ndim()</code> do? How does it execute under the hood? Consider why the following uses of <code>ndim</code> both work.</p>
-<div id="7cc3408c" class="cell" data-execution_count="4">
+<div id="51131fd2" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>])</span>
@@ -476,7 +476,7 @@ Exercise 2
 </details>
 </div>
 <p>Now explain why only one of these works.</p>
-<div id="4e6ed2e6" class="cell" data-execution_count="5">
+<div id="c146f3e9" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>]</span>
@@ -505,7 +505,7 @@ Exercise
 <div class="callout-body-container callout-body">
 <p>Using the following code, read in the GapMinder data using Pandas (to be discussed later) and run the following code to make the variables easily available (you don’t need to know anything about Pandas).</p>
 <p>Do this in a Jupyter notebook so that it’s easy to see the plots.</p>
-<div id="2d9f514a" class="cell" data-execution_count="6">
+<div id="53916acc" class="cell" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -584,7 +584,7 @@ Exercise 4
 </div>
 <div class="callout-body-container callout-body">
 <p>What does the following tell you about copying and use of memory in lists in Python?</p>
-<div id="2d34b610" class="cell" data-execution_count="7">
+<div id="28251d58" class="cell" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>]</span>
@@ -602,7 +602,7 @@ Exercise 4
 <h2 class="anchored" data-anchor-id="repeating-actions-with-loops">5. Repeating Actions with Loops</h2>
 <p>We’ll work through the <a href="https://swcarpentry.github.io/python-novice-inflammation/05-loop.html" target="_blank">Repeating Actions with Loops section</a> of the Software Carpentry workshop. The primary ideas covered relate to using <code>for</code> loops to automate operations.</p>
 <p>In addition to the explicit for looping shown in the unit, Python also has a construct called <em>list comprehension</em> to do something similar. Note that some people really dislike the list comprehension syntax as being hard to read.</p>
-<div id="4b64ffdd" class="cell" data-execution_count="8">
+<div id="18055141" class="cell" data-execution_count="8">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>vals <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">7</span>]</span>
@@ -750,7 +750,7 @@ Exercise 2
 <section id="tuples" class="level3">
 <h3 class="anchored" data-anchor-id="tuples">Tuples</h3>
 <p>Tuples are immutable sequences of (zero or more) objects. Functions in Python often return tuples.</p>
-<div id="3e9ec655" class="cell" data-execution_count="9">
+<div id="79041749" class="cell" data-execution_count="9">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> y <span class="op">=</span> <span class="st">'foo'</span></span>
@@ -787,7 +787,7 @@ Exercise 1
 <div class="callout-body-container callout-body">
 <ul>
 <li><p>What’s weird about this? What are the types involved?</p>
-<div id="0145549a" class="cell" data-execution_count="10">
+<div id="b70d71cc" class="cell" data-execution_count="10">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> x,y</span>
@@ -831,7 +831,7 @@ Exercise 3
 <section id="dictionaries" class="level3">
 <h3 class="anchored" data-anchor-id="dictionaries">Dictionaries</h3>
 <p>Dictionaries are mutable, unordered collections of key-value pairs. They’re a very important data structure in Python so I’m surprised they weren’t discussed in the Software Carpentry sections.</p>
-<div id="9b53da51" class="cell" data-execution_count="11">
+<div id="784f4e41" class="cell" data-execution_count="11">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> {<span class="st">"Francis Bacon"</span>: [<span class="st">'A'</span>, <span class="st">'B+'</span>, <span class="st">'A-'</span>], </span>
@@ -847,7 +847,7 @@ Exercise 3
 <pre><code>'A-'</code></pre>
 </div>
 </div>
-<div id="dc0a5776" class="cell" data-execution_count="12">
+<div id="db3e5ee9" class="cell" data-execution_count="12">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>students.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -906,7 +906,7 @@ Exercise 6 (for R users)
 <section id="numpy-and-scipy" class="level3">
 <h3 class="anchored" data-anchor-id="numpy-and-scipy">Numpy and scipy</h3>
 <p>Standard lists in Python are not amenable to mathematical manipulation, unlike standard vectors in R. Instead we generally work with numpy arrays. These arrays can be of various dimensions (i.e., vectors, matrices, multi-dimensional arrays).</p>
-<div id="790c8746" class="cell" data-execution_count="13">
+<div id="0c97663f" class="cell" data-execution_count="13">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -937,7 +937,7 @@ Exercise 6 (for R users)
 <p>All of the elements of the array must be of the same type.</p>
 <p>There are a variety of numpy functions that allow us to do standard mathematical/statistical manipulations.</p>
 <p>Here we’ll use some of those functions in addition to some syntax for subsetting and vectorized calculations.</p>
-<div id="9721ea25" class="cell" data-execution_count="14">
+<div id="bb8625e8" class="cell" data-execution_count="14">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">5</span>)</span>
@@ -961,7 +961,7 @@ Exercise 6 (for R users)
 </div>
 </div>
 <p>scipy has even more numerical routines, including working with distributions and additional linear algebra.</p>
-<div id="0d6d5d70" class="cell" data-execution_count="15">
+<div id="7639be96" class="cell" data-execution_count="15">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> st</span>
@@ -974,7 +974,7 @@ Exercise 6 (for R users)
 <section id="pandas" class="level3">
 <h3 class="anchored" data-anchor-id="pandas">Pandas</h3>
 <p>Pandas provides a Python implementation of R’s dataframe capabilities. Let’s see some example code.</p>
-<div id="35574423" class="cell" data-execution_count="16">
+<div id="32bf9954" class="cell" data-execution_count="16">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -1003,7 +1003,7 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p>Now let’s see the sort of split-apply-combine functionality that is popular in dplyr and related R packages.</p>
-<div id="6a524f19" class="cell" data-execution_count="17">
+<div id="eb6c27c1" class="cell" data-execution_count="17">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>dat2007 <span class="op">=</span> dat[dat.year <span class="op">==</span> <span class="dv">2007</span>].copy()  </span>
@@ -1583,7 +1583,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb26-89"><a href="#cb26-89" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-90"><a href="#cb26-90" aria-hidden="true" tabindex="-1"></a>Using the section on "Built-in Types" from the <span class="co">[</span><span class="ot">official "The Python Standard Library" reference</span><span class="co">](https://docs.python.org/3/library/index.html)</span>, figure out how to compute:</span>
 <span id="cb26-91"><a href="#cb26-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-92"><a href="#cb26-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$\sqrt(-1)$    </span>
+<span id="cb26-92"><a href="#cb26-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$\sqrt{-1}$    </span>
 <span id="cb26-93"><a href="#cb26-93" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$\exp(1.5)$</span>
 <span id="cb26-94"><a href="#cb26-94" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$(\lceil \frac{3}{4} \rceil \times 4)^3$.</span>
 <span id="cb26-95"><a href="#cb26-95" aria-hidden="true" tabindex="-1"></a></span>
