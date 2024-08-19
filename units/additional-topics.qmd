@@ -389,7 +389,7 @@ Conda is a general package manager. You can use it to manage Python packages but
 
 #### Fully isolating your Conda environment
 
-Conda environments provide an additional layer of modularity/reproducibility, allowing you to set up a fully reproducible environment for your computation. Here (by explicitly giving `python=3.11`) the Python 3.11 executable and all packages you install in the environment are fully independent (there are [some caveats](https://statistics.berkeley.edu/computing/software/install#conda-isolate) of whatever Python executables are installed on the system.
+Conda environments provide an additional layer of modularity/reproducibility, allowing you to set up a fully reproducible environment for your computation. Here (by explicitly giving `python=3.11`) the Python 3.11 executable and all packages you install in the environment are fully independent  of whatever Python executables are installed on the system. (That said, there are [some caveats](https://statistics.berkeley.edu/computing/software/install#conda-isolate) that can make it a bit of headache to ensure full isolation.)
 
 ```bash
 type python
