@@ -254,7 +254,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-DRAFT CONTENT (2024-08-01)
+DRAFT CONTENT (2024-08-19)
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -273,7 +273,7 @@ DRAFT CONTENT (2024-08-01)
 <h1>Questions</h1>
 <ol type="1">
 <li><p>Load the <code>senators-list.json</code> and <code>timelines.json</code> files into Python as objects called <code>senators</code> and <code>timelines</code>, using this syntax:</p>
-<div id="a46c4020" class="cell" data-execution_count="1">
+<div id="11d60130" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"tmp.json"</span>) <span class="im">as</span> infile:</span>
@@ -286,7 +286,7 @@ DRAFT CONTENT (2024-08-01)
 <li><p>Make a list of lists where the outer list represents senators and the inner list contains the text of each senator’s tweets, and call it <code>tweets</code>.</p></li>
 <li><p>Write a function, called <code>remove_punct</code>, that takes a word and returns the word with all punctuation characters removed, except for those that occur within a word.</p></li>
 <li><p>Write a function that takes tweet and returns a cleaned up version of the tweet. Here is an example function to get you started:</p>
-<div id="e548fd2d" class="cell" data-execution_count="2">
+<div id="c5c4801f" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean(tweet):</span>
@@ -306,7 +306,7 @@ DRAFT CONTENT (2024-08-01)
 <li><p>Create a list, <code>tokens</code>, where all 200 of each senator’s tweets are made into a single string. Hint: this syntax might be useful: <code>" ".join(my_list_of_strings)</code>.</p></li>
 <li><p>Create a Pandas dataFrame with the following columns: senator name or handle, party of the senator, and number of times a prominent politician is mentioned in each senator’s tweets. You might count the number of ‘Obama’, ‘Trump’, or ‘Clinton’ references.</p>
 <p>You can use this to create the party column (1=Republican, 0=Democratic):</p>
-<div id="875d1c65" class="cell" data-execution_count="3">
+<div id="a6aa6ffc" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>party <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,</span>
@@ -317,7 +317,7 @@ DRAFT CONTENT (2024-08-01)
 <p>That should correspond to the ordering in <code>timelines</code> but of course it would be more robust to create a dataFrame that has user names and party as columns and merge that with the count information.</p></li>
 <li><p>Use a Poisson GLM to assess the relationship between party and number of Obama/Trump/Clinton mentions. Does one party tend to mention Obama/Trump/Clinton more in their tweets? Can you deduce a pattern by considering the party of the senator and the party of Obama/Trump/Clinton?</p>
 <p>Here’s some syntax to help you get started:</p>
-<div id="e946afd5" class="cell" data-execution_count="4">
+<div id="d8b93063" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
@@ -824,7 +824,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## DRAFT CONTENT (2024-08-01)</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## DRAFT CONTENT (2024-08-19)</span></span>
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>This material is drafted but still under construction.</span>
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>

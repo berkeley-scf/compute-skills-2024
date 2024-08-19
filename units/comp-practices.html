@@ -343,11 +343,11 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-DRAFT CONTENT (2024-08-01)
+DRAFT CONTENT (2024-08-19)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This module is drafted but still under construction.</p>
+<p>This module is nearly complete.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -438,7 +438,7 @@ Tip
 </div>
 </div>
 <p>Once you’ve written your Python functions, put your code into a simple text file, called <code>newton.py</code>. In doing so you’ve created a Python <em>module</em>. Once you have your module, you can use it like this:</p>
-<div id="57cffe12" class="cell" data-execution_count="1">
+<div id="1a59dea6" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> newton</span>
@@ -652,7 +652,7 @@ More than the syntax
 <p>We identify each node (commit) with a hash, a fingerprint of the content of each commit and its parent. It is important the fact that the hash include information of the parent node, since this allow us to keep the check the structural consistency of the DAG.</p>
 <p>We can illustrate what Git is doing easily in Python.</p>
 <p>Let’s create a first hash:</p>
-<div id="972a940a" class="cell" data-execution_count="2">
+<div id="027c014b" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> hashlib <span class="im">import</span> sha1</span>
@@ -668,7 +668,7 @@ More than the syntax
 </div>
 </div>
 <p>￼ Every small change we make on the previous text with result in a full change of the associated hash code. Notice also how in the next hash we have included the information of the parent node.</p>
-<div id="2d5ca97f" class="cell" data-execution_count="3">
+<div id="4942801c" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> <span class="st">b'Some more text in my paper...'</span></span>
@@ -813,7 +813,7 @@ Q: Who is the person most likely to use your code again?
 <li>Comments should generally be complete sentences.</li>
 </ul></li>
 <li><p>You can use parentheses to group operations such that they can be split up into lines and easily commented, e.g.,</p>
-<div id="392fc762" class="cell" data-execution_count="4">
+<div id="f7e4472f" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>newdf <span class="op">=</span> (</span>
@@ -877,7 +877,7 @@ Q: Who is the person most likely to use your code again?
 <section id="using-the-jupyterlab-visual-debugger" class="level3">
 <h3 class="anchored" data-anchor-id="using-the-jupyterlab-visual-debugger">Using the JupyterLab visual debugger</h3>
 <p>Let’s debug my buggy implementation of Newton’s method.</p>
-<div id="e818be1f" class="cell" data-execution_count="5">
+<div id="c4f73a2f" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> newton</span>
@@ -919,7 +919,7 @@ Q: Who is the person most likely to use your code again?
 </section>
 <section id="exercise-debugging-your-newton-code" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-debugging-your-newton-code">Exercise: debugging your Newton code</h2>
-<p>Run your Newton method on the following function, <span class="math inline">\(x^4/4 - x^3 -x\)</span> for various starting values. Sometimes it should fail.</p>
+<p>Run your Newton method on the following function, <span class="math inline">\(x^4/4 - x^3 -x\)</span>, for various starting values. Sometimes it should fail.</p>
 <p>Use the debugger to try to see what goes wrong. (For our purposes here, do this using the debugger; don’t figure it out from first principles mathematically or graphically.)</p>
 <p>Conditional breakpoints are a useful tool that causes the debugger to stop at a breakpoint only if some condition is true (e.g., if some extreme value is reached in the Newton iterations). I don’t see that it’s possible to do this with the JupyterLab debugger, but with the <code>ipdb</code> debugger you can do things like this to debug a particular line of a particular file if a condition (here <code>x==5</code>) is met:</p>
 <pre><code>b path/to/script.py:999, x==5</code></pre>
@@ -1156,7 +1156,7 @@ The full cycle of “git virtue”
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Congratulations. In the course of the day, you’ve worked through the steps of complete, albeit small, project using an extensive set of concepts, skills, and tools used in real world projects.</p>
+<p>Congratulations. In the course of the day, you’ve worked through the steps of a complete, albeit small, project using an extensive set of concepts, skills, and tools used in real world projects.</p>
 </div>
 </div>
 
@@ -1654,8 +1654,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## DRAFT CONTENT (2024-08-01)</span></span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>This module is drafted but still under construction.</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## DRAFT CONTENT (2024-08-19)</span></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>This module is nearly complete.</span>
 <span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
@@ -2195,7 +2195,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb31-563"><a href="#cb31-563" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-564"><a href="#cb31-564" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: debugging your Newton code</span></span>
 <span id="cb31-565"><a href="#cb31-565" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-566"><a href="#cb31-566" aria-hidden="true" tabindex="-1"></a>Run your Newton method on the following function, $x^4/4 - x^3 -x$ for various starting values.</span>
+<span id="cb31-566"><a href="#cb31-566" aria-hidden="true" tabindex="-1"></a>Run your Newton method on the following function, $x^4/4 - x^3 -x$, for various starting values.</span>
 <span id="cb31-567"><a href="#cb31-567" aria-hidden="true" tabindex="-1"></a>Sometimes it should fail.</span>
 <span id="cb31-568"><a href="#cb31-568" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-569"><a href="#cb31-569" aria-hidden="true" tabindex="-1"></a>Use the debugger to try to see what goes wrong. (For our purposes here, do this using the debugger; don't figure it out from first principles mathematically or graphically.)</span>
@@ -2432,7 +2432,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb31-800"><a href="#cb31-800" aria-hidden="true" tabindex="-1"></a><span class="ex">:::</span> {.callout-important}</span>
 <span id="cb31-801"><a href="#cb31-801" aria-hidden="true" tabindex="-1"></a><span class="co">## The full cycle of "git virtue"</span></span>
 <span id="cb31-802"><a href="#cb31-802" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-803"><a href="#cb31-803" aria-hidden="true" tabindex="-1"></a><span class="ex">Congratulations.</span> In the course of the day, you<span class="st">'ve worked through the steps of complete, albeit small, project using an extensive set of concepts, skills, and tools used in real world projects.</span></span>
+<span id="cb31-803"><a href="#cb31-803" aria-hidden="true" tabindex="-1"></a><span class="ex">Congratulations.</span> In the course of the day, you<span class="st">'ve worked through the steps of a complete, albeit small, project using an extensive set of concepts, skills, and tools used in real world projects.</span></span>
 <span id="cb31-804"><a href="#cb31-804" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
