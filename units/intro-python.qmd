@@ -84,9 +84,11 @@ We'll work through the [Python Fundamentals section](https://swcarpentry.github.
 ## Exercise 1
 
 Using the section on "Built-in Types" from the [official "The Python Standard Library" reference](https://docs.python.org/3/library/index.html), figure out how to compute:
-    1.  $(\lceil \frac{3}{4} \rceil \times 4)^3$, 
-    and
-    2.  $\sqrt{-1}$.
+
+    1. $\sqrt(-1)$    
+    2. $\exp(1.5)$
+    3.  $(\lceil \frac{3}{4} \rceil \times 4)^3$.
+
 
 :::
 
@@ -119,7 +121,7 @@ Work on the [questions about slicing in the section](https://swcarpentry.github.
 
 Note that `?` and `??` only work in IPython (or a Jupyter notebook). For help in plain Python, use `help(np.ndim)`.
 
-- What happens if you type `np.ndim??` (i.e., use two question marks)? What additional do you see?
+- What happens if you type `np.ndim??` (i.e., use two question marks)? What additional do you see compared to `np.ndim?`?
 - What does `np.ndim()` do? How does it execute under the hood? Consider why the following uses of `ndim` both work.
   ```{python}
   #| eval: false
