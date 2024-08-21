@@ -1,0 +1,84 @@
+---
+title: "SOLUTIONS: Introduction to Computing and the Command Line (optional)"
+format:
+  html:
+    theme: cosmo
+    css: ../styles.css
+    toc: true
+    code-copy: true
+    code-block-background: true
+    code-fold: show
+    code-tools: true
+execute:
+  freeze: auto
+---
+
+::: {.callout-tip}
+## Exercise 1
+
+Where is `gzip` installed on the system? What are some other commands/executables that are installed in the same directory?
+:::
+
+::: {.callout-tip collapse="true"}
+## Exercise 1 solution
+
+```bash
+type gzip
+
+ls /usr/bin
+```
+
+:::
+
+::: {.callout-tip}
+## Exercise 2
+
+Try to run the following command `mkdir ~/projects/drought`. It will fail. Look in the help information on `mkdir` to figure out how to make it work without first creating the `projects` directory.
+:::
+
+::: {.callout-tip collapse="true"}
+## Exercise 2 solution
+
+```bash
+mkdir -p ~/projects/drought
+```
+
+:::
+
+::: {.callout-tip}
+## Exercise 3
+
+Figure out how to list out the files in a directory in order of decreasing file size, as a way to see easily what the big files are that are taking up the most space. Modify this command to get the result in the ascending order.
+:::
+
+::: {.callout-tip collapse="true"}
+## Exercise 3 solution
+
+```bash
+ls -lS
+ls -lSr
+```
+:::
+
+::: {.callout-tip}
+## Exercise 4
+
+Figure out how to copy an entire directory and have the timestamps of the files retained rather than having the timestamps be the time that you copied the files.
+
+See if you can combine the short form of an option with the long form of a different option.
+
+What happens if you use a single dash with the long form of an option. Are you able to interpret the error message?
+
+:::
+
+::: {.callout-tip collapse="true"}
+## Exercise 4
+
+```bash
+cp -pr mytoy mytoy_copy             # short form
+cp --recursive -p mytoy mytoy_copy  # long form plus short form
+cp -recursive -p mytoy mytoy_copy   # incorrect long form
+cp -r -e -c -u -r -s -i -v -e -p mytoy mytoy_copy
+```
+
+:::

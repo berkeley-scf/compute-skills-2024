@@ -150,6 +150,8 @@ Note that `?` and `??` only work in IPython (or a Jupyter notebook). For help in
 
 We'll work through the [Visualizing Tabular Data section](https://swcarpentry.github.io/python-novice-inflammation/03-matplotlib.html){target="_blank"} of the Software Carpentry workshop. The primary ideas covered are making basic plots using the `matplotlib` package.
 
+Sidenote: For the plots to show in a Jupyter Notebook, it seems that we need all the code for creating a given plot to be in a single cell.
+
 ::: {.callout-tip}
 ## Exercise
 

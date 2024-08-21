@@ -1,0 +1,481 @@
+---
+title: "SOLUTIONS: Introduction to Python (optional)"
+format:
+  html:
+    theme: cosmo
+    css: ../styles.css
+    toc: true
+    code-copy: true
+    code-block-background: true
+    code-fold: show
+    code-tools: true
+execute:
+  freeze: auto
+---
+
+## 1. Python Fundamentals
+
+::: {.callout-tip}
+## Exercise 1
+Using the section on "Built-in Types" from the [official "The Python
+Standard Library" reference](https://docs.python.org/3/library/index.html), figure out how to compute:
+    - $\sqrt(-1)$    
+    - $\exp(1.5)$
+    - $(\lceil \frac{3}{4} \rceil \times 4)^3$, 
+ 
+
+:::
+
+::: {.callout-tip collapse="true"}
+## Exercise 1 Solution
+
+```{python}
+pow(-1, 0.5)
+(-1)**0.5
+
+import math
+math.exp(1.5)
+
+(math.ceil(3/4) * 4)**3
+```
+
+:::
+
+::: {.callout-tip}
+## Exercise 2
+
+- Is `1.0` of the integer type? What about `1`? Is the result of `5/3 - 2/3` of the integer type? Is the mathematical value seen in Python an integer? 
+- Here's a numerical puzzle. Why does the last computation not work, when the others do? And, for those of you coming from R, which of these computations don't work in R?
+  ```{python}
+  #| eval: false
+  100000**10
+  100000.0**10
+  100000**100
+  100000.0**100
+  ```
+:::
+
+::: {.callout-tip collapse="true"}
+## Exercise 2 Solution
+
+```{python}
+type(1.0)
+type(1)
+type(5/3-2/3)
+5/3-2/3 == 1
+
+type(100000**10)
+type(100000.0**10)
+```
+
+:::
+
+## 2. Analyzing Patient Data
+
+::: {.callout-tip}
+## Exercise 2
+
+Note that `?` and `??` only work in IPython (or a Jupyter notebook). For help in plain Python, use `help(np.ndim)`.
+
+- What happens if you type `np.ndim??` (i.e., use two question marks)? What additional do you see?
+- What does `np.ndim()` do? How does it execute under the hood? Consider why the following uses of `ndim` both work.
+  ```{python}
+  #| eval: false
+  a = np.array([0, 1, 2])
+  a.ndim
+  np.ndim(a)
+  ```
+  Now explain why only one of these works.
+  ```{python}
+  #| eval: false
+  a = [0, 1, 2]
+  a.ndim
+  np.ndim(a)
+  ```
+- Type `np.array?` in a Notebook or at the IPython prompt. Briefly skim the docstring.
+    `nparray` allows you to construct numpy arrays.
+- Type `np.` followed by the `<Tab>` key in a Notebook or at the IPython prompt. Choose
+    two or three of the completions and use `?` to view their
+    docstrings. In particular, pay attention to the examples provided
+    near the end of the docstring and see whether you can figure out how
+    you might use this functionality. 
+
+:::
+
+::: {.callout-tip collapse="true"}
+## Exercise 1 Solution
+
+```{python}
+a = [0, 1, 2]
+# a.ndim  # This errors out.
+
+import numpy as np
+np.asarray(a)
+np.asarray(a).ndim
+```
+
+:::
+
+## 3. Visualizing Tabular Data
+
+::: {.callout-tip}
+## Exercise
+
+Using the following code, read in the GapMinder data using Pandas (to be discussed later) and run the following code to make the variables easily available (you don't need to know anything about Pandas).
+
+```{python}
+#| eval: false
+import numpy as np
+import pandas as pd
+dat = pd.read_csv('gapminder.csv')
+lifeExp = np.array(dat.lifeExp)
+gdpPercap = np.array(dat.gdpPercap)
+year = np.array(dat.year)
+
+## Hint: slicing using an array of booleans
+## gdpPercap[year > 2010]
+```
+
+- Make a scatterplot of `lifeExp` vs `gdpPerCap` for 2007; make sure you have nice axis labels and title.
+- Consider whether plotting income on a logarithmic axis is a better way to display the data.
+- Using at least two years, make an array of plots (in one figure) where each subplot is a different year.
+
+:::
+
+::: {.callout-tip collapse="true"}
+
+## Exercise solution
+
+```{python}
+import numpy as np
+import pandas as pd
+dat = pd.read_csv('gapminder.csv')
+lifeExp = np.array(dat.lifeExp)
+gdpPercap = np.array(dat.gdpPercap)
+year = np.array(dat.year)
+
+import matplotlib.pyplot as plt
+myplot = plt.plot(gdpPercap, lifeExp, 'bo')
+plt.show()
+
+myplot = plt.plot(np.log(gdpPercap), lifeExp, 'bo')
+plt.show()
+
+fig = plt.figure()
+subplot1 = fig.add_subplot(1, 2, 1)
+subplot2 = fig.add_subplot(1, 2, 2)
+
+subplot1.plot(np.log(gdpPercap[year == 1952]), lifeExp[year == 1952], 'bo')
+subplot2.plot(np.log(gdpPercap[year == 2007]), lifeExp[year == 2007], 'bo')
+
+subplot1.set_title('1952')
+subplot2.set_title('2007')
+
+subplot1.set_xlabel('per capita GDP (log dollars)')
+subplot1.set_ylabel('life expectancy (years)')
+
+subplot2.set_xlabel('per capita GDP (log dollars)')
+
+plt.show()
+```
+
+:::
+
+## 4. Storing Multiple Values in Lists
+
+::: {.callout-tip}
+## Exercise 1
+
+Create a list of numbers, called `x1`. Reverse the order of the items in the list
+    using slicing. Now reverse the order of the items using a list
+    method. How does using the method differ from slicing? Hint: you can type `x.` followed by the `<Tab>` key in a Notebook or at the IPython prompt to find the various methods that can be applied to a list.
+
+:::
+
+::: {.callout-tip collapse="true"}
+## Exercise 1 solution
+
+```{python}
+x1 = [1, 2, 3, 4]
+print(x1[::-1])
+print(x1)
+x1.reverse()
+print(x1)
+```
+:::
+
+::: {.callout-tip}
+## Exercise 2
+
+- Figure out some different ways of combining your list of numbers with a list of strings to create a single list of mixed type elements. (Hint: you can type `x.` followed by the `<Tab>` key in a Notebook or at the IPython prompt to find the various methods that can be applied to a list.)
+- Now try to sort the resulting list. What happens?
+
+:::
+
+::: {.callout-tip collapse="true"}
+## Exercise 2 solution
+
+```{python}
+x1 = [1, 2, 3, 4]
+x2 = ['apple', 'banana']
+
+print(x1 + x2)
+x1.append(x2)
+print(x1)
+
+x1 = [1, 2, 3, 4]
+x1.extend(x2)
+print(x1)
+
+# x1.sort() # This errors out.
+```
+
+:::
+
+::: {.callout-tip}
+## Exercise 4
+
+What does the following tell you about copying and use of memory in lists in Python?
+
+```{python}
+#| eval: false
+a = [1, 3, 5]
+b = a
+id(a)
+id(b)
+# this should confirm what you might suspect
+a[1] = 5
+```
+:::
+
+::: {.callout-tip collapse="true"}
+## Exercise 4
+
+What does the following tell you about copying and use of memory in lists in Python?
+
+```{python}
+a = [1, 3, 5]
+b = a
+id(a)
+id(b)
+
+print(id(a) == id(b))
+a[1] = 5
+a
+b
+```
+:::
+
+## 5. Repeating Actions with Loops
+
+::: {.callout-tip}
+## Exercises
+
+- See what `[1, 2, 3] + 3` returns. Try to explain what happened and why.
+- How would you do the same task using a for loop? The `range` function may be helpful as might the `enumerate` function.
+- Use list comprehension to perform the same element-wise addition of the scalar to the list of scalars.
+- Change `[1, 2, 3]` to be a numpy array and then add three using `+ 3`. 
+:::
+
+
+::: {.callout-tip collapse="true"}
+## Exercises solutions
+
+```{python}
+mylist = [1, 2, 3]
+
+## for loop
+for i in range(len(mylist)):
+    mylist[i] += 3
+
+## list comprehension
+[x+3 for x in mylist]
+
+## numpy (best!)
+nplist = np.array([mylist]) + 3
+```
+
+:::
+
+## 8. Creating Functions
+
+::: {.callout-tip}
+## Exercise 1
+
+Define a function called `sqrt` that will take the square root of a number and will (if requested by the user) set the square root of a negative number to 0.
+
+:::
+
+::: {.callout-tip collapse="true"}
+
+## Exercise 1 solution
+
+```{python}
+def sqrt(x, complex=False):
+    if complex and x < 0:
+       return 0
+    return pow(x, 0.5)
+```
+
+:::
+
+
+::: {.callout-tip}
+## Exercise 2
+
+- What happens if you modify a list within a function in Python; why do you think this is?
+- What happens if you modify a single number (scalar) within a function in Python; why do you think this is?
+
+:::
+
+
+::: {.callout-tip collapse="true"}
+
+## Exercise 2 solution
+
+```{python}
+
+mylist = [1, 2, 3]
+mynum = 1
+
+def testfun(x):
+    x[1] = 9
+
+def testfun2(x):
+    x = 9
+
+testfun(mylist)
+print(mylist)
+
+testfun2(mynum)
+print(mynum)
+```
+
+:::
+
+## EXTRA Part 1. Some other useful data structures
+
+
+::: {.callout-tip}
+## Exercise 1
+
+- What's weird about this? What are the types involved?
+  ```{python}
+  #| eval: false
+  z = x,y
+  a,b = x,y
+  ```
+- Create the following: `x=5` and `y=99`. Now swap their values using a single line of code. (For R users, how would you do this in R?)
+
+:::
+
+::: {.callout-tip collapse="true"}
+
+## Exercise 1 solution
+
+```{python}
+x = 5
+y = 99
+
+z = x,y
+a,b = x,y
+
+print(type(z))
+print(type(a))
+
+y,x = x,y
+```
+
+:::
+
+::: {.callout-tip}
+## Exercise 2
+
+What happens when you multiply a tuple by a number?
+
+:::
+
+::: {.callout-tip collapse="true"}
+
+## Exercise 2 solution
+
+```{python}
+x = (1,2,3)
+x * 3
+```
+
+:::
+
+
+::: {.callout-tip}
+## Exercise 3
+
+- Why do you think there is no `reverse` method for tuples?
+- What's nice about using immutable objects in your code?
+:::
+
+::: {.callout-tip collapse="true"}
+
+## Exercise 3 solution
+
+For a list, `reverse` reverses the elements in place in the list, but this would violate the rule that tuples cannot be modified.
+
+Sometimes we want to use fixed values that can't change, and using immutable objects is a way to guarantee that. It's an aspect of "defensive" programming.
+
+:::
+
+::: {.callout-tip}
+## Exercise 4
+
+How can you add an item to a dictionary?
+
+:::
+
+::: {.callout-tip collapse="true"}
+
+## Exercise 4 solution
+
+```{python}
+x = {"department": "Statistics", "location": "Evans", "floor": 3}
+x.update({'university': 'Berkeley'})
+x['country'] = 'USA'
+print(x)
+```
+
+:::
+
+::: {.callout-tip}
+## Exercise 5
+
+How do you combine two dictionaries into a single dictionary?
+
+:::
+
+::: {.callout-tip collapse="true"}
+
+## Exercise 5 solution
+```{python}
+x = {"department": "Statistics", "location": "Evans", "floor": 3}
+y = {'university': 'Berkeley'}
+
+z = x.copy()
+z.update(y)
+print(z)
+```
+
+:::
+
+::: {.callout-tip}
+## Exercise 6 (for R users)
+
+- What are some analogs to dictionaries in R? 
+- How are dictionaries different from such analogous structures in R?
+:::
+
+::: {.callout-tip collapse="true"}
+
+## Exercise 6 solution
+
+Named arrays and named lists can function like dictionaries, but the names can be repeated, unlike with dictionaries.
+
+:::

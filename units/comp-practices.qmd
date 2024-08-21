@@ -158,7 +158,7 @@ total 40
 
 Step 2. Add files
 
-Next move (or copy) your Python module into the repository directory. 
+Next move (or copy) your Python module into the repository directory. For the demo, I'll use a version of the Newton code that I wrote that has some bugs in it (for later debugging). The file is not in the repository.
 
 ```bash
 cd newton-practice
