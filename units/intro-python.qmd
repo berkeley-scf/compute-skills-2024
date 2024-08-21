@@ -296,7 +296,7 @@ Answer the [question related to local vs. global variables](https://swcarpentry.
 
 ## 9. Errors and Exceptions 
 
-We'll work through the [Errors and Exceptions section](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html){target="_blank"} of the Software Carpentry workshop. The primary ideas covered are understanding error messages and tracebacks and writing your own code that handles errors.
+We'll work through the [Errors and Exceptions section](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html){target="_blank"} of the Software Carpentry workshop. The primary ideas covered relate to understanding error messages and tracebacks. In the Computational Tools and Practices session, we'll talk about writing your own code that handles errors.
 
 ::: {.callout-tip}
 ## Exercise 1
