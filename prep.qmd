@@ -15,7 +15,7 @@ While in principle, it's fine to use your laptop, it will be hard for us to diag
 
 The exception is that if you already have experience using your laptop with the shell/terminal, Git (and pushing to GitHub) and Python. 
 
-Click [here](https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fberkeley-scf%2Fcompute-skills-2024&urlpath=lab%2Ftree%2Fcompute-skills-2024%2F&branch=main){target="_blank"} to access your own machine/server with Python, git, and terminal access on the campus DataHub (also used for various data science, CS, and statistics courses).
+Click [here](https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fberkeley-scf%2Fcompute-skills-2024&urlpath=lab%2Ftree%2Fcompute-skills-2024%2F&branch=main){target="_blank"} to access your own machine/server with Python, git, and terminal access on the campus DataHub (also used for various data science, CS, and statistics courses). (Do NOT go directly to `datahub.berkeley.edu` the first time you are accessing DataHub. If you do, you won't have the repository materials available in your virtual machine.)
 
 That will get you onto your server with the materials for the course, from the `berkeley-scf/compute-skills-2024` repository available on the server.
 
