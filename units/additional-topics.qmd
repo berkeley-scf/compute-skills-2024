@@ -13,11 +13,6 @@ execute:
   freeze: auto
 ---
 
-::: {.callout-warning}
-## DRAFT CONTENT (2024-08-19)
-This module is nearly complete but Section 10 is still being revised.
-:::
-
 ::: {.callout-note}
 ## Overview
 
@@ -527,8 +522,6 @@ jobs:
         cd mytoy
         pytest
 ```
-
-[TODO: check on installation of `pytest` and check this works.]
 
 We'll first run this with the current tests for `mytoy`, which should pass when run via GitHub Actions.
 We can take a look at [the output](https://github.com/fperez/mytoy/actions).
