@@ -248,19 +248,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-DRAFT CONTENT (2024-08-19)
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This material is drafted but still under construction.</p>
-</div>
-</div>
 <section id="background" class="level1">
 <h1>Background</h1>
 <p>The goal of the project is to analyze the tweeting behavior of the 100 US Senators in the US Senate. Each senator has a Twitter account and puts out tweets reflecting their thought and communicating with the people in the state they represent.</p>
@@ -273,7 +260,7 @@ DRAFT CONTENT (2024-08-19)
 <h1>Questions</h1>
 <ol type="1">
 <li><p>Load the <code>senators-list.json</code> and <code>timelines.json</code> files into Python as objects called <code>senators</code> and <code>timelines</code>, using this syntax:</p>
-<div id="32debed0" class="cell" data-execution_count="1">
+<div id="3b2941c5" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"tmp.json"</span>) <span class="im">as</span> infile:</span>
@@ -286,7 +273,7 @@ DRAFT CONTENT (2024-08-19)
 <li><p>Make a list of lists where the outer list represents senators and the inner list contains the text of each senator’s tweets, and call it <code>tweets</code>.</p></li>
 <li><p>Write a function, called <code>remove_punct</code>, that takes a word and returns the word with all punctuation characters removed, except for those that occur within a word.</p></li>
 <li><p>Write a function that takes tweet and returns a cleaned up version of the tweet. Here is an example function to get you started:</p>
-<div id="e551a602" class="cell" data-execution_count="2">
+<div id="a7cc30bb" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean(tweet):</span>
@@ -306,7 +293,7 @@ DRAFT CONTENT (2024-08-19)
 <li><p>Create a list, <code>tokens</code>, where all 200 of each senator’s tweets are made into a single string. Hint: this syntax might be useful: <code>" ".join(my_list_of_strings)</code>.</p></li>
 <li><p>Create a Pandas dataFrame with the following columns: senator name or handle, party of the senator, and number of times a prominent politician is mentioned in each senator’s tweets. You might count the number of ‘Obama’, ‘Trump’, or ‘Clinton’ references.</p>
 <p>You can use this to create the party column (1=Republican, 0=Democratic):</p>
-<div id="281de517" class="cell" data-execution_count="3">
+<div id="5a3c6f23" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>party <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,</span>
@@ -317,7 +304,7 @@ DRAFT CONTENT (2024-08-19)
 <p>That should correspond to the ordering in <code>timelines</code> but of course it would be more robust to create a dataFrame that has user names and party as columns and merge that with the count information.</p></li>
 <li><p>Use a Poisson GLM to assess the relationship between party and number of Obama/Trump/Clinton mentions. Does one party tend to mention Obama/Trump/Clinton more in their tweets? Can you deduce a pattern by considering the party of the senator and the party of Obama/Trump/Clinton?</p>
 <p>Here’s some syntax to help you get started:</p>
-<div id="db24d4b7" class="cell" data-execution_count="4">
+<div id="379949c3" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
@@ -823,99 +810,94 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## DRAFT CONTENT (2024-08-19)</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>This material is drafted but still under construction.</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="fu"># Background</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>The goal of the project is to analyze the tweeting behavior of the 100 US Senators in the US Senate. Each senator has a Twitter account and puts out tweets reflecting their thought and communicating with the people in the state they represent.</span>
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="fu"># Background</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>(Note that these tweets were downloaded early in 2017, so they reflect tweeting just before President Obama stepped down and President Trump began his term.)</span>
 <span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>The goal of the project is to analyze the tweeting behavior of the 100 US Senators in the US Senate. Each senator has a Twitter account and puts out tweets reflecting their thought and communicating with the people in the state they represent.</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>(Note that these tweets were downloaded early in 2017, so they reflect tweeting just before President Obama stepped down and President Trump began his term.)</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>The goal of the project questions is to guide you through the steps of getting the data, processing and cleaning it, putting it in a format that makes it easier to analyze and then doing some basic analysis. The last few questions ask you to see if whether a senator mentions a president or presidential candidate depends on the party that the senator is part of. For example, do Democratic senators mention Barack Obama in their tweets more or less than Republican senators? </span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>For background information only: <span class="co">[</span><span class="ot">This Python code</span><span class="co">](../project/fetch_senator_tweets.py)</span> downloads tweets using the Python twitter package to interact with Twitter's API. You will only be able to run that code if you set up your own Twitter account and follow the instructions at the start of the file regarding filling in the authentication information (CONSUMER_KEY, CONSUMER_SECRET, etc.).</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>The goal of the project questions is to guide you through the steps of getting the data, processing and cleaning it, putting it in a format that makes it easier to analyze and then doing some basic analysis. The last few questions ask you to see if whether a senator mentions a president or presidential candidate depends on the party that the senator is part of. For example, do Democratic senators mention Barack Obama in their tweets more or less than Republican senators? </span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>For background information only: <span class="co">[</span><span class="ot">This Python code</span><span class="co">](../project/fetch_senator_tweets.py)</span> downloads tweets using the Python twitter package to interact with Twitter's API. You will only be able to run that code if you set up your own Twitter account and follow the instructions at the start of the file regarding filling in the authentication information (CONSUMER_KEY, CONSUMER_SECRET, etc.).</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>I've already run the code mentioned above and downloaded the data for you.  The downloaded information on the senators' twitter accounts is in <span class="in">`project/senators-list.json`</span> in the GitHub repository, while the downloaded tweets are in <span class="in">`timelines.json`</span>.  <span class="in">`timelines.json`</span> is too big to put in the Github repository. You can find it at <span class="ot">&lt;http://www.stat.berkeley.edu/~paciorek/transfer/timelines.json&gt;</span>. Note that there are only 200 tweets for each senator because of limits on how many tweets can be accessed in a given request.</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="fu"># Questions</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>I've already run the code mentioned above and downloaded the data for you.  The downloaded information on the senators' twitter accounts is in <span class="in">`project/senators-list.json`</span> in the GitHub repository, while the downloaded tweets are in <span class="in">`timelines.json`</span>.  <span class="in">`timelines.json`</span> is too big to put in the Github repository. You can find it at <span class="ot">&lt;http://www.stat.berkeley.edu/~paciorek/transfer/timelines.json&gt;</span>. Note that there are only 200 tweets for each senator because of limits on how many tweets can be accessed in a given request.</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Load the <span class="in">`senators-list.json`</span> and <span class="in">`timelines.json`</span> files into Python as objects called <span class="in">`senators`</span> and <span class="in">`timelines`</span>, using this syntax:</span>
 <span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="fu"># Questions</span></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Load the <span class="in">`senators-list.json`</span> and <span class="in">`timelines.json`</span> files into Python as objects called <span class="in">`senators`</span> and <span class="in">`timelines`</span>, using this syntax:</span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>   <span class="in">```{python}</span></span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="in">   #| eval: false</span></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="in">   with open("tmp.json") as infile:</span></span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="in">        y = json.load(infile)</span></span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>What type of datastructure is <span class="in">`timelines`</span>? How many timelines are there? What does each timeline correspond to?</span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Make a list of the number of followers each senator has.</span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>What is the screen name of the senator with the largest number of followers.</span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Make a list of lists where the outer list represents senators and the inner list contains the text of each senator's tweets, and call it <span class="in">`tweets`</span>.</span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Write a function, called <span class="in">`remove_punct`</span>, that takes a word and returns the word with all punctuation characters removed, except for those that occur within a word.</span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Write a function that takes tweet and returns a cleaned up version of the tweet. Here is an example function to get you started:</span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>   <span class="in">```{python}</span></span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a><span class="in">   #| eval: false</span></span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="in">   def clean(tweet):</span></span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="in">       cleaned_words = [word.lower() for word in tweet.split() if</span></span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="in">                    'http' not in word and</span></span>
-<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="in">                     word.isalpha() and</span></span>
-<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="in">                     word != 'RT']</span></span>
-<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="in">       return ' '.join(cleaned_words)</span></span>
-<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="in">                                                                               </span></span>
-<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a><span class="in">   clean(tweets[0][0])</span></span>
-<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
-<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>    Note that the function I've provided is a bit buggy - it has some problems with some tweets. If your goal is to convert the tweet into a discrete set of words, what is going wrong here? Fix up and extend the example function.</span>
-<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>   <span class="in">```{python}</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="in">   #| eval: false</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="in">   with open("tmp.json") as infile:</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="in">        y = json.load(infile)</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>What type of datastructure is <span class="in">`timelines`</span>? How many timelines are there? What does each timeline correspond to?</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Make a list of the number of followers each senator has.</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>What is the screen name of the senator with the largest number of followers.</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Make a list of lists where the outer list represents senators and the inner list contains the text of each senator's tweets, and call it <span class="in">`tweets`</span>.</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Write a function, called <span class="in">`remove_punct`</span>, that takes a word and returns the word with all punctuation characters removed, except for those that occur within a word.</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Write a function that takes tweet and returns a cleaned up version of the tweet. Here is an example function to get you started:</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>   <span class="in">```{python}</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="in">   #| eval: false</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="in">   def clean(tweet):</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a><span class="in">       cleaned_words = [word.lower() for word in tweet.split() if</span></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a><span class="in">                    'http' not in word and</span></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="in">                     word.isalpha() and</span></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a><span class="in">                     word != 'RT']</span></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="in">       return ' '.join(cleaned_words)</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="in">                                                                               </span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="in">   clean(tweets[0][0])</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>    Note that the function I've provided is a bit buggy - it has some problems with some tweets. If your goal is to convert the tweet into a discrete set of words, what is going wrong here? Fix up and extend the example function.</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>Use the following file to create a list, called <span class="in">`stopwords`</span>, that contains common english words: <span class="ot">&lt;http://www.textfixer.com/resources/common-english-words.txt&gt;</span>.</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>Make sure to pull the data into Python by writing Python code to download and suck the data into Python.</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>Write a function, called <span class="in">`tokenize`</span>, which takes a tweet, cleans it, and removes all punctuation and stopwords.</span>
 <span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>Use the following file to create a list, called <span class="in">`stopwords`</span>, that contains common english words: <span class="ot">&lt;http://www.textfixer.com/resources/common-english-words.txt&gt;</span>.</span>
-<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>Make sure to pull the data into Python by writing Python code to download and suck the data into Python.</span>
-<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>Write a function, called <span class="in">`tokenize`</span>, which takes a tweet, cleans it, and removes all punctuation and stopwords.</span>
-<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>Create a list of lists, tweets_content, using your <span class="in">`tokenize`</span> function.</span>
-<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a><span class="ss">11. </span>Create a list, <span class="in">`tokens`</span>, where all 200 of each senator's tweets are made into a single string. Hint: this syntax might be useful: <span class="in">`" ".join(my_list_of_strings)`</span>.</span>
-<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a><span class="ss">12. </span>Create a Pandas dataFrame with the following columns: senator name or handle, party of the senator, and number of times a prominent politician is mentioned in each senator's tweets. You might count the number of 'Obama', 'Trump', or 'Clinton' references.</span>
-<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>    You can use this to create the party column (1=Republican, 0=Democratic):</span>
-<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>    <span class="in">```{python}</span></span>
-<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a><span class="in">    #| eval: false</span></span>
-<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a><span class="in">    party = np.array([1,1,1,1,1,1,0,0,1,0,1,1,0,0,0,1,1,1,0,0,0,1,1,1,1,0,1,0,</span></span>
-<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a><span class="in">    1,1,1,0,0,0,0,0,0,1,0,1,1,1,0,1,1,1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,0,1,</span></span>
-<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="in">    1,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,1,1,0,0,1,0,1,0,0,1,1,1,0,1])</span></span>
-<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
-<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>    That should correspond to the ordering in <span class="in">`timelines`</span> but of course it would be more robust to create a dataFrame that has user names and party as columns and merge that with the count information. </span>
-<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a><span class="ss">13. </span>Use a Poisson GLM to assess the relationship between party and number of Obama/Trump/Clinton mentions. Does one party tend to mention Obama/Trump/Clinton more in their tweets? Can you deduce a pattern by considering the party of the senator and the party of Obama/Trump/Clinton?</span>
-<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>    Here's some syntax to help you get started:</span>
-<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>    <span class="in">```{python}</span></span>
-<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="in">    #| eval: false</span></span>
-<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a><span class="in">    import statsmodels.api as sm</span></span>
-<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a><span class="in">    model = sm.GLM(endog = .,  exog = ., family = sm.families.Poisson())</span></span>
-<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a><span class="in">    model.fit()</span></span>
-<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
-<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>    Does the statistical result make sense in light of the number of total mentions of Obama/Trump/Clinton by Republicans and the number of total mentions by Democrats?</span>
-<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a><span class="ss">14. </span>Use <span class="in">`matplotlib`</span> to make histograms of the number of Obama mentions by senator, stratified by party.</span>
-<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>    Is this consistent with the results of your statistical analysis?</span>
-<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>Create a list of lists, tweets_content, using your <span class="in">`tokenize`</span> function.</span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="ss">11. </span>Create a list, <span class="in">`tokens`</span>, where all 200 of each senator's tweets are made into a single string. Hint: this syntax might be useful: <span class="in">`" ".join(my_list_of_strings)`</span>.</span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a><span class="ss">12. </span>Create a Pandas dataFrame with the following columns: senator name or handle, party of the senator, and number of times a prominent politician is mentioned in each senator's tweets. You might count the number of 'Obama', 'Trump', or 'Clinton' references.</span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>    You can use this to create the party column (1=Republican, 0=Democratic):</span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>    <span class="in">```{python}</span></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a><span class="in">    #| eval: false</span></span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a><span class="in">    party = np.array([1,1,1,1,1,1,0,0,1,0,1,1,0,0,0,1,1,1,0,0,0,1,1,1,1,0,1,0,</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a><span class="in">    1,1,1,0,0,0,0,0,0,1,0,1,1,1,0,1,1,1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,0,1,</span></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a><span class="in">    1,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,1,1,0,0,1,0,1,0,0,1,1,1,0,1])</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>    That should correspond to the ordering in <span class="in">`timelines`</span> but of course it would be more robust to create a dataFrame that has user names and party as columns and merge that with the count information. </span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="ss">13. </span>Use a Poisson GLM to assess the relationship between party and number of Obama/Trump/Clinton mentions. Does one party tend to mention Obama/Trump/Clinton more in their tweets? Can you deduce a pattern by considering the party of the senator and the party of Obama/Trump/Clinton?</span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>    Here's some syntax to help you get started:</span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>    <span class="in">```{python}</span></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a><span class="in">    #| eval: false</span></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a><span class="in">    import statsmodels.api as sm</span></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a><span class="in">    model = sm.GLM(endog = .,  exog = ., family = sm.families.Poisson())</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a><span class="in">    model.fit()</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>    Does the statistical result make sense in light of the number of total mentions of Obama/Trump/Clinton by Republicans and the number of total mentions by Democrats?</span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a><span class="ss">14. </span>Use <span class="in">`matplotlib`</span> to make histograms of the number of Obama mentions by senator, stratified by party.</span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>    Is this consistent with the results of your statistical analysis?</span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
