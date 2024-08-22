@@ -99,5 +99,5 @@ When you do that you'll see a [link](https://github.com/login/device){target="_b
 
 Then (only the first time you are doing all this) go to the URL that is printed out in your terminal (which should be [https://github.com/apps/berkeley-datahub-git-access](https://github.com/apps/berkeley-datahub-git-access){target="_blank"} and click on `Install` (and then if you have access to multiple GitHub organizations, choose your personal org, namely your GitHub username). Choose `Only select repositories` and select the repository you are using for the workshop, namely `newton-practice`. Then click `Install`.
 
-Note that GitHub will probably prompt you to authenticate using 2-Factor Authentication (e.g., via the Google Authenticator app on your phone). Hopefully you were prompted to set this up when you created your GitHub account. We'll try to help if you run into problems here.
+There's a chance that GitHub will prompt you to authenticate using 2-Factor Authentication (2FA) (e.g., via the Google Authenticator app on your phone). If so, that probably means that you set this up at some point and are able to do the 2FA. We'll try to help if you run into problems here.
 
