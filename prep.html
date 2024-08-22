@@ -281,6 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="accessing-github-repositories-from-datahub" class="level1">
 <h1>Accessing GitHub repositories from DataHub</h1>
 <p>(These instructions are needed only for the main sessions of the workshop, Thursday and Friday.)</p>
+<p><strong>Please don’t do the steps in this section until after we do the exercise where you create your <code>newton-practice</code> repository.</strong></p>
 <p>Authenticating with GitHub can be a bit tricky, particularly when using DataHub (i.e., JupyterHub).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -308,12 +309,13 @@ Accessing GitHub from your laptop rather than DataHub
 <p>Then run this in the terminal:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh-scoped-creds</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Or you could instead run this in IPython or Jupyter Notebook:</p>
-<div id="89b8d543" class="cell" data-execution_count="1">
+<div id="34dd3cd4" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> gh_scoped_creds</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>ghscopedcreds</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>When you do that you’ll see a <a href="https://github.com/login/device" target="_blank">link</a> and a code. Go to the link in a browser (on your laptop, outside of DataHub), login to GitHub (or click <code>Continue</code> if already logged in), input the code, and click <code>Authorize Berkeley-DataHub-Git-Access</code>. This will grant access to GitHub from JupyterHub for 8 hours (or until you stop your JupyterHub server).</p>
 <p>Then (only the first time you are doing all this) go to the URL that is printed out in your terminal (which should be <a href="https://github.com/apps/berkeley-datahub-git-access" target="_blank">https://github.com/apps/berkeley-datahub-git-access</a> and click on <code>Install</code> (and then if you have access to multiple GitHub organizations, choose your personal org, namely your GitHub username). Choose <code>Only select repositories</code> and select the repository you are using for the workshop, namely <code>newton-practice</code>. Then click <code>Install</code>.</p>
+<p>Note that GitHub will probably prompt you to authenticate using 2-Factor Authentication (e.g., via the Google Authenticator app on your phone). Hopefully you were prompted to set this up when you created your GitHub account. We’ll try to help if you run into problems here.</p>
 
 
 </section>
