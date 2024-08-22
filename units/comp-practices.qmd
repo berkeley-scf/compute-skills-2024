@@ -106,11 +106,11 @@ It's also possible to [create the repository from the terminal on your machine](
 
 :::
 
-## Accessing  GitHub repositories from DataHub
+## Exercise: Accessing  GitHub repositories from DataHub
 
 Authenticating with GitHub can be a bit tricky, particularly when using DataHub (i.e., JupyterHub).
 
-Please see [these instructions](../prep.qmd#accessing-github-repositories-from-datahub).
+Please follow [these instructions](../prep.qmd#accessing-github-repositories-from-datahub).
 
 ## Basic use of a repository
 
@@ -206,8 +206,8 @@ Some tips:
 
 - Concisely describe what changed (and for more complicated situations, why), not how.
 - Two options (depending on whether the commit makes one or more changes):
-  - Keep it short (one line, <72 characters)
-  - Have a subject line separated from the body by a blank line.
+  1. Keep it short (one line, <72 characters)
+  2. Have a subject line separated from the body by a blank line.
       - Keep subject to 50 characters and each body line to 72 characters.
       - Best to edit message in an editor -- omit the `-m` flag to `git commit`.
 - If you're working on a project with GitHub issues, reference the issue at the bottom.
@@ -380,7 +380,7 @@ If you're *sure* no one else has pulled your changes from the remote:
 ```bash
 git reset <commit_hash>
 # Make changes
-git commit -a -m'Reworked the mistake.'
+git commit -a -m'Rework the mistake.'
 git push -f origin <branch_name>
 ```
 
@@ -604,8 +604,7 @@ For now don't modify your code even if you start to suspect how it might fail. W
 
 ## Exceptions in Python
 
-To understand how Python handles error, we'll briefly work through the [Errors and Exceptions section](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html){target="_blank"} of the Software Carpentry workshop. The primary ideas covered are understanding error messages and tracebacks and writing your own code that handles errors.
-
+To understand how Python handles error, you can take a look at the [Errors and Exceptions section](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html){target="_blank"} of the Software Carpentry workshop. The primary ideas covered are understanding error messages and tracebacks.
 
 ## Exercise: Error trapping, robust code, and defensive programming
 
