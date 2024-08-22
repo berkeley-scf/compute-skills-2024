@@ -4,6 +4,9 @@ import math
 
 import newton
 
+## Important: structure of tests assumes a dictionary with an 'x'
+## key as the output. 
+
 def test_basic_function():
     assert np.isclose(newton.optimize(2.95, np.cos)['x'], math.pi)
 
