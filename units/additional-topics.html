@@ -265,7 +265,7 @@ window.Quarto = {
   <li><a href="#linear-algebra-errors" id="toc-linear-algebra-errors" class="nav-link" data-scroll-target="#linear-algebra-errors">Linear algebra errors</a></li>
   <li><a href="#overflow-and-underflow" id="toc-overflow-and-underflow" class="nav-link" data-scroll-target="#overflow-and-underflow">Overflow and underflow</a></li>
   </ul></li>
-  <li><a href="#exercise-numerical-issues-with-newtons-method" id="toc-exercise-numerical-issues-with-newtons-method" class="nav-link" data-scroll-target="#exercise-numerical-issues-with-newtons-method">Exercise: numerical issues with Newton’s method</a></li>
+  <li><a href="#exercise-forking-and-pull-requests-for-numerical-issues-with-newtons-method" id="toc-exercise-forking-and-pull-requests-for-numerical-issues-with-newtons-method" class="nav-link" data-scroll-target="#exercise-forking-and-pull-requests-for-numerical-issues-with-newtons-method">Exercise: forking and pull requests for numerical issues with Newton’s method</a></li>
   </ul></li>
   <li><a href="#packaging-and-conda-environments" id="toc-packaging-and-conda-environments" class="nav-link" data-scroll-target="#packaging-and-conda-environments">9. Packaging and Conda environments</a>
   <ul class="collapse">
@@ -344,7 +344,7 @@ Overview
 <h3 class="anchored" data-anchor-id="random-number-seed">Random number seed</h3>
 <p>The <em>seed</em> determines where in the cycle of the periodic sequence you are.</p>
 <p>It’s critical for ensuring reproducibility when running code that uses random numbers</p>
-<div id="c1ba2df8" class="cell" data-execution_count="1">
+<div id="d1cb5d3a" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -355,7 +355,7 @@ Overview
 <pre><code>array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763])</code></pre>
 </div>
 </div>
-<div id="988f675d" class="cell" data-execution_count="2">
+<div id="72b964e2" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>np.random.normal(size <span class="op">=</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -364,7 +364,7 @@ Overview
 <pre><code>array([-2.3015387 ,  1.74481176, -0.7612069 ,  0.3190391 , -0.24937038])</code></pre>
 </div>
 </div>
-<div id="e7315497" class="cell" data-execution_count="3">
+<div id="8a0ac577" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">1</span>)</span>
@@ -380,7 +380,7 @@ Overview
 <h3 class="anchored" data-anchor-id="random-number-generators">Random number generators</h3>
 <p>If you don’t do anything, numpy will use a generator called the Mersenne Twister (that’s the default in R too).</p>
 <p>However the “default” RNG in numpy is a newer, better algorithm called PCG64.</p>
-<div id="1d9c4987" class="cell" data-execution_count="4">
+<div id="814ab9d6" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Mersenne twister</span></span>
@@ -391,7 +391,7 @@ Overview
 <pre><code>array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763])</code></pre>
 </div>
 </div>
-<div id="29331bdd" class="cell" data-execution_count="5">
+<div id="833b6333" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Mersenne twister, selected specifically</span></span>
@@ -403,7 +403,7 @@ Overview
 <pre><code>array([ 2.04676909, -1.03653009,  0.72997546,  0.41584996, -0.1922969 ])</code></pre>
 </div>
 </div>
-<div id="dd03ae91" class="cell" data-execution_count="6">
+<div id="79ee5477" class="cell" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 'Default' PCG64</span></span>
@@ -414,7 +414,7 @@ Overview
 <pre><code>array([ 0.34558419,  0.82161814,  0.33043708, -1.30315723,  0.90535587])</code></pre>
 </div>
 </div>
-<div id="65befbf6" class="cell" data-execution_count="7">
+<div id="430df04e" class="cell" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(seed <span class="op">=</span> <span class="dv">1</span>)</span>
@@ -434,7 +434,7 @@ Overview
 </section>
 <section id="floating-point-precision" class="level2">
 <h2 class="anchored" data-anchor-id="floating-point-precision">Floating point precision</h2>
-<div id="6957c79c" class="cell" data-execution_count="8">
+<div id="7fc84300" class="cell" data-execution_count="8">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.3</span> <span class="op">-</span> <span class="fl">0.2</span> <span class="op">==</span> <span class="fl">0.1</span></span>
@@ -454,7 +454,7 @@ Overview
 <li>4 bytes = 32 bits = single precision</li>
 </ul>
 <p>(GPU libraries often use 4 bytes or even fewer.)</p>
-<div id="70b86d8d" class="cell" data-execution_count="9">
+<div id="86d23349" class="cell" data-execution_count="9">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dg(x, form <span class="op">=</span> <span class="st">'.20f'</span>):</span>
@@ -476,7 +476,7 @@ Overview
 </div>
 <p>How many digits of accuracy do we have?</p>
 <p>Same thing regardless of the size of the number:</p>
-<div id="a17258e0" class="cell" data-execution_count="10">
+<div id="001dd504" class="cell" data-execution_count="10">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fl">12345678.1234567812345678</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -485,7 +485,7 @@ Overview
 <pre><code>12345678.123456782</code></pre>
 </div>
 </div>
-<div id="22e8b3dd" class="cell" data-execution_count="11">
+<div id="2b1dd9fc" class="cell" data-execution_count="11">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fl">12345678123456781234.5678</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -494,7 +494,7 @@ Overview
 <pre><code>1.234567812345678e+19</code></pre>
 </div>
 </div>
-<div id="58939a20" class="cell" data-execution_count="12">
+<div id="5a13c04b" class="cell" data-execution_count="12">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>dg(<span class="fl">12345678123456781234.5678</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -508,7 +508,7 @@ Overview
 <section id="comparisons" class="level3">
 <h3 class="anchored" data-anchor-id="comparisons">Comparisons</h3>
 <p>Let’s see what kinds of numbers we can safely compare for exact equality with <code>==</code>.</p>
-<div id="8ba68c75" class="cell" data-execution_count="13">
+<div id="16d1f30d" class="cell" data-execution_count="13">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">.5</span> <span class="op">-</span> <span class="fl">.2</span></span>
@@ -530,7 +530,7 @@ Overview
 <section id="calculation-errors" class="level3">
 <h3 class="anchored" data-anchor-id="calculation-errors">Calculation errors</h3>
 <p>Let’s consider accuracy of subtraction.</p>
-<div id="0fbdac9f" class="cell" data-execution_count="14">
+<div id="a138d1c5" class="cell" data-execution_count="14">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.1234</span> <span class="op">-</span> <span class="fl">1.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -539,7 +539,7 @@ Overview
 <pre><code>0.12339999999999995</code></pre>
 </div>
 </div>
-<div id="7372ab28" class="cell" data-execution_count="15">
+<div id="367b6805" class="cell" data-execution_count="15">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fl">123456781234.1234</span> <span class="op">-</span> <span class="fl">123456781234.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -550,7 +550,7 @@ Overview
 </div>
 <p>This is called catastrophic cancellation.</p>
 <p>Do you think calling it “catastrophic” is too extreme? If so, consider this.</p>
-<div id="5c08d96d" class="cell" data-execution_count="16">
+<div id="6864b23d" class="cell" data-execution_count="16">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fl">81.0</span> <span class="op">-</span> <span class="fl">80.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -559,7 +559,7 @@ Overview
 <pre><code>1.0</code></pre>
 </div>
 </div>
-<div id="cc41871b" class="cell" data-execution_count="17">
+<div id="dee5104f" class="cell" data-execution_count="17">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fl">12345678123456781.0</span> <span class="op">-</span><span class="fl">12345678123456780.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -569,7 +569,7 @@ Overview
 </div>
 </div>
 <p>What’s the derivative of <span class="math inline">\(sin(x)\)</span>? Let’s see what kind of accuracy we can get.</p>
-<div id="7d4c8d07" class="cell" data-execution_count="18">
+<div id="0fb84930" class="cell" data-execution_count="18">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> deriv(f, x, eps<span class="op">=</span><span class="fl">1e-8</span>):</span>
@@ -591,7 +591,7 @@ Overview
 <h3 class="anchored" data-anchor-id="linear-algebra-errors">Linear algebra errors</h3>
 <p>The errors seen in doing calculations, such as catastrophic cancellation, cascaded through derivative estimation. That also happens when doing linear algebra operations.</p>
 <p>Here’s an example where mathematically all the eigenvalues are real-valued and positive, but not on the computer.</p>
-<div id="13b361ce" class="cell" data-execution_count="19">
+<div id="faa62027" class="cell" data-execution_count="19">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
@@ -620,7 +620,7 @@ Overview
 <section id="overflow-and-underflow" class="level3">
 <h3 class="anchored" data-anchor-id="overflow-and-underflow">Overflow and underflow</h3>
 <p>Having a finite number of bits to represent each number means there are minimum and maximum numbers that can be expressed.</p>
-<div id="d0b20a15" class="cell" data-execution_count="20">
+<div id="1e60f500" class="cell" data-execution_count="20">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.38e5000</span></span>
@@ -650,7 +650,7 @@ How much do we need to worry about overflow and underflow?
 </ul>
 </div>
 </div>
-<div id="c43d4c69" class="cell" data-execution_count="21">
+<div id="f72763ec" class="cell" data-execution_count="21">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -684,11 +684,11 @@ Work with probabilities and densities on the log scale. Almost always.
 </div>
 </section>
 </section>
-<section id="exercise-numerical-issues-with-newtons-method" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-numerical-issues-with-newtons-method">Exercise: numerical issues with Newton’s method</h2>
+<section id="exercise-forking-and-pull-requests-for-numerical-issues-with-newtons-method" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-forking-and-pull-requests-for-numerical-issues-with-newtons-method">Exercise: forking and pull requests for numerical issues with Newton’s method</h2>
 <p>Look at your partner’s code in terms of how it handles the stopping criterion or (for the 1-d case) the finite difference estimate of the gradient and Hessian.</p>
 <p>Fork your partner’s repository. In the local version of that repository on your DataHub, make a change to try to improve how the stopping criterion or finite difference estimate is handled. Then make a pull request back into your partner’s repository.</p>
-<p>Here are the steps:</p>
+<p>Here are the detailed steps of how to do all that:</p>
 <ol type="1">
 <li>Go to your partner’s GitHub page and fork the repository (<code>https://github.com/&lt;username&gt;/newton-practice/fork</code>). You can name it <code>newton-practice-&lt;partner_name&gt;</code> or something else.</li>
 <li>On DataHub, clone the forked repository: <code>git clone https://github.com/&lt;your_username&gt;/newton-practice-&lt;partner_name&gt;</code>.</li>
@@ -728,7 +728,7 @@ Work with probabilities and densities on the log scale. Almost always.
 <span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a><span class="op">EOF</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that if there were other modules, we could have imported from those as well.</p>
 <p>Now we can use the objects from the module without having to know that it was in a particular module (because of how <code>__init__.py</code> was set up).</p>
-<div id="376b1d20" class="cell" data-execution_count="22">
+<div id="89930219" class="cell" data-execution_count="22">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mypkg</span>
@@ -747,7 +747,7 @@ Work with probabilities and densities on the log scale. Almost always.
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--user</span> .</span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span>
 <span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> .local/lib/python3.11/site-packages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="495bba93" class="cell" data-execution_count="23">
+<div id="ff3d4fda" class="cell" data-execution_count="23">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mytoy</span>
@@ -898,11 +898,13 @@ jobs:
 
     - name: Install mytoy
       run: |
+        # There is a small bug here.
         cd mytoy
         pip install --user .
 
     - name: Run tests
       run: |
+        # Another small bug here.
         cd mytoy
         pytest</code></pre>
 <p>We’ll first run this with the current tests for <code>mytoy</code>, which should pass when run via GitHub Actions. We can take a look at <a href="https://github.com/fperez/mytoy/actions">the output</a>.</p>
@@ -1656,13 +1658,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb49-291"><a href="#cb49-291" aria-hidden="true" tabindex="-1"></a><span class="fu">## Work with probabilities and densities on the log scale. Almost always.</span></span>
 <span id="cb49-292"><a href="#cb49-292" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb49-293"><a href="#cb49-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-294"><a href="#cb49-294" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: numerical issues with Newton's method</span></span>
+<span id="cb49-294"><a href="#cb49-294" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: forking and pull requests for numerical issues with Newton's method</span></span>
 <span id="cb49-295"><a href="#cb49-295" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-296"><a href="#cb49-296" aria-hidden="true" tabindex="-1"></a>Look at your partner's code in terms of how it handles the stopping criterion or (for the 1-d case) the finite difference estimate of the gradient and Hessian.</span>
 <span id="cb49-297"><a href="#cb49-297" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-298"><a href="#cb49-298" aria-hidden="true" tabindex="-1"></a>Fork your partner's repository. In the local version of that repository on your DataHub, make a change to try to improve how the stopping criterion or finite difference estimate is handled. Then make a pull request back into your partner's repository.</span>
 <span id="cb49-299"><a href="#cb49-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-300"><a href="#cb49-300" aria-hidden="true" tabindex="-1"></a>Here are the steps:</span>
+<span id="cb49-300"><a href="#cb49-300" aria-hidden="true" tabindex="-1"></a>Here are the detailed steps of how to do all that:</span>
 <span id="cb49-301"><a href="#cb49-301" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-302"><a href="#cb49-302" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Go to your partner's GitHub page and fork the repository (<span class="in">`https://github.com/&lt;username&gt;/newton-practice/fork`</span>). You can name it <span class="in">`newton-practice-&lt;partner_name&gt;`</span> or something else.</span>
 <span id="cb49-303"><a href="#cb49-303" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>On DataHub, clone the forked repository: <span class="in">`git clone https://github.com/&lt;your_username&gt;/newton-practice-&lt;partner_name&gt;`</span>.</span>
@@ -1929,41 +1931,43 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb49-568"><a href="#cb49-568" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-569"><a href="#cb49-569" aria-hidden="true" tabindex="-1"></a><span class="in">    - name: Install mytoy</span></span>
 <span id="cb49-570"><a href="#cb49-570" aria-hidden="true" tabindex="-1"></a><span class="in">      run: |</span></span>
-<span id="cb49-571"><a href="#cb49-571" aria-hidden="true" tabindex="-1"></a><span class="in">        cd mytoy</span></span>
-<span id="cb49-572"><a href="#cb49-572" aria-hidden="true" tabindex="-1"></a><span class="in">        pip install --user .</span></span>
-<span id="cb49-573"><a href="#cb49-573" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-574"><a href="#cb49-574" aria-hidden="true" tabindex="-1"></a><span class="in">    - name: Run tests</span></span>
-<span id="cb49-575"><a href="#cb49-575" aria-hidden="true" tabindex="-1"></a><span class="in">      run: |</span></span>
-<span id="cb49-576"><a href="#cb49-576" aria-hidden="true" tabindex="-1"></a><span class="in">        cd mytoy</span></span>
-<span id="cb49-577"><a href="#cb49-577" aria-hidden="true" tabindex="-1"></a><span class="in">        pytest</span></span>
-<span id="cb49-578"><a href="#cb49-578" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb49-579"><a href="#cb49-579" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-580"><a href="#cb49-580" aria-hidden="true" tabindex="-1"></a>We'll first run this with the current tests for <span class="in">`mytoy`</span>, which should pass when run via GitHub Actions.</span>
-<span id="cb49-581"><a href="#cb49-581" aria-hidden="true" tabindex="-1"></a>We can take a look at <span class="co">[</span><span class="ot">the output</span><span class="co">](https://github.com/fperez/mytoy/actions)</span>.</span>
-<span id="cb49-582"><a href="#cb49-582" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-583"><a href="#cb49-583" aria-hidden="true" tabindex="-1"></a>Next, let's introduce a failing test to see what the output looks like and get a sense for how to debug it.</span>
+<span id="cb49-571"><a href="#cb49-571" aria-hidden="true" tabindex="-1"></a><span class="in">        # There is a small bug here.</span></span>
+<span id="cb49-572"><a href="#cb49-572" aria-hidden="true" tabindex="-1"></a><span class="in">        cd mytoy</span></span>
+<span id="cb49-573"><a href="#cb49-573" aria-hidden="true" tabindex="-1"></a><span class="in">        pip install --user .</span></span>
+<span id="cb49-574"><a href="#cb49-574" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-575"><a href="#cb49-575" aria-hidden="true" tabindex="-1"></a><span class="in">    - name: Run tests</span></span>
+<span id="cb49-576"><a href="#cb49-576" aria-hidden="true" tabindex="-1"></a><span class="in">      run: |</span></span>
+<span id="cb49-577"><a href="#cb49-577" aria-hidden="true" tabindex="-1"></a><span class="in">        # Another small bug here.</span></span>
+<span id="cb49-578"><a href="#cb49-578" aria-hidden="true" tabindex="-1"></a><span class="in">        cd mytoy</span></span>
+<span id="cb49-579"><a href="#cb49-579" aria-hidden="true" tabindex="-1"></a><span class="in">        pytest</span></span>
+<span id="cb49-580"><a href="#cb49-580" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb49-581"><a href="#cb49-581" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-582"><a href="#cb49-582" aria-hidden="true" tabindex="-1"></a>We'll first run this with the current tests for <span class="in">`mytoy`</span>, which should pass when run via GitHub Actions.</span>
+<span id="cb49-583"><a href="#cb49-583" aria-hidden="true" tabindex="-1"></a>We can take a look at <span class="co">[</span><span class="ot">the output</span><span class="co">](https://github.com/fperez/mytoy/actions)</span>.</span>
 <span id="cb49-584"><a href="#cb49-584" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-585"><a href="#cb49-585" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-585"><a href="#cb49-585" aria-hidden="true" tabindex="-1"></a>Next, let's introduce a failing test to see what the output looks like and get a sense for how to debug it.</span>
 <span id="cb49-586"><a href="#cb49-586" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-587"><a href="#cb49-587" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example 3: GitHub Actions for publishing webpages</span></span>
+<span id="cb49-587"><a href="#cb49-587" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-588"><a href="#cb49-588" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-589"><a href="#cb49-589" aria-hidden="true" tabindex="-1"></a>We can use GitHub Actions with GitHub pages to easily publish websites, where we make changes to the repository and the workflow causes the website to be updated.</span>
+<span id="cb49-589"><a href="#cb49-589" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example 3: GitHub Actions for publishing webpages</span></span>
 <span id="cb49-590"><a href="#cb49-590" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-591"><a href="#cb49-591" aria-hidden="true" tabindex="-1"></a>Here's the <span class="co">[</span><span class="ot">GitHub Actions workflow (a YAML file)</span><span class="co">](https://github.com/UCB-stat-159-s23/site/blob/main/.github/workflows/book.yml)</span> that publishes the website for the spring 2023 version of Statistics 159/259. Any commits made in the <span class="in">`main`</span> branch cause the website to be updated.</span>
+<span id="cb49-591"><a href="#cb49-591" aria-hidden="true" tabindex="-1"></a>We can use GitHub Actions with GitHub pages to easily publish websites, where we make changes to the repository and the workflow causes the website to be updated.</span>
 <span id="cb49-592"><a href="#cb49-592" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-593"><a href="#cb49-593" aria-hidden="true" tabindex="-1"></a><span class="fu">### Configuring GitHub Pages</span></span>
+<span id="cb49-593"><a href="#cb49-593" aria-hidden="true" tabindex="-1"></a>Here's the <span class="co">[</span><span class="ot">GitHub Actions workflow (a YAML file)</span><span class="co">](https://github.com/UCB-stat-159-s23/site/blob/main/.github/workflows/book.yml)</span> that publishes the website for the spring 2023 version of Statistics 159/259. Any commits made in the <span class="in">`main`</span> branch cause the website to be updated.</span>
 <span id="cb49-594"><a href="#cb49-594" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-595"><a href="#cb49-595" aria-hidden="true" tabindex="-1"></a>To set up GitHub Pages for a repository, go to <span class="in">`https://github.com/github_org/repository/settings/pages`</span> and select <span class="in">`Source -&gt; Deploy from a branch`</span> and then choose <span class="in">`gh-pages`</span> as the branch (first creating the <span class="in">`gh-pages`</span> branch if necessary). The website should appear at <span class="in">`github_org.github.io/repository`</span>.</span>
+<span id="cb49-595"><a href="#cb49-595" aria-hidden="true" tabindex="-1"></a><span class="fu">### Configuring GitHub Pages</span></span>
 <span id="cb49-596"><a href="#cb49-596" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-597"><a href="#cb49-597" aria-hidden="true" tabindex="-1"></a><span class="fu">### Quarto-based websites</span></span>
+<span id="cb49-597"><a href="#cb49-597" aria-hidden="true" tabindex="-1"></a>To set up GitHub Pages for a repository, go to <span class="in">`https://github.com/github_org/repository/settings/pages`</span> and select <span class="in">`Source -&gt; Deploy from a branch`</span> and then choose <span class="in">`gh-pages`</span> as the branch (first creating the <span class="in">`gh-pages`</span> branch if necessary). The website should appear at <span class="in">`github_org.github.io/repository`</span>.</span>
 <span id="cb49-598"><a href="#cb49-598" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-599"><a href="#cb49-599" aria-hidden="true" tabindex="-1"></a>In fact the website for this workshop was done using Quarto, which uses GitHub Pages and GitHub Actions behind the scenes.</span>
+<span id="cb49-599"><a href="#cb49-599" aria-hidden="true" tabindex="-1"></a><span class="fu">### Quarto-based websites</span></span>
 <span id="cb49-600"><a href="#cb49-600" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-601"><a href="#cb49-601" aria-hidden="true" tabindex="-1"></a>Chris runs <span class="in">`quarto publish gh-pages`</span> to update the site. Quarto will (on the local machine) render the html (convert the Markdown to html) and then behind the scenes Quarto uses <span class="co">[</span><span class="ot">GitHub Actions</span><span class="co">](https://github.com/berkeley-scf/compute-skills-2024/actions)</span> and <span class="co">[</span><span class="ot">GitHub Pages (via the `gh-pages branch)</span><span class="co">](https://github.com/berkeley-scf/compute-skills-2024/tree/gh-pages)</span> to publish the website.</span>
+<span id="cb49-601"><a href="#cb49-601" aria-hidden="true" tabindex="-1"></a>In fact the website for this workshop was done using Quarto, which uses GitHub Pages and GitHub Actions behind the scenes.</span>
 <span id="cb49-602"><a href="#cb49-602" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-603"><a href="#cb49-603" aria-hidden="true" tabindex="-1"></a><span class="fu"># Feedback survey</span></span>
+<span id="cb49-603"><a href="#cb49-603" aria-hidden="true" tabindex="-1"></a>Chris runs <span class="in">`quarto publish gh-pages`</span> to update the site. Quarto will (on the local machine) render the html (convert the Markdown to html) and then behind the scenes Quarto uses <span class="co">[</span><span class="ot">GitHub Actions</span><span class="co">](https://github.com/berkeley-scf/compute-skills-2024/actions)</span> and <span class="co">[</span><span class="ot">GitHub Pages (via the `gh-pages branch)</span><span class="co">](https://github.com/berkeley-scf/compute-skills-2024/tree/gh-pages)</span> to publish the website.</span>
 <span id="cb49-604"><a href="#cb49-604" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-605"><a href="#cb49-605" aria-hidden="true" tabindex="-1"></a>This is the first time we've done this, so it's particularly valuable now to get feedback on it. Please fill out this <span class="co">[</span><span class="ot">brief survey</span><span class="co">](https://forms.gle/7oy1y4EXrcGnH5to9)</span>. </span>
+<span id="cb49-605"><a href="#cb49-605" aria-hidden="true" tabindex="-1"></a><span class="fu"># Feedback survey</span></span>
+<span id="cb49-606"><a href="#cb49-606" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-607"><a href="#cb49-607" aria-hidden="true" tabindex="-1"></a>This is the first time we've done this, so it's particularly valuable now to get feedback on it. Please fill out this <span class="co">[</span><span class="ot">brief survey</span><span class="co">](https://forms.gle/7oy1y4EXrcGnH5to9)</span>. </span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
