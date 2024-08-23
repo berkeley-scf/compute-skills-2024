@@ -425,7 +425,7 @@ Tip
 </div>
 </div>
 <p>Once you’ve written your Python functions, put your code into a simple text file, called <code>newton.py</code>. In doing so you’ve created a Python <em>module</em>. Once you have your module, you can use it like this:</p>
-<div id="67b92673" class="cell" data-execution_count="1">
+<div id="8d4c94a1" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> newton</span>
@@ -640,7 +640,7 @@ More than the syntax
 <p>We identify each node (commit) with a hash, a fingerprint of the content of each commit and its parent. It is important the fact that the hash include information of the parent node, since this allow us to keep the check the structural consistency of the DAG.</p>
 <p>We can illustrate what Git is doing easily in Python.</p>
 <p>Let’s create a first hash:</p>
-<div id="17ce17be" class="cell" data-execution_count="2">
+<div id="8f9af0ab" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> hashlib <span class="im">import</span> sha1</span>
@@ -656,7 +656,7 @@ More than the syntax
 </div>
 </div>
 <p>￼ Every small change we make on the previous text with result in a full change of the associated hash code. Notice also how in the next hash we have included the information of the parent node.</p>
-<div id="53b9f80b" class="cell" data-execution_count="3">
+<div id="c61ffd6b" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> <span class="st">b'Some more text in my paper...'</span></span>
@@ -801,7 +801,7 @@ Q: Who is the person most likely to use your code again?
 <li>Comments should generally be complete sentences.</li>
 </ul></li>
 <li><p>You can use parentheses to group operations such that they can be split up into lines and easily commented, e.g.,</p>
-<div id="14541384" class="cell" data-execution_count="4">
+<div id="0d7d8703" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>newdf <span class="op">=</span> (</span>
@@ -865,7 +865,7 @@ Q: Who is the person most likely to use your code again?
 <section id="using-the-jupyterlab-visual-debugger" class="level3">
 <h3 class="anchored" data-anchor-id="using-the-jupyterlab-visual-debugger">Using the JupyterLab visual debugger</h3>
 <p>Let’s debug my buggy implementation of Newton’s method.</p>
-<div id="a2fd0ceb" class="cell" data-execution_count="5">
+<div id="abe2b72c" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> newton</span>
@@ -1066,7 +1066,7 @@ Resolving conflicts at the command line
 <p><span class="math display">\[
 x_{t+1}=x_{t}-H_{f}(x_{t})^{-1}\nabla f(x_{t})
 \]</span></p>
-<p>where <span class="math inline">\(\nabla f(x_{t}\)</span> is the gradient (first derivative with respect to each element of <span class="math inline">\(x\)</span>) and <span class="math inline">\(H_{f}(x_{t})\)</span> is the Hessian matrix (second derivatives with respect to all pairs of the elements of <span class="math inline">\(x\)</span>).</p>
+<p>where <span class="math inline">\(\nabla f(x_{t})\)</span> is the gradient (first derivative with respect to each element of <span class="math inline">\(x\)</span>) and <span class="math inline">\(H_{f}(x_{t})\)</span> is the Hessian matrix (second derivatives with respect to all pairs of the elements of <span class="math inline">\(x\)</span>).</p>
 <p>Here are the steps:</p>
 <ul>
 <li>determine a starting value, <span class="math inline">\(x_0\)</span>.</li>
@@ -1084,7 +1084,7 @@ x_{t+1}=x_{t}-H_{f}(x_{t})^{-1}\nabla f(x_{t})
 <li>Make a branch (called <code>multivariate</code>) in which you’ll implement the multivariate version of Newton’s method (see details above)</li>
 <li>Implement the algorithm, either in <code>newton.py</code> or in a new file if you prefer.</li>
 </ol>
-<p>You may need to search online for how to calculate <span class="math inline">\(H_{f}(x_{t})^{-1}\nabla f(x_{t}\)</span>.</p>
+<p>You may need to search online for how to calculate <span class="math inline">\(H_{f}(x_{t})^{-1}\nabla f(x_{t})\)</span>.</p>
 <p>At this point, if we think about calculating the Hessian it starts to feel more tedious to deal with the finite difference calculations, though it is a straightforward extension of what you already implemented. Feel free to look online to find a Python package that implements finite difference estimation of derivatives and use that in your code (see what Google indicates or if you use a ChatBot/LLM what they suggest).</p>
 <p>As you are writing the code, you can continue to think about what might go wrong and include defensive programming tactics.</p>
 </section>
@@ -2346,7 +2346,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb31-727"><a href="#cb31-727" aria-hidden="true" tabindex="-1"></a>x_{t+1}=x_{t}-H_{f}(x_{t})^{-1}\nabla f(x_{t})</span>
 <span id="cb31-728"><a href="#cb31-728" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb31-729"><a href="#cb31-729" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-730"><a href="#cb31-730" aria-hidden="true" tabindex="-1"></a>where $\nabla f(x_{t}$ is the gradient (first derivative with respect to each element of $x$) and $H_{f}(x_{t})$ is the Hessian matrix (second derivatives with respect to all pairs of the elements of $x$).</span>
+<span id="cb31-730"><a href="#cb31-730" aria-hidden="true" tabindex="-1"></a>where $\nabla f(x_{t})$ is the gradient (first derivative with respect to each element of $x$) and $H_{f}(x_{t})$ is the Hessian matrix (second derivatives with respect to all pairs of the elements of $x$).</span>
 <span id="cb31-731"><a href="#cb31-731" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-732"><a href="#cb31-732" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-733"><a href="#cb31-733" aria-hidden="true" tabindex="-1"></a>Here are the steps:</span>
@@ -2362,7 +2362,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb31-743"><a href="#cb31-743" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Make a branch (called <span class="in">`multivariate`</span>) in which you'll implement the multivariate version of Newton's method (see details above)</span>
 <span id="cb31-744"><a href="#cb31-744" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Implement the algorithm, either in <span class="in">`newton.py`</span> or in a new file if you prefer.</span>
 <span id="cb31-745"><a href="#cb31-745" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-746"><a href="#cb31-746" aria-hidden="true" tabindex="-1"></a>You may need to search online for how to calculate $H_{f}(x_{t})^{-1}\nabla f(x_{t}$.</span>
+<span id="cb31-746"><a href="#cb31-746" aria-hidden="true" tabindex="-1"></a>You may need to search online for how to calculate $H_{f}(x_{t})^{-1}\nabla f(x_{t})$.</span>
 <span id="cb31-747"><a href="#cb31-747" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-748"><a href="#cb31-748" aria-hidden="true" tabindex="-1"></a>At this point, if we think about calculating the Hessian it starts to feel more tedious to deal with the finite difference calculations, though it is a straightforward extension of what you already implemented. Feel free to look online to find a Python package that implements finite difference estimation of derivatives and use that in your code (see what Google indicates or if you use a ChatBot/LLM what they suggest).</span>
 <span id="cb31-749"><a href="#cb31-749" aria-hidden="true" tabindex="-1"></a></span>

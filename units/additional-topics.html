@@ -296,6 +296,7 @@ window.Quarto = {
   <li><a href="#quarto-based-websites" id="toc-quarto-based-websites" class="nav-link" data-scroll-target="#quarto-based-websites">Quarto-based websites</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#feedback-survey" id="toc-feedback-survey" class="nav-link" data-scroll-target="#feedback-survey">Feedback survey</a></li>
   </ul>
 </nav>
     </div>
@@ -343,7 +344,7 @@ Overview
 <h3 class="anchored" data-anchor-id="random-number-seed">Random number seed</h3>
 <p>The <em>seed</em> determines where in the cycle of the periodic sequence you are.</p>
 <p>It’s critical for ensuring reproducibility when running code that uses random numbers</p>
-<div id="df69f2f7" class="cell" data-execution_count="1">
+<div id="15899b92" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -354,7 +355,7 @@ Overview
 <pre><code>array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763])</code></pre>
 </div>
 </div>
-<div id="1d49e2fc" class="cell" data-execution_count="2">
+<div id="6e80d2b5" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>np.random.normal(size <span class="op">=</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -363,7 +364,7 @@ Overview
 <pre><code>array([-2.3015387 ,  1.74481176, -0.7612069 ,  0.3190391 , -0.24937038])</code></pre>
 </div>
 </div>
-<div id="db6886a9" class="cell" data-execution_count="3">
+<div id="198a5e05" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">1</span>)</span>
@@ -379,7 +380,7 @@ Overview
 <h3 class="anchored" data-anchor-id="random-number-generators">Random number generators</h3>
 <p>If you don’t do anything, numpy will use a generator called the Mersenne Twister (that’s the default in R too).</p>
 <p>However the “default” RNG in numpy is a newer, better algorithm called PCG64.</p>
-<div id="ff2bfb39" class="cell" data-execution_count="4">
+<div id="16c12bb1" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Mersenne twister</span></span>
@@ -390,7 +391,7 @@ Overview
 <pre><code>array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763])</code></pre>
 </div>
 </div>
-<div id="4db39c38" class="cell" data-execution_count="5">
+<div id="7306ac85" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Mersenne twister, selected specifically</span></span>
@@ -402,7 +403,7 @@ Overview
 <pre><code>array([ 2.04676909, -1.03653009,  0.72997546,  0.41584996, -0.1922969 ])</code></pre>
 </div>
 </div>
-<div id="21788d02" class="cell" data-execution_count="6">
+<div id="0b38b673" class="cell" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 'Default' PCG64</span></span>
@@ -413,7 +414,7 @@ Overview
 <pre><code>array([ 0.34558419,  0.82161814,  0.33043708, -1.30315723,  0.90535587])</code></pre>
 </div>
 </div>
-<div id="ae1116b8" class="cell" data-execution_count="7">
+<div id="37460a20" class="cell" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(seed <span class="op">=</span> <span class="dv">1</span>)</span>
@@ -433,7 +434,7 @@ Overview
 </section>
 <section id="floating-point-precision" class="level2">
 <h2 class="anchored" data-anchor-id="floating-point-precision">Floating point precision</h2>
-<div id="cf84a981" class="cell" data-execution_count="8">
+<div id="728ac5d0" class="cell" data-execution_count="8">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.3</span> <span class="op">-</span> <span class="fl">0.2</span> <span class="op">==</span> <span class="fl">0.1</span></span>
@@ -453,7 +454,7 @@ Overview
 <li>4 bytes = 32 bits = single precision</li>
 </ul>
 <p>(GPU libraries often use 4 bytes or even fewer.)</p>
-<div id="16367f0c" class="cell" data-execution_count="9">
+<div id="7175dab1" class="cell" data-execution_count="9">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dg(x, form <span class="op">=</span> <span class="st">'.20f'</span>):</span>
@@ -475,7 +476,7 @@ Overview
 </div>
 <p>How many digits of accuracy do we have?</p>
 <p>Same thing regardless of the size of the number:</p>
-<div id="3e3f32f2" class="cell" data-execution_count="10">
+<div id="cfba3cfb" class="cell" data-execution_count="10">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fl">12345678.1234567812345678</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -484,7 +485,7 @@ Overview
 <pre><code>12345678.123456782</code></pre>
 </div>
 </div>
-<div id="b70c9854" class="cell" data-execution_count="11">
+<div id="31db3ea0" class="cell" data-execution_count="11">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fl">12345678123456781234.5678</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -493,7 +494,7 @@ Overview
 <pre><code>1.234567812345678e+19</code></pre>
 </div>
 </div>
-<div id="ca8e9b65" class="cell" data-execution_count="12">
+<div id="f7bd8578" class="cell" data-execution_count="12">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>dg(<span class="fl">12345678123456781234.5678</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -507,7 +508,7 @@ Overview
 <section id="comparisons" class="level3">
 <h3 class="anchored" data-anchor-id="comparisons">Comparisons</h3>
 <p>Let’s see what kinds of numbers we can safely compare for exact equality with <code>==</code>.</p>
-<div id="d5f8c688" class="cell" data-execution_count="13">
+<div id="21fad7d8" class="cell" data-execution_count="13">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">.5</span> <span class="op">-</span> <span class="fl">.2</span></span>
@@ -529,7 +530,7 @@ Overview
 <section id="calculation-errors" class="level3">
 <h3 class="anchored" data-anchor-id="calculation-errors">Calculation errors</h3>
 <p>Let’s consider accuracy of subtraction.</p>
-<div id="a5b3b794" class="cell" data-execution_count="14">
+<div id="6f7513c3" class="cell" data-execution_count="14">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.1234</span> <span class="op">-</span> <span class="fl">1.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -538,7 +539,7 @@ Overview
 <pre><code>0.12339999999999995</code></pre>
 </div>
 </div>
-<div id="16887560" class="cell" data-execution_count="15">
+<div id="12783601" class="cell" data-execution_count="15">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fl">123456781234.1234</span> <span class="op">-</span> <span class="fl">123456781234.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -549,7 +550,7 @@ Overview
 </div>
 <p>This is called catastrophic cancellation.</p>
 <p>Do you think calling it “catastrophic” is too extreme? If so, consider this.</p>
-<div id="6d30f0fb" class="cell" data-execution_count="16">
+<div id="b5ceb8ea" class="cell" data-execution_count="16">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fl">81.0</span> <span class="op">-</span> <span class="fl">80.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -558,7 +559,7 @@ Overview
 <pre><code>1.0</code></pre>
 </div>
 </div>
-<div id="e0a75222" class="cell" data-execution_count="17">
+<div id="b338cfcf" class="cell" data-execution_count="17">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fl">12345678123456781.0</span> <span class="op">-</span><span class="fl">12345678123456780.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -568,7 +569,7 @@ Overview
 </div>
 </div>
 <p>What’s the derivative of <span class="math inline">\(sin(x)\)</span>? Let’s see what kind of accuracy we can get.</p>
-<div id="487493cb" class="cell" data-execution_count="18">
+<div id="cb2baff9" class="cell" data-execution_count="18">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> deriv(f, x, eps<span class="op">=</span><span class="fl">1e-8</span>):</span>
@@ -590,7 +591,7 @@ Overview
 <h3 class="anchored" data-anchor-id="linear-algebra-errors">Linear algebra errors</h3>
 <p>The errors seen in doing calculations, such as catastrophic cancellation, cascaded through derivative estimation. That also happens when doing linear algebra operations.</p>
 <p>Here’s an example where mathematically all the eigenvalues are real-valued and positive, but not on the computer.</p>
-<div id="ce8b6f4b" class="cell" data-execution_count="19">
+<div id="0b578c13" class="cell" data-execution_count="19">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
@@ -619,7 +620,7 @@ Overview
 <section id="overflow-and-underflow" class="level3">
 <h3 class="anchored" data-anchor-id="overflow-and-underflow">Overflow and underflow</h3>
 <p>Having a finite number of bits to represent each number means there are minimum and maximum numbers that can be expressed.</p>
-<div id="76d0c84c" class="cell" data-execution_count="20">
+<div id="bdff993f" class="cell" data-execution_count="20">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.38e5000</span></span>
@@ -649,7 +650,7 @@ How much do we need to worry about overflow and underflow?
 </ul>
 </div>
 </div>
-<div id="69a53ffc" class="cell" data-execution_count="21">
+<div id="812a825f" class="cell" data-execution_count="21">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -686,7 +687,7 @@ Work with probabilities and densities on the log scale. Almost always.
 <section id="exercise-numerical-issues-with-newtons-method" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-numerical-issues-with-newtons-method">Exercise: numerical issues with Newton’s method</h2>
 <p>Look at your partner’s code in terms of how it handles the stopping criterion or (for the 1-d case) the finite difference estimate of the gradient and Hessian.</p>
-<p>Make a pull request that tries to improve how that is handled.</p>
+<p>Fork your partner’s repository (`https://github.com/<username>/newton-practice/fork). In the local version of that repository on your DataHub, make a change to try to improve how the stopping criterion or finite difference estimate is handled. Then make a pull request back into your partner’s repository.</username></p>
 <p>Then review the pull request your partner makes in your repository. Iterate with your partner until you are happy to merge the pull request into your repository. Remember to then run <code>git pull</code> to get the changes in the local copy of the repository.</p>
 </section>
 </section>
@@ -717,7 +718,7 @@ Work with probabilities and densities on the log scale. Almost always.
 <span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a><span class="op">EOF</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that if there were other modules, we could have imported from those as well.</p>
 <p>Now we can use the objects from the module without having to know that it was in a particular module (because of how <code>__init__.py</code> was set up).</p>
-<div id="1896d495" class="cell" data-execution_count="22">
+<div id="3d6c7a29" class="cell" data-execution_count="22">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mypkg</span>
@@ -736,7 +737,7 @@ Work with probabilities and densities on the log scale. Almost always.
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--user</span> .</span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span>
 <span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> .local/lib/python3.11/site-packages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="75c0d3ac" class="cell" data-execution_count="23">
+<div id="18917603" class="cell" data-execution_count="23">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mytoy</span>
@@ -831,7 +832,6 @@ Activating an environment
 </section>
 <section id="github-actions-and-continuous-integration" class="level1">
 <h1>10. GitHub Actions and Continuous Integration</h1>
-<p>[UNDER CONSTRUCTION]</p>
 <p>Having reproducible environments (e.g., Conda environments or Docker containers) provides the ability to run (and automate) various actions to run on remote/cloud computational resources and know that they (should) work.</p>
 <section id="docker-containers" class="level2 {callout-tip}">
 <h2 class="anchored" data-anchor-id="docker-containers">Docker containers</h2>
@@ -911,12 +911,16 @@ jobs:
 <h3 class="anchored" data-anchor-id="quarto-based-websites">Quarto-based websites</h3>
 <p>In fact the website for this workshop was done using Quarto, which uses GitHub Pages and GitHub Actions behind the scenes.</p>
 <p>Chris runs <code>quarto publish gh-pages</code> to update the site. Quarto will (on the local machine) render the html (convert the Markdown to html) and then behind the scenes Quarto uses <a href="https://github.com/berkeley-scf/compute-skills-2024/actions">GitHub Actions</a> and <a href="https://github.com/berkeley-scf/compute-skills-2024/tree/gh-pages">GitHub Pages (via the `gh-pages branch)</a> to publish the website.</p>
+</section>
+</section>
+</section>
+<section id="feedback-survey" class="level1">
+<h1>Feedback survey</h1>
+<p>This is the first time we’ve done this, so it’s particularly valuable now to get feedback on it. Please fill out this <a href="https://forms.gle/7oy1y4EXrcGnH5to9">brief survey</a>.</p>
 
 
 <!-- -->
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1646,7 +1650,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb49-295"><a href="#cb49-295" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-296"><a href="#cb49-296" aria-hidden="true" tabindex="-1"></a>Look at your partner's code in terms of how it handles the stopping criterion or (for the 1-d case) the finite difference estimate of the gradient and Hessian.</span>
 <span id="cb49-297"><a href="#cb49-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-298"><a href="#cb49-298" aria-hidden="true" tabindex="-1"></a>Make a pull request that tries to improve how that is handled.</span>
+<span id="cb49-298"><a href="#cb49-298" aria-hidden="true" tabindex="-1"></a>Fork your partner's repository (`https://github.com/&lt;username&gt;/newton-practice/fork). In the local version of that repository on your DataHub, make a change to try to improve how the stopping criterion or finite difference estimate is handled. Then make a pull request back into your partner's repository.</span>
 <span id="cb49-299"><a href="#cb49-299" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-300"><a href="#cb49-300" aria-hidden="true" tabindex="-1"></a>Then review the pull request your partner makes in your repository. Iterate with your partner until you are happy to merge the pull request into your repository. Remember to then run <span class="in">`git pull`</span> to get the changes in the local copy of the repository.</span>
 <span id="cb49-301"><a href="#cb49-301" aria-hidden="true" tabindex="-1"></a></span>
@@ -1826,118 +1830,120 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb49-479"><a href="#cb49-479" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-480"><a href="#cb49-480" aria-hidden="true" tabindex="-1"></a><span class="fu"># 10. GitHub Actions and Continuous Integration</span></span>
 <span id="cb49-481"><a href="#cb49-481" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-482"><a href="#cb49-482" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">UNDER CONSTRUCTION</span><span class="co">]</span></span>
+<span id="cb49-482"><a href="#cb49-482" aria-hidden="true" tabindex="-1"></a>Having reproducible environments (e.g., Conda environments or Docker containers) provides the ability to run (and automate) various actions to run on remote/cloud computational resources and know that they (should) work.</span>
 <span id="cb49-483"><a href="#cb49-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-484"><a href="#cb49-484" aria-hidden="true" tabindex="-1"></a>Having reproducible environments (e.g., Conda environments or Docker containers) provides the ability to run (and automate) various actions to run on remote/cloud computational resources and know that they (should) work.</span>
-<span id="cb49-485"><a href="#cb49-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-486"><a href="#cb49-486" aria-hidden="true" tabindex="-1"></a>::: {callout-tip}</span>
-<span id="cb49-487"><a href="#cb49-487" aria-hidden="true" tabindex="-1"></a><span class="fu">## Docker containers</span></span>
-<span id="cb49-488"><a href="#cb49-488" aria-hidden="true" tabindex="-1"></a>Docker containers share some similarities with Conda environments except that you provide a full specification for the Linux operating system you want to use and software you want installed.</span>
-<span id="cb49-489"><a href="#cb49-489" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb49-484"><a href="#cb49-484" aria-hidden="true" tabindex="-1"></a>::: {callout-tip}</span>
+<span id="cb49-485"><a href="#cb49-485" aria-hidden="true" tabindex="-1"></a><span class="fu">## Docker containers</span></span>
+<span id="cb49-486"><a href="#cb49-486" aria-hidden="true" tabindex="-1"></a>Docker containers share some similarities with Conda environments except that you provide a full specification for the Linux operating system you want to use and software you want installed.</span>
+<span id="cb49-487"><a href="#cb49-487" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb49-488"><a href="#cb49-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-489"><a href="#cb49-489" aria-hidden="true" tabindex="-1"></a>You need to provide the recipe for the environment or container. The automation system can then set up the environment as a virtual environment/container on the remote machine and run the action/code you request. This could simply be giving you a terminal or starting a Jupyter notebook in the environment and giving you access via your browser.</span>
 <span id="cb49-490"><a href="#cb49-490" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-491"><a href="#cb49-491" aria-hidden="true" tabindex="-1"></a>You need to provide the recipe for the environment or container. The automation system can then set up the environment as a virtual environment/container on the remote machine and run the action/code you request. This could simply be giving you a terminal or starting a Jupyter notebook in the environment and giving you access via your browser.</span>
+<span id="cb49-491"><a href="#cb49-491" aria-hidden="true" tabindex="-1"></a>In this section, we'll show some examples of automation with reproducible environments.</span>
 <span id="cb49-492"><a href="#cb49-492" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-493"><a href="#cb49-493" aria-hidden="true" tabindex="-1"></a>In this section, we'll show some examples of automation with reproducible environments.</span>
+<span id="cb49-493"><a href="#cb49-493" aria-hidden="true" tabindex="-1"></a>There are a lot more out there. In fact, DataHub is based on Docker containers (and a container management service called Kubernetes). Let's see what operating system is being run in the container that your DataHub server is using.</span>
 <span id="cb49-494"><a href="#cb49-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-495"><a href="#cb49-495" aria-hidden="true" tabindex="-1"></a>There are a lot more out there. In fact, DataHub is based on Docker containers (and a container management service called Kubernetes). Let's see what operating system is being run in the container that your DataHub server is using.</span>
-<span id="cb49-496"><a href="#cb49-496" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-497"><a href="#cb49-497" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb49-498"><a href="#cb49-498" aria-hidden="true" tabindex="-1"></a><span class="in">$ cat /etc/issue</span></span>
-<span id="cb49-499"><a href="#cb49-499" aria-hidden="true" tabindex="-1"></a><span class="in">Ubuntu 22.04.4 LTS \n \l</span></span>
-<span id="cb49-500"><a href="#cb49-500" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb49-495"><a href="#cb49-495" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb49-496"><a href="#cb49-496" aria-hidden="true" tabindex="-1"></a><span class="in">$ cat /etc/issue</span></span>
+<span id="cb49-497"><a href="#cb49-497" aria-hidden="true" tabindex="-1"></a><span class="in">Ubuntu 22.04.4 LTS \n \l</span></span>
+<span id="cb49-498"><a href="#cb49-498" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb49-499"><a href="#cb49-499" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-500"><a href="#cb49-500" aria-hidden="true" tabindex="-1"></a>This is all quite powerful, and the use of reproducible environments generally helps with debugging because you can also set up the environment on your own machine. That said, running code remotely or in the cloud can also be hard to debug at times.</span>
 <span id="cb49-501"><a href="#cb49-501" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-502"><a href="#cb49-502" aria-hidden="true" tabindex="-1"></a>This is all quite powerful, and the use of reproducible environments generally helps with debugging because you can also set up the environment on your own machine. That said, running code remotely or in the cloud can also be hard to debug at times.</span>
+<span id="cb49-502"><a href="#cb49-502" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example 1: Binder</span></span>
 <span id="cb49-503"><a href="#cb49-503" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-504"><a href="#cb49-504" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example 1: Binder</span></span>
+<span id="cb49-504"><a href="#cb49-504" aria-hidden="true" tabindex="-1"></a>One example is using Binder to open a Jupyter notebook in an executable environment.</span>
 <span id="cb49-505"><a href="#cb49-505" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-506"><a href="#cb49-506" aria-hidden="true" tabindex="-1"></a>One example is using Binder to open a Jupyter notebook in an executable environment.</span>
+<span id="cb49-506"><a href="#cb49-506" aria-hidden="true" tabindex="-1"></a>Based on a configuration (various options are possible for how to specify the configuration), Binder will create a Docker container with the needed software installed.</span>
 <span id="cb49-507"><a href="#cb49-507" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-508"><a href="#cb49-508" aria-hidden="true" tabindex="-1"></a>Based on a configuration (various options are possible for how to specify the configuration), Binder will create a Docker container with the needed software installed.</span>
+<span id="cb49-508"><a href="#cb49-508" aria-hidden="true" tabindex="-1"></a>The most common configuration format is to provide a Conda environment file. Binder will then create a Conda environment inside the Docker (Linux) container. The Conda environment will contain the packages specified in the environment file. </span>
 <span id="cb49-509"><a href="#cb49-509" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-510"><a href="#cb49-510" aria-hidden="true" tabindex="-1"></a>The most common configuration format is to provide a Conda environment file. Binder will then create a Conda environment inside the Docker (Linux) container. The Conda environment will contain the packages specified in the environment file. </span>
+<span id="cb49-510"><a href="#cb49-510" aria-hidden="true" tabindex="-1"></a>Let's set up a Binder environment "Geospatial analytics in Python with Geopandas" that can access the <span class="co">[</span><span class="ot">notebooks and materials provided in the repository</span><span class="co">](https://github.com/jorisvandenbossche/geopandas-tutorial)</span> in a <span class="co">[</span><span class="ot">computational environment</span><span class="co">](https://github.com/jorisvandenbossche/geopandas-tutorial/blob/main/environment.yml)</span> designed to use the notebooks reliably and reproducibly. </span>
 <span id="cb49-511"><a href="#cb49-511" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-512"><a href="#cb49-512" aria-hidden="true" tabindex="-1"></a>Let's set up a Binder environment "Geospatial analytics in Python with Geopandas" that can access the <span class="co">[</span><span class="ot">notebooks and materials provided in the repository</span><span class="co">](https://github.com/jorisvandenbossche/geopandas-tutorial)</span> in a <span class="co">[</span><span class="ot">computational environment</span><span class="co">](https://github.com/jorisvandenbossche/geopandas-tutorial/blob/main/environment.yml)</span> designed to use the notebooks reliably and reproducibly. </span>
+<span id="cb49-512"><a href="#cb49-512" aria-hidden="true" tabindex="-1"></a>In some cases an *image* for the container will already be available, and all that needs to happen is to start a virtual machine using that image as the computational environment. In other cases (e.g., with a configuration you've just created), the Docker container and Conda environment need to be set up.</span>
 <span id="cb49-513"><a href="#cb49-513" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-514"><a href="#cb49-514" aria-hidden="true" tabindex="-1"></a>In some cases an *image* for the container will already be available, and all that needs to happen is to start a virtual machine using that image as the computational environment. In other cases (e.g., with a configuration you've just created), the Docker container and Conda environment need to be set up.</span>
+<span id="cb49-514"><a href="#cb49-514" aria-hidden="true" tabindex="-1"></a>If we're familiar with what happens when Docker containers and Conda environments are set up, we can see in the Binder logs that a Docker container is set up (using Ubuntu Linux) and one of the steps of doing that is to create a Conda environment within the container.</span>
 <span id="cb49-515"><a href="#cb49-515" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-516"><a href="#cb49-516" aria-hidden="true" tabindex="-1"></a>If we're familiar with what happens when Docker containers and Conda environments are set up, we can see in the Binder logs that a Docker container is set up (using Ubuntu Linux) and one of the steps of doing that is to create a Conda environment within the container.</span>
+<span id="cb49-516"><a href="#cb49-516" aria-hidden="true" tabindex="-1"></a>Let's see the steps that are run if we use the <span class="in">`mytoy`</span> repository to start a Binder environment at <span class="in">`ovh.mybinder.org`</span>, specifying <span class="in">`fperez/mytoy`</span> as the repository. (Note that in a number of cases, the startup has failed, probably because <span class="in">`mybinder`</span> has very limited resources for providing cloud compute resources. We are using <span class="in">`ovh.mybinder.org`</span> rather than <span class="in">`mybinder.org`</span> in hopes that is more likely to succeed.</span>
 <span id="cb49-517"><a href="#cb49-517" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-518"><a href="#cb49-518" aria-hidden="true" tabindex="-1"></a>Let's see the steps that are run if we use the <span class="in">`mytoy`</span> repository to start a Binder environment at <span class="in">`ovh.mybinder.org`</span>, specifying <span class="in">`fperez/mytoy`</span> as the repository. (Note that in a number of cases, the startup has failed, probably because <span class="in">`mybinder`</span> has very limited resources for providing cloud compute resources. We are using <span class="in">`ovh.mybinder.org`</span> rather than <span class="in">`mybinder.org`</span> in hopes that is more likely to succeed.</span>
-<span id="cb49-519"><a href="#cb49-519" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-518"><a href="#cb49-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-519"><a href="#cb49-519" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example 2: GitHub Actions for automated testing</span></span>
 <span id="cb49-520"><a href="#cb49-520" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-521"><a href="#cb49-521" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example 2: GitHub Actions for automated testing</span></span>
+<span id="cb49-521"><a href="#cb49-521" aria-hidden="true" tabindex="-1"></a>A second example is using GitHub Actions (GHA) to automate activities such as testing. To set up a GitHub Actions workflow, one</span>
 <span id="cb49-522"><a href="#cb49-522" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-523"><a href="#cb49-523" aria-hidden="true" tabindex="-1"></a>A second example is using GitHub Actions (GHA) to automate activities such as testing. To set up a GitHub Actions workflow, one</span>
-<span id="cb49-524"><a href="#cb49-524" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-525"><a href="#cb49-525" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>specifies when the workflow will run (e.g., when a push or pull request is made, or only manually)</span>
-<span id="cb49-526"><a href="#cb49-526" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>provides instructions for how to set up the environment for the workflow</span>
-<span id="cb49-527"><a href="#cb49-527" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>provides the operations that the workflow should run.</span>
+<span id="cb49-523"><a href="#cb49-523" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>specifies when the workflow will run (e.g., when a push or pull request is made, or only manually)</span>
+<span id="cb49-524"><a href="#cb49-524" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>provides instructions for how to set up the environment for the workflow</span>
+<span id="cb49-525"><a href="#cb49-525" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>provides the operations that the workflow should run.</span>
+<span id="cb49-526"><a href="#cb49-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-527"><a href="#cb49-527" aria-hidden="true" tabindex="-1"></a>A good example is running tests whenever you make a commit to a repository containing software.</span>
 <span id="cb49-528"><a href="#cb49-528" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-529"><a href="#cb49-529" aria-hidden="true" tabindex="-1"></a>A good example is running tests whenever you make a commit to a repository containing software.</span>
+<span id="cb49-529"><a href="#cb49-529" aria-hidden="true" tabindex="-1"></a>With GHA, you specify the operating system and then run the steps you specify in <span class="in">`.github/workflows/some_action.yml`</span>. Some steps will  customize the environment as the initial steps and then additional step(s) will run shell or other code to run your workflow. You use pre-specified operations (called *actions*) to do common things (such as checking out a GitHub repository and installing commonly used software). </span>
 <span id="cb49-530"><a href="#cb49-530" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-531"><a href="#cb49-531" aria-hidden="true" tabindex="-1"></a>With GHA, you specify the operating system and then run the steps you specify in <span class="in">`.github/workflows/some_action.yml`</span>. Some steps will  customize the environment as the initial steps and then additional step(s) will run shell or other code to run your workflow. You use pre-specified operations (called *actions*) to do common things (such as checking out a GitHub repository and installing commonly used software). </span>
+<span id="cb49-531"><a href="#cb49-531" aria-hidden="true" tabindex="-1"></a>When triggered, GitHub will run the steps in a virtual machine, which is called the *runner*.</span>
 <span id="cb49-532"><a href="#cb49-532" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-533"><a href="#cb49-533" aria-hidden="true" tabindex="-1"></a>When triggered, GitHub will run the steps in a virtual machine, which is called the *runner*.</span>
+<span id="cb49-533"><a href="#cb49-533" aria-hidden="true" tabindex="-1"></a><span class="fu">### Joint demo/exercise</span></span>
 <span id="cb49-534"><a href="#cb49-534" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-535"><a href="#cb49-535" aria-hidden="true" tabindex="-1"></a><span class="fu">### Joint demo/exercise</span></span>
+<span id="cb49-535"><a href="#cb49-535" aria-hidden="true" tabindex="-1"></a>We'll walk through the steps of setting up automated testing for the <span class="in">`mytoy`</span> example package. Why do this? It's common to have testing pass locally on your own machine, but fail for various reasons when done elsewhere. </span>
 <span id="cb49-536"><a href="#cb49-536" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-537"><a href="#cb49-537" aria-hidden="true" tabindex="-1"></a>We'll walk through the steps of setting up automated testing for the <span class="in">`mytoy`</span> example package. Why do this? It's common to have testing pass locally on your own machine, but fail for various reasons when done elsewhere. </span>
+<span id="cb49-537"><a href="#cb49-537" aria-hidden="true" tabindex="-1"></a>The workflow is specified using a YAML file placed in the <span class="in">`.github/workflows`</span> directory of the repository.</span>
 <span id="cb49-538"><a href="#cb49-538" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-539"><a href="#cb49-539" aria-hidden="true" tabindex="-1"></a>The workflow is specified using a YAML file placed in the <span class="in">`.github/workflows`</span> directory of the repository.</span>
+<span id="cb49-539"><a href="#cb49-539" aria-hidden="true" tabindex="-1"></a>Here's an example YAML file for testing the <span class="in">`mytoy`</span> package:</span>
 <span id="cb49-540"><a href="#cb49-540" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-541"><a href="#cb49-541" aria-hidden="true" tabindex="-1"></a>Here's an example YAML file for testing the <span class="in">`mytoy`</span> package:</span>
-<span id="cb49-542"><a href="#cb49-542" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-543"><a href="#cb49-543" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb49-544"><a href="#cb49-544" aria-hidden="true" tabindex="-1"></a><span class="in">on:</span></span>
-<span id="cb49-545"><a href="#cb49-545" aria-hidden="true" tabindex="-1"></a><span class="in">  push:</span></span>
-<span id="cb49-546"><a href="#cb49-546" aria-hidden="true" tabindex="-1"></a><span class="in">    branches:</span></span>
-<span id="cb49-547"><a href="#cb49-547" aria-hidden="true" tabindex="-1"></a><span class="in">    - main</span></span>
-<span id="cb49-548"><a href="#cb49-548" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-549"><a href="#cb49-549" aria-hidden="true" tabindex="-1"></a><span class="in">jobs:</span></span>
-<span id="cb49-550"><a href="#cb49-550" aria-hidden="true" tabindex="-1"></a><span class="in">  CI:</span></span>
-<span id="cb49-551"><a href="#cb49-551" aria-hidden="true" tabindex="-1"></a><span class="in">    runs-on: ubuntu-latest</span></span>
-<span id="cb49-552"><a href="#cb49-552" aria-hidden="true" tabindex="-1"></a><span class="in">    steps:</span></span>
-<span id="cb49-553"><a href="#cb49-553" aria-hidden="true" tabindex="-1"></a><span class="in">    - uses: actions/checkout@v4</span></span>
-<span id="cb49-554"><a href="#cb49-554" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-555"><a href="#cb49-555" aria-hidden="true" tabindex="-1"></a><span class="in">    # Install dependencies</span></span>
-<span id="cb49-556"><a href="#cb49-556" aria-hidden="true" tabindex="-1"></a><span class="in">    - name: Set up Python </span></span>
-<span id="cb49-557"><a href="#cb49-557" aria-hidden="true" tabindex="-1"></a><span class="in">      uses: actions/setup-python@v5</span></span>
-<span id="cb49-558"><a href="#cb49-558" aria-hidden="true" tabindex="-1"></a><span class="in">      with:</span></span>
-<span id="cb49-559"><a href="#cb49-559" aria-hidden="true" tabindex="-1"></a><span class="in">        python-version: 3.12</span></span>
-<span id="cb49-560"><a href="#cb49-560" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-561"><a href="#cb49-561" aria-hidden="true" tabindex="-1"></a><span class="in">    - name: Install mytoy</span></span>
-<span id="cb49-562"><a href="#cb49-562" aria-hidden="true" tabindex="-1"></a><span class="in">      run: |</span></span>
-<span id="cb49-563"><a href="#cb49-563" aria-hidden="true" tabindex="-1"></a><span class="in">        cd mytoy</span></span>
-<span id="cb49-564"><a href="#cb49-564" aria-hidden="true" tabindex="-1"></a><span class="in">        pip install --user .</span></span>
-<span id="cb49-565"><a href="#cb49-565" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-566"><a href="#cb49-566" aria-hidden="true" tabindex="-1"></a><span class="in">    - name: Run tests</span></span>
-<span id="cb49-567"><a href="#cb49-567" aria-hidden="true" tabindex="-1"></a><span class="in">      run: |</span></span>
-<span id="cb49-568"><a href="#cb49-568" aria-hidden="true" tabindex="-1"></a><span class="in">        cd mytoy</span></span>
-<span id="cb49-569"><a href="#cb49-569" aria-hidden="true" tabindex="-1"></a><span class="in">        pytest</span></span>
-<span id="cb49-570"><a href="#cb49-570" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb49-571"><a href="#cb49-571" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-572"><a href="#cb49-572" aria-hidden="true" tabindex="-1"></a>We'll first run this with the current tests for <span class="in">`mytoy`</span>, which should pass when run via GitHub Actions.</span>
-<span id="cb49-573"><a href="#cb49-573" aria-hidden="true" tabindex="-1"></a>We can take a look at <span class="co">[</span><span class="ot">the output</span><span class="co">](https://github.com/fperez/mytoy/actions)</span>.</span>
+<span id="cb49-541"><a href="#cb49-541" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb49-542"><a href="#cb49-542" aria-hidden="true" tabindex="-1"></a><span class="in">on:</span></span>
+<span id="cb49-543"><a href="#cb49-543" aria-hidden="true" tabindex="-1"></a><span class="in">  push:</span></span>
+<span id="cb49-544"><a href="#cb49-544" aria-hidden="true" tabindex="-1"></a><span class="in">    branches:</span></span>
+<span id="cb49-545"><a href="#cb49-545" aria-hidden="true" tabindex="-1"></a><span class="in">    - main</span></span>
+<span id="cb49-546"><a href="#cb49-546" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-547"><a href="#cb49-547" aria-hidden="true" tabindex="-1"></a><span class="in">jobs:</span></span>
+<span id="cb49-548"><a href="#cb49-548" aria-hidden="true" tabindex="-1"></a><span class="in">  CI:</span></span>
+<span id="cb49-549"><a href="#cb49-549" aria-hidden="true" tabindex="-1"></a><span class="in">    runs-on: ubuntu-latest</span></span>
+<span id="cb49-550"><a href="#cb49-550" aria-hidden="true" tabindex="-1"></a><span class="in">    steps:</span></span>
+<span id="cb49-551"><a href="#cb49-551" aria-hidden="true" tabindex="-1"></a><span class="in">    - uses: actions/checkout@v4</span></span>
+<span id="cb49-552"><a href="#cb49-552" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-553"><a href="#cb49-553" aria-hidden="true" tabindex="-1"></a><span class="in">    # Install dependencies</span></span>
+<span id="cb49-554"><a href="#cb49-554" aria-hidden="true" tabindex="-1"></a><span class="in">    - name: Set up Python </span></span>
+<span id="cb49-555"><a href="#cb49-555" aria-hidden="true" tabindex="-1"></a><span class="in">      uses: actions/setup-python@v5</span></span>
+<span id="cb49-556"><a href="#cb49-556" aria-hidden="true" tabindex="-1"></a><span class="in">      with:</span></span>
+<span id="cb49-557"><a href="#cb49-557" aria-hidden="true" tabindex="-1"></a><span class="in">        python-version: 3.12</span></span>
+<span id="cb49-558"><a href="#cb49-558" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-559"><a href="#cb49-559" aria-hidden="true" tabindex="-1"></a><span class="in">    - name: Install mytoy</span></span>
+<span id="cb49-560"><a href="#cb49-560" aria-hidden="true" tabindex="-1"></a><span class="in">      run: |</span></span>
+<span id="cb49-561"><a href="#cb49-561" aria-hidden="true" tabindex="-1"></a><span class="in">        cd mytoy</span></span>
+<span id="cb49-562"><a href="#cb49-562" aria-hidden="true" tabindex="-1"></a><span class="in">        pip install --user .</span></span>
+<span id="cb49-563"><a href="#cb49-563" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-564"><a href="#cb49-564" aria-hidden="true" tabindex="-1"></a><span class="in">    - name: Run tests</span></span>
+<span id="cb49-565"><a href="#cb49-565" aria-hidden="true" tabindex="-1"></a><span class="in">      run: |</span></span>
+<span id="cb49-566"><a href="#cb49-566" aria-hidden="true" tabindex="-1"></a><span class="in">        cd mytoy</span></span>
+<span id="cb49-567"><a href="#cb49-567" aria-hidden="true" tabindex="-1"></a><span class="in">        pytest</span></span>
+<span id="cb49-568"><a href="#cb49-568" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb49-569"><a href="#cb49-569" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-570"><a href="#cb49-570" aria-hidden="true" tabindex="-1"></a>We'll first run this with the current tests for <span class="in">`mytoy`</span>, which should pass when run via GitHub Actions.</span>
+<span id="cb49-571"><a href="#cb49-571" aria-hidden="true" tabindex="-1"></a>We can take a look at <span class="co">[</span><span class="ot">the output</span><span class="co">](https://github.com/fperez/mytoy/actions)</span>.</span>
+<span id="cb49-572"><a href="#cb49-572" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-573"><a href="#cb49-573" aria-hidden="true" tabindex="-1"></a>Next, let's introduce a failing test to see what the output looks like and get a sense for how to debug it.</span>
 <span id="cb49-574"><a href="#cb49-574" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-575"><a href="#cb49-575" aria-hidden="true" tabindex="-1"></a>Next, let's introduce a failing test to see what the output looks like and get a sense for how to debug it.</span>
+<span id="cb49-575"><a href="#cb49-575" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-576"><a href="#cb49-576" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-577"><a href="#cb49-577" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-577"><a href="#cb49-577" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example 3: GitHub Actions for publishing webpages</span></span>
 <span id="cb49-578"><a href="#cb49-578" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-579"><a href="#cb49-579" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example 3: GitHub Actions for publishing webpages</span></span>
+<span id="cb49-579"><a href="#cb49-579" aria-hidden="true" tabindex="-1"></a>We can use GitHub Actions with GitHub pages to easily publish websites, where we make changes to the repository and the workflow causes the website to be updated.</span>
 <span id="cb49-580"><a href="#cb49-580" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-581"><a href="#cb49-581" aria-hidden="true" tabindex="-1"></a>We can use GitHub Actions with GitHub pages to easily publish websites, where we make changes to the repository and the workflow causes the website to be updated.</span>
+<span id="cb49-581"><a href="#cb49-581" aria-hidden="true" tabindex="-1"></a>Here's the <span class="co">[</span><span class="ot">GitHub Actions workflow (a YAML file)</span><span class="co">](https://github.com/UCB-stat-159-s23/site/blob/main/.github/workflows/book.yml)</span> that publishes the website for the spring 2023 version of Statistics 159/259. Any commits made in the <span class="in">`main`</span> branch cause the website to be updated.</span>
 <span id="cb49-582"><a href="#cb49-582" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-583"><a href="#cb49-583" aria-hidden="true" tabindex="-1"></a>Here's the <span class="co">[</span><span class="ot">GitHub Actions workflow (a YAML file)</span><span class="co">](https://github.com/UCB-stat-159-s23/site/blob/main/.github/workflows/book.yml)</span> that publishes the website for the spring 2023 version of Statistics 159/259. Any commits made in the <span class="in">`main`</span> branch cause the website to be updated.</span>
+<span id="cb49-583"><a href="#cb49-583" aria-hidden="true" tabindex="-1"></a><span class="fu">### Configuring GitHub Pages</span></span>
 <span id="cb49-584"><a href="#cb49-584" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-585"><a href="#cb49-585" aria-hidden="true" tabindex="-1"></a><span class="fu">### Configuring GitHub Pages</span></span>
+<span id="cb49-585"><a href="#cb49-585" aria-hidden="true" tabindex="-1"></a>To set up GitHub Pages for a repository, go to <span class="in">`https://github.com/github_org/repository/settings/pages`</span> and select <span class="in">`Source -&gt; Deploy from a branch`</span> and then choose <span class="in">`gh-pages`</span> as the branch (first creating the <span class="in">`gh-pages`</span> branch if necessary). The website should appear at <span class="in">`github_org.github.io/repository`</span>.</span>
 <span id="cb49-586"><a href="#cb49-586" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-587"><a href="#cb49-587" aria-hidden="true" tabindex="-1"></a>To set up GitHub Pages for a repository, go to <span class="in">`https://github.com/github_org/repository/settings/pages`</span> and select <span class="in">`Source -&gt; Deploy from a branch`</span> and then choose <span class="in">`gh-pages`</span> as the branch (first creating the <span class="in">`gh-pages`</span> branch if necessary). The website should appear at <span class="in">`github_org.github.io/repository`</span>.</span>
+<span id="cb49-587"><a href="#cb49-587" aria-hidden="true" tabindex="-1"></a><span class="fu">### Quarto-based websites</span></span>
 <span id="cb49-588"><a href="#cb49-588" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-589"><a href="#cb49-589" aria-hidden="true" tabindex="-1"></a><span class="fu">### Quarto-based websites</span></span>
+<span id="cb49-589"><a href="#cb49-589" aria-hidden="true" tabindex="-1"></a>In fact the website for this workshop was done using Quarto, which uses GitHub Pages and GitHub Actions behind the scenes.</span>
 <span id="cb49-590"><a href="#cb49-590" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-591"><a href="#cb49-591" aria-hidden="true" tabindex="-1"></a>In fact the website for this workshop was done using Quarto, which uses GitHub Pages and GitHub Actions behind the scenes.</span>
+<span id="cb49-591"><a href="#cb49-591" aria-hidden="true" tabindex="-1"></a>Chris runs <span class="in">`quarto publish gh-pages`</span> to update the site. Quarto will (on the local machine) render the html (convert the Markdown to html) and then behind the scenes Quarto uses <span class="co">[</span><span class="ot">GitHub Actions</span><span class="co">](https://github.com/berkeley-scf/compute-skills-2024/actions)</span> and <span class="co">[</span><span class="ot">GitHub Pages (via the `gh-pages branch)</span><span class="co">](https://github.com/berkeley-scf/compute-skills-2024/tree/gh-pages)</span> to publish the website.</span>
 <span id="cb49-592"><a href="#cb49-592" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-593"><a href="#cb49-593" aria-hidden="true" tabindex="-1"></a>Chris runs <span class="in">`quarto publish gh-pages`</span> to update the site. Quarto will (on the local machine) render the html (convert the Markdown to html) and then behind the scenes Quarto uses <span class="co">[</span><span class="ot">GitHub Actions</span><span class="co">](https://github.com/berkeley-scf/compute-skills-2024/actions)</span> and <span class="co">[</span><span class="ot">GitHub Pages (via the `gh-pages branch)</span><span class="co">](https://github.com/berkeley-scf/compute-skills-2024/tree/gh-pages)</span> to publish the website.</span>
+<span id="cb49-593"><a href="#cb49-593" aria-hidden="true" tabindex="-1"></a><span class="fu"># Feedback survey</span></span>
+<span id="cb49-594"><a href="#cb49-594" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-595"><a href="#cb49-595" aria-hidden="true" tabindex="-1"></a>This is the first time we've done this, so it's particularly valuable now to get feedback on it. Please fill out this <span class="co">[</span><span class="ot">brief survey</span><span class="co">](https://forms.gle/7oy1y4EXrcGnH5to9)</span>. </span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
