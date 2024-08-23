@@ -522,11 +522,13 @@ jobs:
 
     - name: Install mytoy
       run: |
+        # There is a small bug here.
         cd mytoy
         pip install --user .
 
     - name: Run tests
       run: |
+        # Another small bug here.
         cd mytoy
         pytest
 ```
