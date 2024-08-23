@@ -634,7 +634,7 @@ if x > 1e7:
 ```
 import warnings
 if x > 3:
-   warnings.warn(f"{x} is greater than 3.")
+   warnings.warn(f"{x} is greater than 3.", UserWarning)
 ```  
 
 Next, if you have time, consider robustifying your code if you have time:

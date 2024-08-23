@@ -17,3 +17,7 @@ def test_bad_input():
     with pytest.raises(TypeError, match='`x0` must be numeric'):
         newton.optimize(np.cos, 2.95)
 
+## How to check that a warning is (correctly) emitted:
+## def test_warning():
+##    with pytest.warns(UserWarning, match='greater'):
+##        newton.optimize(...., ....)
