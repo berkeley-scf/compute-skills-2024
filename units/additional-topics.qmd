@@ -249,13 +249,13 @@ np.exp(loglik)
 ## Work with probabilities and densities on the log scale. Almost always.
 :::
 
-## Exercise: numerical issues with Newton's method
+## Exercise: forking and pull requests for numerical issues with Newton's method
 
 Look at your partner's code in terms of how it handles the stopping criterion or (for the 1-d case) the finite difference estimate of the gradient and Hessian.
 
 Fork your partner's repository. In the local version of that repository on your DataHub, make a change to try to improve how the stopping criterion or finite difference estimate is handled. Then make a pull request back into your partner's repository.
 
-Here are the steps:
+Here are the detailed steps of how to do all that:
 
 1. Go to your partner's GitHub page and fork the repository (`https://github.com/<username>/newton-practice/fork`). You can name it `newton-practice-<partner_name>` or something else.
 2. On DataHub, clone the forked repository: `git clone https://github.com/<your_username>/newton-practice-<partner_name>`.
