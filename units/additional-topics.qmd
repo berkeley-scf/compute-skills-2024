@@ -253,9 +253,19 @@ np.exp(loglik)
 
 Look at your partner's code in terms of how it handles the stopping criterion or (for the 1-d case) the finite difference estimate of the gradient and Hessian.
 
-Fork your partner's repository (`https://github.com/<username>/newton-practice/fork). In the local version of that repository on your DataHub, make a change to try to improve how the stopping criterion or finite difference estimate is handled. Then make a pull request back into your partner's repository.
+Fork your partner's repository. In the local version of that repository on your DataHub, make a change to try to improve how the stopping criterion or finite difference estimate is handled. Then make a pull request back into your partner's repository.
 
-Then review the pull request your partner makes in your repository. Iterate with your partner until you are happy to merge the pull request into your repository. Remember to then run `git pull` to get the changes in the local copy of the repository.
+Here are the steps:
+
+1. Go to your partner's GitHub page and fork the repository (`https://github.com/<username>/newton-practice/fork`). You can name it `newton-practice-<partner_name>` or something else.
+2. On DataHub, clone the forked repository: `git clone https://github.com/<your_username>/newton-practice-<partner_name>`.
+3. On DataHub, enter the directory of the cloned repository: `cd newton-practice-<partner_name>`.
+4. Make a branch, make changes, add, and commit.
+5. Give DataHub access to the new repository via [Step 3 of the steps for accessing GitHub repository from DataHub](https://berkeley-scf.github.io/compute-skills-2024/prep.html#give-access-to-the-specific-github-repository-you-are-working-with).
+6. Push the commit to your GitHub: `git push -u origin newton-practice-<partner_name>`.
+7. Go to `https://github.com/<your_username>/newton-practice-<partner_name>` and open a pull request ("Compare and pull request"). The request will automatically be done in the GitHub account of your partner.
+
+Then review the pull request your partner makes in your own repository. Iterate with your partner until you are happy to merge the pull request into your repository. Remember to then run `git pull` to get the changes in the local copy of the repository.
 
 
 # 9. Packaging and Conda environments
