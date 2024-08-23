@@ -425,7 +425,7 @@ Tip
 </div>
 </div>
 <p>Once you’ve written your Python functions, put your code into a simple text file, called <code>newton.py</code>. In doing so you’ve created a Python <em>module</em>. Once you have your module, you can use it like this:</p>
-<div id="084299c2" class="cell" data-execution_count="1">
+<div id="30a99acc" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> newton</span>
@@ -639,7 +639,7 @@ More than the syntax
 <p>We identify each node (commit) with a hash, a fingerprint of the content of each commit and its parent. It is important the fact that the hash include information of the parent node, since this allow us to keep the check the structural consistency of the DAG.</p>
 <p>We can illustrate what Git is doing easily in Python.</p>
 <p>Let’s create a first hash:</p>
-<div id="dd299b21" class="cell" data-execution_count="2">
+<div id="54107119" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> hashlib <span class="im">import</span> sha1</span>
@@ -655,7 +655,7 @@ More than the syntax
 </div>
 </div>
 <p>￼ Every small change we make on the previous text with result in a full change of the associated hash code. Notice also how in the next hash we have included the information of the parent node.</p>
-<div id="51fc9873" class="cell" data-execution_count="3">
+<div id="e80a7dcf" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> <span class="st">b'Some more text in my paper...'</span></span>
@@ -800,7 +800,7 @@ Q: Who is the person most likely to use your code again?
 <li>Comments should generally be complete sentences.</li>
 </ul></li>
 <li><p>You can use parentheses to group operations such that they can be split up into lines and easily commented, e.g.,</p>
-<div id="7a2c1bae" class="cell" data-execution_count="4">
+<div id="7a03a0ac" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>newdf <span class="op">=</span> (</span>
@@ -864,7 +864,7 @@ Q: Who is the person most likely to use your code again?
 <section id="using-the-jupyterlab-visual-debugger" class="level3">
 <h3 class="anchored" data-anchor-id="using-the-jupyterlab-visual-debugger">Using the JupyterLab visual debugger</h3>
 <p>Let’s debug my buggy implementation of Newton’s method.</p>
-<div id="d3f1d2a3" class="cell" data-execution_count="5">
+<div id="6f51a771" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> newton</span>
@@ -1078,13 +1078,13 @@ x_{t+1}=x_{t}-H_{f}(x_{t})^{-1}\nabla f(x_{t})
 </section>
 <section id="exercise-branching" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-branching">Exercise: Branching</h2>
-<p>Working with a partner:</p>
 <ol type="1">
-<li>Choose either your repository or your partner’s repository to continue working in.</li>
+<li>Make sure you’ve committed your tests and any changes made to your univariate Newton’s method to your <code>main</code> branch. And make sure you push the changes to GitHub.</li>
 <li>Make a branch (called <code>multivariate</code>) in which you’ll implement the multivariate version of Newton’s method (see details above)</li>
-<li>Implement the algorithm.</li>
+<li>Implement the algorithm, either in <code>newton.py</code> or in a new file if you prefer.</li>
 </ol>
-<p>At this point, if we think about calculating the Hessian it starts to feel more tedious to deal with the finite difference calculations, though it is a straightforward extension of what you already implemented. Feel free to look online to find a Python package that implements finite difference estimation of derivatives and use that in your code.</p>
+<p>You may need to search online for how to calculate <span class="math inline">\(H_{f}(x_{t})^{-1}\nabla f(x_{t}\)</span>.</p>
+<p>At this point, if we think about calculating the Hessian it starts to feel more tedious to deal with the finite difference calculations, though it is a straightforward extension of what you already implemented. Feel free to look online to find a Python package that implements finite difference estimation of derivatives and use that in your code (see what Google indicates or if you use a ChatBot/LLM what they suggest).</p>
 <p>As you are writing the code, you can continue to think about what might go wrong and include defensive programming tactics.</p>
 </section>
 <section id="exercise-pull-requests-prs" class="level2">
@@ -1099,9 +1099,9 @@ x_{t+1}=x_{t}-H_{f}(x_{t})^{-1}\nabla f(x_{t})
 </section>
 <section id="exercise-code-review-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-code-review-1">Exercise: Code review</h2>
-<p>Now you and your partner should find a separate group with which to work on code reviews as a “supergroup”.</p>
-<p>Give the other group the URL for your repository on GitHub and ask them to look at the PR. In turn get the URL for their repository.</p>
-<p>In reviewing the PR, make comments in the PR comment/conversation area on GitHub. You and your partner can work together to make comments or you can each make separate comments.</p>
+<p>Now find a partner.</p>
+<p>Give the partner the URL for your repository on GitHub and ask them to look at the PR. In turn get the URL for their repository.</p>
+<p>In reviewing the PR, make comments in the PR comment/conversation area on GitHub.</p>
 <p>If you have time, explore these two additional options for making comments:</p>
 <ol type="1">
 <li>Review changes:
@@ -1119,14 +1119,14 @@ x_{t+1}=x_{t}-H_{f}(x_{t})^{-1}\nabla f(x_{t})
 </section>
 <section id="exercise-merge-the-pr" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-merge-the-pr">Exercise: Merge the PR</h2>
-<p>Once you’ve seen the review by the other group, with your partner:</p>
+<p>Once you’ve seen the review by your partner:</p>
 <ul>
 <li>On DataHub, make changes to the branch that was used in the pull request.
 <ul>
 <li>Alternatively, you could make the changes directly on GitHub using its editing capabilities.</li>
 </ul></li>
 <li>On DataHub, commit and push to GitHub.</li>
-<li>On GitHub, merge in the pull request and close the request.
+<li>On GitHub, merge in the (now revised) pull request and close the request.
 <ul>
 <li>You may want to delete the branch. This helps avoid having a profusion of unneeded branches.</li>
 </ul></li>
@@ -2355,13 +2355,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb31-737"><a href="#cb31-737" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-738"><a href="#cb31-738" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Branching</span></span>
 <span id="cb31-739"><a href="#cb31-739" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-740"><a href="#cb31-740" aria-hidden="true" tabindex="-1"></a>Working with a partner:</span>
-<span id="cb31-741"><a href="#cb31-741" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-742"><a href="#cb31-742" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Choose either your repository or your partner's repository to continue working in.</span>
-<span id="cb31-743"><a href="#cb31-743" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Make a branch (called <span class="in">`multivariate`</span>) in which you'll implement the multivariate version of Newton's method (see details above)</span>
-<span id="cb31-744"><a href="#cb31-744" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Implement the algorithm.</span>
+<span id="cb31-740"><a href="#cb31-740" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Make sure you've committed your tests and any changes made to your univariate Newton's method to your <span class="in">`main`</span> branch. And make sure you push the changes to GitHub.</span>
+<span id="cb31-741"><a href="#cb31-741" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Make a branch (called <span class="in">`multivariate`</span>) in which you'll implement the multivariate version of Newton's method (see details above)</span>
+<span id="cb31-742"><a href="#cb31-742" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Implement the algorithm, either in <span class="in">`newton.py`</span> or in a new file if you prefer.</span>
+<span id="cb31-743"><a href="#cb31-743" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-744"><a href="#cb31-744" aria-hidden="true" tabindex="-1"></a>You may need to search online for how to calculate $H_{f}(x_{t})^{-1}\nabla f(x_{t}$.</span>
 <span id="cb31-745"><a href="#cb31-745" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-746"><a href="#cb31-746" aria-hidden="true" tabindex="-1"></a>At this point, if we think about calculating the Hessian it starts to feel more tedious to deal with the finite difference calculations, though it is a straightforward extension of what you already implemented. Feel free to look online to find a Python package that implements finite difference estimation of derivatives and use that in your code.</span>
+<span id="cb31-746"><a href="#cb31-746" aria-hidden="true" tabindex="-1"></a>At this point, if we think about calculating the Hessian it starts to feel more tedious to deal with the finite difference calculations, though it is a straightforward extension of what you already implemented. Feel free to look online to find a Python package that implements finite difference estimation of derivatives and use that in your code (see what Google indicates or if you use a ChatBot/LLM what they suggest).</span>
 <span id="cb31-747"><a href="#cb31-747" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-748"><a href="#cb31-748" aria-hidden="true" tabindex="-1"></a>As you are writing the code, you can continue to think about what might go wrong and include defensive programming tactics. </span>
 <span id="cb31-749"><a href="#cb31-749" aria-hidden="true" tabindex="-1"></a></span>
@@ -2380,12 +2380,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb31-762"><a href="#cb31-762" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-763"><a href="#cb31-763" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Code review</span></span>
 <span id="cb31-764"><a href="#cb31-764" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-765"><a href="#cb31-765" aria-hidden="true" tabindex="-1"></a>Now you and your partner should find a separate group with which to work on code reviews as a "supergroup".</span>
+<span id="cb31-765"><a href="#cb31-765" aria-hidden="true" tabindex="-1"></a>Now find a partner.</span>
 <span id="cb31-766"><a href="#cb31-766" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-767"><a href="#cb31-767" aria-hidden="true" tabindex="-1"></a>Give the other group the URL for your repository on GitHub and ask them to look at the PR.</span>
+<span id="cb31-767"><a href="#cb31-767" aria-hidden="true" tabindex="-1"></a>Give the partner the URL for your repository on GitHub and ask them to look at the PR.</span>
 <span id="cb31-768"><a href="#cb31-768" aria-hidden="true" tabindex="-1"></a>In turn get the URL for their repository.</span>
 <span id="cb31-769"><a href="#cb31-769" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-770"><a href="#cb31-770" aria-hidden="true" tabindex="-1"></a>In reviewing the PR, make comments in the PR comment/conversation area on GitHub. You and your partner can work together to make comments or you can each make separate comments.</span>
+<span id="cb31-770"><a href="#cb31-770" aria-hidden="true" tabindex="-1"></a>In reviewing the PR, make comments in the PR comment/conversation area on GitHub. </span>
 <span id="cb31-771"><a href="#cb31-771" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-772"><a href="#cb31-772" aria-hidden="true" tabindex="-1"></a>If you have time, explore these two additional options for making comments:</span>
 <span id="cb31-773"><a href="#cb31-773" aria-hidden="true" tabindex="-1"></a></span>
@@ -2399,12 +2399,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb31-781"><a href="#cb31-781" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-782"><a href="#cb31-782" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise: Merge the PR</span></span>
 <span id="cb31-783"><a href="#cb31-783" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-784"><a href="#cb31-784" aria-hidden="true" tabindex="-1"></a>Once you've seen the review by the other group, with your partner:</span>
+<span id="cb31-784"><a href="#cb31-784" aria-hidden="true" tabindex="-1"></a>Once you've seen the review by your partner:</span>
 <span id="cb31-785"><a href="#cb31-785" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-786"><a href="#cb31-786" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On DataHub, make changes to the branch that was used in the pull request.</span>
 <span id="cb31-787"><a href="#cb31-787" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Alternatively, you could make the changes directly on GitHub using its editing capabilities.</span>
 <span id="cb31-788"><a href="#cb31-788" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On DataHub, commit and push to GitHub.</span>
-<span id="cb31-789"><a href="#cb31-789" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On GitHub, merge in the pull request and close the request.</span>
+<span id="cb31-789"><a href="#cb31-789" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On GitHub, merge in the (now revised) pull request and close the request.</span>
 <span id="cb31-790"><a href="#cb31-790" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>You may want to delete the branch. This helps avoid having a profusion of unneeded branches.</span>
 <span id="cb31-791"><a href="#cb31-791" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On DataHub, run <span class="in">`git pull`</span> to get the changes updated in the <span class="in">`main`</span> branch of your local repository.</span>
 <span id="cb31-792"><a href="#cb31-792" aria-hidden="true" tabindex="-1"></a></span>
