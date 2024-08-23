@@ -156,11 +156,13 @@ Step 2. Add files
 Next move (or copy) your Python module into the repository directory. For the demo, I'll use a version of the Newton code that I wrote that has some bugs in it (for later debugging). The file is not in the repository.
 
 ```bash
-cd newton-practice
+cd ~/newton-practice
 cp ../compute-skills-2024/units/newton-buggy.py newton.py
 ## Tell git to track the file
 git add newton.py
 ```
+
+The key thing is to copy the code file into the directory of the new repository. 
 
 Step 3. Edit file(s)
 

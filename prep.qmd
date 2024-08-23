@@ -68,6 +68,10 @@ in DataHub so that we don't have to troubleshoot laptop issues for multiple part
 
 We'll use a tool (an 'app') that helps us with this, provided in the `gh_scoped_creds` Python package.
 
+You must do all three steps in order to be able to interact with your GitHub repository from DataHub.
+
+### 1. Configure git
+
 First configure git in the terminal:
 
 ```bash
@@ -80,6 +84,8 @@ git config --global pull.rebase false
 ```
 
 That will modify your `~/.gitconfig` file. 
+
+### 2. Give DataHub access to your GitHub account
 
 Then run this in the terminal:
 
@@ -95,9 +101,14 @@ import gh_scoped_creds
 %ghscopedcreds
 ```
 
-When you do that you'll see a [link](https://github.com/login/device){target="_blank"} and a code. Go to the link in a browser (on your laptop, outside of DataHub), login to GitHub (or click `Continue` if already logged in), input the code, and click `Authorize Berkeley-DataHub-Git-Access`. This will grant access to GitHub from JupyterHub for 8 hours (or until you stop your JupyterHub server).
+When you do that you'll see a [link](https://github.com/login/device){target="_blank"} and a code. Go to the link in a browser (on your laptop, outside of DataHub), login to GitHub (or click `Continue` if already logged in), input the code, and click `Authorize Berkeley-DataHub-Git-Access`. This will grant access to GitHub from DataHub (i.e., JupyterHub) for 8 hours (or until you stop your JupyterHub server).
+
+### 3. Give access to the specific GitHub repository you are working with
 
 Then (only the first time you are doing all this) go to the URL that is printed out in your terminal (which should be [https://github.com/apps/berkeley-datahub-git-access](https://github.com/apps/berkeley-datahub-git-access){target="_blank"} and click on `Install` (and then if you have access to multiple GitHub organizations, choose your personal org, namely your GitHub username). Choose `Only select repositories` and select the repository you are using for the workshop, namely `newton-practice`. Then click `Install`.
 
-There's a chance that GitHub will prompt you to authenticate using 2-Factor Authentication (2FA) (e.g., via the Google Authenticator app on your phone). If so, that probably means that you set this up at some point and are able to do the 2FA. We'll try to help if you run into problems here.
 
+
+::: {.callout-warning}
+If you run `git push` and get a permission denied or 403 error or Git asks for a password, something has gone wrong with one of the three steps above.
+:::
