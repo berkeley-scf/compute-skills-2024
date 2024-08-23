@@ -719,7 +719,7 @@ $$
 x_{t+1}=x_{t}-H_{f}(x_{t})^{-1}\nabla f(x_{t})
 $$
 
-where $\nabla f(x_{t}$ is the gradient (first derivative with respect to each element of $x$) and $H_{f}(x_{t})$ is the Hessian matrix (second derivatives with respect to all pairs of the elements of $x$).
+where $\nabla f(x_{t})$ is the gradient (first derivative with respect to each element of $x$) and $H_{f}(x_{t})$ is the Hessian matrix (second derivatives with respect to all pairs of the elements of $x$).
 
 
 Here are the steps:
@@ -735,7 +735,7 @@ Here are the steps:
 2. Make a branch (called `multivariate`) in which you'll implement the multivariate version of Newton's method (see details above)
 3. Implement the algorithm, either in `newton.py` or in a new file if you prefer.
 
-You may need to search online for how to calculate $H_{f}(x_{t})^{-1}\nabla f(x_{t}$.
+You may need to search online for how to calculate $H_{f}(x_{t})^{-1}\nabla f(x_{t})$.
 
 At this point, if we think about calculating the Hessian it starts to feel more tedious to deal with the finite difference calculations, though it is a straightforward extension of what you already implemented. Feel free to look online to find a Python package that implements finite difference estimation of derivatives and use that in your code (see what Google indicates or if you use a ChatBot/LLM what they suggest).
 

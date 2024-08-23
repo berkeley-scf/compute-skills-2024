@@ -253,7 +253,7 @@ np.exp(loglik)
 
 Look at your partner's code in terms of how it handles the stopping criterion or (for the 1-d case) the finite difference estimate of the gradient and Hessian.
 
-Make a pull request that tries to improve how that is handled.
+Fork your partner's repository (`https://github.com/<username>/newton-practice/fork). In the local version of that repository on your DataHub, make a change to try to improve how the stopping criterion or finite difference estimate is handled. Then make a pull request back into your partner's repository.
 
 Then review the pull request your partner makes in your repository. Iterate with your partner until you are happy to merge the pull request into your repository. Remember to then run `git pull` to get the changes in the local copy of the repository.
 
@@ -433,8 +433,6 @@ Python *wheels* are a binary package format for Python packages. Wheels for some
 
 # 10. GitHub Actions and Continuous Integration
 
-[UNDER CONSTRUCTION]
-
 Having reproducible environments (e.g., Conda environments or Docker containers) provides the ability to run (and automate) various actions to run on remote/cloud computational resources and know that they (should) work.
 
 ::: {callout-tip}
@@ -545,3 +543,7 @@ To set up GitHub Pages for a repository, go to `https://github.com/github_org/re
 In fact the website for this workshop was done using Quarto, which uses GitHub Pages and GitHub Actions behind the scenes.
 
 Chris runs `quarto publish gh-pages` to update the site. Quarto will (on the local machine) render the html (convert the Markdown to html) and then behind the scenes Quarto uses [GitHub Actions](https://github.com/berkeley-scf/compute-skills-2024/actions) and [GitHub Pages (via the `gh-pages branch)](https://github.com/berkeley-scf/compute-skills-2024/tree/gh-pages) to publish the website.
+
+# Feedback survey
+
+This is the first time we've done this, so it's particularly valuable now to get feedback on it. Please fill out this [brief survey](https://forms.gle/7oy1y4EXrcGnH5to9). 
