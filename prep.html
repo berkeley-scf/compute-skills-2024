@@ -224,7 +224,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#check-your-environment" id="toc-check-your-environment" class="nav-link active" data-scroll-target="#check-your-environment">Check your environment</a></li>
   <li><a href="#editing-files" id="toc-editing-files" class="nav-link" data-scroll-target="#editing-files">Editing files</a></li>
   <li><a href="#stopping-your-server" id="toc-stopping-your-server" class="nav-link" data-scroll-target="#stopping-your-server">Stopping your server</a></li>
-  <li><a href="#accessing-github-repositories-from-datahub" id="toc-accessing-github-repositories-from-datahub" class="nav-link" data-scroll-target="#accessing-github-repositories-from-datahub">Accessing GitHub repositories from DataHub</a></li>
+  <li><a href="#accessing-github-repositories-from-datahub" id="toc-accessing-github-repositories-from-datahub" class="nav-link" data-scroll-target="#accessing-github-repositories-from-datahub">Accessing GitHub repositories from DataHub</a>
+  <ul class="collapse">
+  <li><a href="#configure-git" id="toc-configure-git" class="nav-link" data-scroll-target="#configure-git">1. Configure git</a></li>
+  <li><a href="#give-datahub-access-to-your-github-account" id="toc-give-datahub-access-to-your-github-account" class="nav-link" data-scroll-target="#give-datahub-access-to-your-github-account">2. Give DataHub access to your GitHub account</a></li>
+  <li><a href="#give-access-to-the-specific-github-repository-you-are-working-with" id="toc-give-access-to-the-specific-github-repository-you-are-working-with" class="nav-link" data-scroll-target="#give-access-to-the-specific-github-repository-you-are-working-with">3. Give access to the specific GitHub repository you are working with</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -298,6 +303,9 @@ Accessing GitHub from your laptop rather than DataHub
 </div>
 </div>
 <p>We’ll use a tool (an ‘app’) that helps us with this, provided in the <code>gh_scoped_creds</code> Python package.</p>
+<p>You must do all three steps in order to be able to interact with your GitHub repository from DataHub.</p>
+<section id="configure-git" class="level3">
+<h3 class="anchored" data-anchor-id="configure-git">1. Configure git</h3>
 <p>First configure git in the terminal:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"your_name@berkeley.edu"</span></span>
@@ -306,18 +314,37 @@ Accessing GitHub from your laptop rather than DataHub
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> pull.rebase false</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>That will modify your <code>~/.gitconfig</code> file.</p>
+</section>
+<section id="give-datahub-access-to-your-github-account" class="level3">
+<h3 class="anchored" data-anchor-id="give-datahub-access-to-your-github-account">2. Give DataHub access to your GitHub account</h3>
 <p>Then run this in the terminal:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh-scoped-creds</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Or you could instead run this in IPython or Jupyter Notebook:</p>
-<div id="28598299" class="cell" data-execution_count="1">
+<div id="5ea4b283" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> gh_scoped_creds</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>ghscopedcreds</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>When you do that you’ll see a <a href="https://github.com/login/device" target="_blank">link</a> and a code. Go to the link in a browser (on your laptop, outside of DataHub), login to GitHub (or click <code>Continue</code> if already logged in), input the code, and click <code>Authorize Berkeley-DataHub-Git-Access</code>. This will grant access to GitHub from JupyterHub for 8 hours (or until you stop your JupyterHub server).</p>
+<p>When you do that you’ll see a <a href="https://github.com/login/device" target="_blank">link</a> and a code. Go to the link in a browser (on your laptop, outside of DataHub), login to GitHub (or click <code>Continue</code> if already logged in), input the code, and click <code>Authorize Berkeley-DataHub-Git-Access</code>. This will grant access to GitHub from DataHub (i.e., JupyterHub) for 8 hours (or until you stop your JupyterHub server).</p>
+</section>
+<section id="give-access-to-the-specific-github-repository-you-are-working-with" class="level3">
+<h3 class="anchored" data-anchor-id="give-access-to-the-specific-github-repository-you-are-working-with">3. Give access to the specific GitHub repository you are working with</h3>
 <p>Then (only the first time you are doing all this) go to the URL that is printed out in your terminal (which should be <a href="https://github.com/apps/berkeley-datahub-git-access" target="_blank">https://github.com/apps/berkeley-datahub-git-access</a> and click on <code>Install</code> (and then if you have access to multiple GitHub organizations, choose your personal org, namely your GitHub username). Choose <code>Only select repositories</code> and select the repository you are using for the workshop, namely <code>newton-practice</code>. Then click <code>Install</code>.</p>
-<p>There’s a chance that GitHub will prompt you to authenticate using 2-Factor Authentication (2FA) (e.g., via the Google Authenticator app on your phone). If so, that probably means that you set this up at some point and are able to do the 2FA. We’ll try to help if you run into problems here.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you run <code>git push</code> and get a permission denied or 403 error or Git asks for a password, something has gone wrong with one of the three steps above.</p>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
