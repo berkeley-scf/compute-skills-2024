@@ -72,7 +72,14 @@ For now, please do not use any Python packages that provide finite difference-ba
 You're welcome to develop your code in a Notebook or in the DataHub editor or in a separate editor on your laptop.
 :::
 
-Once you've written your Python functions, put your code into a simple text file, called `newton.py`. In doing so you've created a Python *module*. Once you have your module, you can use it like this:
+Once you've written your Python functions, put your code into a simple text file, called `newton.py`. In doing so you've created a Python *module*.
+
+::: {.callout-warning}
+Don't use a Jupyter notebook (.ipynb) file at this stage, as it won't work as a *module* and is not handled in git in the same nice manner as simple text files.
+:::
+
+
+Once you have your module, you can use it like this:
 
 ```{python}
 #| eval: false
@@ -533,6 +540,12 @@ We'll work in our Jupyter notebook.
   - evaluate an expression (one needs to click on the "log" icon at the bottom to see the output).
 
 If we want to debug into functions defined in files, we can add `breakpoint()` in the location in the file where we want the breakpoint and one should see the code in the `SOURCE` box in the debugger panel. So far, I've found this to be a bit hard to use, but that may well just be my inexperience with the JupyterLab debugger.
+
+  
+::: {.callout-warning}
+Note that the value of `x_new` doesn't show up automatically in the variables pane. This is probably because it is a numpy variable rather than a regular Python variable.
+:::
+
 
 ### Using the IPython debugger (`ipdb`)
 
