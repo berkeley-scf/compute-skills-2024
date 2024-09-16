@@ -341,6 +341,25 @@ import mytoy
 mytoy.toy(7)
 ```
 
+Let's look in the top directory of the repository. There we see various files related to building and installing the package, namely, `pyproj.toml`, `setup.py`, `setup.cfg`, etc.
+
+In fact, one can install the package with only
+either `setup.py` or `pyproj.toml`, but the other files listed here are recommended:
+
+- `pyproj.toml` (or `pyproject.toml`): this is a configuration file used by packaging tools. In the `mytoy` example it specifies to use `setuptools` to build and install the package.
+- `setup.py`: this is run when the package is built and installed when using `setuptools`. In the example, it simply runs `setuptools.setup()`. With recent versions of
+`setuptools`, you don't actually need this so long as you have the `pyproj.toml` file.
+- `setup.cfg`: provides metadata about the package when using `setuptools`.
+- `environment.yml`: provides information about the full environment in which your package should be used (including examples, documentation, etc.). For projects using `setuptools`, a minimal list of dependencies needed for installation and use of the package can instead be included in the `install_requires` option of `setup.cfg`.
+- `LICENSE`: specifies the license for your package giving the terms under which others can use it.
+
+The `postBuild` file is  a completely optional file only needed if you want to use the package with a MyBinder environment.
+
+At the [numpy GitHub repository](https://github.com/numpy/numpy), by looking in  `pyproject.toml`, you can see that `numpy` is build and installed using a system called *Meson*, while at the [Jupyter GitHub repository](https://github.com/jupyter/jupyter) you can see that the `jupyter` package is built and installed using `setuptools`.
+
+*Building* a package usually refers to compiling source code but for a Python package that just has Python code, nothing needs to be compiled. *Installing* a package means putting the built package into a location on your computer where packages are installed.
+
+
 It would take more work to make the package available in a repository such as PyPI or via Conda.
 
 ## Exercise: Make your own package
