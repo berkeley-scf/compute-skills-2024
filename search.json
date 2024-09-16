@@ -10,51 +10,29 @@
     ]
   },
   {
-    "objectID": "prep.html",
-    "href": "prep.html",
-    "title": "Using DataHub as a commmon computational environment",
-    "section": "",
-    "text": "While in principle, it’s fine to use your laptop, it will be hard for us to diagnose all the different problems that might arise with so many participants. So we recommend using a common computational environment during the workshop. We’ll use the Berkeley DataHub for this. You can think of DataHub as providing user-specific virtual machines with identical software for all of us to use.\nThe exception is that if you already have experience using your laptop with the shell/terminal, Git (and pushing to GitHub) and Python.\nClick here to access your own machine/server with Python, git, and terminal access on the campus DataHub (also used for various data science, CS, and statistics courses). (Do NOT go directly to datahub.berkeley.edu the first time you are accessing DataHub. If you do, you won’t have the repository materials available in your virtual machine.)\nThat will get you onto your server with the materials for the course, from the berkeley-scf/compute-skills-2024 repository available on the server.",
-    "crumbs": [
-      "Computational Environment"
-    ]
-  },
-  {
-    "objectID": "prep.html#check-your-environment",
-    "href": "prep.html#check-your-environment",
-    "title": "Using DataHub as a commmon computational environment",
-    "section": "Check your environment",
-    "text": "Check your environment\nTo check things look good:\n\nClick on Terminal (in the 3rd row of the Launcher tab, under Other). (If you have trouble finding the Terminal, go to File -&gt; New -&gt; Terminal.)\nCheck that your working directory is ~/compute-skills-2024 (by looking at the terminal prompt or running pwd)\nRun ls to see the files in the repository.",
-    "crumbs": [
-      "Computational Environment"
-    ]
-  },
-  {
-    "objectID": "prep.html#editing-files",
-    "href": "prep.html#editing-files",
-    "title": "Using DataHub as a commmon computational environment",
-    "section": "Editing files",
-    "text": "Editing files\nYou can combine text and code in a notebook, which you can start with:\n\nNew Launcher -&gt; Notebook -&gt; Python 3 (ipykernel), or\nFile -&gt; New -&gt; Notebook\n\nTo run the code in a cell, a shortcut is Ctrl + Enter/Return.\nTo create a script file containing just code, do File -&gt; New -&gt; Python file.",
-    "crumbs": [
-      "Computational Environment"
-    ]
-  },
-  {
-    "objectID": "prep.html#stopping-your-server",
-    "href": "prep.html#stopping-your-server",
-    "title": "Using DataHub as a commmon computational environment",
-    "section": "Stopping your server",
-    "text": "Stopping your server\nYou can stop your server via File-&gt; Hub Control Panel -&gt; Stop My Server.\nIf you only log out, any ongoing computations will still run in the background.",
-    "crumbs": [
-      "Computational Environment"
-    ]
-  },
-  {
     "objectID": "units/solutions-computing.html",
     "href": "units/solutions-computing.html",
     "title": "SOLUTIONS: Introduction to Computing and the Command Line (optional)",
     "section": "",
     "text": "Exercise 1\n\n\n\nWhere is gzip installed on the system? What are some other commands/executables that are installed in the same directory?\n\n\n\n\n\n\n\n\nExercise 1 solution\n\n\n\n\n\ntype gzip\n\nls /usr/bin\n\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\nTry to run the following command mkdir ~/projects/drought. It will fail. Look in the help information on mkdir to figure out how to make it work without first creating the projects directory.\n\n\n\n\n\n\n\n\nExercise 2 solution\n\n\n\n\n\nmkdir -p ~/projects/drought\n\n\n\n\n\n\n\n\n\nExercise 3\n\n\n\nFigure out how to list out the files in a directory in order of decreasing file size, as a way to see easily what the big files are that are taking up the most space. Modify this command to get the result in the ascending order.\n\n\n\n\n\n\n\n\nExercise 3 solution\n\n\n\n\n\nls -lS\nls -lSr\n\n\n\n\n\n\n\n\n\nExercise 4\n\n\n\nFigure out how to copy an entire directory and have the timestamps of the files retained rather than having the timestamps be the time that you copied the files.\nSee if you can combine the short form of an option with the long form of a different option.\nWhat happens if you use a single dash with the long form of an option. Are you able to interpret the error message?\n\n\n\n\n\n\n\n\nExercise 4\n\n\n\n\n\ncp -pr mytoy mytoy_copy             # short form\ncp --recursive -p mytoy mytoy_copy  # long form plus short form\ncp -recursive -p mytoy mytoy_copy   # incorrect long form\ncp -r -e -c -u -r -s -i -v -e -p mytoy mytoy_copy"
+  },
+  {
+    "objectID": "units/solutions-core.html",
+    "href": "units/solutions-core.html",
+    "title": "",
+    "section": "",
+    "text": "def deriv(f, x, eps=1e-8): return (f(x+eps) - f(x)) / eps\ndef deriv2(f, x, eps=1e-6): return (deriv(f, x+eps, eps) - deriv(f, x, eps)) / eps\ndef optimize(x0, f, tol=1e-4): x = x0 x_new = x - deriv(f, x) / deriv2(f, x) while abs(x_new - x) &gt; tol: x = x_new x_new = x - deriv(f, x) / deriv2(f, x) return {“x”: x_new, “value”: f(x_new)}\ndef test_fun(x): return x4/4 - x3 -x\nimport warnings\ndef optimize(x0, f, tol=1e-4): if not callable(f): raise TypeError(f”Argument f is not a function, it is of type {type(f)}“) if not np.isreal(x0): raise TypeError(f”Argument x0 is not numeric”)\nx = x0\nx_new = x - deriv(f, x) / deriv2(f, x)\nwhile abs(x_new - x) &gt; tol:\n    x = x_new\n    x_new = x - deriv(f, x) / deriv2(f, x)\nconverged = True\nif deriv2(f, x) &lt;= 0:\n   warnings.warn(\"Positive second derivative; local maximum found\")\n   converged = False\n\nreturn {\"x\": x_new, \"value\": f(x_new), \"convergence\": converged}\nfrom scipy.linalg import solve from scipy.misc import derivative as deriv\ndef optimize_mv(x0, f, tol=1e-4): x = x0 x_new = x0 - solve(deriv(f, x0, n=2), deriv(f, x0, n = 1)) while pow(np.sum((x_new - x)**2), 0.5) &gt; tol: x = x_new x_new = x - solve(deriv(f, x, n=2), deriv(f, x, n = 1)) return {“x”: x_new, “value”: f(x_new)}\nimport numpy as np beta0 = 1 beta1 = 0.5 n = 50 x = np.random.normal(size = n) y = beta0 + beta1 * x + np.random.normal(size = n)\ndef test_fun(theta): return np.sum((y - theta[0] - theta[1]*x)**2)\noptimize_mv(np.array([0.5,0]), test_fun)\nimport numdifftools as nd\ndef optimize_mv(x0, f, tol=1e-4): grad = nd.Gradient(f) hessian = nd.Hessian(f) x = x0 x_new = x0 - solve(hessian(x0), grad(x0)) while pow(np.sum((x_new - x)**2), 0.5) &gt; tol: x = x_new x_new = x - solve(hessian(x), grad(x)) return {“x”: x_new, “value”: f(x_new)}\noptimize_mv(np.array([2,0]), test_fun)"
+  },
+  {
+    "objectID": "units/mini-project.html",
+    "href": "units/mini-project.html",
+    "title": "(Optional) Python Mini-Project",
+    "section": "",
+    "text": "Background\nThe goal of the project is to analyze the tweeting behavior of the 100 US Senators in the US Senate. Each senator has a Twitter account and puts out tweets reflecting their thought and communicating with the people in the state they represent.\n(Note that these tweets were downloaded early in 2017, so they reflect tweeting just before President Obama stepped down and President Trump began his term.)\nThe goal of the project questions is to guide you through the steps of getting the data, processing and cleaning it, putting it in a format that makes it easier to analyze and then doing some basic analysis. The last few questions ask you to see if whether a senator mentions a president or presidential candidate depends on the party that the senator is part of. For example, do Democratic senators mention Barack Obama in their tweets more or less than Republican senators?\nFor background information only: This Python code downloads tweets using the Python twitter package to interact with Twitter’s API. You will only be able to run that code if you set up your own Twitter account and follow the instructions at the start of the file regarding filling in the authentication information (CONSUMER_KEY, CONSUMER_SECRET, etc.).\nI’ve already run the code mentioned above and downloaded the data for you. The downloaded information on the senators’ twitter accounts is in project/senators-list.json in the GitHub repository, while the downloaded tweets are in timelines.json. timelines.json is too big to put in the Github repository. You can find it at http://www.stat.berkeley.edu/~paciorek/transfer/timelines.json. Note that there are only 200 tweets for each senator because of limits on how many tweets can be accessed in a given request.\n\n\nQuestions\n\nLoad the senators-list.json and timelines.json files into Python as objects called senators and timelines, using this syntax:\n\n\nCode\nwith open(\"tmp.json\") as infile:\n     y = json.load(infile)\n\n\nWhat type of datastructure is timelines? How many timelines are there? What does each timeline correspond to?\nMake a list of the number of followers each senator has.\nWhat is the screen name of the senator with the largest number of followers.\nMake a list of lists where the outer list represents senators and the inner list contains the text of each senator’s tweets, and call it tweets.\nWrite a function, called remove_punct, that takes a word and returns the word with all punctuation characters removed, except for those that occur within a word.\nWrite a function that takes tweet and returns a cleaned up version of the tweet. Here is an example function to get you started:\n\n\nCode\ndef clean(tweet):\n    cleaned_words = [word.lower() for word in tweet.split() if\n                 'http' not in word and\n                  word.isalpha() and\n                  word != 'RT']\n    return ' '.join(cleaned_words)\n\nclean(tweets[0][0])\n\n\nNote that the function I’ve provided is a bit buggy - it has some problems with some tweets. If your goal is to convert the tweet into a discrete set of words, what is going wrong here? Fix up and extend the example function.\nUse the following file to create a list, called stopwords, that contains common english words: http://www.textfixer.com/resources/common-english-words.txt. Make sure to pull the data into Python by writing Python code to download and suck the data into Python.\nWrite a function, called tokenize, which takes a tweet, cleans it, and removes all punctuation and stopwords.\nCreate a list of lists, tweets_content, using your tokenize function.\nCreate a list, tokens, where all 200 of each senator’s tweets are made into a single string. Hint: this syntax might be useful: \" \".join(my_list_of_strings).\nCreate a Pandas dataFrame with the following columns: senator name or handle, party of the senator, and number of times a prominent politician is mentioned in each senator’s tweets. You might count the number of ‘Obama’, ‘Trump’, or ‘Clinton’ references.\nYou can use this to create the party column (1=Republican, 0=Democratic):\n\n\nCode\nparty = np.array([1,1,1,1,1,1,0,0,1,0,1,1,0,0,0,1,1,1,0,0,0,1,1,1,1,0,1,0,\n1,1,1,0,0,0,0,0,0,1,0,1,1,1,0,1,1,1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,0,1,\n1,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,1,1,0,0,1,0,1,0,0,1,1,1,0,1])\n\n\nThat should correspond to the ordering in timelines but of course it would be more robust to create a dataFrame that has user names and party as columns and merge that with the count information.\nUse a Poisson GLM to assess the relationship between party and number of Obama/Trump/Clinton mentions. Does one party tend to mention Obama/Trump/Clinton more in their tweets? Can you deduce a pattern by considering the party of the senator and the party of Obama/Trump/Clinton?\nHere’s some syntax to help you get started:\n\n\nCode\nimport statsmodels.api as sm\nmodel = sm.GLM(endog = .,  exog = ., family = sm.families.Poisson())\nmodel.fit()\n\n\nDoes the statistical result make sense in light of the number of total mentions of Obama/Trump/Clinton by Republicans and the number of total mentions by Democrats?\nUse matplotlib to make histograms of the number of Obama mentions by senator, stratified by party.\nIs this consistent with the results of your statistical analysis?",
+    "crumbs": [
+      "Modules",
+      "Python Mini Project (optional)"
+    ]
   },
   {
     "objectID": "units/intro-python.html",
@@ -178,11 +156,114 @@
     ]
   },
   {
-    "objectID": "units/point-to-prep.html",
-    "href": "units/point-to-prep.html",
-    "title": "Preparation",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Berkeley Statistics Computational Skills Workshop",
     "section": "",
-    "text": "Preparation\nOur primary computing context will be the UC Berkeley DataHub. This provides us with a common platform on which we are assured to get the same behavior as each other, allowing us to use the command line/shell/terminal and Python, including Jupyter notebooks. In particular getting a common command line environment would be hard otherwise.\n\n\n\n\n\n\nUsing your own laptop (optional)\n\n\n\n\n\nIf you haven’t already used the shell/terminal and Python on your laptop, we recommend you use the DataHub so that we don’t have to troubleshoot problems on multiple laptops.\nIf you do use your laptop, you’ll need Python installed, for which we recommend using Miniforge. Another option is the Anaconda distribution of Python](https://www.anaconda.com/distribution)\nFor the shell/terminal parts of this material, you can use the Terminal on your Mac, but not on Windows.\nIf you do use your own laptop, you’ll need to clone this GitHub repository. If you don’t know how to do that, just download this zip file and unzip it into your home directory on your computer."
+    "text": "Ed Discussion\n\n  DataHub\n\n  GitHub\n\n  PollEv\n\n\nNo matching items\nSkills related to computation, coding, and reproducibility are crucial for modern statistical work (applied and methodological), as well as for serving as graduate student instructor for Statistics and Data Science courses. Incoming Statistics graduate students arrive with a wide variety of backgrounds in these areas.\nThe department will be holding a (new this year) computational skills workshop the week before classes start, focusing on best practices for computation, code development and statistics/data science workflows.\nAll incoming PhD and MA students are expected to attend the workshop, which will be held August 22-23. Those who already have extensive work or other experience with the topics can request to opt out of the workshop via this form (which will be considered by department faculty), as can PhD students who plan to focus exclusively on theory and feel the computing skills/tools covered in the workshop aren’t relevant for them.\nIn advance, there will also be an optional introduction to computing concepts and to Python for those students (particularly those taking Statistics 243) to be held August 20-21. If you are interested, please sign up for the optional introduction.\nSee the syllabus/overview for more details on workshop content.",
+    "crumbs": [
+      "Home / Schedule"
+    ]
+  },
+  {
+    "objectID": "index.html#logistics-times-and-locations",
+    "href": "index.html#logistics-times-and-locations",
+    "title": "Berkeley Statistics Computational Skills Workshop",
+    "section": "Logistics (times and locations)",
+    "text": "Logistics (times and locations)\n\nOptional Sessions (Tuesday/Wednesday)\nLocation: 334 Evans Hall\nLunch: On your own.\nSnacks: Light refreshments during morning and afternoon breaks\nTimes:\n\nTuesday August 20, 8:30 a.m - 4:30 p.m. with a one-hour lunch break.\nWednesday August 21, 8:30 a.m - 3:00 p.m. with a one-hour lunch break.\n\n\n\nCore Sessions (Thursday/Friday)\nLocation: 101 Barker Hall\n\nThursday August 22, 8:30 a.m - 4:30 p.m. with a one-hour lunch break.\nFriday August 23, 8:30 a.m - 3:00 p.m. with a one-hour lunch break.\n\nLunch: On your own.\nSnacks: Light refreshments during morning and afternoon breaks",
+    "crumbs": [
+      "Home / Schedule"
+    ]
+  },
+  {
+    "objectID": "index.html#preparation-for-the-workshop",
+    "href": "index.html#preparation-for-the-workshop",
+    "title": "Berkeley Statistics Computational Skills Workshop",
+    "section": "Preparation for the Workshop",
+    "text": "Preparation for the Workshop\n\nIf you don’t already have a GitHub account, please sign up for an account.\nBring your laptop as the workshop will focus on hands-on work.\nWe’ll be using the campus DataHub as our primary computational environment, so you don’t need to install anything on your laptop, though you can install Git and Python if you wish.",
+    "crumbs": [
+      "Home / Schedule"
+    ]
+  },
+  {
+    "objectID": "index.html#schedule",
+    "href": "index.html#schedule",
+    "title": "Berkeley Statistics Computational Skills Workshop",
+    "section": "Schedule",
+    "text": "Schedule\n\n\n   Session 0 (optional)\n\n   \n   \n   \n   \n   \n   \n\n        \n\n           \n           \n           Aug 20:\n           \n           Module 1 Introduction to Computing\n           \n                \n           \n                \n           \n        \n\n           \n           \n           Module 2 Introduction to Python\n           \n                \n           \n                \n           \n        \n   \n\n        \n\n           \n           \n           Aug 21:\n           \n           Lab 1 Mini project\n           \n                \n           \n                \n           \n        \n   \n   \n   \n  \n\n   Session 1\n\n   \n   \n   \n   \n   \n   \n\n        \n\n           \n           \n           Aug 22:\n           \n           Module 3 Computational Best Practices\n           \n                \n           \n                \n           \n        \n   \n\n        \n\n           \n           \n           Aug 23:\n           \n           Module 4 Additional Topics\n           \n                \n           \n                \n           \n        \n   \n   \n   \n  \n\n\nNo matching items",
+    "crumbs": [
+      "Home / Schedule"
+    ]
+  },
+  {
+    "objectID": "prep.html",
+    "href": "prep.html",
+    "title": "Using DataHub as a commmon computational environment",
+    "section": "",
+    "text": "While in principle, it’s fine to use your laptop, it will be hard for us to diagnose all the different problems that might arise with so many participants. So we recommend using a common computational environment during the workshop. We’ll use the Berkeley DataHub for this. You can think of DataHub as providing user-specific virtual machines with identical software for all of us to use.\nThe exception is that if you already have experience using your laptop with the shell/terminal, Git (and pushing to GitHub) and Python.\nClick here to access your own machine/server with Python, git, and terminal access on the campus DataHub (also used for various data science, CS, and statistics courses). (Do NOT go directly to datahub.berkeley.edu the first time you are accessing DataHub. If you do, you won’t have the repository materials available in your virtual machine.)\nThat will get you onto your server with the materials for the course, from the berkeley-scf/compute-skills-2024 repository available on the server.",
+    "crumbs": [
+      "Computational Environment"
+    ]
+  },
+  {
+    "objectID": "prep.html#check-your-environment",
+    "href": "prep.html#check-your-environment",
+    "title": "Using DataHub as a commmon computational environment",
+    "section": "Check your environment",
+    "text": "Check your environment\nTo check things look good:\n\nClick on Terminal (in the 3rd row of the Launcher tab, under Other). (If you have trouble finding the Terminal, go to File -&gt; New -&gt; Terminal.)\nCheck that your working directory is ~/compute-skills-2024 (by looking at the terminal prompt or running pwd)\nRun ls to see the files in the repository.",
+    "crumbs": [
+      "Computational Environment"
+    ]
+  },
+  {
+    "objectID": "prep.html#editing-files",
+    "href": "prep.html#editing-files",
+    "title": "Using DataHub as a commmon computational environment",
+    "section": "Editing files",
+    "text": "Editing files\nYou can combine text and code in a notebook, which you can start with:\n\nNew Launcher -&gt; Notebook -&gt; Python 3 (ipykernel), or\nFile -&gt; New -&gt; Notebook\n\nTo run the code in a cell, a shortcut is Ctrl + Enter/Return.\nTo create a script file containing just code, do File -&gt; New -&gt; Python file.",
+    "crumbs": [
+      "Computational Environment"
+    ]
+  },
+  {
+    "objectID": "prep.html#stopping-your-server",
+    "href": "prep.html#stopping-your-server",
+    "title": "Using DataHub as a commmon computational environment",
+    "section": "Stopping your server",
+    "text": "Stopping your server\nYou can stop your server via File-&gt; Hub Control Panel -&gt; Stop My Server.\nIf you only log out, any ongoing computations will still run in the background.",
+    "crumbs": [
+      "Computational Environment"
+    ]
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Overview",
+    "section": "",
+    "text": "The workshop will focus on skills related to computation, code development, and statistics/data science workflows, including,\n\nopen science workflows and literate programming;\nintroduction to version control, Git and GitHub;\ncode style;\ndebugging;\ntesting;\ncollaboration with Git and GitHub;\nnumerical analysis (random number generation and floating point precision);\npackaging and reproducible environments; and\nautomated workflows.\n\n\n\n\nGoal 1: Emphasize good computational and code development practices (scripting, version control, testing, modularity, defensive programming, documentation, commenting, numerical analysis issues).\nGoal 2: Emphasize good practices for workflows, including reproducibility, automation, isolated environments.\nGoal 3: Provide practice with and introduce key tools for version control, testing, documentation, literate programming (documents with runnable code).",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#about-the-computational-skills-workshop",
+    "href": "syllabus.html#about-the-computational-skills-workshop",
+    "title": "Overview",
+    "section": "",
+    "text": "The workshop will focus on skills related to computation, code development, and statistics/data science workflows, including,\n\nopen science workflows and literate programming;\nintroduction to version control, Git and GitHub;\ncode style;\ndebugging;\ntesting;\ncollaboration with Git and GitHub;\nnumerical analysis (random number generation and floating point precision);\npackaging and reproducible environments; and\nautomated workflows.\n\n\n\n\nGoal 1: Emphasize good computational and code development practices (scripting, version control, testing, modularity, defensive programming, documentation, commenting, numerical analysis issues).\nGoal 2: Emphasize good practices for workflows, including reproducibility, automation, isolated environments.\nGoal 3: Provide practice with and introduce key tools for version control, testing, documentation, literate programming (documents with runnable code).",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#optional-introduction-to-computing-and-python",
+    "href": "syllabus.html#optional-introduction-to-computing-and-python",
+    "title": "Overview",
+    "section": "(Optional) Introduction to Computing and Python",
+    "text": "(Optional) Introduction to Computing and Python\nThe optional additional sessions (held Tuesday-Wednesday, August 20-21) provide a basic introduction to computing concepts (e.g., parts of a computer, ideas related to parallelization, introduction to the the shell/command line/terminal) and an introduction to Python.\nThese are intended for those with little experience (or wishing a refresher) with working in a command line context or with using Python, and are particularly important for those taking Statistics 243, which assumes basic knowledge of Python.\nThe introduction to Python will borrow heavily from this Software Carpentry Python lesson, with some additional topics added.",
+    "crumbs": [
+      "Overview"
+    ]
   },
   {
     "objectID": "units/comp-practices.html",
@@ -460,15 +541,188 @@
     ]
   },
   {
-    "objectID": "units/mini-project.html",
-    "href": "units/mini-project.html",
-    "title": "(Optional) Python Mini-Project",
+    "objectID": "units/additional-topics.html",
+    "href": "units/additional-topics.html",
+    "title": "Numerics, reproducibility, and automation",
     "section": "",
-    "text": "Background\nThe goal of the project is to analyze the tweeting behavior of the 100 US Senators in the US Senate. Each senator has a Twitter account and puts out tweets reflecting their thought and communicating with the people in the state they represent.\n(Note that these tweets were downloaded early in 2017, so they reflect tweeting just before President Obama stepped down and President Trump began his term.)\nThe goal of the project questions is to guide you through the steps of getting the data, processing and cleaning it, putting it in a format that makes it easier to analyze and then doing some basic analysis. The last few questions ask you to see if whether a senator mentions a president or presidential candidate depends on the party that the senator is part of. For example, do Democratic senators mention Barack Obama in their tweets more or less than Republican senators?\nFor background information only: This Python code downloads tweets using the Python twitter package to interact with Twitter’s API. You will only be able to run that code if you set up your own Twitter account and follow the instructions at the start of the file regarding filling in the authentication information (CONSUMER_KEY, CONSUMER_SECRET, etc.).\nI’ve already run the code mentioned above and downloaded the data for you. The downloaded information on the senators’ twitter accounts is in project/senators-list.json in the GitHub repository, while the downloaded tweets are in timelines.json. timelines.json is too big to put in the Github repository. You can find it at http://www.stat.berkeley.edu/~paciorek/transfer/timelines.json. Note that there are only 200 tweets for each senator because of limits on how many tweets can be accessed in a given request.\n\n\nQuestions\n\nLoad the senators-list.json and timelines.json files into Python as objects called senators and timelines, using this syntax:\n\n\nCode\nwith open(\"tmp.json\") as infile:\n     y = json.load(infile)\n\n\nWhat type of datastructure is timelines? How many timelines are there? What does each timeline correspond to?\nMake a list of the number of followers each senator has.\nWhat is the screen name of the senator with the largest number of followers.\nMake a list of lists where the outer list represents senators and the inner list contains the text of each senator’s tweets, and call it tweets.\nWrite a function, called remove_punct, that takes a word and returns the word with all punctuation characters removed, except for those that occur within a word.\nWrite a function that takes tweet and returns a cleaned up version of the tweet. Here is an example function to get you started:\n\n\nCode\ndef clean(tweet):\n    cleaned_words = [word.lower() for word in tweet.split() if\n                 'http' not in word and\n                  word.isalpha() and\n                  word != 'RT']\n    return ' '.join(cleaned_words)\n\nclean(tweets[0][0])\n\n\nNote that the function I’ve provided is a bit buggy - it has some problems with some tweets. If your goal is to convert the tweet into a discrete set of words, what is going wrong here? Fix up and extend the example function.\nUse the following file to create a list, called stopwords, that contains common english words: http://www.textfixer.com/resources/common-english-words.txt. Make sure to pull the data into Python by writing Python code to download and suck the data into Python.\nWrite a function, called tokenize, which takes a tweet, cleans it, and removes all punctuation and stopwords.\nCreate a list of lists, tweets_content, using your tokenize function.\nCreate a list, tokens, where all 200 of each senator’s tweets are made into a single string. Hint: this syntax might be useful: \" \".join(my_list_of_strings).\nCreate a Pandas dataFrame with the following columns: senator name or handle, party of the senator, and number of times a prominent politician is mentioned in each senator’s tweets. You might count the number of ‘Obama’, ‘Trump’, or ‘Clinton’ references.\nYou can use this to create the party column (1=Republican, 0=Democratic):\n\n\nCode\nparty = np.array([1,1,1,1,1,1,0,0,1,0,1,1,0,0,0,1,1,1,0,0,0,1,1,1,1,0,1,0,\n1,1,1,0,0,0,0,0,0,1,0,1,1,1,0,1,1,1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,0,1,\n1,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,1,1,0,0,1,0,1,0,0,1,1,1,0,1])\n\n\nThat should correspond to the ordering in timelines but of course it would be more robust to create a dataFrame that has user names and party as columns and merge that with the count information.\nUse a Poisson GLM to assess the relationship between party and number of Obama/Trump/Clinton mentions. Does one party tend to mention Obama/Trump/Clinton more in their tweets? Can you deduce a pattern by considering the party of the senator and the party of Obama/Trump/Clinton?\nHere’s some syntax to help you get started:\n\n\nCode\nimport statsmodels.api as sm\nmodel = sm.GLM(endog = .,  exog = ., family = sm.families.Poisson())\nmodel.fit()\n\n\nDoes the statistical result make sense in light of the number of total mentions of Obama/Trump/Clinton by Republicans and the number of total mentions by Democrats?\nUse matplotlib to make histograms of the number of Obama mentions by senator, stratified by party.\nIs this consistent with the results of your statistical analysis?",
+    "text": "Overview\n\n\n\nThis module presents some information on numerical analysis (random number generation and floating point precision), packaging, reproducibility, and automation.",
     "crumbs": [
       "Modules",
-      "Python Mini Project (optional)"
+      "Numerics and Reproducibility"
     ]
+  },
+  {
+    "objectID": "units/additional-topics.html#random-number-generation",
+    "href": "units/additional-topics.html#random-number-generation",
+    "title": "Numerics, reproducibility, and automation",
+    "section": "Random number generation",
+    "text": "Random number generation\nRandom numbers on a computer are actually (periodic) deterministic sequences that (hopefully) behave as if they were random.\n\nRandom number seed\nThe seed determines where in the cycle of the periodic sequence you are.\nIt’s critical for ensuring reproducibility when running code that uses random numbers\n\n\nCode\nimport numpy as np\nnp.random.seed(1)\nnp.random.normal(size = 5)\n\n\narray([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763])\n\n\n\n\nCode\nnp.random.normal(size = 5)\n\n\narray([-2.3015387 ,  1.74481176, -0.7612069 ,  0.3190391 , -0.24937038])\n\n\n\n\nCode\nnp.random.seed(1)\nnp.random.normal(size = 10)\n\n\narray([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763,\n       -2.3015387 ,  1.74481176, -0.7612069 ,  0.3190391 , -0.24937038])\n\n\n\n\nRandom number generators\nIf you don’t do anything, numpy will use a generator called the Mersenne Twister (that’s the default in R too).\nHowever the “default” RNG in numpy is a newer, better algorithm called PCG64.\n\n\nCode\n## Mersenne twister\nnp.random.seed(1)\nnp.random.normal(size = 5)\n\n\narray([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763])\n\n\n\n\nCode\n## Mersenne twister, selected specifically\nrng = np.random.Generator(np.random.MT19937(seed = 1))\nrng.normal(size = 5)\n## Not clear why numbers differ from above. Seed setup might differ.\n\n\narray([ 2.04676909, -1.03653009,  0.72997546,  0.41584996, -0.1922969 ])\n\n\n\n\nCode\n## 'Default' PCG64\nrng = np.random.Generator(np.random.PCG64(seed = 1))\nrng.normal(size = 5)\n\n\narray([ 0.34558419,  0.82161814,  0.33043708, -1.30315723,  0.90535587])\n\n\n\n\nCode\nrng = np.random.default_rng(seed = 1)\nrng.normal(size = 5)\n\n\narray([ 0.34558419,  0.82161814,  0.33043708, -1.30315723,  0.90535587])\n\n\nSome cautions (detailed by Philip Stark and Kellie Ottoboni):\n\nseeds with many zeros can be problematic.\nMersenne Twister not as good as PCG64.\nBe particularly cautious to use a good RNG when doing permutation and taking random samples.",
+    "crumbs": [
+      "Modules",
+      "Numerics and Reproducibility"
+    ]
+  },
+  {
+    "objectID": "units/additional-topics.html#floating-point-precision",
+    "href": "units/additional-topics.html#floating-point-precision",
+    "title": "Numerics, reproducibility, and automation",
+    "section": "Floating point precision",
+    "text": "Floating point precision\n\n\nCode\n0.3 - 0.2 == 0.1\n0.3\n0.2\n0.1 # Hmmm...\n\n\n0.1\n\n\n\nDouble-precision accuracy\nNumbers in most languages are stored by default as double precision floating point numbers.\n\n8 bytes = 64 bits = double precision\n4 bytes = 32 bits = single precision\n\n(GPU libraries often use 4 bytes or even fewer.)\n\n\nCode\ndef dg(x, form = '.20f'):\n    print(format(x, form))\n\na = 0.3\nb = 0.2\ndg(a)\ndg(b)\ndg(a-b)\ndg(0.1)\n\n\n0.29999999999999998890\n0.20000000000000001110\n0.09999999999999997780\n0.10000000000000000555\n\n\nHow many digits of accuracy do we have?\nSame thing regardless of the size of the number:\n\n\nCode\n12345678.1234567812345678\n\n\n12345678.123456782\n\n\n\n\nCode\n12345678123456781234.5678\n\n\n1.234567812345678e+19\n\n\n\n\nCode\ndg(12345678123456781234.5678)\n\n\n12345678123456780288.00000000000000000000\n\n\nThis occurs because of how the 64 bits in a double precision floating point number are allocated to give a large range of numbers in terms of magnitude and high precision in terms of digits of accuracy.\n\n\nComparisons\nLet’s see what kinds of numbers we can safely compare for exact equality with ==.\n\n\nCode\nx = .5 - .2\nx == 0.3\nx = 1.5 - .2\nx == 0.3\n\nx = .5 - .5\nx == 0\nx = .5 - .2  -.3\nx == 0\nx = (.5 - .2) - (.51 - .21)\nx == 0\n\nnp.isclose(x, 0)\n\n\n\n\nCalculation errors\nLet’s consider accuracy of subtraction.\n\n\nCode\n1.1234 - 1.0\n\n\n0.12339999999999995\n\n\n\n\nCode\n123456781234.1234 - 123456781234.0\n\n\n0.1233978271484375\n\n\nThis is called catastrophic cancellation.\nDo you think calling it “catastrophic” is too extreme? If so, consider this.\n\n\nCode\n81.0 - 80.0\n\n\n1.0\n\n\n\n\nCode\n12345678123456781.0 -12345678123456780.0\n\n\n0.0\n\n\nWhat’s the derivative of \\(sin(x)\\)? Let’s see what kind of accuracy we can get.\n\n\nCode\ndef deriv(f, x, eps=1e-8):\n   return (f(x+eps) - f(x)) / eps\n\nnp.cos(0.2)\n\nderiv(np.sin, 0.2)\n\nderiv(np.sin, 0.2, 1e-12)\nderiv(np.sin, 0.2, 1e-14)\nderiv(np.sin, 0.2, 1e-15)\nderiv(np.sin, 0.2, 1e-16)\nderiv(np.sin, 0.2, 1e-17)\n\n\n\n\nLinear algebra errors\nThe errors seen in doing calculations, such as catastrophic cancellation, cascaded through derivative estimation. That also happens when doing linear algebra operations.\nHere’s an example where mathematically all the eigenvalues are real-valued and positive, but not on the computer.\n\n\nCode\nimport scipy as sp\n\nxs = np.arange(100)\ndists = np.abs(xs[:, np.newaxis] - xs)\n# This is a p.d. matrix (mathematically).\ncorr_matrix = np.exp(-(dists/10)**2)\n# But not numerically...\nsp.linalg.eigvals(corr_matrix)[80:99]\n\n\narray([ 1.43024256e-16+1.28433951e-16j,  1.43024256e-16-1.28433951e-16j,\n        1.49210347e-16+4.87070558e-17j,  1.49210347e-16-4.87070558e-17j,\n       -1.54661687e-16+1.25601177e-16j, -1.54661687e-16-1.25601177e-16j,\n       -2.07808543e-16+3.73312254e-17j, -2.07808543e-16-3.73312254e-17j,\n        9.83783628e-17+7.20174529e-17j,  9.83783628e-17-7.20174529e-17j,\n        2.37821218e-18+1.00101181e-16j,  2.37821218e-18-1.00101181e-16j,\n        5.29254936e-17+0.00000000e+00j, -1.62444574e-16+0.00000000e+00j,\n       -2.74621910e-17+7.55223038e-17j, -2.74621910e-17-7.55223038e-17j,\n       -9.08016006e-17+3.79199791e-17j, -9.08016006e-17-3.79199791e-17j,\n       -3.25243092e-17+0.00000000e+00j])\n\n\n\n\nOverflow and underflow\nHaving a finite number of bits to represent each number means there are minimum and maximum numbers that can be expressed.\n\n\nCode\n1.38e5000\n1.38e-400\n\n\n0.0\n\n\n\n\n\n\n\n\nHow much do we need to worry about overflow and underflow?\n\n\n\nQ: Roughly how many observations would it take before we underflow in calculating a likelihood?\n\n10\n100\n1000\n100000\n100000000\n\n\n\n\n\nCode\nimport numpy as np\nimport scipy as sp\n\nn = 10\n\nx = np.random.normal(size=n)\nnp.prod(sp.stats.norm.pdf(x))\n\nloglik = np.sum(sp.stats.norm.logpdf(x))\nloglik\nnp.exp(loglik)\n\n\n2.0739518337814167e-08\n\n\n\n\n\n\n\n\nWork with probabilities and densities on the log scale. Almost always.",
+    "crumbs": [
+      "Modules",
+      "Numerics and Reproducibility"
+    ]
+  },
+  {
+    "objectID": "units/additional-topics.html#exercise-forking-and-pull-requests-for-numerical-issues-with-newtons-method",
+    "href": "units/additional-topics.html#exercise-forking-and-pull-requests-for-numerical-issues-with-newtons-method",
+    "title": "Numerics, reproducibility, and automation",
+    "section": "Exercise: forking and pull requests for numerical issues with Newton’s method",
+    "text": "Exercise: forking and pull requests for numerical issues with Newton’s method\nLook at your partner’s code in terms of how it handles the stopping criterion or (for the 1-d case) the finite difference estimate of the gradient and Hessian.\nFork your partner’s repository. In the local version of that repository on your DataHub, make a change to try to improve how the stopping criterion or finite difference estimate is handled. Then make a pull request back into your partner’s repository.\nHere are the detailed steps of how to do all that:\n\nGo to your partner’s GitHub page and fork the repository (https://github.com/&lt;username&gt;/newton-practice/fork). You can name it newton-practice-&lt;partner_name&gt; or something else.\nOn DataHub, clone the forked repository: git clone https://github.com/&lt;your_username&gt;/newton-practice-&lt;partner_name&gt;.\nOn DataHub, enter the directory of the cloned repository: cd newton-practice-&lt;partner_name&gt;.\nMake a branch, make changes, add, and commit.\nGive DataHub access to the new repository via Step 3 of the steps for accessing GitHub repository from DataHub.\nPush the commit to your GitHub: git push -u origin newton-practice-&lt;partner_name&gt;.\nGo to https://github.com/&lt;your_username&gt;/newton-practice-&lt;partner_name&gt; and open a pull request (“Compare and pull request”). The request will automatically be done in the GitHub account of your partner.\n\nThen review the pull request your partner makes in your own repository. Iterate with your partner until you are happy to merge the pull request into your repository. Remember to then run git pull to get the changes in the local copy of the repository.",
+    "crumbs": [
+      "Modules",
+      "Numerics and Reproducibility"
+    ]
+  },
+  {
+    "objectID": "units/additional-topics.html#packages",
+    "href": "units/additional-topics.html#packages",
+    "title": "Numerics, reproducibility, and automation",
+    "section": "Packages",
+    "text": "Packages\nWhat’s a package? In general it is software that is provided as a bundle that can be downloaded and made available on your computer. Some packages (e.g., R, Python themselves) are stand-alone packages. Others (such as R packages and Python packages) are add-on functionality that works with and extends the functionality of the stand-alone software.\nWhat do we need to have a Python package?\n\nA basic Python package\nA Python package is a directory containing one or more modules and with a file named __init__.py that is called when a package is imported and serves to initialize the package.\nLet’s create a basic package.\nmkdir mypkg\n\ncat &lt;&lt; EOF &gt; mypkg/__init__.py\n## Make objects from mymod.py available as mypkg.foo\nfrom mypkg.mymod import *\n\nprint(\"Welcome to my package.\")\nEOF\n\ncat &lt;&lt; EOF &gt; mypkg/mymod.py\nx = 7\n\ndef myfun(val):\n    print(\"The arg is: \", str(val), \".\", sep = '')\nEOF\nNote that if there were other modules, we could have imported from those as well.\nNow we can use the objects from the module without having to know that it was in a particular module (because of how __init__.py was set up).\n\n\nCode\nimport mypkg\nmypkg.x\nmypkg.myfun(7)\n\n\nNote that one can set __all__ in an __init__.py to define what is imported, which makes clear what is publicly available and hides what is considered internal.\n\n\nA minimal “real” package\nFernando has a this toy example package.\nLet’s clone the repository and see if we can install it.\ngit clone https://github.com/fperez/mytoy\ncd mytoy\npip install --user .\ncd\nls .local/lib/python3.11/site-packages\n\n\nCode\nimport mytoy\n\nmytoy.toy(7)\n\n\nLet’s look in the top directory of the repository. There we see various files related to building and installing the package, namely, pyproj.toml, setup.py, setup.cfg, etc.\nIn fact, one can install the package with only either setup.py or pyproj.toml, but the other files listed here are recommended:\n\npyproj.toml (or pyproject.toml): this is a configuration file used by packaging tools. In the mytoy example it specifies to use setuptools to build and install the package.\nsetup.py: this is run when the package is built and installed when using setuptools. In the example, it simply runs setuptools.setup(). With recent versions of setuptools, you don’t actually need this so long as you have the pyproj.toml file.\nsetup.cfg: provides metadata about the package when using setuptools.\nenvironment.yml: provides information about the full environment in which your package should be used (including examples, documentation, etc.). For projects using setuptools, a minimal list of dependencies needed for installation and use of the package can instead be included in the install_requires option of setup.cfg.\nLICENSE: specifies the license for your package giving the terms under which others can use it.\n\nThe postBuild file is a completely optional file only needed if you want to use the package with a MyBinder environment.\nAt the numpy GitHub repository, by looking in pyproject.toml, you can see that numpy is build and installed using a system called Meson, while at the Jupyter GitHub repository you can see that the jupyter package is built and installed using setuptools.\nBuilding a package usually refers to compiling source code but for a Python package that just has Python code, nothing needs to be compiled. Installing a package means putting the built package into a location on your computer where packages are installed.\nIt would take more work to make the package available in a repository such as PyPI or via Conda.",
+    "crumbs": [
+      "Modules",
+      "Numerics and Reproducibility"
+    ]
+  },
+  {
+    "objectID": "units/additional-topics.html#exercise-make-your-own-package",
+    "href": "units/additional-topics.html#exercise-make-your-own-package",
+    "title": "Numerics, reproducibility, and automation",
+    "section": "Exercise: Make your own package",
+    "text": "Exercise: Make your own package\nMake a package out of your Newton method code, following the structure of mytoy. Include your tests as part of the package.\nSee if you can install your package, run the tests, and use the package, following the README.md of mytoy.",
+    "crumbs": [
+      "Modules",
+      "Numerics and Reproducibility"
+    ]
+  },
+  {
+    "objectID": "units/additional-topics.html#installing-packages",
+    "href": "units/additional-topics.html#installing-packages",
+    "title": "Numerics, reproducibility, and automation",
+    "section": "Installing packages",
+    "text": "Installing packages\nIf a package is on PyPI or available through Conda but not on your system, you can install it easily (usually). You don’t need root permission on a machine to install a package, though you may need to use pip install --user or set up a new Conda environment.\nPackages often depend on other packages. In general, if one package depends on another, pip or conda will generally install the dependency automatically.\nOne advantage of Conda is that it can also install non-Python packages on which a Python package depends, whereas with pip you sometimes need to install a system package to satisfy a dependency.\n\n\n\n\n\n\nFaster installation with Mamba\n\n\n\nIt’s not uncommon to run into a case where conda has trouble installing a package because of version inconsistencies amongst the dependencies. mamba is a drop-in replacement for conda and often does a better job of this “dependency resolution”. We use mamba by default on the SCF.\nWith newer versions of Conda, you can use the libmamba dependency “resolver” by running conda config --set solver libmamba, which adds solver: libmamba to your .condarc file.\n\n\n\nReproducibility and package management\nFor reproducibility, it’s important to know the versions of the packages you use (and the version of Python). pip and conda make it easy to do this. You can create a requirements file that captures the packages you are currently using (and, critically, their versions) and then install exactly that set of packages (and versions) based on that requirements file.\n## Reproducing using pip.\npip freeze &gt; requirements.txt\npip install -r requirements.txt\n\n## Reproducing a Conda environment.\nconda env export &gt; environment.yml\nconda env create -f environment.yml\nConda is a general package manager. You can use it to manage Python packages but lots of other software as well, including R and Julia.\n\nFully isolating your Conda environment\nConda environments provide an additional layer of modularity/reproducibility, allowing you to set up a fully reproducible environment for your computation. Here (by explicitly giving python=3.11) the Python 3.11 executable and all packages you install in the environment are fully independent of whatever Python executables are installed on the system. (That said, there are some caveats that can make it a bit of headache to ensure full isolation.)\ntype python\nconda create -n my_iso_env python=3.11\nsource activate my_iso_env\ntype python\nconda install numpy\n\n\n\n\n\n\nActivating an environment\n\n\n\nIf you use conda activate rather than source activate, Conda will prompt you to run conda init, which will make changes to your ~/.bashrc that, for one, activate the Conda base environment automatically when a shell is started. This may be fine, but it’s helpful to be aware.\n\n\n\n\n\nPackage locations\nPackages in Python (and in R, Julia, etc.) may be installed in various places on the filesystem, and it sometimes it is helpful (e.g., if you end up with multiple versions of a package installed on your system) to be able to figure out where on the filesystem the package is being loaded from.\n\npkgname.__file__ will show where the imported package is installed.\npkname.__version__ will show the version of the package (as will pip list or conda list, for all packages).\nsys.path shows where Python looks for packages on your system.\n\npackages installed via pip will generally be in ~/.local/lib/python3.X/site-packages.\n\n\n\n\nSource vs. binary packages\nThe difference between a source package and a binary package is that\n\na source package has the raw Python (and C/C++ and Fortran, in some cases) code as text files\na binary package has all the non-Python code in a binary/non-text format, with the C/C++ and Fortran code already having been compiled.\n\nIf you install a package from source, C/C++/Fortran code will be compiled on your system (if the package has such code). That should mean the compiled code will work on your system, but requires you to have a compiler available and things properly configured. A binary package doesn’t need to be compiled on your system, but in some cases (e.g., if you got the wrong binary version) the code may not run on your system because it was compiled in such a way that is not compatible with your system.\nPython wheels are a binary package format for Python packages. Wheels for some packages will vary by platform (i.e., operating system) so that the package will install correctly on the system where it is being installed.",
+    "crumbs": [
+      "Modules",
+      "Numerics and Reproducibility"
+    ]
+  },
+  {
+    "objectID": "units/additional-topics.html#docker-containers",
+    "href": "units/additional-topics.html#docker-containers",
+    "title": "Numerics, reproducibility, and automation",
+    "section": "Docker containers",
+    "text": "Docker containers\nDocker containers share some similarities with Conda environments except that you provide a full specification for the Linux operating system you want to use and software you want installed.",
+    "crumbs": [
+      "Modules",
+      "Numerics and Reproducibility"
+    ]
+  },
+  {
+    "objectID": "units/additional-topics.html#example-1-binder",
+    "href": "units/additional-topics.html#example-1-binder",
+    "title": "Numerics, reproducibility, and automation",
+    "section": "Example 1: Binder",
+    "text": "Example 1: Binder\nOne example is using Binder to open a Jupyter notebook in an executable environment.\nBased on a configuration (various options are possible for how to specify the configuration), Binder will create a Docker container with the needed software installed.\nThe most common configuration format is to provide a Conda environment file. Binder will then create a Conda environment inside the Docker (Linux) container. The Conda environment will contain the packages specified in the environment file.\nLet’s set up a Binder environment “Geospatial analytics in Python with Geopandas” that can access the notebooks and materials provided in the repository in a computational environment designed to use the notebooks reliably and reproducibly.\nIn some cases an image for the container will already be available, and all that needs to happen is to start a virtual machine using that image as the computational environment. In other cases (e.g., with a configuration you’ve just created), the Docker container and Conda environment need to be set up.\nIf we’re familiar with what happens when Docker containers and Conda environments are set up, we can see in the Binder logs that a Docker container is set up (using Ubuntu Linux) and one of the steps of doing that is to create a Conda environment within the container.\nLet’s see the steps that are run if we use the mytoy repository to start a Binder environment at ovh.mybinder.org, specifying fperez/mytoy as the repository. (Note that in a number of cases, the startup has failed, probably because mybinder has very limited resources for providing cloud compute resources. We are using ovh.mybinder.org rather than mybinder.org in hopes that is more likely to succeed.",
+    "crumbs": [
+      "Modules",
+      "Numerics and Reproducibility"
+    ]
+  },
+  {
+    "objectID": "units/additional-topics.html#example-2-github-actions-for-automated-testing",
+    "href": "units/additional-topics.html#example-2-github-actions-for-automated-testing",
+    "title": "Numerics, reproducibility, and automation",
+    "section": "Example 2: GitHub Actions for automated testing",
+    "text": "Example 2: GitHub Actions for automated testing\nA second example is using GitHub Actions (GHA) to automate activities such as testing. To set up a GitHub Actions workflow, one\n\nspecifies when the workflow will run (e.g., when a push or pull request is made, or only manually)\nprovides instructions for how to set up the environment for the workflow\nprovides the operations that the workflow should run.\n\nA good example is running tests whenever you make a commit to a repository containing software.\nWith GHA, you specify the operating system and then run the steps you specify in .github/workflows/some_action.yml. Some steps will customize the environment as the initial steps and then additional step(s) will run shell or other code to run your workflow. You use pre-specified operations (called actions) to do common things (such as checking out a GitHub repository and installing commonly used software).\nWhen triggered, GitHub will run the steps in a virtual machine, which is called the runner.\n\nJoint demo/exercise\nWe’ll walk through the steps of setting up automated testing for the mytoy example package. Why do this? It’s common to have testing pass locally on your own machine, but fail for various reasons when done elsewhere.\nThe workflow is specified using a YAML file placed in the .github/workflows directory of the repository.\nHere’s an example YAML file for testing the mytoy package:\non:\n  push:\n    branches:\n    - main\n\njobs:\n  CI:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v4\n\n    # Install dependencies\n    - name: Set up Python \n      uses: actions/setup-python@v5\n      with:\n        python-version: 3.12\n\n    - name: Install mytoy\n      run: |\n        # There is a small bug here.\n        cd mytoy\n        pip install --user .\n\n    - name: Run tests\n      run: |\n        # Another small bug here.\n        cd mytoy\n        pytest\nWe’ll first run this with the current tests for mytoy, which should pass when run via GitHub Actions. We can take a look at the output.\nNext, let’s introduce a failing test to see what the output looks like and get a sense for how to debug it.",
+    "crumbs": [
+      "Modules",
+      "Numerics and Reproducibility"
+    ]
+  },
+  {
+    "objectID": "units/additional-topics.html#example-3-github-actions-for-publishing-webpages",
+    "href": "units/additional-topics.html#example-3-github-actions-for-publishing-webpages",
+    "title": "Numerics, reproducibility, and automation",
+    "section": "Example 3: GitHub Actions for publishing webpages",
+    "text": "Example 3: GitHub Actions for publishing webpages\nWe can use GitHub Actions with GitHub pages to easily publish websites, where we make changes to the repository and the workflow causes the website to be updated.\nHere’s the GitHub Actions workflow (a YAML file) that publishes the website for the spring 2023 version of Statistics 159/259. Any commits made in the main branch cause the website to be updated.\n\nConfiguring GitHub Pages\nTo set up GitHub Pages for a repository, go to https://github.com/github_org/repository/settings/pages and select Source -&gt; Deploy from a branch and then choose gh-pages as the branch (first creating the gh-pages branch if necessary). The website should appear at github_org.github.io/repository.\n\n\nQuarto-based websites\nIn fact the website for this workshop was done using Quarto, which uses GitHub Pages and GitHub Actions behind the scenes.\nChris runs quarto publish gh-pages to update the site. Quarto will (on the local machine) render the html (convert the Markdown to html) and then behind the scenes Quarto uses GitHub Actions and GitHub Pages (via the `gh-pages branch) to publish the website.",
+    "crumbs": [
+      "Modules",
+      "Numerics and Reproducibility"
+    ]
+  },
+  {
+    "objectID": "units/point-to-prep.html",
+    "href": "units/point-to-prep.html",
+    "title": "Preparation",
+    "section": "",
+    "text": "Preparation\nOur primary computing context will be the UC Berkeley DataHub. This provides us with a common platform on which we are assured to get the same behavior as each other, allowing us to use the command line/shell/terminal and Python, including Jupyter notebooks. In particular getting a common command line environment would be hard otherwise.\n\n\n\n\n\n\nUsing your own laptop (optional)\n\n\n\n\n\nIf you haven’t already used the shell/terminal and Python on your laptop, we recommend you use the DataHub so that we don’t have to troubleshoot problems on multiple laptops.\nIf you do use your laptop, you’ll need Python installed, for which we recommend using Miniforge. Another option is the Anaconda distribution of Python.\nFor the shell/terminal parts of this material, you can use the Terminal on your Mac, but not on Windows.\nIf you do use your own laptop, you’ll need to clone this GitHub repository. If you don’t know how to do that, just download this zip file and unzip it into your home directory on your computer."
+  },
+  {
+    "objectID": "units/solutions-python.html",
+    "href": "units/solutions-python.html",
+    "title": "SOLUTIONS: Introduction to Python (optional)",
+    "section": "",
+    "text": "Exercise 1\n\n\n\nUsing the section on “Built-in Types” from the official “The Python Standard Library” reference, figure out how to compute: - \\(\\sqrt(-1)\\)\n- \\(\\exp(1.5)\\) - \\((\\lceil \\frac{3}{4} \\rceil \\times 4)^3\\),\n\n\n\n\n\n\n\n\nExercise 1 Solution\n\n\n\n\n\n\n\nCode\npow(-1, 0.5)\n(-1)**0.5\n\nimport math\nmath.exp(1.5)\n\n(math.ceil(3/4) * 4)**3\n\n\n64\n\n\n\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\n\nIs 1.0 of the integer type? What about 1? Is the result of 5/3 - 2/3 of the integer type? Is the mathematical value seen in Python an integer?\nHere’s a numerical puzzle. Why does the last computation not work, when the others do? And, for those of you coming from R, which of these computations don’t work in R?\n\n\nCode\n100000**10\n100000.0**10\n100000**100\n100000.0**100\n\n\n\n\n\n\n\n\n\n\n\nExercise 2 Solution\n\n\n\n\n\n\n\nCode\ntype(1.0)\ntype(1)\ntype(5/3-2/3)\n5/3-2/3 == 1\n\ntype(100000**10)\ntype(100000.0**10)\n\n\nfloat"
+  },
+  {
+    "objectID": "units/solutions-python.html#python-fundamentals",
+    "href": "units/solutions-python.html#python-fundamentals",
+    "title": "SOLUTIONS: Introduction to Python (optional)",
+    "section": "",
+    "text": "Exercise 1\n\n\n\nUsing the section on “Built-in Types” from the official “The Python Standard Library” reference, figure out how to compute: - \\(\\sqrt(-1)\\)\n- \\(\\exp(1.5)\\) - \\((\\lceil \\frac{3}{4} \\rceil \\times 4)^3\\),\n\n\n\n\n\n\n\n\nExercise 1 Solution\n\n\n\n\n\n\n\nCode\npow(-1, 0.5)\n(-1)**0.5\n\nimport math\nmath.exp(1.5)\n\n(math.ceil(3/4) * 4)**3\n\n\n64\n\n\n\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\n\nIs 1.0 of the integer type? What about 1? Is the result of 5/3 - 2/3 of the integer type? Is the mathematical value seen in Python an integer?\nHere’s a numerical puzzle. Why does the last computation not work, when the others do? And, for those of you coming from R, which of these computations don’t work in R?\n\n\nCode\n100000**10\n100000.0**10\n100000**100\n100000.0**100\n\n\n\n\n\n\n\n\n\n\n\nExercise 2 Solution\n\n\n\n\n\n\n\nCode\ntype(1.0)\ntype(1)\ntype(5/3-2/3)\n5/3-2/3 == 1\n\ntype(100000**10)\ntype(100000.0**10)\n\n\nfloat"
+  },
+  {
+    "objectID": "units/solutions-python.html#analyzing-patient-data",
+    "href": "units/solutions-python.html#analyzing-patient-data",
+    "title": "SOLUTIONS: Introduction to Python (optional)",
+    "section": "2. Analyzing Patient Data",
+    "text": "2. Analyzing Patient Data\n\n\n\n\n\n\nExercise 2\n\n\n\nNote that ? and ?? only work in IPython (or a Jupyter notebook). For help in plain Python, use help(np.ndim).\n\nWhat happens if you type np.ndim?? (i.e., use two question marks)? What additional do you see?\nWhat does np.ndim() do? How does it execute under the hood? Consider why the following uses of ndim both work.\n\n\nCode\na = np.array([0, 1, 2])\na.ndim\nnp.ndim(a)\n\n\nNow explain why only one of these works.\n\n\nCode\na = [0, 1, 2]\na.ndim\nnp.ndim(a)\n\n\nType np.array? in a Notebook or at the IPython prompt. Briefly skim the docstring. nparray allows you to construct numpy arrays.\nType np. followed by the &lt;Tab&gt; key in a Notebook or at the IPython prompt. Choose two or three of the completions and use ? to view their docstrings. In particular, pay attention to the examples provided near the end of the docstring and see whether you can figure out how you might use this functionality.\n\n\n\n\n\n\n\n\n\nExercise 1 Solution\n\n\n\n\n\n\n\nCode\na = [0, 1, 2]\n# a.ndim  # This errors out.\n\nimport numpy as np\nnp.asarray(a)\nnp.asarray(a).ndim\n\n\n1"
+  },
+  {
+    "objectID": "units/solutions-python.html#visualizing-tabular-data",
+    "href": "units/solutions-python.html#visualizing-tabular-data",
+    "title": "SOLUTIONS: Introduction to Python (optional)",
+    "section": "3. Visualizing Tabular Data",
+    "text": "3. Visualizing Tabular Data\n\n\n\n\n\n\nExercise\n\n\n\nUsing the following code, read in the GapMinder data using Pandas (to be discussed later) and run the following code to make the variables easily available (you don’t need to know anything about Pandas).\n\n\nCode\nimport numpy as np\nimport pandas as pd\ndat = pd.read_csv('gapminder.csv')\nlifeExp = np.array(dat.lifeExp)\ngdpPercap = np.array(dat.gdpPercap)\nyear = np.array(dat.year)\n\n## Hint: slicing using an array of booleans\n## gdpPercap[year &gt; 2010]\n\n\n\nMake a scatterplot of lifeExp vs gdpPerCap for 2007; make sure you have nice axis labels and title.\nConsider whether plotting income on a logarithmic axis is a better way to display the data.\nUsing at least two years, make an array of plots (in one figure) where each subplot is a different year.\n\n\n\n\n\n\n\n\n\nExercise solution\n\n\n\n\n\n\n\nCode\nimport numpy as np\nimport pandas as pd\ndat = pd.read_csv('gapminder.csv')\nlifeExp = np.array(dat.lifeExp)\ngdpPercap = np.array(dat.gdpPercap)\nyear = np.array(dat.year)\n\nimport matplotlib.pyplot as plt\nmyplot = plt.plot(gdpPercap, lifeExp, 'bo')\nplt.show()\n\nmyplot = plt.plot(np.log(gdpPercap), lifeExp, 'bo')\nplt.show()\n\nfig = plt.figure()\nsubplot1 = fig.add_subplot(1, 2, 1)\nsubplot2 = fig.add_subplot(1, 2, 2)\n\nsubplot1.plot(np.log(gdpPercap[year == 1952]), lifeExp[year == 1952], 'bo')\nsubplot2.plot(np.log(gdpPercap[year == 2007]), lifeExp[year == 2007], 'bo')\n\nsubplot1.set_title('1952')\nsubplot2.set_title('2007')\n\nsubplot1.set_xlabel('per capita GDP (log dollars)')\nsubplot1.set_ylabel('life expectancy (years)')\n\nsubplot2.set_xlabel('per capita GDP (log dollars)')\n\nplt.show()"
+  },
+  {
+    "objectID": "units/solutions-python.html#storing-multiple-values-in-lists",
+    "href": "units/solutions-python.html#storing-multiple-values-in-lists",
+    "title": "SOLUTIONS: Introduction to Python (optional)",
+    "section": "4. Storing Multiple Values in Lists",
+    "text": "4. Storing Multiple Values in Lists\n\n\n\n\n\n\nExercise 1\n\n\n\nCreate a list of numbers, called x1. Reverse the order of the items in the list using slicing. Now reverse the order of the items using a list method. How does using the method differ from slicing? Hint: you can type x. followed by the &lt;Tab&gt; key in a Notebook or at the IPython prompt to find the various methods that can be applied to a list.\n\n\n\n\n\n\n\n\nExercise 1 solution\n\n\n\n\n\n\n\nCode\nx1 = [1, 2, 3, 4]\nprint(x1[::-1])\nprint(x1)\nx1.reverse()\nprint(x1)\n\n\n[4, 3, 2, 1]\n[1, 2, 3, 4]\n[4, 3, 2, 1]\n\n\n\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\n\nFigure out some different ways of combining your list of numbers with a list of strings to create a single list of mixed type elements. (Hint: you can type x. followed by the &lt;Tab&gt; key in a Notebook or at the IPython prompt to find the various methods that can be applied to a list.)\nNow try to sort the resulting list. What happens?\n\n\n\n\n\n\n\n\n\nExercise 2 solution\n\n\n\n\n\n\n\nCode\nx1 = [1, 2, 3, 4]\nx2 = ['apple', 'banana']\n\nprint(x1 + x2)\nx1.append(x2)\nprint(x1)\n\nx1 = [1, 2, 3, 4]\nx1.extend(x2)\nprint(x1)\n\n# x1.sort() # This errors out.\n\n\n[1, 2, 3, 4, 'apple', 'banana']\n[1, 2, 3, 4, ['apple', 'banana']]\n[1, 2, 3, 4, 'apple', 'banana']\n\n\n\n\n\n\n\n\n\n\n\nExercise 4\n\n\n\nWhat does the following tell you about copying and use of memory in lists in Python?\n\n\nCode\na = [1, 3, 5]\nb = a\nid(a)\nid(b)\n# this should confirm what you might suspect\na[1] = 5\n\n\n\n\n\n\n\n\n\n\nExercise 4\n\n\n\n\n\nWhat does the following tell you about copying and use of memory in lists in Python?\n\n\nCode\na = [1, 3, 5]\nb = a\nid(a)\nid(b)\n\nprint(id(a) == id(b))\na[1] = 5\na\nb\n\n\nTrue\n\n\n[1, 5, 5]"
+  },
+  {
+    "objectID": "units/solutions-python.html#repeating-actions-with-loops",
+    "href": "units/solutions-python.html#repeating-actions-with-loops",
+    "title": "SOLUTIONS: Introduction to Python (optional)",
+    "section": "5. Repeating Actions with Loops",
+    "text": "5. Repeating Actions with Loops\n\n\n\n\n\n\nExercises\n\n\n\n\nSee what [1, 2, 3] + 3 returns. Try to explain what happened and why.\nHow would you do the same task using a for loop? The range function may be helpful as might the enumerate function.\nUse list comprehension to perform the same element-wise addition of the scalar to the list of scalars.\nChange [1, 2, 3] to be a numpy array and then add three using + 3.\n\n\n\n\n\n\n\n\n\nExercises solutions\n\n\n\n\n\n\n\nCode\nmylist = [1, 2, 3]\n\n## for loop\nfor i in range(len(mylist)):\n    mylist[i] += 3\n\n## list comprehension\n[x+3 for x in mylist]\n\n## numpy (best!)\nnplist = np.array([mylist]) + 3"
+  },
+  {
+    "objectID": "units/solutions-python.html#creating-functions",
+    "href": "units/solutions-python.html#creating-functions",
+    "title": "SOLUTIONS: Introduction to Python (optional)",
+    "section": "8. Creating Functions",
+    "text": "8. Creating Functions\n\n\n\n\n\n\nExercise 1\n\n\n\nDefine a function called sqrt that will take the square root of a number and will (if requested by the user) set the square root of a negative number to 0.\n\n\n\n\n\n\n\n\nExercise 1 solution\n\n\n\n\n\n\n\nCode\ndef sqrt(x, complex=False):\n    if complex and x &lt; 0:\n       return 0\n    return pow(x, 0.5)\n\n\n\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\n\nWhat happens if you modify a list within a function in Python; why do you think this is?\nWhat happens if you modify a single number (scalar) within a function in Python; why do you think this is?\n\n\n\n\n\n\n\n\n\nExercise 2 solution\n\n\n\n\n\n\n\nCode\nmylist = [1, 2, 3]\nmynum = 1\n\ndef testfun(x):\n    x[1] = 9\n\ndef testfun2(x):\n    x = 9\n\ntestfun(mylist)\nprint(mylist)\n\ntestfun2(mynum)\nprint(mynum)\n\n\n[1, 9, 3]\n1"
+  },
+  {
+    "objectID": "units/solutions-python.html#extra-part-1.-some-other-useful-data-structures",
+    "href": "units/solutions-python.html#extra-part-1.-some-other-useful-data-structures",
+    "title": "SOLUTIONS: Introduction to Python (optional)",
+    "section": "EXTRA Part 1. Some other useful data structures",
+    "text": "EXTRA Part 1. Some other useful data structures\n\n\n\n\n\n\nExercise 1\n\n\n\n\nWhat’s weird about this? What are the types involved?\n\n\nCode\nz = x,y\na,b = x,y\n\n\nCreate the following: x=5 and y=99. Now swap their values using a single line of code. (For R users, how would you do this in R?)\n\n\n\n\n\n\n\n\n\nExercise 1 solution\n\n\n\n\n\n\n\nCode\nx = 5\ny = 99\n\nz = x,y\na,b = x,y\n\nprint(type(z))\nprint(type(a))\n\ny,x = x,y\n\n\n&lt;class 'tuple'&gt;\n&lt;class 'int'&gt;\n\n\n\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\nWhat happens when you multiply a tuple by a number?\n\n\n\n\n\n\n\n\nExercise 2 solution\n\n\n\n\n\n\n\nCode\nx = (1,2,3)\nx * 3\n\n\n(1, 2, 3, 1, 2, 3, 1, 2, 3)\n\n\n\n\n\n\n\n\n\n\n\nExercise 3\n\n\n\n\nWhy do you think there is no reverse method for tuples?\nWhat’s nice about using immutable objects in your code?\n\n\n\n\n\n\n\n\n\nExercise 3 solution\n\n\n\n\n\nFor a list, reverse reverses the elements in place in the list, but this would violate the rule that tuples cannot be modified.\nSometimes we want to use fixed values that can’t change, and using immutable objects is a way to guarantee that. It’s an aspect of “defensive” programming.\n\n\n\n\n\n\n\n\n\nExercise 4\n\n\n\nHow can you add an item to a dictionary?\n\n\n\n\n\n\n\n\nExercise 4 solution\n\n\n\n\n\n\n\nCode\nx = {\"department\": \"Statistics\", \"location\": \"Evans\", \"floor\": 3}\nx.update({'university': 'Berkeley'})\nx['country'] = 'USA'\nprint(x)\n\n\n{'department': 'Statistics', 'location': 'Evans', 'floor': 3, 'university': 'Berkeley', 'country': 'USA'}\n\n\n\n\n\n\n\n\n\n\n\nExercise 5\n\n\n\nHow do you combine two dictionaries into a single dictionary?\n\n\n\n\n\n\n\n\nExercise 5 solution\n\n\n\n\n\n\n\nCode\nx = {\"department\": \"Statistics\", \"location\": \"Evans\", \"floor\": 3}\ny = {'university': 'Berkeley'}\n\nz = x.copy()\nz.update(y)\nprint(z)\n\n\n{'department': 'Statistics', 'location': 'Evans', 'floor': 3, 'university': 'Berkeley'}\n\n\n\n\n\n\n\n\n\n\n\nExercise 6 (for R users)\n\n\n\n\nWhat are some analogs to dictionaries in R?\nHow are dictionaries different from such analogous structures in R?\n\n\n\n\n\n\n\n\n\nExercise 6 solution\n\n\n\n\n\nNamed arrays and named lists can function like dictionaries, but the names can be repeated, unlike with dictionaries."
   },
   {
     "objectID": "units/intro-computing.html",
@@ -545,253 +799,6 @@
     "crumbs": [
       "Modules",
       "Intro to Computing and Command Line (optional)"
-    ]
-  },
-  {
-    "objectID": "units/additional-topics.html",
-    "href": "units/additional-topics.html",
-    "title": "Numerics, reproducibility, and automation",
-    "section": "",
-    "text": "Overview\n\n\n\nThis module presents some information on numerical analysis (random number generation and floating point precision), packaging, reproducibility, and automation.",
-    "crumbs": [
-      "Modules",
-      "Numerics and Reproducibility"
-    ]
-  },
-  {
-    "objectID": "units/additional-topics.html#random-number-generation",
-    "href": "units/additional-topics.html#random-number-generation",
-    "title": "Numerics, reproducibility, and automation",
-    "section": "Random number generation",
-    "text": "Random number generation\nRandom numbers on a computer are actually (periodic) deterministic sequences that (hopefully) behave as if they were random.\n\nRandom number seed\nThe seed determines where in the cycle of the periodic sequence you are.\nIt’s critical for ensuring reproducibility when running code that uses random numbers\n\n\nCode\nimport numpy as np\nnp.random.seed(1)\nnp.random.normal(size = 5)\n\n\narray([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763])\n\n\n\n\nCode\nnp.random.normal(size = 5)\n\n\narray([-2.3015387 ,  1.74481176, -0.7612069 ,  0.3190391 , -0.24937038])\n\n\n\n\nCode\nnp.random.seed(1)\nnp.random.normal(size = 10)\n\n\narray([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763,\n       -2.3015387 ,  1.74481176, -0.7612069 ,  0.3190391 , -0.24937038])\n\n\n\n\nRandom number generators\nIf you don’t do anything, numpy will use a generator called the Mersenne Twister (that’s the default in R too).\nHowever the “default” RNG in numpy is a newer, better algorithm called PCG64.\n\n\nCode\n## Mersenne twister\nnp.random.seed(1)\nnp.random.normal(size = 5)\n\n\narray([ 1.62434536, -0.61175641, -0.52817175, -1.07296862,  0.86540763])\n\n\n\n\nCode\n## Mersenne twister, selected specifically\nrng = np.random.Generator(np.random.MT19937(seed = 1))\nrng.normal(size = 5)\n## Not clear why numbers differ from above. Seed setup might differ.\n\n\narray([ 2.04676909, -1.03653009,  0.72997546,  0.41584996, -0.1922969 ])\n\n\n\n\nCode\n## 'Default' PCG64\nrng = np.random.Generator(np.random.PCG64(seed = 1))\nrng.normal(size = 5)\n\n\narray([ 0.34558419,  0.82161814,  0.33043708, -1.30315723,  0.90535587])\n\n\n\n\nCode\nrng = np.random.default_rng(seed = 1)\nrng.normal(size = 5)\n\n\narray([ 0.34558419,  0.82161814,  0.33043708, -1.30315723,  0.90535587])\n\n\nSome cautions (detailed by Philip Stark and Kellie Ottoboni):\n\nseeds with many zeros can be problematic.\nMersenne Twister not as good as PCG64.\nBe particularly cautious to use a good RNG when doing permutation and taking random samples.",
-    "crumbs": [
-      "Modules",
-      "Numerics and Reproducibility"
-    ]
-  },
-  {
-    "objectID": "units/additional-topics.html#floating-point-precision",
-    "href": "units/additional-topics.html#floating-point-precision",
-    "title": "Numerics, reproducibility, and automation",
-    "section": "Floating point precision",
-    "text": "Floating point precision\n\n\nCode\n0.3 - 0.2 == 0.1\n0.3\n0.2\n0.1 # Hmmm...\n\n\n0.1\n\n\n\nDouble-precision accuracy\nNumbers in most languages are stored by default as double precision floating point numbers.\n\n8 bytes = 64 bits = double precision\n4 bytes = 32 bits = single precision\n\n(GPU libraries often use 4 bytes or even fewer.)\n\n\nCode\ndef dg(x, form = '.20f'):\n    print(format(x, form))\n\na = 0.3\nb = 0.2\ndg(a)\ndg(b)\ndg(a-b)\ndg(0.1)\n\n\n0.29999999999999998890\n0.20000000000000001110\n0.09999999999999997780\n0.10000000000000000555\n\n\nHow many digits of accuracy do we have?\nSame thing regardless of the size of the number:\n\n\nCode\n12345678.1234567812345678\n\n\n12345678.123456782\n\n\n\n\nCode\n12345678123456781234.5678\n\n\n1.234567812345678e+19\n\n\n\n\nCode\ndg(12345678123456781234.5678)\n\n\n12345678123456780288.00000000000000000000\n\n\nThis occurs because of how the 64 bits in a double precision floating point number are allocated to give a large range of numbers in terms of magnitude and high precision in terms of digits of accuracy.\n\n\nComparisons\nLet’s see what kinds of numbers we can safely compare for exact equality with ==.\n\n\nCode\nx = .5 - .2\nx == 0.3\nx = 1.5 - .2\nx == 0.3\n\nx = .5 - .5\nx == 0\nx = .5 - .2  -.3\nx == 0\nx = (.5 - .2) - (.51 - .21)\nx == 0\n\nnp.isclose(x, 0)\n\n\n\n\nCalculation errors\nLet’s consider accuracy of subtraction.\n\n\nCode\n1.1234 - 1.0\n\n\n0.12339999999999995\n\n\n\n\nCode\n123456781234.1234 - 123456781234.0\n\n\n0.1233978271484375\n\n\nThis is called catastrophic cancellation.\nDo you think calling it “catastrophic” is too extreme? If so, consider this.\n\n\nCode\n81.0 - 80.0\n\n\n1.0\n\n\n\n\nCode\n12345678123456781.0 -12345678123456780.0\n\n\n0.0\n\n\nWhat’s the derivative of \\(sin(x)\\)? Let’s see what kind of accuracy we can get.\n\n\nCode\ndef deriv(f, x, eps=1e-8):\n   return (f(x+eps) - f(x)) / eps\n\nnp.cos(0.2)\n\nderiv(np.sin, 0.2)\n\nderiv(np.sin, 0.2, 1e-12)\nderiv(np.sin, 0.2, 1e-14)\nderiv(np.sin, 0.2, 1e-15)\nderiv(np.sin, 0.2, 1e-16)\nderiv(np.sin, 0.2, 1e-17)\n\n\n\n\nLinear algebra errors\nThe errors seen in doing calculations, such as catastrophic cancellation, cascaded through derivative estimation. That also happens when doing linear algebra operations.\nHere’s an example where mathematically all the eigenvalues are real-valued and positive, but not on the computer.\n\n\nCode\nimport scipy as sp\n\nxs = np.arange(100)\ndists = np.abs(xs[:, np.newaxis] - xs)\n# This is a p.d. matrix (mathematically).\ncorr_matrix = np.exp(-(dists/10)**2)\n# But not numerically...\nsp.linalg.eigvals(corr_matrix)[80:99]\n\n\narray([ 1.43024256e-16+1.28433951e-16j,  1.43024256e-16-1.28433951e-16j,\n        1.49210347e-16+4.87070558e-17j,  1.49210347e-16-4.87070558e-17j,\n       -1.54661687e-16+1.25601177e-16j, -1.54661687e-16-1.25601177e-16j,\n       -2.07808543e-16+3.73312254e-17j, -2.07808543e-16-3.73312254e-17j,\n        9.83783628e-17+7.20174529e-17j,  9.83783628e-17-7.20174529e-17j,\n        2.37821218e-18+1.00101181e-16j,  2.37821218e-18-1.00101181e-16j,\n        5.29254936e-17+0.00000000e+00j, -1.62444574e-16+0.00000000e+00j,\n       -2.74621910e-17+7.55223038e-17j, -2.74621910e-17-7.55223038e-17j,\n       -9.08016006e-17+3.79199791e-17j, -9.08016006e-17-3.79199791e-17j,\n       -3.25243092e-17+0.00000000e+00j])\n\n\n\n\nOverflow and underflow\nHaving a finite number of bits to represent each number means there are minimum and maximum numbers that can be expressed.\n\n\nCode\n1.38e5000\n1.38e-400\n\n\n0.0\n\n\n\n\n\n\n\n\nHow much do we need to worry about overflow and underflow?\n\n\n\nQ: Roughly how many observations would it take before we underflow in calculating a likelihood?\n\n10\n100\n1000\n100000\n100000000\n\n\n\n\n\nCode\nimport numpy as np\nimport scipy as sp\n\nn = 10\n\nx = np.random.normal(size=n)\nnp.prod(sp.stats.norm.pdf(x))\n\nloglik = np.sum(sp.stats.norm.logpdf(x))\nloglik\nnp.exp(loglik)\n\n\n2.0739518337814167e-08\n\n\n\n\n\n\n\n\nWork with probabilities and densities on the log scale. Almost always.",
-    "crumbs": [
-      "Modules",
-      "Numerics and Reproducibility"
-    ]
-  },
-  {
-    "objectID": "units/additional-topics.html#exercise-forking-and-pull-requests-for-numerical-issues-with-newtons-method",
-    "href": "units/additional-topics.html#exercise-forking-and-pull-requests-for-numerical-issues-with-newtons-method",
-    "title": "Numerics, reproducibility, and automation",
-    "section": "Exercise: forking and pull requests for numerical issues with Newton’s method",
-    "text": "Exercise: forking and pull requests for numerical issues with Newton’s method\nLook at your partner’s code in terms of how it handles the stopping criterion or (for the 1-d case) the finite difference estimate of the gradient and Hessian.\nFork your partner’s repository. In the local version of that repository on your DataHub, make a change to try to improve how the stopping criterion or finite difference estimate is handled. Then make a pull request back into your partner’s repository.\nHere are the detailed steps of how to do all that:\n\nGo to your partner’s GitHub page and fork the repository (https://github.com/&lt;username&gt;/newton-practice/fork). You can name it newton-practice-&lt;partner_name&gt; or something else.\nOn DataHub, clone the forked repository: git clone https://github.com/&lt;your_username&gt;/newton-practice-&lt;partner_name&gt;.\nOn DataHub, enter the directory of the cloned repository: cd newton-practice-&lt;partner_name&gt;.\nMake a branch, make changes, add, and commit.\nGive DataHub access to the new repository via Step 3 of the steps for accessing GitHub repository from DataHub.\nPush the commit to your GitHub: git push -u origin newton-practice-&lt;partner_name&gt;.\nGo to https://github.com/&lt;your_username&gt;/newton-practice-&lt;partner_name&gt; and open a pull request (“Compare and pull request”). The request will automatically be done in the GitHub account of your partner.\n\nThen review the pull request your partner makes in your own repository. Iterate with your partner until you are happy to merge the pull request into your repository. Remember to then run git pull to get the changes in the local copy of the repository.",
-    "crumbs": [
-      "Modules",
-      "Numerics and Reproducibility"
-    ]
-  },
-  {
-    "objectID": "units/additional-topics.html#packages",
-    "href": "units/additional-topics.html#packages",
-    "title": "Numerics, reproducibility, and automation",
-    "section": "Packages",
-    "text": "Packages\nWhat’s a package? In general it is software that is provided as a bundle that can be downloaded and made available on your computer. Some packages (e.g., R, Python themselves) are stand-alone packages. Others (such as R packages and Python packages) are add-on functionality that works with and extends the functionality of the stand-alone software.\nWhat do we need to have a Python package?\n\nA basic Python package\nA Python package is a directory containing one or more modules and with a file named __init__.py that is called when a package is imported and serves to initialize the package.\nLet’s create a basic package.\nmkdir mypkg\n\ncat &lt;&lt; EOF &gt; mypkg/__init__.py\n## Make objects from mymod.py available as mypkg.foo\nfrom mypkg.mymod import *\n\nprint(\"Welcome to my package.\")\nEOF\n\ncat &lt;&lt; EOF &gt; mypkg/mymod.py\nx = 7\n\ndef myfun(val):\n    print(\"The arg is: \", str(val), \".\", sep = '')\nEOF\nNote that if there were other modules, we could have imported from those as well.\nNow we can use the objects from the module without having to know that it was in a particular module (because of how __init__.py was set up).\n\n\nCode\nimport mypkg\nmypkg.x\nmypkg.myfun(7)\n\n\nNote that one can set __all__ in an __init__.py to define what is imported, which makes clear what is publicly available and hides what is considered internal.\n\n\nA minimal “real” package\nFernando has a this toy example package.\nLet’s clone the repository and see if we can install it.\ngit clone https://github.com/fperez/mytoy\ncd mytoy\npip install --user .\ncd\nls .local/lib/python3.11/site-packages\n\n\nCode\nimport mytoy\n\nmytoy.toy(7)\n\n\nIt would take more work to make the package available in a repository such as PyPI or via Conda.",
-    "crumbs": [
-      "Modules",
-      "Numerics and Reproducibility"
-    ]
-  },
-  {
-    "objectID": "units/additional-topics.html#exercise-make-your-own-package",
-    "href": "units/additional-topics.html#exercise-make-your-own-package",
-    "title": "Numerics, reproducibility, and automation",
-    "section": "Exercise: Make your own package",
-    "text": "Exercise: Make your own package\nMake a package out of your Newton method code, following the structure of mytoy. Include your tests as part of the package.\nSee if you can install your package, run the tests, and use the package, following the README.md of mytoy.",
-    "crumbs": [
-      "Modules",
-      "Numerics and Reproducibility"
-    ]
-  },
-  {
-    "objectID": "units/additional-topics.html#installing-packages",
-    "href": "units/additional-topics.html#installing-packages",
-    "title": "Numerics, reproducibility, and automation",
-    "section": "Installing packages",
-    "text": "Installing packages\nIf a package is on PyPI or available through Conda but not on your system, you can install it easily (usually). You don’t need root permission on a machine to install a package, though you may need to use pip install --user or set up a new Conda environment.\nPackages often depend on other packages. In general, if one package depends on another, pip or conda will generally install the dependency automatically.\nOne advantage of Conda is that it can also install non-Python packages on which a Python package depends, whereas with pip you sometimes need to install a system package to satisfy a dependency.\n\n\n\n\n\n\nFaster installation with Mamba\n\n\n\nIt’s not uncommon to run into a case where conda has trouble installing a package because of version inconsistencies amongst the dependencies. mamba is a drop-in replacement for conda and often does a better job of this “dependency resolution”. We use mamba by default on the SCF.\nWith newer versions of Conda, you can use the libmamba dependency “resolver” by running conda config --set solver libmamba, which adds solver: libmamba to your .condarc file.\n\n\n\nReproducibility and package management\nFor reproducibility, it’s important to know the versions of the packages you use (and the version of Python). pip and conda make it easy to do this. You can create a requirements file that captures the packages you are currently using (and, critically, their versions) and then install exactly that set of packages (and versions) based on that requirements file.\n## Reproducing using pip.\npip freeze &gt; requirements.txt\npip install -r requirements.txt\n\n## Reproducing a Conda environment.\nconda env export &gt; environment.yml\nconda env create -f environment.yml\nConda is a general package manager. You can use it to manage Python packages but lots of other software as well, including R and Julia.\n\nFully isolating your Conda environment\nConda environments provide an additional layer of modularity/reproducibility, allowing you to set up a fully reproducible environment for your computation. Here (by explicitly giving python=3.11) the Python 3.11 executable and all packages you install in the environment are fully independent of whatever Python executables are installed on the system. (That said, there are some caveats that can make it a bit of headache to ensure full isolation.)\ntype python\nconda create -n my_iso_env python=3.11\nsource activate my_iso_env\ntype python\nconda install numpy\n\n\n\n\n\n\nActivating an environment\n\n\n\nIf you use conda activate rather than source activate, Conda will prompt you to run conda init, which will make changes to your ~/.bashrc that, for one, activate the Conda base environment automatically when a shell is started. This may be fine, but it’s helpful to be aware.\n\n\n\n\n\nPackage locations\nPackages in Python (and in R, Julia, etc.) may be installed in various places on the filesystem, and it sometimes it is helpful (e.g., if you end up with multiple versions of a package installed on your system) to be able to figure out where on the filesystem the package is being loaded from.\n\npkgname.__file__ will show where the imported package is installed.\npkname.__version__ will show the version of the package (as will pip list or conda list, for all packages).\nsys.path shows where Python looks for packages on your system.\n\npackages installed via pip will generally be in ~/.local/lib/python3.X/site-packages.\n\n\n\n\nSource vs. binary packages\nThe difference between a source package and a binary package is that\n\na source package has the raw Python (and C/C++ and Fortran, in some cases) code as text files\na binary package has all the non-Python code in a binary/non-text format, with the C/C++ and Fortran code already having been compiled.\n\nIf you install a package from source, C/C++/Fortran code will be compiled on your system (if the package has such code). That should mean the compiled code will work on your system, but requires you to have a compiler available and things properly configured. A binary package doesn’t need to be compiled on your system, but in some cases (e.g., if you got the wrong binary version) the code may not run on your system because it was compiled in such a way that is not compatible with your system.\nPython wheels are a binary package format for Python packages. Wheels for some packages will vary by platform (i.e., operating system) so that the package will install correctly on the system where it is being installed.",
-    "crumbs": [
-      "Modules",
-      "Numerics and Reproducibility"
-    ]
-  },
-  {
-    "objectID": "units/additional-topics.html#docker-containers",
-    "href": "units/additional-topics.html#docker-containers",
-    "title": "Numerics, reproducibility, and automation",
-    "section": "Docker containers",
-    "text": "Docker containers\nDocker containers share some similarities with Conda environments except that you provide a full specification for the Linux operating system you want to use and software you want installed.",
-    "crumbs": [
-      "Modules",
-      "Numerics and Reproducibility"
-    ]
-  },
-  {
-    "objectID": "units/additional-topics.html#example-1-binder",
-    "href": "units/additional-topics.html#example-1-binder",
-    "title": "Numerics, reproducibility, and automation",
-    "section": "Example 1: Binder",
-    "text": "Example 1: Binder\nOne example is using Binder to open a Jupyter notebook in an executable environment.\nBased on a configuration (various options are possible for how to specify the configuration), Binder will create a Docker container with the needed software installed.\nThe most common configuration format is to provide a Conda environment file. Binder will then create a Conda environment inside the Docker (Linux) container. The Conda environment will contain the packages specified in the environment file.\nLet’s set up a Binder environment “Geospatial analytics in Python with Geopandas” that can access the notebooks and materials provided in the repository in a computational environment designed to use the notebooks reliably and reproducibly.\nIn some cases an image for the container will already be available, and all that needs to happen is to start a virtual machine using that image as the computational environment. In other cases (e.g., with a configuration you’ve just created), the Docker container and Conda environment need to be set up.\nIf we’re familiar with what happens when Docker containers and Conda environments are set up, we can see in the Binder logs that a Docker container is set up (using Ubuntu Linux) and one of the steps of doing that is to create a Conda environment within the container.\nLet’s see the steps that are run if we use the mytoy repository to start a Binder environment at ovh.mybinder.org, specifying fperez/mytoy as the repository. (Note that in a number of cases, the startup has failed, probably because mybinder has very limited resources for providing cloud compute resources. We are using ovh.mybinder.org rather than mybinder.org in hopes that is more likely to succeed.",
-    "crumbs": [
-      "Modules",
-      "Numerics and Reproducibility"
-    ]
-  },
-  {
-    "objectID": "units/additional-topics.html#example-2-github-actions-for-automated-testing",
-    "href": "units/additional-topics.html#example-2-github-actions-for-automated-testing",
-    "title": "Numerics, reproducibility, and automation",
-    "section": "Example 2: GitHub Actions for automated testing",
-    "text": "Example 2: GitHub Actions for automated testing\nA second example is using GitHub Actions (GHA) to automate activities such as testing. To set up a GitHub Actions workflow, one\n\nspecifies when the workflow will run (e.g., when a push or pull request is made, or only manually)\nprovides instructions for how to set up the environment for the workflow\nprovides the operations that the workflow should run.\n\nA good example is running tests whenever you make a commit to a repository containing software.\nWith GHA, you specify the operating system and then run the steps you specify in .github/workflows/some_action.yml. Some steps will customize the environment as the initial steps and then additional step(s) will run shell or other code to run your workflow. You use pre-specified operations (called actions) to do common things (such as checking out a GitHub repository and installing commonly used software).\nWhen triggered, GitHub will run the steps in a virtual machine, which is called the runner.\n\nJoint demo/exercise\nWe’ll walk through the steps of setting up automated testing for the mytoy example package. Why do this? It’s common to have testing pass locally on your own machine, but fail for various reasons when done elsewhere.\nThe workflow is specified using a YAML file placed in the .github/workflows directory of the repository.\nHere’s an example YAML file for testing the mytoy package:\non:\n  push:\n    branches:\n    - main\n\njobs:\n  CI:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v4\n\n    # Install dependencies\n    - name: Set up Python \n      uses: actions/setup-python@v5\n      with:\n        python-version: 3.12\n\n    - name: Install mytoy\n      run: |\n        # There is a small bug here.\n        cd mytoy\n        pip install --user .\n\n    - name: Run tests\n      run: |\n        # Another small bug here.\n        cd mytoy\n        pytest\nWe’ll first run this with the current tests for mytoy, which should pass when run via GitHub Actions. We can take a look at the output.\nNext, let’s introduce a failing test to see what the output looks like and get a sense for how to debug it.",
-    "crumbs": [
-      "Modules",
-      "Numerics and Reproducibility"
-    ]
-  },
-  {
-    "objectID": "units/additional-topics.html#example-3-github-actions-for-publishing-webpages",
-    "href": "units/additional-topics.html#example-3-github-actions-for-publishing-webpages",
-    "title": "Numerics, reproducibility, and automation",
-    "section": "Example 3: GitHub Actions for publishing webpages",
-    "text": "Example 3: GitHub Actions for publishing webpages\nWe can use GitHub Actions with GitHub pages to easily publish websites, where we make changes to the repository and the workflow causes the website to be updated.\nHere’s the GitHub Actions workflow (a YAML file) that publishes the website for the spring 2023 version of Statistics 159/259. Any commits made in the main branch cause the website to be updated.\n\nConfiguring GitHub Pages\nTo set up GitHub Pages for a repository, go to https://github.com/github_org/repository/settings/pages and select Source -&gt; Deploy from a branch and then choose gh-pages as the branch (first creating the gh-pages branch if necessary). The website should appear at github_org.github.io/repository.\n\n\nQuarto-based websites\nIn fact the website for this workshop was done using Quarto, which uses GitHub Pages and GitHub Actions behind the scenes.\nChris runs quarto publish gh-pages to update the site. Quarto will (on the local machine) render the html (convert the Markdown to html) and then behind the scenes Quarto uses GitHub Actions and GitHub Pages (via the `gh-pages branch) to publish the website.",
-    "crumbs": [
-      "Modules",
-      "Numerics and Reproducibility"
-    ]
-  },
-  {
-    "objectID": "units/solutions-python.html",
-    "href": "units/solutions-python.html",
-    "title": "SOLUTIONS: Introduction to Python (optional)",
-    "section": "",
-    "text": "Exercise 1\n\n\n\nUsing the section on “Built-in Types” from the official “The Python Standard Library” reference, figure out how to compute: - \\(\\sqrt(-1)\\)\n- \\(\\exp(1.5)\\) - \\((\\lceil \\frac{3}{4} \\rceil \\times 4)^3\\),\n\n\n\n\n\n\n\n\nExercise 1 Solution\n\n\n\n\n\n\n\nCode\npow(-1, 0.5)\n(-1)**0.5\n\nimport math\nmath.exp(1.5)\n\n(math.ceil(3/4) * 4)**3\n\n\n64\n\n\n\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\n\nIs 1.0 of the integer type? What about 1? Is the result of 5/3 - 2/3 of the integer type? Is the mathematical value seen in Python an integer?\nHere’s a numerical puzzle. Why does the last computation not work, when the others do? And, for those of you coming from R, which of these computations don’t work in R?\n\n\nCode\n100000**10\n100000.0**10\n100000**100\n100000.0**100\n\n\n\n\n\n\n\n\n\n\n\nExercise 2 Solution\n\n\n\n\n\n\n\nCode\ntype(1.0)\ntype(1)\ntype(5/3-2/3)\n5/3-2/3 == 1\n\ntype(100000**10)\ntype(100000.0**10)\n\n\nfloat"
-  },
-  {
-    "objectID": "units/solutions-python.html#python-fundamentals",
-    "href": "units/solutions-python.html#python-fundamentals",
-    "title": "SOLUTIONS: Introduction to Python (optional)",
-    "section": "",
-    "text": "Exercise 1\n\n\n\nUsing the section on “Built-in Types” from the official “The Python Standard Library” reference, figure out how to compute: - \\(\\sqrt(-1)\\)\n- \\(\\exp(1.5)\\) - \\((\\lceil \\frac{3}{4} \\rceil \\times 4)^3\\),\n\n\n\n\n\n\n\n\nExercise 1 Solution\n\n\n\n\n\n\n\nCode\npow(-1, 0.5)\n(-1)**0.5\n\nimport math\nmath.exp(1.5)\n\n(math.ceil(3/4) * 4)**3\n\n\n64\n\n\n\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\n\nIs 1.0 of the integer type? What about 1? Is the result of 5/3 - 2/3 of the integer type? Is the mathematical value seen in Python an integer?\nHere’s a numerical puzzle. Why does the last computation not work, when the others do? And, for those of you coming from R, which of these computations don’t work in R?\n\n\nCode\n100000**10\n100000.0**10\n100000**100\n100000.0**100\n\n\n\n\n\n\n\n\n\n\n\nExercise 2 Solution\n\n\n\n\n\n\n\nCode\ntype(1.0)\ntype(1)\ntype(5/3-2/3)\n5/3-2/3 == 1\n\ntype(100000**10)\ntype(100000.0**10)\n\n\nfloat"
-  },
-  {
-    "objectID": "units/solutions-python.html#analyzing-patient-data",
-    "href": "units/solutions-python.html#analyzing-patient-data",
-    "title": "SOLUTIONS: Introduction to Python (optional)",
-    "section": "2. Analyzing Patient Data",
-    "text": "2. Analyzing Patient Data\n\n\n\n\n\n\nExercise 2\n\n\n\nNote that ? and ?? only work in IPython (or a Jupyter notebook). For help in plain Python, use help(np.ndim).\n\nWhat happens if you type np.ndim?? (i.e., use two question marks)? What additional do you see?\nWhat does np.ndim() do? How does it execute under the hood? Consider why the following uses of ndim both work.\n\n\nCode\na = np.array([0, 1, 2])\na.ndim\nnp.ndim(a)\n\n\nNow explain why only one of these works.\n\n\nCode\na = [0, 1, 2]\na.ndim\nnp.ndim(a)\n\n\nType np.array? in a Notebook or at the IPython prompt. Briefly skim the docstring. nparray allows you to construct numpy arrays.\nType np. followed by the &lt;Tab&gt; key in a Notebook or at the IPython prompt. Choose two or three of the completions and use ? to view their docstrings. In particular, pay attention to the examples provided near the end of the docstring and see whether you can figure out how you might use this functionality.\n\n\n\n\n\n\n\n\n\nExercise 1 Solution\n\n\n\n\n\n\n\nCode\na = [0, 1, 2]\n# a.ndim  # This errors out.\n\nimport numpy as np\nnp.asarray(a)\nnp.asarray(a).ndim\n\n\n1"
-  },
-  {
-    "objectID": "units/solutions-python.html#visualizing-tabular-data",
-    "href": "units/solutions-python.html#visualizing-tabular-data",
-    "title": "SOLUTIONS: Introduction to Python (optional)",
-    "section": "3. Visualizing Tabular Data",
-    "text": "3. Visualizing Tabular Data\n\n\n\n\n\n\nExercise\n\n\n\nUsing the following code, read in the GapMinder data using Pandas (to be discussed later) and run the following code to make the variables easily available (you don’t need to know anything about Pandas).\n\n\nCode\nimport numpy as np\nimport pandas as pd\ndat = pd.read_csv('gapminder.csv')\nlifeExp = np.array(dat.lifeExp)\ngdpPercap = np.array(dat.gdpPercap)\nyear = np.array(dat.year)\n\n## Hint: slicing using an array of booleans\n## gdpPercap[year &gt; 2010]\n\n\n\nMake a scatterplot of lifeExp vs gdpPerCap for 2007; make sure you have nice axis labels and title.\nConsider whether plotting income on a logarithmic axis is a better way to display the data.\nUsing at least two years, make an array of plots (in one figure) where each subplot is a different year.\n\n\n\n\n\n\n\n\n\nExercise solution\n\n\n\n\n\n\n\nCode\nimport numpy as np\nimport pandas as pd\ndat = pd.read_csv('gapminder.csv')\nlifeExp = np.array(dat.lifeExp)\ngdpPercap = np.array(dat.gdpPercap)\nyear = np.array(dat.year)\n\nimport matplotlib.pyplot as plt\nmyplot = plt.plot(gdpPercap, lifeExp, 'bo')\nplt.show()\n\nmyplot = plt.plot(np.log(gdpPercap), lifeExp, 'bo')\nplt.show()\n\nfig = plt.figure()\nsubplot1 = fig.add_subplot(1, 2, 1)\nsubplot2 = fig.add_subplot(1, 2, 2)\n\nsubplot1.plot(np.log(gdpPercap[year == 1952]), lifeExp[year == 1952], 'bo')\nsubplot2.plot(np.log(gdpPercap[year == 2007]), lifeExp[year == 2007], 'bo')\n\nsubplot1.set_title('1952')\nsubplot2.set_title('2007')\n\nsubplot1.set_xlabel('per capita GDP (log dollars)')\nsubplot1.set_ylabel('life expectancy (years)')\n\nsubplot2.set_xlabel('per capita GDP (log dollars)')\n\nplt.show()"
-  },
-  {
-    "objectID": "units/solutions-python.html#storing-multiple-values-in-lists",
-    "href": "units/solutions-python.html#storing-multiple-values-in-lists",
-    "title": "SOLUTIONS: Introduction to Python (optional)",
-    "section": "4. Storing Multiple Values in Lists",
-    "text": "4. Storing Multiple Values in Lists\n\n\n\n\n\n\nExercise 1\n\n\n\nCreate a list of numbers, called x1. Reverse the order of the items in the list using slicing. Now reverse the order of the items using a list method. How does using the method differ from slicing? Hint: you can type x. followed by the &lt;Tab&gt; key in a Notebook or at the IPython prompt to find the various methods that can be applied to a list.\n\n\n\n\n\n\n\n\nExercise 1 solution\n\n\n\n\n\n\n\nCode\nx1 = [1, 2, 3, 4]\nprint(x1[::-1])\nprint(x1)\nx1.reverse()\nprint(x1)\n\n\n[4, 3, 2, 1]\n[1, 2, 3, 4]\n[4, 3, 2, 1]\n\n\n\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\n\nFigure out some different ways of combining your list of numbers with a list of strings to create a single list of mixed type elements. (Hint: you can type x. followed by the &lt;Tab&gt; key in a Notebook or at the IPython prompt to find the various methods that can be applied to a list.)\nNow try to sort the resulting list. What happens?\n\n\n\n\n\n\n\n\n\nExercise 2 solution\n\n\n\n\n\n\n\nCode\nx1 = [1, 2, 3, 4]\nx2 = ['apple', 'banana']\n\nprint(x1 + x2)\nx1.append(x2)\nprint(x1)\n\nx1 = [1, 2, 3, 4]\nx1.extend(x2)\nprint(x1)\n\n# x1.sort() # This errors out.\n\n\n[1, 2, 3, 4, 'apple', 'banana']\n[1, 2, 3, 4, ['apple', 'banana']]\n[1, 2, 3, 4, 'apple', 'banana']\n\n\n\n\n\n\n\n\n\n\n\nExercise 4\n\n\n\nWhat does the following tell you about copying and use of memory in lists in Python?\n\n\nCode\na = [1, 3, 5]\nb = a\nid(a)\nid(b)\n# this should confirm what you might suspect\na[1] = 5\n\n\n\n\n\n\n\n\n\n\nExercise 4\n\n\n\n\n\nWhat does the following tell you about copying and use of memory in lists in Python?\n\n\nCode\na = [1, 3, 5]\nb = a\nid(a)\nid(b)\n\nprint(id(a) == id(b))\na[1] = 5\na\nb\n\n\nTrue\n\n\n[1, 5, 5]"
-  },
-  {
-    "objectID": "units/solutions-python.html#repeating-actions-with-loops",
-    "href": "units/solutions-python.html#repeating-actions-with-loops",
-    "title": "SOLUTIONS: Introduction to Python (optional)",
-    "section": "5. Repeating Actions with Loops",
-    "text": "5. Repeating Actions with Loops\n\n\n\n\n\n\nExercises\n\n\n\n\nSee what [1, 2, 3] + 3 returns. Try to explain what happened and why.\nHow would you do the same task using a for loop? The range function may be helpful as might the enumerate function.\nUse list comprehension to perform the same element-wise addition of the scalar to the list of scalars.\nChange [1, 2, 3] to be a numpy array and then add three using + 3.\n\n\n\n\n\n\n\n\n\nExercises solutions\n\n\n\n\n\n\n\nCode\nmylist = [1, 2, 3]\n\n## for loop\nfor i in range(len(mylist)):\n    mylist[i] += 3\n\n## list comprehension\n[x+3 for x in mylist]\n\n## numpy (best!)\nnplist = np.array([mylist]) + 3"
-  },
-  {
-    "objectID": "units/solutions-python.html#creating-functions",
-    "href": "units/solutions-python.html#creating-functions",
-    "title": "SOLUTIONS: Introduction to Python (optional)",
-    "section": "8. Creating Functions",
-    "text": "8. Creating Functions\n\n\n\n\n\n\nExercise 1\n\n\n\nDefine a function called sqrt that will take the square root of a number and will (if requested by the user) set the square root of a negative number to 0.\n\n\n\n\n\n\n\n\nExercise 1 solution\n\n\n\n\n\n\n\nCode\ndef sqrt(x, complex=False):\n    if complex and x &lt; 0:\n       return 0\n    return pow(x, 0.5)\n\n\n\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\n\nWhat happens if you modify a list within a function in Python; why do you think this is?\nWhat happens if you modify a single number (scalar) within a function in Python; why do you think this is?\n\n\n\n\n\n\n\n\n\nExercise 2 solution\n\n\n\n\n\n\n\nCode\nmylist = [1, 2, 3]\nmynum = 1\n\ndef testfun(x):\n    x[1] = 9\n\ndef testfun2(x):\n    x = 9\n\ntestfun(mylist)\nprint(mylist)\n\ntestfun2(mynum)\nprint(mynum)\n\n\n[1, 9, 3]\n1"
-  },
-  {
-    "objectID": "units/solutions-python.html#extra-part-1.-some-other-useful-data-structures",
-    "href": "units/solutions-python.html#extra-part-1.-some-other-useful-data-structures",
-    "title": "SOLUTIONS: Introduction to Python (optional)",
-    "section": "EXTRA Part 1. Some other useful data structures",
-    "text": "EXTRA Part 1. Some other useful data structures\n\n\n\n\n\n\nExercise 1\n\n\n\n\nWhat’s weird about this? What are the types involved?\n\n\nCode\nz = x,y\na,b = x,y\n\n\nCreate the following: x=5 and y=99. Now swap their values using a single line of code. (For R users, how would you do this in R?)\n\n\n\n\n\n\n\n\n\nExercise 1 solution\n\n\n\n\n\n\n\nCode\nx = 5\ny = 99\n\nz = x,y\na,b = x,y\n\nprint(type(z))\nprint(type(a))\n\ny,x = x,y\n\n\n&lt;class 'tuple'&gt;\n&lt;class 'int'&gt;\n\n\n\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\nWhat happens when you multiply a tuple by a number?\n\n\n\n\n\n\n\n\nExercise 2 solution\n\n\n\n\n\n\n\nCode\nx = (1,2,3)\nx * 3\n\n\n(1, 2, 3, 1, 2, 3, 1, 2, 3)\n\n\n\n\n\n\n\n\n\n\n\nExercise 3\n\n\n\n\nWhy do you think there is no reverse method for tuples?\nWhat’s nice about using immutable objects in your code?\n\n\n\n\n\n\n\n\n\nExercise 3 solution\n\n\n\n\n\nFor a list, reverse reverses the elements in place in the list, but this would violate the rule that tuples cannot be modified.\nSometimes we want to use fixed values that can’t change, and using immutable objects is a way to guarantee that. It’s an aspect of “defensive” programming.\n\n\n\n\n\n\n\n\n\nExercise 4\n\n\n\nHow can you add an item to a dictionary?\n\n\n\n\n\n\n\n\nExercise 4 solution\n\n\n\n\n\n\n\nCode\nx = {\"department\": \"Statistics\", \"location\": \"Evans\", \"floor\": 3}\nx.update({'university': 'Berkeley'})\nx['country'] = 'USA'\nprint(x)\n\n\n{'department': 'Statistics', 'location': 'Evans', 'floor': 3, 'university': 'Berkeley', 'country': 'USA'}\n\n\n\n\n\n\n\n\n\n\n\nExercise 5\n\n\n\nHow do you combine two dictionaries into a single dictionary?\n\n\n\n\n\n\n\n\nExercise 5 solution\n\n\n\n\n\n\n\nCode\nx = {\"department\": \"Statistics\", \"location\": \"Evans\", \"floor\": 3}\ny = {'university': 'Berkeley'}\n\nz = x.copy()\nz.update(y)\nprint(z)\n\n\n{'department': 'Statistics', 'location': 'Evans', 'floor': 3, 'university': 'Berkeley'}\n\n\n\n\n\n\n\n\n\n\n\nExercise 6 (for R users)\n\n\n\n\nWhat are some analogs to dictionaries in R?\nHow are dictionaries different from such analogous structures in R?\n\n\n\n\n\n\n\n\n\nExercise 6 solution\n\n\n\n\n\nNamed arrays and named lists can function like dictionaries, but the names can be repeated, unlike with dictionaries."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Berkeley Statistics Computational Skills Workshop",
-    "section": "",
-    "text": "Ed Discussion\n\n  DataHub\n\n  GitHub\n\n  PollEv\n\n\nNo matching items\nSkills related to computation, coding, and reproducibility are crucial for modern statistical work (applied and methodological), as well as for serving as graduate student instructor for Statistics and Data Science courses. Incoming Statistics graduate students arrive with a wide variety of backgrounds in these areas.\nThe department will be holding a (new this year) computational skills workshop the week before classes start, focusing on best practices for computation, code development and statistics/data science workflows.\nAll incoming PhD and MA students are expected to attend the workshop, which will be held August 22-23. Those who already have extensive work or other experience with the topics can request to opt out of the workshop via this form (which will be considered by department faculty), as can PhD students who plan to focus exclusively on theory and feel the computing skills/tools covered in the workshop aren’t relevant for them.\nIn advance, there will also be an optional introduction to computing concepts and to Python for those students (particularly those taking Statistics 243) to be held August 20-21. If you are interested, please sign up for the optional introduction.\nSee the syllabus/overview for more details on workshop content.",
-    "crumbs": [
-      "Home / Schedule"
-    ]
-  },
-  {
-    "objectID": "index.html#logistics-times-and-locations",
-    "href": "index.html#logistics-times-and-locations",
-    "title": "Berkeley Statistics Computational Skills Workshop",
-    "section": "Logistics (times and locations)",
-    "text": "Logistics (times and locations)\n\nOptional Sessions (Tuesday/Wednesday)\nLocation: 334 Evans Hall\nLunch: On your own.\nSnacks: Light refreshments during morning and afternoon breaks\nTimes:\n\nTuesday August 20, 8:30 a.m - 4:30 p.m. with a one-hour lunch break.\nWednesday August 21, 8:30 a.m - 3:00 p.m. with a one-hour lunch break.\n\n\n\nCore Sessions (Thursday/Friday)\nLocation: 101 Barker Hall\n\nThursday August 22, 8:30 a.m - 4:30 p.m. with a one-hour lunch break.\nFriday August 23, 8:30 a.m - 3:00 p.m. with a one-hour lunch break.\n\nLunch: On your own.\nSnacks: Light refreshments during morning and afternoon breaks",
-    "crumbs": [
-      "Home / Schedule"
-    ]
-  },
-  {
-    "objectID": "index.html#preparation-for-the-workshop",
-    "href": "index.html#preparation-for-the-workshop",
-    "title": "Berkeley Statistics Computational Skills Workshop",
-    "section": "Preparation for the Workshop",
-    "text": "Preparation for the Workshop\n\nIf you don’t already have a GitHub account, please sign up for an account.\nBring your laptop as the workshop will focus on hands-on work.\nWe’ll be using the campus DataHub as our primary computational environment, so you don’t need to install anything on your laptop, though you can install Git and Python if you wish.",
-    "crumbs": [
-      "Home / Schedule"
-    ]
-  },
-  {
-    "objectID": "index.html#schedule",
-    "href": "index.html#schedule",
-    "title": "Berkeley Statistics Computational Skills Workshop",
-    "section": "Schedule",
-    "text": "Schedule\n\n\n   Session 0 (optional)\n\n   \n   \n   \n   \n   \n   \n\n        \n\n           \n           \n           Aug 20:\n           \n           Module 1 Introduction to Computing\n           \n                \n           \n                \n           \n        \n\n           \n           \n           Module 2 Introduction to Python\n           \n                \n           \n                \n           \n        \n   \n\n        \n\n           \n           \n           Aug 21:\n           \n           Lab 1 Mini project\n           \n                \n           \n                \n           \n        \n   \n   \n   \n  \n\n   Session 1\n\n   \n   \n   \n   \n   \n   \n\n        \n\n           \n           \n           Aug 22:\n           \n           Module 3 Computational Best Practices\n           \n                \n           \n                \n           \n        \n   \n\n        \n\n           \n           \n           Aug 23:\n           \n           Module 4 Additional Topics\n           \n                \n           \n                \n           \n        \n   \n   \n   \n  \n\n\nNo matching items",
-    "crumbs": [
-      "Home / Schedule"
-    ]
-  },
-  {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Overview",
-    "section": "",
-    "text": "The workshop will focus on skills related to computation, code development, and statistics/data science workflows, including,\n\nopen science workflows and literate programming;\nintroduction to version control, Git and GitHub;\ncode style;\ndebugging;\ntesting;\ncollaboration with Git and GitHub;\nnumerical analysis (random number generation and floating point precision);\npackaging and reproducible environments; and\nautomated workflows.\n\n\n\n\nGoal 1: Emphasize good computational and code development practices (scripting, version control, testing, modularity, defensive programming, documentation, commenting, numerical analysis issues).\nGoal 2: Emphasize good practices for workflows, including reproducibility, automation, isolated environments.\nGoal 3: Provide practice with and introduce key tools for version control, testing, documentation, literate programming (documents with runnable code).",
-    "crumbs": [
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "syllabus.html#about-the-computational-skills-workshop",
-    "href": "syllabus.html#about-the-computational-skills-workshop",
-    "title": "Overview",
-    "section": "",
-    "text": "The workshop will focus on skills related to computation, code development, and statistics/data science workflows, including,\n\nopen science workflows and literate programming;\nintroduction to version control, Git and GitHub;\ncode style;\ndebugging;\ntesting;\ncollaboration with Git and GitHub;\nnumerical analysis (random number generation and floating point precision);\npackaging and reproducible environments; and\nautomated workflows.\n\n\n\n\nGoal 1: Emphasize good computational and code development practices (scripting, version control, testing, modularity, defensive programming, documentation, commenting, numerical analysis issues).\nGoal 2: Emphasize good practices for workflows, including reproducibility, automation, isolated environments.\nGoal 3: Provide practice with and introduce key tools for version control, testing, documentation, literate programming (documents with runnable code).",
-    "crumbs": [
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "syllabus.html#optional-introduction-to-computing-and-python",
-    "href": "syllabus.html#optional-introduction-to-computing-and-python",
-    "title": "Overview",
-    "section": "(Optional) Introduction to Computing and Python",
-    "text": "(Optional) Introduction to Computing and Python\nThe optional additional sessions (held Tuesday-Wednesday, August 20-21) provide a basic introduction to computing concepts (e.g., parts of a computer, ideas related to parallelization, introduction to the the shell/command line/terminal) and an introduction to Python.\nThese are intended for those with little experience (or wishing a refresher) with working in a command line context or with using Python, and are particularly important for those taking Statistics 243, which assumes basic knowledge of Python.\nThe introduction to Python will borrow heavily from this Software Carpentry Python lesson, with some additional topics added.",
-    "crumbs": [
-      "Overview"
     ]
   }
 ]

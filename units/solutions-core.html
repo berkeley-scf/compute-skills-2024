@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>point-to-prep</title>
+<title>solutions-core</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -78,14 +78,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#preparation" id="toc-preparation" class="nav-link active" data-scroll-target="#preparation">Preparation</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -93,31 +87,33 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="preparation" class="level1">
-<h1>Preparation</h1>
-<p>Our primary computing context will be the <a href="../prep.html">UC Berkeley DataHub</a>. This provides us with a common platform on which we are assured to get the same behavior as each other, allowing us to use the command line/shell/terminal and Python, including Jupyter notebooks. In particular getting a common command line environment would be hard otherwise.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Using your own laptop (optional)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>If you haven’t already used the shell/terminal and Python on your laptop, we recommend you use the DataHub so that we don’t have to troubleshoot problems on multiple laptops.</p>
-<p>If you do use your laptop, you’ll need Python installed, for which we recommend using <a href="https://github.com/conda-forge/miniforge">Miniforge</a>. Another option is the <a href="https://www.anaconda.com/distribution">Anaconda distribution of Python</a>.</p>
-<p>For the shell/terminal parts of this material, you can use the Terminal on your Mac, but not on Windows.</p>
-<p>If you do use your own laptop, you’ll need to <em>clone</em> <a href="https://github.com/berkeley-scf/compute-skills-2024">this GitHub repository</a>. If you don’t know how to do that, just download <a href="https://github.com/berkeley-scf/compute-skills-2024/archive/refs/heads/main.zip">this zip file</a> and unzip it into your home directory on your computer.</p>
-</div>
-</div>
-</div>
+<p>def deriv(f, x, eps=1e-8): return (f(x+eps) - f(x)) / eps</p>
+<p>def deriv2(f, x, eps=1e-6): return (deriv(f, x+eps, eps) - deriv(f, x, eps)) / eps</p>
+<p>def optimize(x0, f, tol=1e-4): x = x0 x_new = x - deriv(f, x) / deriv2(f, x) while abs(x_new - x) &gt; tol: x = x_new x_new = x - deriv(f, x) / deriv2(f, x) return {“x”: x_new, “value”: f(x_new)}</p>
+<p>def test_fun(x): return x<strong>4/4 - x</strong>3 -x</p>
+<p>import warnings</p>
+<p>def optimize(x0, f, tol=1e-4): if not callable(f): raise TypeError(f”Argument <code>f</code> is not a function, it is of type {type(f)}“) if not np.isreal(x0): raise TypeError(f”Argument <code>x0</code> is not numeric”)</p>
+<pre><code>x = x0
+x_new = x - deriv(f, x) / deriv2(f, x)
+while abs(x_new - x) &gt; tol:
+    x = x_new
+    x_new = x - deriv(f, x) / deriv2(f, x)
+converged = True
+if deriv2(f, x) &lt;= 0:
+   warnings.warn("Positive second derivative; local maximum found")
+   converged = False
+
+return {"x": x_new, "value": f(x_new), "convergence": converged}</code></pre>
+<p>from scipy.linalg import solve from scipy.misc import derivative as deriv</p>
+<p>def optimize_mv(x0, f, tol=1e-4): x = x0 x_new = x0 - solve(deriv(f, x0, n=2), deriv(f, x0, n = 1)) while pow(np.sum((x_new - x)**2), 0.5) &gt; tol: x = x_new x_new = x - solve(deriv(f, x, n=2), deriv(f, x, n = 1)) return {“x”: x_new, “value”: f(x_new)}</p>
+<p>import numpy as np beta0 = 1 beta1 = 0.5 n = 50 x = np.random.normal(size = n) y = beta0 + beta1 * x + np.random.normal(size = n)</p>
+<p>def test_fun(theta): return np.sum((y - theta[0] - theta[1]*x)**2)</p>
+<p>optimize_mv(np.array([0.5,0]), test_fun)</p>
+<p>import numdifftools as nd</p>
+<p>def optimize_mv(x0, f, tol=1e-4): grad = nd.Gradient(f) hessian = nd.Hessian(f) x = x0 x_new = x0 - solve(hessian(x0), grad(x0)) while pow(np.sum((x_new - x)**2), 0.5) &gt; tol: x = x_new x_new = x - solve(hessian(x), grad(x)) return {“x”: x_new, “value”: f(x_new)}</p>
+<p>optimize_mv(np.array([2,0]), test_fun)</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
