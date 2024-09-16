@@ -8,7 +8,7 @@ Our primary computing context will be the [UC Berkeley DataHub](../prep.qmd). Th
 
 If you haven't already used the shell/terminal and Python on your laptop, we recommend you use the DataHub so that we don't have to troubleshoot problems on multiple laptops.
 
-If you do use your laptop, you'll need Python installed, for which we recommend using [Miniforge](https://github.com/conda-forge/miniforge). Another option is the Anaconda distribution of Python](https://www.anaconda.com/distribution)
+If you do use your laptop, you'll need Python installed, for which we recommend using [Miniforge](https://github.com/conda-forge/miniforge). Another option is the [Anaconda distribution of Python](https://www.anaconda.com/distribution).
 
 For the shell/terminal parts of this material, you can use the Terminal on your Mac, but not on Windows.
 
