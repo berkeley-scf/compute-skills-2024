@@ -2,14 +2,14 @@ project:
   type: website
 
 website:
-  site-url: https://berkeley-scf.github.io/compute-skills-2024
+  site-url: https://berkeley-scf.github.io/compute-skills-2026
   sidebar:
     style: docked
     title: "Computational Skills Workshop"
     logo: assets/stat_bear.png
     tools:
       - icon: github
-        href: https://github.com/berkeley-scf/compute-skills-2024
+        href: https://github.com/berkeley-scf/compute-skills-2026
     contents:
       - href: index.qmd
         text: Home / Schedule
@@ -17,12 +17,14 @@ website:
         text: Overview
       - href: prep.qmd
         text: Computational Environment
-      - section: "Modules"
+      - section: "Core Modules"
         contents:
           - href: units/comp-practices.qmd
-            text: Computational Tools and Practices
+            text: Computational Tools and Practices I
           - href: units/additional-topics.qmd
-            text: Numerics and Reproducibility
+            text: Computational Tools and Practices II
+      - section: "Intro Modules (optional)"
+        contents:
           - href: units/intro-computing.qmd
             text: Intro to Computing and Command Line (optional)
           - href: units/intro-python.qmd

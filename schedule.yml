@@ -1,6 +1,6 @@
 - session: 0 (optional)
   days:
-    - date: "Aug 20"
+    - date: "Aug 17"
       items:
         - type: "Module"
           id: "1"
@@ -10,7 +10,7 @@
           id: "2"
           name: "Introduction to Python"
           href: "./units/intro-python.html"
-    - date: "Aug 21"
+    - date: "Aug 18"
       items:
         - type: "Lab"
           id: "1"
@@ -18,16 +18,16 @@
           href: "./units/mini-project.html"
 - session: 1
   days:
-    - date: "Aug 22"
+    - date: "Aug 19"
       items:
         - type: "Module"
           id: "3"
-          name: "Computational Best Practices"
+          name: "Computational Tools and Practices I"
           href: "./units/comp-practices.html"
-    - date: "Aug 23"
+    - date: "Aug 20"
       items:
         - type: "Module"
           id: "4"
-          name: "Additional Topics"
+          name: "Computational Tools and Practices II"
           href: "./units/additional-topics.html"
  

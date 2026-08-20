@@ -19,7 +19,7 @@ execute:
 Where is `gzip` installed on the system? What are some other commands/executables that are installed in the same directory?
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
 ## Exercise 1 solution
 
 ```bash
@@ -36,7 +36,7 @@ ls /usr/bin
 Try to run the following command `mkdir ~/projects/drought`. It will fail. Look in the help information on `mkdir` to figure out how to make it work without first creating the `projects` directory.
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
 ## Exercise 2 solution
 
 ```bash
@@ -51,7 +51,7 @@ mkdir -p ~/projects/drought
 Figure out how to list out the files in a directory in order of decreasing file size, as a way to see easily what the big files are that are taking up the most space. Modify this command to get the result in the ascending order.
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
 ## Exercise 3 solution
 
 ```bash
@@ -71,14 +71,14 @@ What happens if you use a single dash with the long form of an option. Are you a
 
 :::
 
-::: {.callout-tip collapse="true"}
-## Exercise 4
+::: {.callout-note collapse="true"}
+## Exercise 4 solution
 
 ```bash
-cp -pr mytoy mytoy_copy             # short form
-cp --recursive -p mytoy mytoy_copy  # long form plus short form
-cp -recursive -p mytoy mytoy_copy   # incorrect long form
-cp -r -e -c -u -r -s -i -v -e -p mytoy mytoy_copy
+cp -pr assets assets_copy             # short form
+cp --recursive -p assets assets_copy  # long form plus short form
+cp -recursive -p assets assets_copy   # incorrect long form
+cp -r -e -c -u -r -s -i -v -e -p assets assets_copy
 ```
 
 :::

@@ -25,7 +25,7 @@ The workshop will focus on skills related to computation, code development, and 
 
 ## (Optional) Introduction to Computing and Python
 
-The optional additional sessions (held Tuesday-Wednesday, August 20-21) provide a basic introduction to computing concepts (e.g., parts of a computer, ideas related to parallelization, introduction to the the shell/command line/terminal) and an introduction to Python.
+The optional additional sessions (held Monday-Tuesday, August 18-19) provide a basic introduction to computing concepts (e.g., parts of a computer, ideas related to parallelization, introduction to the the shell/command line/terminal) and an introduction to Python.
 
 These are intended for those with little experience (or wishing a refresher) with working in a command line context or with using Python, and are particularly important for those taking Statistics 243, which assumes basic knowledge of Python.
 

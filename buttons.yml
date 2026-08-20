@@ -1,11 +1,11 @@
 - button: Ed Discussion
-  link: https://edstem.org/us/courses/62391/discussion
+  link: https://edstem.org/us/courses/101749/discussion
   color: purple
 - button: DataHub
-  link: https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fberkeley-scf%2Fcompute-skills-2024&urlpath=lab%2Ftree%2Fcompute-skills-2024%2F&branch=main
+  link: https://stat.datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fberkeley-scf%2Fcompute-skills-2026&urlpath=lab%2Ftree%2Fcompute-skills-2026%2F&branch=main
   color: green
 - button: GitHub
-  link: https://github.com/berkeley-scf/compute-skills-2024
+  link: https://github.com/berkeley-scf/compute-skills-2026
   color: orange
 - button: PollEv
   link: https://PollEv.com/chrispaciorek428

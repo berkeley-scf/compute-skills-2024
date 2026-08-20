@@ -1,6 +1,6 @@
 ---
 title: "Berkeley Statistics Computational Skills Workshop"
-subtitle: "UC Berkeley, August 2024"
+subtitle: "UC Berkeley, August 2026"
 listing:
   - id: schedule
     template: assets/schedule.ejs
@@ -17,36 +17,38 @@ listing:
 
 Skills related to computation, coding, and reproducibility are crucial for modern statistical work (applied and methodological), as well as for serving as graduate student instructor for Statistics and Data Science courses. Incoming Statistics graduate students arrive with a wide variety of backgrounds in these areas.
 
-The department will be holding a (new this year) computational skills workshop the week before classes start, focusing on best practices for computation, code development and statistics/data science workflows.
+The department will be holding a computational skills workshop the week before classes start, focusing on best practices and standard tools for computation, code development and statistics/data science workflows.
 
-All incoming PhD and MA students are expected to attend the workshop, which will be held August 22-23. Those who already have extensive work or other experience with the topics can request to opt out of the workshop [via this form](https://forms.gle/Mtf2LbSpn6m8JhWc9) (which will be considered by department faculty), as can PhD students who plan to focus exclusively on theory and feel the computing skills/tools covered in the workshop aren't relevant for them.
+Please see [this overview](syllabus.html) of topics and goals. The overall goal is that having completed the workshop, students will have a common foundation for their coursework and for PhD students for computation during their thesis work.
 
-In advance, there will also be an optional introduction to computing concepts and to Python for those students (particularly those taking Statistics 243) to be held August 20-21. If you are interested, please [sign up](https://forms.gle/rrFvvqd84ChLTAW8A) for the optional introduction.
+All incoming PhD and MA students are expected to attend the workshop, which will be held August 19-20. Those who already have extensive work or other experience with the topics can request to opt out of the workshop [via this form](https://docs.google.com/forms/d/e/1FAIpQLSe2CkIszscnRQlKrICz4ZW3G83J4RPkgIHHhr5YegW-xecAPQ/viewform?usp=dialog) (which will be considered by department faculty), as can PhD students who plan to focus exclusively on theory and feel the computing skills/tools covered in the workshop aren't relevant for them.
+
+In advance, there will also be an optional introduction to computing concepts and to Python for those students (particularly those taking Statistics 243) to be held August 17-18. If you are interested, please [sign up](https://docs.google.com/forms/d/e/1FAIpQLSe2CkIszscnRQlKrICz4ZW3G83J4RPkgIHHhr5YegW-xecAPQ/viewform?usp=dialog) for the optional introduction.
 
 See the [syllabus/overview](syllabus.html) for more details on workshop content.
 
 ## Logistics (times and locations)
 
-### Optional Sessions (Tuesday/Wednesday)
+### Optional Sessions (Monday/Tuesday)
 
-Location: [334 Evans Hall](https://www.berkeley.edu/map/evans-hall/)
+Location: [Gateway, Room 1016](https://www.berkeley.edu/map/barbara-and-gerson-bakar-gateway/)
+
+
+Times:
+
+ - Monday August 17, 9:00 a.m - 5:00 p.m. with a one-hour lunch break.
+ - Tuesday August 18, 9:00 a.m - 3:30 p.m. with a one-hour lunch break.
 
 Lunch: On your own.
 
 Snacks: Light refreshments during morning and afternoon breaks
 
-Times:
+### Core Sessions (Wednesday/Thursday)
 
- - Tuesday August 20, 8:30 a.m - 4:30 p.m. with a one-hour lunch break.
- - Wednesday August 21, 8:30 a.m - 3:00 p.m. with a one-hour lunch break.
+Location: [150 GSPP](https://www.berkeley.edu/map/goldman-school). Enter from the door at 1893 Le Roy Avenue and turn left immediately.
 
-
-### Core Sessions (Thursday/Friday)
-
-Location: [101 Barker Hall](https://www.berkeley.edu/map/barker-hall/)
-
- - Thursday August 22, 8:30 a.m - 4:30 p.m. with a one-hour lunch break.
- - Friday August 23, 8:30 a.m - 3:00 p.m. with a one-hour lunch break.
+ - Wednesday August 19, 9:00 a.m - 5:00 p.m. with a one-hour lunch break.
+ - Thursday August 20, 9:00 a.m - 3:30 p.m. with a one-hour lunch break.
 
 Lunch: On your own.
 
@@ -56,7 +58,9 @@ Snacks: Light refreshments during morning and afternoon breaks
 
 - If you don't already have a GitHub account, please [sign up for an account](http://github.com/signup).
 - Bring your laptop as the workshop will focus on hands-on work.
-- We'll be using the campus DataHub as our [primary computational environment](prep.html), so you don't need to install anything on your laptop, though you can install Git and Python if you wish.
+- (Optional/special case) We'll be using the campus DataHub as our [primary computational environment](prep.html), so you don't need to install anything on your laptop, though you can install Git and Python on your laptop if you wish.
+- (Completely optional) Last year, a few participants mentioned they would have liked to think about the coding problem in advance before Wednesday's [Computational Tools and Practices module](https://computing.stat.berkeley.edu/compute-skills-2026/units/comp-practices.html). If you think you'd like to do that, simply take a look at the [first section of the module](https://computing.stat.berkeley.edu/compute-skills-2026/units/comp-practices.html#our-running-example-newtons-method-for-optimization) and consider writing Python code to implement Newton's method.
+
 
 
 ## Schedule

@@ -26,12 +26,13 @@ Standard Library" reference](https://docs.python.org/3/library/index.html), figu
 
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
 ## Exercise 1 Solution
 
 ```{python}
 pow(-1, 0.5)
 (-1)**0.5
+# sqrt(-1)  # fails for negative numbers
 
 import math
 math.exp(1.5)
@@ -55,7 +56,7 @@ math.exp(1.5)
   ```
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
 ## Exercise 2 Solution
 
 ```{python}
@@ -102,7 +103,7 @@ Note that `?` and `??` only work in IPython (or a Jupyter notebook). For help in
 
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
 ## Exercise 1 Solution
 
 ```{python}
@@ -142,7 +143,7 @@ year = np.array(dat.year)
 
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
 
 ## Exercise solution
 
@@ -154,12 +155,17 @@ lifeExp = np.array(dat.lifeExp)
 gdpPercap = np.array(dat.gdpPercap)
 year = np.array(dat.year)
 
+# State-based interface (objects created behind the scenes)
+
 import matplotlib.pyplot as plt
-myplot = plt.plot(gdpPercap, lifeExp, 'bo')
+plt.plot(gdpPercap, lifeExp, 'bo')
 plt.show()
 
-myplot = plt.plot(np.log(gdpPercap), lifeExp, 'bo')
+plt.plot(np.log(gdpPercap), lifeExp, 'bo')
+plt.xlabel('per capita GDP (log dollars)')
 plt.show()
+
+# OOP interface (you interact with the plot objects)
 
 fig = plt.figure()
 subplot1 = fig.add_subplot(1, 2, 1)
@@ -192,7 +198,7 @@ Create a list of numbers, called `x1`. Reverse the order of the items in the lis
 
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
 ## Exercise 1 solution
 
 ```{python}
@@ -212,7 +218,7 @@ print(x1)
 
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
 ## Exercise 2 solution
 
 ```{python}
@@ -248,7 +254,7 @@ a[1] = 5
 ```
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
 ## Exercise 4
 
 What does the following tell you about copying and use of memory in lists in Python?
@@ -278,7 +284,7 @@ b
 :::
 
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
 ## Exercises solutions
 
 ```{python}
@@ -302,19 +308,24 @@ nplist = np.array([mylist]) + 3
 ::: {.callout-tip}
 ## Exercise 1
 
-Define a function called `sqrt` that will take the square root of a number and will (if requested by the user) set the square root of a negative number to 0.
+Write a function that will count vowels in a character string (i.e., using code from the exercise of the previous section). Allow the user to specify that "y" should count as a vowel.
 
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
 
 ## Exercise 1 solution
 
 ```{python}
-def sqrt(x, complex=False):
-    if complex and x < 0:
-       return 0
-    return pow(x, 0.5)
+def count_vowels(x, y_is_vowel=False):
+    vowels = 'aeiouAEIOU'
+    if y_is_vowel:
+        vowels = vowels + 'yY'
+    count = 0
+    for char in x:
+        if char in vowels:
+           count += 1
+    return(count)
 ```
 
 :::
@@ -329,7 +340,7 @@ def sqrt(x, complex=False):
 :::
 
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
 
 ## Exercise 2 solution
 
@@ -369,7 +380,7 @@ print(mynum)
 
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
 
 ## Exercise 1 solution
 
@@ -395,7 +406,7 @@ What happens when you multiply a tuple by a number?
 
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
 
 ## Exercise 2 solution
 
@@ -414,7 +425,7 @@ x * 3
 - What's nice about using immutable objects in your code?
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
 
 ## Exercise 3 solution
 
@@ -431,7 +442,7 @@ How can you add an item to a dictionary?
 
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
 
 ## Exercise 4 solution
 
@@ -451,7 +462,7 @@ How do you combine two dictionaries into a single dictionary?
 
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
 
 ## Exercise 5 solution
 ```{python}
@@ -472,7 +483,7 @@ print(z)
 - How are dictionaries different from such analogous structures in R?
 :::
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
 
 ## Exercise 6 solution
 

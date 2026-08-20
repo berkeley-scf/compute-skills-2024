@@ -3,7 +3,7 @@ title: "Introduction to Computing and the Command Line (optional)"
 format:
   html:
     theme: cosmo
-    css: ../styles.css
+    css: ../assets/styles.css
     toc: true
     code-copy: true
     code-block-background: true
@@ -21,7 +21,7 @@ execute:
 This module introduces you to some computing concepts and provides a brief tutorial on working on the *command line* (also known as, the *shell*, or the *terminal*).
 :::
 
-{{< include point-to-prep.qmd >}}
+{{< include _point-to-prep.qmd >}}
 
 
 # Parts of a computer
@@ -43,8 +43,9 @@ We'll discuss these components via [this overview](https://36-750.github.io/tool
 Depending on what your code is doing, the slow step in a computation might be:
 
  - doing the actual calculations on the CPU,
- - moving data back and forth from (main) memory (RAM) to the CPU, or
- - reading/writing (I/O) data to/from disk.
+ - moving data back and forth from (main) memory (RAM) to the CPU,
+ - reading/writing (I/O) data to/from disk, or
+ - accessing data over the network (from other machines or the internet).
 
 # Concepts of parallelization
 
@@ -141,7 +142,7 @@ Here's how you can see where you are using the `pwd` ("print working directory")
 
 ```bash
 $ pwd
-/home/jovyan/compute-skills-2024
+/home/jovyan/compute-skills-2026
 ```
 
 
@@ -164,14 +165,14 @@ Now let's go into a subdirectory. We can use `cd` with the name of the subdirect
 ```bash
 $ cd units
 $ pwd
-/home/jovyan/compute-skills-2024/units
+/home/jovyan/compute-skills-2026/units
 ```
 
-We could also navigate through nested subdirectories. For example, after going back to our home directory (using `cd` alone will do this), let's go to the `units` subdirectory of the `compute-skills-2024` subdirectory. The `/` is a separate character that distinguishes the nested subdirectories.
+We could also navigate through nested subdirectories. For example, after going back to our home directory (using `cd` alone will do this), let's go to the `units` subdirectory of the `compute-skills-2026` subdirectory. The `/` is a separate character that distinguishes the nested subdirectories.
 
 ```bash
 $ cd
-$ cd compute-skills-2024/units
+$ cd compute-skills-2026/units
 ```
 
 You can access the parent directory of any directory using `..`:
@@ -179,7 +180,7 @@ You can access the parent directory of any directory using `..`:
 ```bash
 $ cd ..
 $ pwd
-/home/jovyan/compute-skills-2024
+/home/jovyan/compute-skills-2026
 ```
 
 We can get more complicated in our use of `..` with relative paths. Here we'll go up a directory and then down to a different subdirectory.
@@ -188,7 +189,7 @@ We can get more complicated in our use of `..` with relative paths. Here we'll g
 $ cd units
 $ cd ../assets
 $ pwd
-/home/jovyan/compute-skills-2024/assets
+/home/jovyan/compute-skills-2026/assets
 ```
 
 And here we'll go up two directories and then down to another subdirectory (but note that `/home/jovyan/tmp` may not exist for your server).
@@ -206,9 +207,9 @@ All of the above examples used **relative** paths to navigate based on your work
 We can instead use **absolute** paths so that it doesn't matter where we are when we run the command. Specifying an absolute path is done by having your path start with `/`, such as `/home/jovyan`. If the path doesn't start with `/` then it is interpreted as being a relative path, relative to your working directory. Here we'll go to the `units` subdirectory again, but this time using an absolute path. 
 
 ```bash
-$ cd /home/jovyan/compute-skills-2024/units 
+$ cd /home/jovyan/compute-skills-2026/units 
 $ pwd
-/home/jovyan/compute-skills-2024/units
+/home/jovyan/compute-skills-2026/units
 ```
 
 ::: {.callout-warning}
@@ -224,10 +225,10 @@ Using absolute paths is generally a bad idea for reproducibility and automation 
 
 The filesystem is basically a upside-down tree.
 
-For example, if we just consider the `compute-skills-2024` directory, we can see the tree structure using `tree` (not available on DataHub):
+For example, if we just consider the `compute-skills-2026` directory, we can see the tree structure using `tree` (not available on DataHub):
 
 ```bash
-$ cd /home/jovyan/compute-skills-2024
+$ cd /home/jovyan/compute-skills-2026
 $ tree
 ```
 
@@ -253,7 +254,7 @@ Often (as is the case here), that would print out a lot of files and directories
 │   │       └── quarto-listing.js
 ```
 
-The dot (`.`) means "this directory", so the top of the tree here is the `compute-skills-2024` directory itself, within which there are various subdirectories. Then within each of these are files and further subdirectories.
+The dot (`.`) means "this directory", so the top of the tree here is the `compute-skills-2026` directory itself, within which there are various subdirectories. Then within each of these are files and further subdirectories.
 
 If we consider the entire filesystem, the top, or root of the tree, is the `/` directory. Within `/` there are subdirectories, such as `/home` (which contains users' home directories where all of the files owned by a user are stored) and `/bin` (containing UNIX programs, aka 'binaries'). We'll use `ls` again, this time telling it the directory to operate on:
 
@@ -316,7 +317,7 @@ $ pwd
 Let's look more at various ways to use commands. We just saw the `ls` command. Here's one way we can modify the behavior of the command by passing a command option. Here the `-F` option (also called a *flag*) shows directories by appending `/` to anything that is a directory (rather than a file) and a `*` to anything that is an executable (i.e., a program).
 
 ```bash
-$ cd compute-skills-2024
+$ cd compute-skills-2026
 $ ls -F
 $ ls -F /usr/bin
 ```
@@ -343,7 +344,7 @@ drwxr-xr-x 4 jovyan jovyan     4096 Jul 19 14:55  test-jh
 drwxr-xr-x 2 jovyan jovyan     4096 Jul 19 15:52  tmp
 -rw-r--r-- 1 jovyan jovyan        0 Jul 31 14:10  untitled.py
 -rw-r--r-- 1 jovyan jovyan      617 Jul 31 14:12  Untitled3.ipynb
-drwxr-xr-x 7 jovyan jovyan     4096 Aug  1 15:45  compute-skills-2024
+drwxr-xr-x 7 jovyan jovyan     4096 Aug  1 15:45  compute-skills-2026
 -rw-r--r-- 1 jovyan jovyan        0 Aug  1 16:03  example.txt
 ```
 
@@ -353,24 +354,21 @@ followed. Generally, executing a command consists of four things:
   - the command
   - command option(s)
   - argument(s) 
-  - line acceptance (i.e., hitting <Return>)
-  
-Here's an example:
+  - line acceptance (i.e., hitting `<Return>`)
+
+For example,
 
 ```bash
-$ echo "hello there" >> example.txt
-$ echo "and goodbye" >> example.txt
-$ echo "really now" >> example.txt
-$ wc -l example.txt
-3 example.txt
+$ wc -l index.qmd
+66 index.qmd
 ```
 
 In the above example, `wc` is the command, `-l` is a command option
-specifying to count the number of lines, `example.txt` is the argument, and the
+specifying to count the number of lines, `index.qmd` is the argument, and the
 line acceptance is indicated by hitting the `<Return>` key at the end of
 the line.
 
-So that invocation counts the number of lines in the file named `example.txt`.
+So that invocation counts the number of lines in the file named `index.qmd`.
 
 The spaces are required and distinguish the different parts of the invocation. For this reason,
 it's generally a bad idea to have spaces within file names. But if you do, you can
@@ -393,10 +391,10 @@ Often we can specify an option either in short form (as with `-l` here)
 or long form (`--lines` here), as seen in the following equivalent invocations:
 
 ```bash
-$ wc -l example.txt
-3 example.txt
-$ wc --lines example.txt
-3 example.txt
+$ wc -l index.qmd
+66 index.qmd
+$ wc --lines index.qmd
+66 index.qmd
 ```
 
 
@@ -404,10 +402,10 @@ We can also ask for the number of characters with the `-m` option, which can
 be combined with the `-l` option equivalently in two ways:
 
 ```bash
-$ wc -lm example.txt
-  3 35 example.txt
-$ wc -l -m example.txt
-  3 35 example.txt
+$ wc -lm index.qmd
+  66 3031 index.qmd
+$ wc -l -m index.qmd
+  66 3031 index.qmd
 ```
 
 
@@ -415,9 +413,9 @@ Options will often take values, e.g., if we want to get the first two lines of t
 the following invocations are equivalent:
 
 ```bash
-$ head -n 2 example.txt
-$ head --lines=2 example.txt
-$ head --lines 2 example.txt
+$ head -n 2 index.qmd
+$ head --lines=2 index.qmd
+$ head --lines 2 index.qmd
 ```
 
 
@@ -428,7 +426,7 @@ Anything that follows `#` is a comment and is ignored.
 ```bash
 $ # This is ignored
 $ ls  # Everything after the # is ignored
- compute-skills-2024                          test-jh           Untitled2.ipynb
+ compute-skills-2026                          test-jh           Untitled2.ipynb
  data_c80_regsample_3.dta                     test-private      Untitled3.ipynb
 
 ```
@@ -463,7 +461,7 @@ cd com
 ech
 ```
 
-The first should allow you to get `compute-skills-2024` and the second `echo`.
+The first should allow you to get `compute-skills-2026` and the second `echo`.
 
 ::: {.callout-tip}
 ## Tab completion everywhere
@@ -497,7 +495,7 @@ python is /srv/conda/bin/python
 You'll often want to make a copy (`cp`) of a file, move it (`mv`) between directories, or remove it (`rm`). 
 
 ```bash
-$ cd ~/compute-skills-2024/units
+$ cd ~/compute-skills-2026/units
 $ cp calc.py calc-new.py
 $ mv calc-new.py /tmp/.
 $ cd /tmp
@@ -529,7 +527,7 @@ I used `rm` above to remove the file. Be very careful about removing files - the
 The `mv` command is also used if you want to rename a file. 
 ```bash
 $ cd ~/compute-skills-2020/units
-$ mv session3.qmd _sesson3.qmd
+$ mv intro-python.qmd _intro-python.qmd
 $ ls
 ```
 
@@ -573,7 +571,7 @@ We'll run a simple linear algebra operation in Python to illustrate how we can m
 ::: {.callout-warning}
 ## DataHub memory limits
 
-Be careful about increasing `n` in the example below when on DataHub. Basic DataHub virtual machines by default only have 1 GB memory, so don't increase `n` below or you may run out of memory if running on DataHub and this can cause problems in your DataHub session. If you're doing this as part of the workshop, we've increased those limits somewhat, so somewhat larger values of `n` should be fine.
+Be careful about increasing `n` in the example below when on DataHub. Basic DataHub virtual machines by default only have 1 GB memory, so don't increase `n` below or you may run out of memory if running on DataHub and this can cause problems in your DataHub session. It's possible that the memory available in your session might be larger, in which case larger values of `n` might be ok.
 
 :::
 
@@ -604,7 +602,7 @@ We might need to run it in a loop to be able to monitor the running process (sin
 
 ```{python}
 #| eval: false
-for ((i=0;i<10;i++)); do
+for ((i=0; i<10; i++)); do
   python calc.py
 done
 ```
@@ -613,9 +611,9 @@ done
 
 We can see CPU and memory usage via `top`.
 
-If we see more than 100% CPU usage, that indicates that the process is running a computation in parallel using multiple threads.
+If we see **more** than 100% CPU usage, that indicates that the process is running a computation in parallel using multiple threads.
 
-What about if we see less than 100% CPU usage?
+What about if we see **less** than 100% CPU usage?
 
  - Our process might be busy doing I/O (reading/writing to/from disk).
  - Our process might be waiting for data from the internet or from another machine on the network.

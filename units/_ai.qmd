@@ -1,0 +1,12 @@
+::: {.callout-warning title="Using AI assistance" collapse="true"}
+
+I think it's fair to say that most of us are still trying to understand how best to learn with the help of AI, without fooling ourselves into using AI without really learning/understanding.
+
+You're welcome to use an AI assistant (e.g., you can use GitHub Copilot for free with the GitHub Education program), but I strongly suggest you use it to assist and critique code you start to write on your own or ask it for tips rather than having it generate full code for you. That said, a regular internet search is likely to be just as effective for much of what we'll be doing in the workshop.
+
+If you have it generate entire blocks of code, you are unlikely to remember the syntax and ideas later, unlikely to understand well enough to debug/troubleshoot in the future, and likely to introduce errors from AI hallucinations.
+
+When you do have AI generate code, particularly when learning or for important code, make sure you run, understand, and critique the result completely.
+
+You may also want to look at [this useful perspective from Software Carpentry about learning to code in the age of AI](https://swcarpentry.github.io/python-novice-inflammation/01-intro.html#generative-ai).
+:::
